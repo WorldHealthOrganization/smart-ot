@@ -3,7 +3,7 @@
 # │  supported properties, see: https://fshschool.org/sushi/configuration/                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: fhir.who.smart-ig-empty
-canonical: http://worldhealthorganization.github.io/smart-ig-empty
+canonical: http://ritikarawlani.github.io/smart-outbreak-measles
 name: smart-ig-empty
 status: draft
 version: 0.2.1
