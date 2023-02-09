@@ -2,7 +2,7 @@
 # │  The properties below are used to create the ImplementationGuide resource. For a list of       │
 # │  supported properties, see: https://fshschool.org/sushi/configuration/                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: fhir.who.smart-outbreak-measles
+id: fhir.ritikarawlani.smart-outbreak-measles
 canonical: http://ritikarawlani.github.io/smart-outbreak-measles
 name: smart-outbreak-measles
 status: draft
