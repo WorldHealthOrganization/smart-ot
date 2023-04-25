@@ -7,8 +7,6 @@ Parent: BackboneElement
 * ^abstract = true
 * ^status = #draft
 
-* MeaslesDemographic 1..1 BackboneElement
-  "Measles Demographics" "Demographic information for measles rubella investigation"
   * UniqueId	 1..1 	id
     "Unique identification"	"Generated for new clients or a universal ID, if used in the country"
   * Name	 0..1 	HumanName
