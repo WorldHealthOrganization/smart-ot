@@ -18,7 +18,7 @@ Title: "Surveillance & Outbreak Toolkit Measles- Demographics"
     "Age (number of years)"	"Age of the client if date of birth is not known"
   * Sex	 1..1 	CodeableConcept
     "Sex at birth"	"Assigned sex at birth of the client"
-  * Race/Ethnicity	 0..1 	CodeableConcept
+  * Ethnicity	 0..1 	CodeableConcept
     "Race/Ethnicity"	"Client's race and/or ethnicity, if appropriate in country setting"
   * PlaceOfResidence	 1..1 	Address
     "Client's address (city, district, and province)"	"Client's home address or address that the client is consenting to disclose"
