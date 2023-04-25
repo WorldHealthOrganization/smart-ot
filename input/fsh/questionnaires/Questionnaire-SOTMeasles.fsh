@@ -23,8 +23,8 @@ Usage: #definition
 * item[=]
   * insert Question(Demographics, Section I: Patient Demographics, display, false)
   * item[=]
-   * insert Question(Name, Name (if confidentiality is a concern the name can be omitted so long as a unique identifier
+    * insert Question(Name, Name (if confidentiality is a concern the name can be omitted so long as a unique identifier
 exists), display, false)
-   * item[=]
-    * insert Question(FamilyName, Family Name (Last Name), string, false)
-    * insert Question(GivenName, Given Name (First Name), string, false)
+    * item[=]
+      * insert Question(FamilyName, Family Name (Last Name), string, false)
+      * insert Question(GivenName, Given Name (First Name), string, false)
