@@ -3,17 +3,17 @@
 # │  supported properties, see: https://fshschool.org/sushi/configuration/                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: fhir.ritikarawlani.smart-outbreak-measles
-canonical: http://ritikarawlani.github.io/smart-outbreak-measles
-name: smart-outbreak-measles
+canonical: http://ritikarawlani.github.io/smart-surveillance-outbreak-toolkit
+name: smart-surveillance-outbreak-toolkit
 status: draft
 version: 0.2.1
 fhirVersion: 4.0.1
-date: 2021-06-03
+date: 2023-04-25
 # copyright:
 copyrightYear: 2021+
 releaseLabel: "CI Build"
-title: "WHO SMART Guideline: Outbreak Toolkit - Measles"
-description: "SMART Guidlines: Outbreak Toolkit - Measles"
+title: "WHO SMART Guideline: Surveillance & Outbreak Toolkit"
+description: "WHO SMART Guideline: Surveillance & Outbreak Toolkit"
 license: CC0-1.0
 publisher:
   name: WHO
@@ -22,4 +22,5 @@ email: leitnerc@who.int
 # contact:
 jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001
 # experimental: true
-dependencies:
+dependencies:  
+hl7.fhir.uv.sdc: 3.0.0
