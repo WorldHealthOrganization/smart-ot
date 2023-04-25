@@ -1,7 +1,7 @@
 Logical: SOTMeaslesDemographic
 Title: "Surveillance & Outbreak Toolkit Measles- Demographics"
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/OutbreakToolkitMeaslesDemographic"
+* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/MeaslesDemographic"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft
