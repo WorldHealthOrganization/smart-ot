@@ -29,7 +29,7 @@ Parent: BackboneElement
 * Temperature	0..1	Quantity	"Temperature (degree Celcius)"	"Temperature (degree Celcius)"
 * HospitalName	0..1	string	"Hospital Name"	"Hospital Name"
 * DateOfAdmission	0..1	 date	"Date of admission"	"Date of admission"
-* HospitalRecordNumber	0..1	ID	"Hospital record number"	"Hospital record number"
+* HospitalRecordNumber	0..1	id	"Hospital record number"	"Hospital record number"
 * PrimaryCauseOf	0..1	string	"Primary cause of death"	"Primary cause of death"
 * IntentedBirthPlacce	0..1	string	"Place where birth will likely take placed"	"Place where birth will likely take placed"
 * Comments	0..1	string	"Comments"	"Comments"
