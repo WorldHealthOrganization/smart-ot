@@ -31,10 +31,10 @@ Usage: #definition
 * insert Question(caseNumber,Case Number, string,false)
 * insert Question(reportingInstitution, Reporting Institution, group, false)
   * item[=]
-  * insert Question(name, Health Service Name, string, false)
-  * insert Question (telephone, Health Service Telephone, string, false)
-  * insert Question(state, Province/State, string,false)
-  * insert Question(locality, Locality/Neighborhood, string, false)
+    * insert Question(name, Health Service Name, string, false)
+    * insert Question (telephone, Health Service Telephone, string, false)
+    * insert Question(state, Province/State, string,false)
+    * insert Question(locality, Locality/Neighborhood, string, false)
 * insert Question (ReportedBy, Reported By, string, false)
 * insert Question (DateOfConsultation, Date Of Consultation, date, false)
 * insert Question (DateOfHomeVisit, Date Of Home Visit, date, false)
@@ -42,7 +42,7 @@ Usage: #definition
 * insert Question (DateReportedNational, Date Reported - National, date, false)
 * insert Question (DetectedBy, Detected By, choice, false)
 * item[=].answerValueSet=Canonical(sot-measles-detected-by)
-* insert Question (TypeOfProviderReporting, Type Of Provider Reporting)
+* insert Question (TypeOfProviderReporting, Type Of Provider Reporting,choice, false)
 * item[=].answerValueSet=Canonical(sot-measles-provider-type)
 * insert Question(specifyother, Specify, string, false)
 * item[=]
