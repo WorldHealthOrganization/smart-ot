@@ -30,7 +30,7 @@ Usage: #definition
     * item[=]
       * insert Question(FamilyName, Family Name /Last Name, string, false)
       * insert Question(GivenName, Given Name /First Name, string, false)
-  * insert Question(Address, Address, Address,false)
+  * insert Question(Address, Address, string,false)
   * insert Question (LocalityType, Type of Locality, Question, false)
   * item[=].answerValueSet=Canonical(sot-measles-locality-type)
 //Reporting Source
