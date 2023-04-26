@@ -26,31 +26,31 @@ Usage: #definition
 * item[=]
   * insert Question(ReportingSource, Section I: Identification of the Reporting Institution, display, false)
   * item[=]
-  * insert Question(initialDiagnosis, Initial Diagnosis, choice,false)
-  * item[=].answerValueSet=Canonical(sot-measles-initial-diagnosis)
-* insert Question(caseNumber,Case Number, string,false)
-* insert Question(reportingInstitution, Reporting Institution, group, false)
-* item[=]
-    * insert Question(name, Health Service Name, string, false)
-    * insert Question (telephone, Health Service Telephone, string, false)
-    * insert Question(state, Province/State, string,false)
-    * insert Question(locality, Locality/Neighborhood, string, false)
-* insert Question (ReportedBy, Reported By, string, false)
-* insert Question (DateOfConsultation, Date Of Consultation, date, false)
-* insert Question (DateOfHomeVisit, Date Of Home Visit, date, false)
-* insert Question (DateReportedLocal, Date Reported - Local, date, false)
-* insert Question (DateReportedNational, Date Reported - National, date, false)
-* insert Question (DetectedBy, Detected By, choice, false)
-* item[=].answerValueSet=Canonical(sot-measles-detected-by)
-* insert Question (TypeOfProviderReporting, Type Of Provider Reporting,choice, false)
-* item[=].answerValueSet=Canonical(sot-measles-provider-type)
-* insert Question(specifyother, Specify, string, false)
-* item[=]
-  * enableWhen
-    * question = "TypeOfProviderReporting"
-    * operator = #=
-    * answerCoding 
-      * code = "88"
+    * insert Question(initialDiagnosis, Initial Diagnosis, choice,false)
+    * item[=].answerValueSet=Canonical(sot-measles-initial-diagnosis)
+  * insert Question(caseNumber,Case Number, string,false)
+  * insert Question(reportingInstitution, Reporting Institution, group, false)
+    * item[=]
+      * insert Question(name, Health Service Name, string, false)
+      * insert Question (telephone, Health Service Telephone, string, false)
+      * insert Question(state, Province/State, string,false)
+      * insert Question(locality, Locality/Neighborhood, string, false)
+      * insert Question (ReportedBy, Reported By, string, false)
+  * insert Question (DateOfConsultation, Date Of Consultation, date, false)
+  * insert Question (DateOfHomeVisit, Date Of Home Visit, date, false)
+  * insert Question (DateReportedLocal, Date Reported - Local, date, false)
+  * insert Question (DateReportedNational, Date Reported - National, date, false)
+  * insert Question (DetectedBy, Detected By, choice, false)
+  * item[=].answerValueSet=Canonical(sot-measles-detected-by)
+  * insert Question (TypeOfProviderReporting, Type Of Provider Reporting,choice, false)
+  * item[=].answerValueSet=Canonical(sot-measles-provider-type)
+  * insert Question(specifyother, Specify, string, false)
+  * item[=]
+    * enableWhen
+      * question = "TypeOfProviderReporting"
+      * operator = #=
+      * answerCoding 
+        * code = "88"
 //Demographics
 * item[=]
 * insert Question(Demographics, Section II: Patient Demographics, display, false)
