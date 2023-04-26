@@ -1,8 +1,8 @@
-Logical: SOT_T1_Conclusion
+Logical: SOT-T1-Conclusion
 Title: "Surveillance & Outbreak Toolkit T1 - Conclusion"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOT_T1_Conclusion"
+* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOT-T1-Conclusion"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

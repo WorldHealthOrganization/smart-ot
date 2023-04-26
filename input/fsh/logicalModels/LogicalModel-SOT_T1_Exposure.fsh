@@ -1,8 +1,8 @@
-Logical: SOT_T1_Exposure
+Logical: SOT-T1-Exposure
 Title: "Surveillance & Outbreak Toolkit T1 - Exposure"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeasles_T1_Exposure"
+* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeasles-T1-Exposure"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft
