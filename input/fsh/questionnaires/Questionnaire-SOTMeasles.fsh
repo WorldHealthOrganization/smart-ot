@@ -21,7 +21,7 @@ Usage: #definition
 
 //Header
 * insert Question(investigationForm,Investigation Form for Measles/Rubella,display,false)
-* insert Question (description, "Complete this form for: Any person in whom a health care worker suspects measles or rubella infection or a patient with fever and rash. The health worker should attempt to collect epidemiological and clinical data, as well as a blood sample, on the first contact with the patient. This contact with the patient might be the only one.", display,false)
+//* insert Question (description, "Complete this form for: Any person in whom a health care worker suspects measles or rubella infection or a patient with fever and rash. The health worker should attempt to collect epidemiological and clinical data, as well as a blood sample, on the first contact with the patient. This contact with the patient might be the only one.", display,false)
 //Demographics
 * item[=]
   * insert Question(Demographics, Section I: Patient Demographics, display, false)
@@ -31,6 +31,8 @@ Usage: #definition
       * insert Question(FamilyName, Family Name /Last Name, string, false)
       * insert Question(GivenName, Given Name /First Name, string, false)
   * insert Question(Address, Address, Address,false)
+  * insert Question (LocalityType, Type of Locality, Question, false)
+  * item[=].answerValueSet=Canonical(sot-measles-locality-type)
 //Reporting Source
 * item[=]
   * insert Question(Demographics, Section I: Patient Demographics, display, false)
