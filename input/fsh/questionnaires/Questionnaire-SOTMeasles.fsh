@@ -30,7 +30,7 @@ Usage: #definition
   * item[=].answerValueSet=Canonical(sot-measles-initial-diagnosis)
 * insert Question(caseNumber,Case Number, string,false)
 * insert Question(reportingInstitution, Reporting Institution, group, false)
-  * item[=]
+* item[=]
     * insert Question(name, Health Service Name, string, false)
     * insert Question (telephone, Health Service Telephone, string, false)
     * insert Question(state, Province/State, string,false)
