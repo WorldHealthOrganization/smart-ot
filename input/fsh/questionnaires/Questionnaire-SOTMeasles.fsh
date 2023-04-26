@@ -22,35 +22,62 @@ Usage: #definition
 //Header
 * insert Question(investigationForm,Investigation Form for Measles/Rubella,display,false)
 //* insert Question (description, "Complete this form for: Any person in whom a health care worker suspects measles or rubella infection or a patient with fever and rash. The health worker should attempt to collect epidemiological and clinical data, as well as a blood sample, on the first contact with the patient. This contact with the patient might be the only one.", display,false)
-//Demographics
-* item[=]
-  * insert Question(Demographics, Section I: Patient Demographics, display, false)
-  * item[=]
-    * insert Question(Name, Name -if confidentiality is a concern the name can be omitted so long as a unique identifier exists, display, false)
-    * item[=]
-      * insert Question(FamilyName, Family Name /Last Name, string, false)
-      * insert Question(GivenName, Given Name /First Name, string, false)
-  * insert Question(Address, Address, string,false)
-  * insert Question (LocalityType, Type of Locality, choice, false)
-  * item[=].answerValueSet=Canonical(sot-measles-locality-type)
 //Reporting Source
 * item[=]
-  * insert Question(Demographics, Section I: Patient Demographics, display, false)
-//Clinical
+  * insert Question(ReportingSource, Section I: Identification of the Reporting Institution, display, false)
+  * item[=]
+  * insert Question(initialDiagnosis, Initial Diagnosis, choice,false)
+  * item[=].answerValueSet=Canonical(sot-measles-initial-diagnosis)
+* insert Question(caseNumber,Case Number, string,false)
+* insert Question(reportingInstitution, Reporting Institution, group, false)
+  * item[=]
+  * insert Question(name, Health Service Name, string, false)
+  * insert Question (telephone, Health Service Telephone, string, false)
+  * insert Question(state, Province/State, string,false)
+  * insert Question(locality, Locality/Neighborhood, string, false)
+* insert Question (ReportedBy, Reported By, string, false)
+* insert Question (DateOfConsultation, Date Of Consultation, date, false)
+* insert Question (DateOfHomeVisit, Date Of Home Visit, date, false)
+* insert Question (DateReportedLocal, Date Reported - Local, date, false)
+* insert Question (DateReportedNational, Date Reported - National, date, false)
+* insert Question (DetectedBy, Detected By, choice, false)
+* item[=].answerValueSet=Canonical(sot-measles-detected-by)
+* insert Question (TypeOfProviderReporting, Type Of Provider Reporting)
+* item[=].answerValueSet=Canonical(sot-measles-provider-type)
+* insert Question(specifyother, Specify, string, false)
 * item[=]
-  * insert Question(Demographics, Section I: Patient Demographics, display, false)
-//Laboratory Results
+  * enableWhen
+    * question = "TypeOfProviderReporting"
+    * operator = #=
+    * answerCoding 
+      * code = "88"
+//Demographics
 * item[=]
-  * insert Question(Demographics, Section I: Patient Demographics, display, false)
+* insert Question(Demographics, Section II: Patient Demographics, display, false)
+* item[=]
+  * insert Question(Name, Name -if confidentiality is a concern the name can be omitted so long as a unique identifier exists, display, false)
+  * item[=]
+    * insert Question(FamilyName, Family Name /Last Name, string, false)
+    * insert Question(GivenName, Given Name /First Name, string, false)
+* insert Question(Address, Address, string,false)
+* insert Question (LocalityType, Type of Locality, choice, false)
+* item[=].answerValueSet=Canonical(sot-measles-locality-type)
 //Vaccination Status
 * item[=]
-  * insert Question(Demographics, Section I: Patient Demographics, display, false)
+  * insert Question(VaccinationStatus, Section III: Vaccination History, display, false)
+//Clinical
+* item[=]
+  * insert Question(Clinical, Section IV: Clinical Data; Follow-up & Treatment, display, false)
+//Laboratory Results
+* item[=]
+  * insert Question(LaboratoryResults, Section V: Specimens & Laboratory Testing, display, false)
+
 //Contact Tracing
 * item[=]
-  * insert Question(Demographics, Section I: Patient Demographics, display, false)
+  * insert Question(ContactTracing, Section VI: Investigation, display, false)
 //Epidemiological Data
 * item[=]
-  * insert Question(Demographics, Section I: Patient Demographics, display, false)
+  * insert Question(EpiData, Section VII: Response Measures, display, false)
 //Classification
 * item[=]
-  * insert Question(Demographics, Section I: Patient Demographics, display, false)
+  * insert Question(Classification, Section VIII: Classification, display, false)

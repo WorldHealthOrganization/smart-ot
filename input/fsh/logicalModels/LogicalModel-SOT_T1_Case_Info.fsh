@@ -1,5 +1,5 @@
 Logical: SOT_T1_Case_Info
-Title: "Surveillance & Outbreak Toolkit Case Information"
+Title: "Surveillance & Outbreak Toolkit T1 - Case Information"
 Parent: BackboneElement
 
 * ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOT_T1_Case_Info"
