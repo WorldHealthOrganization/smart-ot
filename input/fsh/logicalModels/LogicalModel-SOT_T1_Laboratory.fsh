@@ -1,8 +1,8 @@
-Logical: SOT-T1-Laboratory
+Logical: SOTT1Laboratory
 Title: "Surveillance & Outbreak Toolkit T1 - Laboratory"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOT-T1-Laboratory"
+* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTT1Laboratory"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

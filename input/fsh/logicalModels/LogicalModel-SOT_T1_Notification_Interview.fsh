@@ -1,8 +1,8 @@
-Logical: SOT-T1-Notification-Interview
-Title: "Surveillance & Outbreak Toolkit T1 - Notification Interview"
+Logical: SOTT1NotificationInterview
+Title: "Surveillance & Outbreak Toolkit T1  Notification Interview"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeasles-T1-Notification-Interview"
+* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeaslesT1NotificationInterview"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

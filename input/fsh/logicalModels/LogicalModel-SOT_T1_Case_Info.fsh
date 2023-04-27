@@ -1,8 +1,8 @@
-Logical: SOT-T1-Case-Info
-Title: "Surveillance & Outbreak Toolkit T1 - Case Information"
+Logical: SOTT1CaseInfo
+Title: "Surveillance & Outbreak Toolkit T1  Case Information"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOT-T1-Case-Info"
+* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTT1CaseInfo"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft
