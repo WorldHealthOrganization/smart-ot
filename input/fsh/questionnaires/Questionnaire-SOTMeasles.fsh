@@ -27,7 +27,7 @@ Usage: #definition
   * insert Question(ReportingSource, Section I: Identification of the Reporting Institution, display, false)
   * item[=]
     * insert Question(initialDiagnosis, Initial Diagnosis, choice,false)
-    * item[=].answerValueSet = Canonical(sot-measles-initial-diagnosis)
+    * item[=].answerValueSet = Canonical(InitDiag)
   * insert Question(caseNumber,Case Number, string,false)
   * insert Question(reportingInstitution, Reporting Institution, group, false)
     * item[=]

@@ -1,7 +1,7 @@
 Alias: $InitDiag = http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag
 
-ValueSet:      SOTMeaslesInitialDiagnosis
-Id:	           sot-measles-initial-diagnosis
+ValueSet:      InitDiag
+Id:	           InitDiag
 Title:	       "SOT Measles Initial Diagnosis"
 Description:   """
 """
