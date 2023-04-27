@@ -29,11 +29,18 @@ Usage: #definition
   * insert Question(identification,Identification, string,false)
   * insert Question (telephone, Telephone, string, false)
   * insert Question(BirthDate, Birth Date, date, false)
-  * insert Question(Sex, Sex at birth,date,false)
+  * insert Question(Sex, Sex at birth,choice,false)
   * item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/administrative-gender"
   * insert Question(estimatedAge, Estimated Age in years/months/days, string, false)
   * insert Question(Occupation,Occupation,string,false)
   * insert Question(healthServiceName, If working in a health facility\, specify name and locality, string, false)
+  * insert Question(address, Residential street address, string, false)
+  * insert Question(province, Admin Level 1 - province, string, false)
+  * insert Question(district, Admin Level 2 - district, string, false)
+  * insert Question(commune, Admin Level 3 - commune, string, false)
+  * insert Question(ward, Admin Level 4 - ward \, parish, string, false)
+
+
 //Reporting Source
 * item[=]
   * insert Question(ReportingSource, Section I: Identification of the Reporting Institution, display, false)
