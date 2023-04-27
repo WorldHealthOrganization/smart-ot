@@ -22,7 +22,7 @@ Usage: #definition
 //Header
 * insert Question(investigationForm,T0 Initial Case Investigation Form,display,false)
   //Demographics
-  * item[=]
+* item[=]
   * insert Question(Demographics, Section 1: Patient Information, display, false)
   * item[=]
     * insert Question(Name, Name, string, false)
@@ -42,7 +42,7 @@ Usage: #definition
   //Clinical Information
   * item[=]
   * insert Question(Clinical, Section 2: Clinical Information, display, false)
-    * item [=]
+    * item[=]
     * insert Question(clinicalCourse, Patient clinical course, group, false)
     * insert Question(symptoms, Patient symptoms at presentation - check all reported symptoms, group, false)
     * insert Question(signs, Patient signs at presention - check all observed signs, group, false)
