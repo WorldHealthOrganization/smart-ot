@@ -3,8 +3,8 @@
 # │  supported properties, see: https://fshschool.org/sushi/configuration/                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: fhir.ritikarawlani.smart-outbreak-measles
-canonical: http://ritikarawlani.github.io/smart-surveillance-outbreak-toolkit
-name: smart-surveillance-outbreak-toolkit
+canonical: http://ritikarawlani.github.io/smart-outbreak-measles
+name: smart-outbreak-measles
 status: draft
 version: 0.2.1
 fhirVersion: 4.0.1
