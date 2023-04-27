@@ -50,7 +50,8 @@ Usage: #definition
       * question = "TypeOfProviderReporting"
       * operator = #=
       * answerCoding 
-        * code = ProvType#88
+        * system = "http://ritikarawlani.github.io/smart-outbreak-measles/ProvType"
+        * code =  #88
 //Demographics
 * item[=]
 * insert Question(Demographics, Section II: Patient Demographics, display, false)
