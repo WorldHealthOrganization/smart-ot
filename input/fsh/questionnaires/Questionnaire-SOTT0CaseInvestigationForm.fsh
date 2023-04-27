@@ -43,10 +43,10 @@ Usage: #definition
   * item[=]
   * insert Question(Clinical, Section 2: Clinical Information, display, false)
     * item[=]
-    * insert Question(clinicalCourse, Patient clinical course, group, false)
-    * insert Question(symptoms, Patient symptoms at presentation - check all reported symptoms, group, false)
-    * insert Question(signs, Patient signs at presention - check all observed signs, group, false)
-    * insert Question(conditions, Underlying conditions and comorbidity - check all that apply, group, false)
+      * insert Question(clinicalCourse, Patient clinical course, group, false)
+      * insert Question(symptoms, Patient symptoms at presentation - check all reported symptoms, group, false)
+      * insert Question(signs, Patient signs at presention - check all observed signs, group, false)
+      * insert Question(conditions, Underlying conditions and comorbidity - check all that apply, group, false)
   //Exposure
   * item[=]
   * insert Question(Exposure, Section 3: Exposure and travel Information 3 WEEKS PRIOR TO FIRST SYMPTOM ONSET, display, false)
