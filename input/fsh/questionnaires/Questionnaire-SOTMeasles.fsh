@@ -27,7 +27,7 @@ Usage: #definition
   * insert Question(ReportingSource, Section I: Identification of the Reporting Institution, display, false)
   * item[=]
     * insert Question(initialDiagnosis, Initial Diagnosis, choice,false)
-    * item[=].answerValueSet=Canonical(sot-measles-initial-diagnosis)
+    * item[=].answerValueSet = Canonical(sot-measles-initial-diagnosis)
   * insert Question(caseNumber,Case Number, string,false)
   * insert Question(reportingInstitution, Reporting Institution, group, false)
     * item[=]
@@ -41,9 +41,9 @@ Usage: #definition
   * insert Question (DateReportedLocal, Date Reported - Local, date, false)
   * insert Question (DateReportedNational, Date Reported - National, date, false)
   * insert Question (DetectedBy, Detected By, choice, false)
-  * item[=].answerValueSet="http://ritikarawlani.github.io/smart-outbreak-measles/DetectedBy"
+  * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/DetectedBy"
   * insert Question (TypeOfProviderReporting, Type Of Provider Reporting,choice, false)
-  * item[=].answerValueSet="http://ritikarawlani.github.io/smart-outbreak-measles/ProvType"
+  * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ProvType"
   * insert Question(specifyother, Specify, string, false)
   * item[=]
     * enableWhen
