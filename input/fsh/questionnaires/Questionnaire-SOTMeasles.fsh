@@ -50,7 +50,7 @@ Usage: #definition
       * question = "TypeOfProviderReporting"
       * operator = #=
       * answerCoding 
-        * code = "88"
+        * code = 88
 //Demographics
 * item[=]
 * insert Question(Demographics, Section II: Patient Demographics, display, false)
