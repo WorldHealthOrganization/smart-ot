@@ -6,6 +6,8 @@ Title:	       "SOT Measles Initial Diagnosis"
 Description:   """
 """
 * ^status = #draft
+* ^url = $InitDiag
+
 * include $InitDiag#1 "Measles"
 * include $InitDiag#2 "Rubella"
 * include $InitDiag#3 "Dengue"
