@@ -18,6 +18,7 @@ Usage: #definition
 * subjectType = #Patient
 * language = #en
 * status = #draft
+* contained[+] = InitDiag
 
 //Header
 * insert Question(investigationForm,Investigation Form for Measles/Rubella,display,false)
