@@ -25,7 +25,7 @@ Description: "Init Diag"
 * #8 "Other Non-Rash illness"
 * #99 "Unknown"
 
-ValueSet:      InitDiag
+/* ValueSet:      InitDiag
 Id:	           InitDiag
 Title:	       "SOT Measles Initial Diagnosis"
 Description:   """
@@ -33,4 +33,34 @@ Description:   """
 * ^status = #draft
 * ^url = $InitDiag
 
-* include codes from system $InitDiagcs
+* include codes from system $InitDiagcs */
+ValueSet: InitDiag
+Id: InitDiag
+Title: "SOT Measles Initial Diagnosis"
+* ^version = "0.2.1"
+* ^status = #draft
+* ^expansion.identifier = "urn:uuid:c060c134-871f-43be-b1ee-5dfface2c18f"
+* ^expansion.timestamp = "2023-05-02T20:23:35+05:30"
+* ^expansion.total = 6
+* ^expansion.parameter[0].name = "excludeNested"
+* ^expansion.parameter[=].valueBoolean = false
+* ^expansion.parameter[+].name = "version"
+* ^expansion.parameter[=].valueUri = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag|0.2.1"
+* ^expansion.contains[0].system = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag"
+* ^expansion.contains[=].code = #1
+* ^expansion.contains[=].display = "Measles"
+* ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag"
+* ^expansion.contains[=].code = #2
+* ^expansion.contains[=].display = "Rubella"
+* ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag"
+* ^expansion.contains[=].code = #3
+* ^expansion.contains[=].display = "Dengue"
+* ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag"
+* ^expansion.contains[=].code = #4
+* ^expansion.contains[=].display = "Other Rash illness"
+* ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag"
+* ^expansion.contains[=].code = #8
+* ^expansion.contains[=].display = "Other Non-Rash illness"
+* ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag"
+* ^expansion.contains[=].code = #99
+* ^expansion.contains[=].display = "Unknown"
