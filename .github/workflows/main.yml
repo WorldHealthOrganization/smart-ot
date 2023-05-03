@@ -1,5 +1,5 @@
 # This is a simple workflow that runs the publisher and copies the output to https://<owner>.github.io/<repo>/index.html
-# Based on the instructions from Elliot Silver, available from: https://www.argentixinfo.com/archives/156
+# Based on work from Carl Leitner, implemented by Elliot Silver, available from: https://www.argentixinfo.com/archives/156
 # Make sure your repo has a branch called gh-pages
 
 
