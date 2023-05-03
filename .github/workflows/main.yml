@@ -16,6 +16,7 @@ on:
     branches: 
       - main
       - master
+      - quest-template
   pull_request:
     branches: 
       - main
