@@ -13,10 +13,8 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch and any other indicated branches
   push:
-    branches: 
-      - main
-      - master
-      - quest-template
+    branches-ignore:
+      - gh-pages
   pull_request:
     branches: 
       - main
