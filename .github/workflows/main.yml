@@ -1,26 +1,23 @@
 # This is a simple workflow that runs the publisher and copies the output to https://<owner>.github.io/<repo>/index.html
-# Based on work from Carl Leitner, implemented by Elliot Silver, available from: https://www.argentixinfo.com/archives/156
+# Based on the idea from Carl Leitner, first implemented by Elliot Silver, available from: https://www.argentixinfo.com/archives/156
+# Change log:
+# 2021-06-18: (JCT): publish default branches to / , other branches branches/<branch>
+# 2021-11-26: (JCT): Reusable workflow
+# 2022-01-28: (JCT): add auto-create gh-pages if it doesn't exist
+# 2023-01-22: (JCT): use checkout action v3, and JamesIves/github-pages-deploy-action@v4
+
 # Make sure your repo has a branch called gh-pages
-
-
-# Update 15-Jan-2021: This now adds a FTP upload feature. This uses a repository secret.
-# Action documentation
-# https://github.com/marketplace/actions/ftp-deploy
 
 name: CI
 
 # Controls when the action will run. 
-on:
-  # Triggers the workflow on push or pull request events but only for the main branch and any other indicated branches
+on: 
+  workflow_call: # Reusable by other workflows
+  # Triggers the workflow on push or pull request events for any branch
   push:
-    branches-ignore:
-      - gh-pages
   pull_request:
-    branches: 
-      - main
-      - master
 
-  # Allows you to run this workflow manually from the Actions tabs
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -32,8 +29,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+
+      - name: Get branch name
+        run: echo ${GITHUB_REF##*/}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Create gh-pages branch if it doesn't exist
+        uses: christopherdavenport/create-ghpages-ifnotexists@v1    
       - name: Update the image to the latest publisher
         uses: docker://hl7fhir/ig-publisher-base:latest
         with:
@@ -44,29 +46,31 @@ jobs:
         uses: docker://hl7fhir/ig-publisher-base:latest
         with:
           # Run the publisher - don't run the batch script but run the line directly
-          args: java -jar ./input-cache/publisher.jar publisher -ig .
+          args: java -jar ./input-cache/publisher.jar publisher -ig . -auto-ig-build -repo https://github.com/${{github.repository}}
 
-      - run: sed -i 's/\(<!--ReleaseHeader--><p id="publish-box">\).*v\([0-9]*\.[0-9]*\.[0-9]*\).*\(<\/p><!--EndReleaseHeader-->\)/\1This is the continuous build for version \2. This version is expected to change regularly.\3/' ./output/*.html
+      - name: Get branch name
+        id: branch-name
+        run: |
+          BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_ENV
+          IS_DEFAULT=$(echo $BRANCH_NAME == ${{ github.event.repository.default_branch }} && echo 'true' || echo 'false')
+          echo "is_default=$IS_DEFAULT" >> $GITHUB_ENV
 
-      # deploy with output directory indicated by the tag or branch that triggered this workflow
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy candidate
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        if: env.is_default == 'false'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output
-          destination_dir: ${{ github.ref }}
-          keep_files: true
+          branch: gh-pages # The branch the action should deploy to.
+          folder: ./output # The folder the action should deploy.
+          commit-message: Deploy candidate branch
+          target-folder: branches/${{ env.branch_name }}
+          clean: false
 
-      # if it is the main branch, deploy to main directory
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' || github.ref =='refs/heads/master' }} 
+      - name: Deploy main
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        if: env.is_default == 'true'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output
-          keep_files: true
-
-
-#      - name: 🚚 Get latest code
-#        uses: actions/checkout@v2.3.2
-    
+          branch: gh-pages # The branch the action should deploy to.
+          folder: ./output # The folder the action should deploy.
+          commit-message: Deploy main branch
+          clean-exclude: branches
