@@ -1,11 +1,9 @@
-Alias: $ProvType = http://ritikarawlani.github.io/smart-outbreak-measles/ProvType
+Alias: $ProvType = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/ProvType
 
-ValueSet:      SOTMeaslesProviderType
-Id:	           sot-measles-provider-type
+ValueSet:      ProvType
+Id:	           ProvType
 Title:	       "SOT Measles Provider Type"
 Description:   """
 """
 * ^status = #draft
-* include $ProvType#1 "Public"
-* include $ProvType#2 "Private"
-* include $ProvType#88 "Other"
+* include codes from system $ProvTypeCs

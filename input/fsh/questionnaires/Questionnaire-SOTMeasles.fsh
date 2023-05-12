@@ -42,9 +42,9 @@ Usage: #definition
   * insert Question (DateReportedLocal, Date Reported - Local, date, false)
   * insert Question (DateReportedNational, Date Reported - National, date, false)
   * insert Question (DetectedBy, Detected By, choice, false)
-  * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/DetectedBy"
+  * item[=].answerValueSet = Canonical(DetectedBy)
   * insert Question (TypeOfProviderReporting, Type Of Provider Reporting,choice, false)
-  * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ProvType"
+  * item[=].answerValueSet = Canonical(ProvType)
   * insert Question(specifyother, Specify, string, false)
   * item[=]
     * enableWhen
