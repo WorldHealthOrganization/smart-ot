@@ -1,7 +1,7 @@
 Alias: $DetectedBy = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/DetectedBy
 
-ValueSet:      SOTMeaslesDetectedBy
-Id:	           sot-measles-detected-by
+ValueSet:      DetectedBy
+Id:	           DetectedBy
 Title:	       "SOT Measles Detected By"
 Description:   """
 """
