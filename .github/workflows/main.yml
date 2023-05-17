@@ -34,13 +34,29 @@ jobs:
         run: echo ${GITHUB_REF##*/}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Create gh-pages branch if it doesn't exist
-        uses: christopherdavenport/create-ghpages-ifnotexists@v1    
+#      - name: Create gh-pages branch if it doesn't exist
+#        uses: christopherdavenport/create-ghpages-ifnotexists@v1    
       - name: Update the image to the latest publisher
         uses: docker://hl7fhir/ig-publisher-base:latest
         with:
           # Get the latest publisher - don't run the batch script but run the line directly
           args: curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o ./input-cache/publisher.jar --create-dirs
+
+
+      - name: Clear npm cache
+        run: npm cache clean --force
+
+      - name: Update sushi
+        run: npm install -g fsh-sushi
+        
+      - name: Check sushi version
+        run: sushi -v
+        
+      - name: Remove fsh-sushi and dependencies
+        run: npm rm fsh-sushi -g --force
+        
+      - name: Install latest version of fsh-sushi
+        run: npm install -g fsh-sushi@latest
 
       - name: Run the IG publisher
         uses: docker://hl7fhir/ig-publisher-base:latest
