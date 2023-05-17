@@ -8,7 +8,7 @@ Parent: BackboneElement
 * ^status = #draft
 
 * UniqueId	 1..1 	id
-  "Unique identification"	"Generated for new clients or a universal ID, if used in the country"
+  "Unique ibdentification"	"Generated for new clients or a universal ID, if used in the country"
 * Name	 0..1 	HumanName
   "Client's name"	"Client's full name"
 * DateOfBirth	0..1	 date
