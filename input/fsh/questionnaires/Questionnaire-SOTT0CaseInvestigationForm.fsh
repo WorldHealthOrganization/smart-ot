@@ -30,7 +30,7 @@ Usage: #definition
     * insert Question (telephone, Telephone, string, false)
     * insert Question(BirthDate, Birth Date, date, false)
     * insert Question(Sex, Sex at birth,choice,false)
-    * item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/administrative-gender"
+    * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/BiologicalSex"
     * insert Question(estimatedAge, Estimated Age in years/months/days, string, false)
     * insert Question(Occupation,Occupation,string,false)
     * insert Question(healthServiceName, If working in a health facility\, specify name and locality, string, false)
