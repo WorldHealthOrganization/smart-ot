@@ -7,7 +7,7 @@ Parent: BackboneElement
 * ^abstract = true
 * ^status = #draft
 
-* CourseOfDisease 1..1 BackboneElement "Course of Disease" "Course of Disease"
+* CourseOfDisease 1..1 BackboneElement "Course of Disease " "Course of Disease"
   * symptomOnsetDate	1..1	date	"date of onset of symptoms*:____/____/______"	"date of first appearance of the signs or symptoms of the illness/disease."
   * presentedToHCFDate	0..1	date	"For this episode, date first presented to health facility:___/___/_____"	"date the case first presentated to health facility. Caution: review potential duplicate data capturing with Section 1 before inclusion."
   * admitted	1..1	code	"Currently admitted in health facility ?:"	"Was the case hospitalized, admitted to a hospital or other health facility as an inpatient?"
