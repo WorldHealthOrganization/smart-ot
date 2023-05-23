@@ -18,6 +18,9 @@ Parent: BackboneElement
 * betterWithTraditionalTreatment	0..1	code	"Did the traditional treatment improve the patient's medical state"	"Did the traditional treatment improve the patient's medical state"
 * transfusion	0..1	code	"At any time during hospitalization, did the patient receive a blood transfusion"	"At any time during hospitalization, did the patient receive a blood transfusion"
 * otherTreatmentInfo	0..1	string	"Any other information regarding treatment history"	"Describe any other information regarding treatment history"
+* vaccinated 0..1 code "Did the patient receive a full vaccination course according to the national immunization schedule" "Did the patient receive a full vaccination course according to the national immunization schedule"
+* lastVaccineDate 0..1 date "date of last vaccination received" "date of last vaccination received"
+* lastVaccineDisease 0..1 string "Against which disease" "Against which disease"
 * traditionalTreatment from YesNoUnknown (required)
 * betterWithTraditionalTreatment from YesNoUnknown (required)
 * transfusion from YesNoUnknown (required)
