@@ -7,7 +7,7 @@ Parent: BackboneElement
 * ^abstract = true
 * ^status = #draft
 
-* CourseOfDisease 1..1 BackboneElement "Course of Disease " "Course of Disease"
+* courseOfDisease 1..1 BackboneElement "Course of Disease " "Course of Disease"
   * symptomOnsetDate	1..1	date	"date of onset of symptoms*:____/____/______"	"date of first appearance of the signs or symptoms of the illness/disease."
   * presentedToHCFDate	0..1	date	"For this episode, date first presented to health facility:___/___/_____"	"date the case first presentated to health facility. Caution: review potential duplicate data capturing with Section 1 before inclusion."
   * admitted	1..1	code	"Currently admitted in health facility ?:"	"Was the case hospitalized, admitted to a hospital or other health facility as an inpatient?"
@@ -17,8 +17,8 @@ Parent: BackboneElement
   * outcome from PatientOutcome (required)
   * outcomeEvaluatedDate	1..1	date	"date outcome was evaluated:___/___/_____"	"date if the case abandon, recover or died"
   * outcomeDate	1..1	date	"date* of recovery, default or death:___/___/_____"	"date if the case abandon, recover or died"
-  * Sequelae	0..1	code	"Sequelae after recovery"	"Complications of disease. To be defined based on disease. Is there a pathological condition resulting from a previous disease, injury, therapy, or other trauma"
-  * Sequelae from $YesNo (required)
+  * sequelae	0..1	code	"Sequelae after recovery"	"Complications of disease. To be defined based on disease. Is there a pathological condition resulting from a previous disease, injury, therapy, or other trauma"
+  * sequelae from $YesNo (required)
   * specifySequelae	0..1	string	"Specify sequelae"	"Describe this pathological condition resulting from a previous disease, injury, therapy, or other trauma"
   * diseaseAdditionalInfo	0..1	string	"More on course of disease"	"Additional information about the development of the disease over time"
 * onSetType	0..1	code	"Onset:"	"Was the onset of the disease unexpected and sudden?"
@@ -53,6 +53,13 @@ Parent: BackboneElement
 * weight	0..1	Quantity	"Weight"	"Weight measured in kilograms"
 * otherSignsSymptoms	0..1	string	"Other signs and symptoms, specify"	"Other signs, specify:"
 * complains	0..1	string	"Main complains expressed by the patient"	"List complains"
-* Cardiology 0..1 BackboneElement "Cardiology" "Cardiology"
-* Respiratory 0..1 BackboneElement "Respiratory" "Respiratory"
-* Gastrointestinal 0..1 BackboneElement "Gastrointestinal" "Gastrointestinal"
+* cardiology 0..1 SOTT1ClinicalCardiology "Cardiology" "Cardiology"
+* respiratory 0..1 SOTT1ClinicalRespiratory "Respiratory" "Respiratory"
+* gastrointestinal 0..1 SOTT1ClinicalGastroIntestinal "Gastrointestinal" "Gastrointestinal"
+* neurology 0..1 SOTT1ClinicalNeurology "Neurology" "Neurology"
+* cutaneous 0..1 SOTT1ClinicalCutaneous "Cutaneous" "Cutaneous"
+* ENT 0..1 SOTT1ClinicalENT "Ear Nose and Throat" "Ear Nose and Throat"
+* urogynecology 0..1 SOTT1ClinicalUrogynecology "Urogynecology" "Urogynecology"
+* comorbidity 0..1 SOTT1ClinicalComorbidity "Comorbidity or underlying conditions" "Comorbidity or underlying conditions"
+* treatments 0..1 SOTT1ClinicalTreatments "Treatments" "Treatments"
+* vaccination 0..1 SOTT1ClinicalVaccination "Vaccination" "Vaccination"
