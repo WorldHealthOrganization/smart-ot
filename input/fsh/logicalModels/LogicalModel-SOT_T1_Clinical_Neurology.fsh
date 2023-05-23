@@ -16,7 +16,7 @@ Parent: BackboneElement
 * mentalDisorders	0..1	code	"Mental Disorders: agitation, confusion"	"Mental Disorders: agitation, confusion"
 * irritability	0..1	code	"Irritability/confusion"	"Presence of any conscious disorder"
 * coma	0..1	code	"Drowsiness, coma"	"Absence of reaction to orders"
-* stiffNeck	0..1	Numeric	"Neck stiffness"	"Neck stiffnes"
+* stiffNeck	0..1	code	"Neck stiffness"	"Neck stiffnes"
 * otherNeuroSigns	0..1	string	"Any other neurological sign"	"Any others not mentionned neurological signs observed"
 * neurologicalDisorders from $YesNo (required)
 * seizures from $YesNo (required)

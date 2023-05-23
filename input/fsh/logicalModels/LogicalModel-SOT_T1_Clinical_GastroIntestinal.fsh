@@ -33,4 +33,3 @@ Parent: BackboneElement
 * paleStool from YesNoUnknown (required)
 * jaundice	0..1	code	"Jaundice"	"scleral icterus or skin icterus"
 * jaundice from $YesNo (required)
-*

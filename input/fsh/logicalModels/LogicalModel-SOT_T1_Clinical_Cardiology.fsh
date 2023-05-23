@@ -1,7 +1,7 @@
+Alias: $YesNo = http://terminology.hl7.org/ValueSet/v2-0136
 Logical: SOTT1ClinicalCardiology
 Title: "Surveillance & Outbreak Toolkit T1 Clinical - Cardiology"
 Parent: BackboneElement
-Alias: $YesNo = http://terminology.hl7.org/ValueSet/v2-0136
 
 * ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTT1ClinicalCardiology"
 * ^version = "0.1"
