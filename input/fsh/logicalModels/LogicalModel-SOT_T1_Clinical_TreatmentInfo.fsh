@@ -12,4 +12,4 @@ Parent: BackboneElement
 * routeOfAdministration 0..1 code "Route of administration"
 * startDate 0..1 date "Start date"
 * endDate 0..1 date "End date"
-* routeOfAdministration from routeOfAdministration (required)
+* routeOfAdministration from RouteOfAdministration (required)

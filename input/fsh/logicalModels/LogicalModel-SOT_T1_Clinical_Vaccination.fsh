@@ -14,4 +14,4 @@ Parent: BackboneElement
 * vaccineCardCopy	0..1	code	"Copy of vaccination card attached"	"Is a copy of the vaccination card attached"
 * vaccinated from YesNoUnknown (required)
 * vaccineCardCopy from YesNoUnknown (required)
-* vaccineInfoSource from vaccineInfoSource (required)
+* vaccineInfoSource from VaccineInfoSource (required)
