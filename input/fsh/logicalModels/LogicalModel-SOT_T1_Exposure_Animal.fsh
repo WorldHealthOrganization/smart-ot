@@ -13,7 +13,7 @@ Parent: BackboneElement
   * animalDescription	0..1	string	"Animal species (name)"	"Provides a list of the types of domestic animals, dead or alive, the respondent had contact with in the XX weeks/months prior to symptom onset"
   * domesticatedWild	0..1	code	"Was the animal domesticated or wild"	"Was the animal domesticated or wild"
   * animalCondition	0..1	code	"Was the animal dead, sick, miscarrying or aborting"	"Was the animal dead, sick, miscarrying or aborting"
-  * domesticatedWild from domesticatedWild (required)
+  * domesticatedWild from DomesticatedWild (required)
   * animalCondition from YesNoUnknown (required)
 * animalContact from YesNoUnknown (required)
-* animalContactType from animalContactType (required)
+* animalContactType from AnimalContactType (required)
