@@ -33,7 +33,7 @@ Parent: BackboneElement
 * bloodDonation	0..1	code	"Did the patient donate blood or plasma"	"Did the patient donate blood or plasma"
 * noOfDonations	0..1	Quantity	"How many donations of blood or plasma"	"How many donations of blood or plasma"
 * healthcareAccessed from $YesNo (required)
-* placeOfCare from placeOfCare (required)
+* placeOfCare from PlaceOfCare (required)
 * invasiveCare from $YesNo (required)
 * dentalCare from $YesNo (required)
 * deliveryOrAbortion from $YesNo (required)

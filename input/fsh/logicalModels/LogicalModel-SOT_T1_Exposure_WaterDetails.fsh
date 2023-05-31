@@ -11,4 +11,4 @@ Parent: BackboneElement
 * waterCharacteristics	0..*	code	"Characteristics of drinking water"	"Was the water clear, filtered or treated (multiple answers possible)"
 * comments	0..1	string	"Comments on drinking water"	"Any further comment on drinking water (smell? Appearance? Scarcety?)"
 * nonDrinkingWaterSource	0..1	string	"Source of non-drinking water"	"Describe source of non-drinking water (water for washing, livestock, irrigation, etc)"
-* waterCharacteristics from waterCharacteristics (required)
+* waterCharacteristics from WaterCharacteristics (required)
