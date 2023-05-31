@@ -2,7 +2,7 @@ Logical: SOTT1ExposureInsect
 Title: "Surveillance & Outbreak Toolkit T1  Exposure - Insect"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeaslesT1ExposureInsect"
+* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTT1ExposureInsect"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft
