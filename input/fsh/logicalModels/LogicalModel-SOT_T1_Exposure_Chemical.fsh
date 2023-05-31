@@ -13,8 +13,8 @@ Parent: BackboneElement
 * exposurePlace	0..1	string	"Place of chemical exposure"	"Where is this possible source"
 * exposureDuration 0..1	string	"Duration of potential exposure"	"How long (days, years) was the exposure"
 * householdMemberDetails 0..* BackboneElement "Details of household members suspect of exposure"
-* relationship	string	"Relationship with patient"	"Relationship with patient"
-* occupation		string	"Occupation"	"Occupation"
-* placeOfWork		string	"Place of work"	"Place of work"
-* possibleExposure string	"Possible chemical exposure"	"Possible chemical exposure"
+* relationship	0..1 string	"Relationship with patient"	"Relationship with patient"
+* occupation	0..1	string	"Occupation"	"Occupation"
+* placeOfWork	0..1	string	"Place of work"	"Place of work"
+* possibleExposure 0..1 string	"Possible chemical exposure"	"Possible chemical exposure"
 * chemicalExposureSuspected from YesNoUnknown (required)
