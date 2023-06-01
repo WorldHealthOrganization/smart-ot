@@ -2,7 +2,7 @@ Logical: SOTT1ExposurePersonalAssumption
 Title: "Surveillance & Outbreak Toolkit T1  Exposure - Personal Assumption"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeaslesT1ExposurePersonalAssumption"
+* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTT1ExposurePersonalAssumption"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

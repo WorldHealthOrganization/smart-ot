@@ -2,7 +2,7 @@ Logical: SOTT1ExposureWaterDetails
 Title: "Surveillance & Outbreak Toolkit T1  Exposure - Water Details"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeaslesT1ExposureWaterDetails"
+* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTT1ExposureWaterDetails"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft
