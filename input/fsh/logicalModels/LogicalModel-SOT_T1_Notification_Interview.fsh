@@ -17,3 +17,4 @@ Parent: BackboneElement
 * reportedBy	0..1	code	"Case reported by:"	"The person or team or institution that reported this case (sick person)."
 * reportingFacility	0..1	string	"Name of reporting facility*:"	"The name of the institution that reported this case"
 * relationshipForCase	0..1	string	"If not the case, relation of person interviewed to the case:"	"If the person interviewed is not the case (not the sick person), provide relationship to the case (friend, bother, mother, etc.)"
+* reportedBy from ReportedBy (required)
