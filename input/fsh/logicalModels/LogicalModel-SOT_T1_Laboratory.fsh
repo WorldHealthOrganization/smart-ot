@@ -20,7 +20,7 @@ Parent: BackboneElement
   * result	0..1	code	"Result 1"	"Result 1"
 * proteinuria	0..1	code	"Proteinuria"	"Record laboratory test results: Proteinuria"
 * hematuria	0..1	code	"Hematuria"	"Record laboratory test results: Hematuria"
-* haemoglobin	0..1	Numeric	"Haemoglobin (g/l)"	"Record laboratory test results: Haemoglobin (g/l)"
+* haemoglobin	0..1	Quantity	"Haemoglobin (g/l)"	"Record laboratory test results: Haemoglobin (g/l)"
 * WBC	0..1	Quantity	"WBC count"	"Record laboratory test results: WBC count"
 * platelet	0..1	Quantity	"Platelets"	"Record laboratory test results: Platelets"
 * CRP	0..1	Quantity	"CRP:"	"Record laboratory test results: CRP:"
@@ -42,15 +42,17 @@ Parent: BackboneElement
 * otherTestsPerformed	0..1	string	"Other tests performed and results (even negative results)"	"Other tests performed and results (even negative results)"
 * labConclusion	0..1	string	"Laboratory conclusion"	"Evaluate the laboratory test results and draw a conclusion from these results"
 * environmentSampleTaken	0..1	code	"Environmental samples taken"	"Where any environmental samples taken and submitted to a laboratory"
-* environmentSample	0..1	string	"Products"	"Describe the environmental samples (soil, water, air, etc)"
-* collectionDate	0..1	date	"Date of collection"	"When where these environmental samples taken"
+* environmentSampleDetails 0..1 BackboneElement "Details of environment sample" "Details of environment sample"
+  * environmentSample	0..1	string	"Products"	"Describe the environmental samples (soil, water, air, etc)"
+  * collectionDate	0..1	date	"Date of collection"	"When where these environmental samples taken"
 * animalSampleTaken	0..1	code	"Animal samples taken"	"Where any animal samples taken and submitted to the laboratory (blood, oropharyngeal swabs, tissue, brain, feaces, etc)"
-* animalSample	0..1	string	"Products"	"What kind of animal samples were taken (blood, oropharyngeal swabs, tissue, brain, feaces, etc)"
-* collectionDate	0..1	date	"Date of collection"	"When were animal samples taken?"
-* antibioticReceived from YesNo (required)
+* animalSampleDetails 0..1 BackboneElement "Details of animal sample" "Details of animal sample"
+  * animalSample	0..1	string	"Products"	"What kind of animal samples were taken (blood, oropharyngeal swabs, tissue, brain, feaces, etc)"
+  * collectionDate	0..1	date	"Date of collection"	"When were animal samples taken?"
+* antibioticReceived from $YesNo (required)
 * result from Result (required)
 * proteinuria from YesNoUnknown (required)
 * hematuria from YesNoUnknown (required)
-* bloodGas from YesNo (required)
-* environmentSampleTaken from YesNo (required)
-* animalSampleTaken from YesNo (required)
+* bloodGas from $YesNo (required)
+* environmentSampleTaken from $YesNo (required)
+* animalSampleTaken from $YesNo (required)
