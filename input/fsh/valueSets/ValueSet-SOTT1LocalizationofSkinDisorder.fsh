@@ -1,10 +1,10 @@
-Alias: $localizationOfSkinDisorder = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/localizationOfSkinDisorder
+Alias: $LocalizationOfSkinDisorder = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/LocalizationOfSkinDisorder
 
-ValueSet:      localizationOfSkinDisorder
-Id:	           localizationOfSkinDisorder
+ValueSet:      LocalizationOfSkinDisorder
+Id:	           LocalizationOfSkinDisorder
 Title:	       "Localization of Skin Disorder"
 Description:   "Localization of Skin Disorder"
 
 * ^status = #draft
 
-* include codes from system $localizationOfSkinDisorderCs
+* include codes from system $LocalizationOfSkinDisorderCs

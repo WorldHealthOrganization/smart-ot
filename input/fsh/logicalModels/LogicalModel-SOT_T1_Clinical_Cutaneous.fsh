@@ -28,4 +28,4 @@ Parent: BackboneElement
 * lymphadenopathy from $YesNo (required)
 * photo from $YesNo (required)
 * rashType from RashType (required)
-* localizationOfSkinDisorder from localizationOfSkinDisorder (required)
+* localizationOfSkinDisorder from LocalizationOfSkinDisorder (required)
