@@ -7,9 +7,8 @@ Parent: BackboneElement
 * ^abstract = true
 * ^status = #draft
 
-* synthesis 0..* BackboneElement "describe synthesis" "describe synthesis"
-  * agentSuspected 0..1	string	"Agent or disease suspected"	"Conclusions: infectious agent or disease suspected"
-  * cofactors	0..1 string	"Possible co-factors"	"Conclusions: List differential diagnosis and possible co-factors"
-  * evidence	0..1 string	"Evidence for"	"Describe evidence for your conclusion"
-  * rank	0..1 Quantity	"Rank of certainty (over/10)"	"Rank of certainty (over/10)"
-  * action	0..1 string	"Confirmatory action to be taken"	"Confirmatory action to be taken to confirm suspect"
+* agentSuspected 0..1	string	"Agent or disease suspected"	"Conclusions: infectious agent or disease suspected"
+* cofactors	0..1 string	"Possible co-factors"	"Conclusions: List differential diagnosis and possible co-factors"
+* evidence	0..1 string	"Evidence for"	"Describe evidence for your conclusion"
+* rank	0..1 Quantity	"Rank of certainty (over/10)"	"Rank of certainty (over/10)"
+* action	0..1 string	"Confirmatory action to be taken"	"Confirmatory action to be taken to confirm suspect"

@@ -12,4 +12,4 @@ Parent: BackboneElement
 * Clinical  1..1 SOTT1Clinical "Clinical"   "Clinical"
 * Exposures 1..1 SOTT1Exposure "Exposures" "Exposures"
 * Laboratory 1..1 SOTT1Laboratory "Laboratory" "Laboratory"
-* Conclusion 1..1 SOTT1Conclusion "Conclusion" "Conclusion"
+* Conclusion 1..* SOTT1Conclusion "Conclusion" "Conclusion"
