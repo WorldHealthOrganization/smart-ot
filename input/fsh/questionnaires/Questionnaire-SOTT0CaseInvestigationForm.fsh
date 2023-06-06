@@ -39,11 +39,29 @@ Usage: #definition
     * insert Question(district, Admin Level 2 - district, string, false)
     * insert Question(commune, Admin Level 3 - commune, string, false)
     * insert Question(ward, Admin Level 4 - ward \, parish, string, false)
+    * insert Question(latitude, GPS residence latitude, string, false)
+    * insert Question(longitude, GPS residence longitude, string, false)
   //Clinical Information
   * item[=]
   * insert Question(Clinical, Section 2: Clinical Information, display, false)
     * item[=]
       * insert Question(clinicalCourse, Patient clinical course, group, false)
+      * insert Question(symptomOnsetDate,	date of onset of symptoms*:____/____/______	,date, false)
+      * insert Question(presentedToHCFDate	,For this episode\, date first presented to health facility:___/___/_____,	date, false)
+      * insert Question(admitted,	Currently admitted in health facility ?:,	choice, false)
+      * item[=].answerValueSet = $YesNo
+      * insert Question(admittedHCFName,	name:,	string, false)
+      * item[=]
+      * enableWhen
+        * question = "admitted"
+        * operator = #=
+        * answerCoding 
+          * system = $YesNo
+          * code =  #Yes
+      * insert Question(outcome,	Outcome of illness*:,	choice, false)
+      * item[=].answerValueSet = PatientOutcome
+      * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____	date, false)
+      * insert Question(outcomeDate,	date* of recovery, default or death:___/___/_____	date, false)
       * insert Question(symptoms, Patient symptoms at presentation - check all reported symptoms, group, false)
       * insert Question(signs, Patient signs at presention - check all observed signs, group, false)
       * insert Question(conditions, Underlying conditions and comorbidity - check all that apply, group, false)
