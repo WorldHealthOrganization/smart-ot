@@ -59,9 +59,9 @@ Usage: #definition
           * system = $YesNo
           * code =  #Yes
       * insert Question(outcome,	Outcome of illness*:,	choice, false)
-      * item[=].answerValueSet = canonical(PatientOutcome)
-      * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____	date, false)
-      * insert Question(outcomeDate,	date* of recovery, default or death:___/___/_____	date, false)
+    //  * item[=].answerValueSet = canonical(PatientOutcome)
+      * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____,	date, false)
+      * insert Question(outcomeDate,	date* of recovery\, default or death:___/___/_____,	date, false)
       * insert Question(symptoms, Patient symptoms at presentation - check all reported symptoms, group, false)
       * insert Question(signs, Patient signs at presention - check all observed signs, group, false)
       * insert Question(conditions, Underlying conditions and comorbidity - check all that apply, group, false)
