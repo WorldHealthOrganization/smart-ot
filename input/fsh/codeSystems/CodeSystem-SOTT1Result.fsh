@@ -1,4 +1,4 @@
-Alias: $ResultCs =  http://ritikarawlani.github.io/smart-outbreak-measles/PlaceOfCare
+Alias: $ResultCs =  http://ritikarawlani.github.io/smart-outbreak-measles/Result
 CodeSystem: ResultCs
 Id:         ResultCs
 Title:     "Result"
