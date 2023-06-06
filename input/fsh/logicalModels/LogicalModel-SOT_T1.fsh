@@ -9,7 +9,7 @@ Parent: BackboneElement
 
 * NotificationInterview 1..1 SOTT1NotificationInterview "Interview" "Interview"
 * CaseInfo  1..1   SOTT1CaseInfo "Identification"    "Identification"
-* Clinical  1..1 SOTT1CaseInfo "Clinical"   "Clinical"
+* Clinical  1..1 SOTT1Clinical "Clinical"   "Clinical"
 * Exposures 1..1 SOTT1Exposure "Exposures" "Exposures"
 * Laboratory 1..1 SOTT1Laboratory "Laboratory" "Laboratory"
 * Conclusion 1..1 SOTT1Conclusion "Conclusion" "Conclusion"
