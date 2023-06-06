@@ -18,6 +18,7 @@ Parent: BackboneElement
   * testPerformedDate	0..1	date	"Date of test performed 1"	"Date of test performed 1"
   * testPerformed	0..1	string	"Test performed 1"	"Test performed 1"
   * result	0..1	code	"Result 1"	"Result 1"
+  * result from Results (required)
 * proteinuria	0..1	code	"Proteinuria"	"Record laboratory test results: Proteinuria"
 * hematuria	0..1	code	"Hematuria"	"Record laboratory test results: Hematuria"
 * haemoglobin	0..1	Quantity	"Haemoglobin (g/l)"	"Record laboratory test results: Haemoglobin (g/l)"
@@ -50,7 +51,6 @@ Parent: BackboneElement
   * animalSample	0..1	string	"Products"	"What kind of animal samples were taken (blood, oropharyngeal swabs, tissue, brain, feaces, etc)"
   * collectionDate	0..1	date	"Date of collection"	"When were animal samples taken?"
 * antibioticReceived from $YesNo (required)
-* result from Results (required)
 * proteinuria from YesNoUnknown (required)
 * hematuria from YesNoUnknown (required)
 * bloodGas from $YesNo (required)
