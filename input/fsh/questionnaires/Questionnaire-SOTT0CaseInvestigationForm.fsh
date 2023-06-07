@@ -32,7 +32,7 @@ Usage: #definition
     * insert Question(Sex, Sex at birth,choice,false)
     * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/BiologicalSex"
     * insert Question(estimatedAge, Estimated Age in years/months/days, string, false)
-    * insert Question(Occupation,Occupation,string,false)
+    * insert Question(occupation,Occupation,string,false)
     * insert Question(healthServiceName, If working in a health facility\, specify name and locality, string, false)
     * insert Question(address, Residential street address, string, false)
     * insert Question(province, Admin Level 1 - province, string, false)
@@ -52,12 +52,12 @@ Usage: #definition
       * item[=].answerValueSet = $YesNo
       * insert Question(admittedHCFName,	name:,	string, false)
         * item[=]
-        * enableWhen
-          * question = "admitted"
-          * operator = #=
-          * answerCoding 
-            * system = $YesNo
-            * code =  #Yes
+          * enableWhen
+            * question = "admitted"
+            * operator = #=
+            * answerCoding 
+              * system = $YesNo
+              * code =  #Yes
       * insert Question(outcome,	Outcome of illness*:,	choice, false)
     //  * item[=].answerValueSet = canonical(PatientOutcome)
       * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____,	date, false)
