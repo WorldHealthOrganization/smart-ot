@@ -18,6 +18,7 @@ Usage: #definition
 * subjectType = #Patient
 * language = #en
 * status = #draft
+* contained[+] = BiologicalSex
 
 //Header
 * insert Question(investigationForm,T0 Initial Case Investigation Form,display,false)
