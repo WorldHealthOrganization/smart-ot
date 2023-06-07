@@ -51,13 +51,13 @@ Usage: #definition
       * insert Question(admitted,	Currently admitted in health facility ?:,	choice, false)
       * item[=].answerValueSet = $YesNo
       * insert Question(admittedHCFName,	name:,	string, false)
-      * item[=]
-      * enableWhen
-        * question = "admitted"
-        * operator = #=
-        * answerCoding 
-          * system = $YesNo
-          * code =  #Yes
+        * item[=]
+        * enableWhen
+          * question = "admitted"
+          * operator = #=
+          * answerCoding 
+            * system = $YesNo
+            * code =  #Yes
       * insert Question(outcome,	Outcome of illness*:,	choice, false)
     //  * item[=].answerValueSet = canonical(PatientOutcome)
       * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____,	date, false)
