@@ -59,7 +59,7 @@ Usage: #definition
               * system = $YesNo
               * code =  #Yes
       * insert Question(outcome,	Outcome of illness*:,	choice, false)
-    //  * item[=].answerValueSet = canonical(PatientOutcome)
+        * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/PatientOutcome"
       * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____,	date, false)
       * insert Question(outcomeDate,	date* of recovery\, default or death:___/___/_____,	date, false)
       * insert Question(symptoms, Patient symptoms at presentation - check all reported symptoms, group, false)
