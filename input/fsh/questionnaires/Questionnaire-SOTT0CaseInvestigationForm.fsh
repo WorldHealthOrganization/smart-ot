@@ -164,7 +164,7 @@ Usage: #definition
     * insert Question(labLocation,Location of testing laboratory,string, false)
     * insert Question(antibioticReceived,Did the patient received antibiotic prior to specimen collection?,choice, false)
     * insert Question(labtest, Lab test details, group, true)
-    * item [=]  
+    * item[=]  
       * insert Question(sampleId,Sample ID,string, false)
       * insert Question(collectionDate,Collection date,date, false)
       * insert Question(testPerformed,Test performed,string, false)
