@@ -31,7 +31,7 @@ Usage: #definition
     * insert Question (telephone, Telephone, string, false)
     * insert Question(BirthDate, Birth Date, date, false)
     * insert Question(Sex, Sex at birth,choice,false)
-    * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/BiologicalSex"
+    * item[=].answerValueSet = Canonical(BiologicalSex)
     * insert Question(estimatedAge, Estimated Age in years/months/days, string, false)
     * insert Question(occupation,Occupation,string,false)
     * insert Question(healthServiceName, If working in a health facility\, specify name and locality, string, false)
@@ -59,8 +59,8 @@ Usage: #definition
             * answerCoding 
               * system = $YesNo
               * code =  #Yes
-      * insert Question(outcome,	Outcome of illness*:,	choice, false)
-        * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/PatientOutcome"
+      * insert Question(outcome, Outcome of illness*:, choice, false)
+      * item[=].answerValueSet = Canonical(PatientOutcome)
       * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____,	date, false)
       * insert Question(outcomeDate,	date* of recovery\, default or death:___/___/_____,	date, false)
       * insert Question(symptoms, Patient symptoms at presentation - check all reported symptoms, group, false)
@@ -131,7 +131,6 @@ Usage: #definition
   //Exposure
   * item[=]
   * insert Question(Exposure, Section 3: Exposure and travel Information 3 WEEKS PRIOR TO FIRST SYMPTOM ONSET, display, false)
-
   //Laboratory Information
   * item[=]
   * insert Question(Laboratory, Section 4: Laboratory Information, display, false)
