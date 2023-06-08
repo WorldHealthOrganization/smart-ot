@@ -64,49 +64,74 @@ Usage: #definition
       * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____,	date, false)
       * insert Question(outcomeDate,	date* of recovery\, default or death:___/___/_____,	date, false)
       * insert Question(symptoms, Patient symptoms at presentation - check all reported symptoms, group, false)
-      * insert Question(signs, Patient signs at presention - check all observed signs, group, false)
+        * item[=]
+        * insert Question(fever,History of fever,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
+        * insert Question(fatigue,Intense fatigue or weakness,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
+        * insert Question(irritability,Irritability/confusion,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
+        * insert Question(headache,Head pain,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
+        * insert Question(soreThroat,Sore throat,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"     
+        * insert Question(intenseCough,Non-productive cough,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
+        * insert Question(expectoration,Productive cough - expectoration,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
+        * insert Question(anorexia,Loss of appetite,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
+        * insert Question(diarrhoea,Passing rice water-like stool,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
+        * insert Question(nausea,Nausea/vomiting,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
+        * insert Question(intensePain,Intense pain,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
+        * insert Question(musclePain,Muscular pain,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
+          * item[=]
+            * enableWhen
+              * question = "intensePain"
+              * operator = #=
+              * answerCoding 
+                * system = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
+                * code =  #Yes    
+        * insert Question(chestPain,Chest pain,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
+        * insert Question(abdominalPain,Abdominal pain,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
+        * insert Question(jointPain,Joint pain,choice,false)
+          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
+    * insert Question(signs, Patient signs at presention - check all observed signs, group, false)
+      * item[=]
       * insert Question(conditions, Underlying conditions and comorbidity - check all that apply, group, false)
+      * insert Question(patientSigns, Patient signs at presentation - check all observed signs, display, false)
+      * insert Question(conjunctivitalInjection,Conjunctival injection,choice, false)
+      * insert Question(palpableLiver,Palpable liver,choice, false)
+      * insert Question(palpableSpleen,Palpable spleen,choice, false)
+      * insert Question(jaundice,Jaundice,choice, false)
+      * insert Question(lymphadenopathy,Enlarged lymph nodes,choice, false)
+      * insert Question(lymphadenopathySite,site -enlarged nymph nodes,string, false)
+      * insert Question(oedema,Peripheral oedemas,choice, false)
+      * insert Question(seizures,Seizures,choice, false)
+      * insert Question(coma,Drowsiness\, coma,choice, false)
+      * insert Question(stiffNeck,Neck stiffness,choice, false)
+      * insert Question(bleeding,Observed abnormal bleeding,choice, false)
+      * insert Question(otherSignsSymptoms,Other signs \, specify,string, false)
+      * insert Question(heartrate,Heart rate - beats per min,Quantity, false)
+      * insert Question(Bp,Blood Pressure - mmHg:,display, false)
+      * insert Question(sysBp,Systolic blood pressure,Quantity, false)
+      * insert Question(diaBp,Diastolic blood pressure,Quantity, false)
+      * insert Question(RespiratoryRate,Respiratory rate - per min ,Quantity, false)
+      * insert Question(O2Sat,O2 saturation room air,Quantity, false)
+      * insert Question(temperature,Temperature - degrees:,Quantity, false)
+      * insert Question(crt,Capillary refill time> 3 sec,choice, false)
+      * insert Question(muac,MUAC - cm:,Quantity, false)
+    * insert Question(comorbidity, Underlying conditions and comorbidity - check all that apply, display, false)
   //Exposure
   * item[=]
   * insert Question(Exposure, Section 3: Exposure and travel Information 3 WEEKS PRIOR TO FIRST SYMPTOM ONSET, display, false)
-    * item[=]
-    * insert Question(fever,History of fever,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
-    * insert Question(fatigue,Intense fatigue or weakness,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
-    * insert Question(irritability,Irritability/confusion,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-    * insert Question(headache,Head pain,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-    * insert Question(soreThroat,Sore throat,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"     
-    * insert Question(intenseCough,Non-productive cough,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-    * insert Question(expectoration,Productive cough - expectoration,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-    * insert Question(anorexia,Loss of appetite,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-    * insert Question(diarrhoea,Passing rice water-like stool,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-    * insert Question(nausea,Nausea/vomiting,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-    * insert Question(intensePain,Intense pain,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-    * insert Question(musclePain,Muscular pain,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
-      * item[=]
-        * enableWhen
-          * question = "intensePain"
-          * operator = #=
-          * answerCoding 
-            * system = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
-            * code =  #Yes    
-    * insert Question(chestPain,Chest pain,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-    * insert Question(abdominalPain,Abdominal pain,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-    * insert Question(jointPain,Joint pain,choice,false)
-      * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
+
   //Laboratory Information
   * item[=]
   * insert Question(Laboratory, Section 4: Laboratory Information, display, false)
