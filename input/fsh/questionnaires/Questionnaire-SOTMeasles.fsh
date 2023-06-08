@@ -63,7 +63,7 @@ Usage: #definition
     * insert Question(GivenName, Given Name /First Name, string, false)
 * insert Question(Address, Address, string,false)
 * insert Question (LocalityType, Type of Locality, choice, false)
-// * item[=].answerValueSet = Canonical(sot-measles-locality-type)
+* item[=].answerValueSet = Canonical(LocType)
 //Vaccination Status
 * item[=]
   * insert Question(VaccinationStatus, Section III: Vaccination History, display, false)
