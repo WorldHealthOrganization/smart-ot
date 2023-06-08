@@ -137,6 +137,25 @@ Usage: #definition
   //Exposure
   * item[=]
   * insert Question(Exposure, Section 3: Exposure and travel Information 3 WEEKS PRIOR TO FIRST SYMPTOM ONSET, display, false)
+  * item[=]
+    * insert Question(sickContact,Are you aware of people outside your household with similar illness or symptoms ?,choice, false)
+    * insert Question(DateOfOnset,Date of onset,date, false)
+    * insert Question(nameAndRelationship,Name and relationship,string, false)
+    * insert Question(placeOfInteraction,Place of interaction,string, false)
+    * insert Question(massGatheringParticipation,Did the patient participate in mass gathering events,choice, false)
+    * insert Question(dateOfEvent,Date of event,date, false)
+    * insert Question(eventLocation,Location,string, false)
+    * insert Question(gatheringType,Type of gathering and how many people attended,string, false)
+    * insert Question(Did you travel* outside your residential area ?,Did you travel* outside your residential area ?,choice, false)
+    * insert Question(Date of travel,Date of travel,date, false)
+    * insert Question(placeOfTravel,From where to where,string, false)
+    * insert Question(traditionalTreatment,Traditional treatment received,choice, false)
+    * insert Question(specifyTraditionalTreatment,Specify traditional treatment,string, false)
+    * insert Question(animalContact,Were you in close proximity to any animals in the XX week/months prior to symptom onset?,choice, false)
+    * insert Question(Any other information regarding animal health events near the patient,Any other information regarding animal health events near the patient,string, false)
+    * insert Question(specifyInsectExposure,Specify the insect and exposure,string, false)
+    * insert Question(foodDiseaseSuspected,Does the patient suspect a specific food or the beverage to be the cause of the disease,choice, false)
+    * insert Question(explainSuspicion,Explain why this suspicion,string, false)
   //Laboratory Information
   * item[=]
   * insert Question(Laboratory, Section 4: Laboratory Information, display, false)
