@@ -48,17 +48,17 @@ Usage: #definition
   * item[=]
     * insert Question(clinicalCourse, Patient clinical course, group, false)
     * insert Question(symptomOnsetDate,	date of onset of symptoms*:____/____/______	,date, false)
-    * insert Question(presentedToHCFDate	,For this episode\, date first presented to health facility:___/___/_____,	date, false)
+    * insert Question(presentedToHCFDate,For this episode\, date first presented to health facility:___/___/_____,	date, false)
     * insert Question(admitted,	Currently admitted in health facility ?:,	choice, false)
     * item[=].answerValueSet = $YesNo
-      * insert Question(admittedHCFName,	name:,	string, false)
-        * item[=]
-          * enableWhen
-            * question = "admitted"
-            * operator = #=
-            * answerCoding 
-              * system = $YesNo
-              * code =  #Yes
+    * insert Question(admittedHCFName,	name:,	string, false)
+      * item[=]
+        * enableWhen
+          * question = "admitted"
+          * operator = #=
+          * answerCoding 
+            * system = $YesNo
+            * code =  #Yes
     * insert Question(outcome, Outcome of illness*:, choice, false)
     * item[=].answerValueSet = Canonical(PatientOutcome)
     * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____,	date, false)
