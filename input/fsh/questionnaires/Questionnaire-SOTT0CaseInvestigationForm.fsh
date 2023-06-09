@@ -45,12 +45,12 @@ Usage: #definition
   //Clinical Information
   * item[=]
   * insert Question(Clinical, Section 2: Clinical Information, display, false)
-    * item[=]
-      * insert Question(clinicalCourse, Patient clinical course, group, false)
-      * insert Question(symptomOnsetDate,	date of onset of symptoms*:____/____/______	,date, false)
-      * insert Question(presentedToHCFDate	,For this episode\, date first presented to health facility:___/___/_____,	date, false)
-      * insert Question(admitted,	Currently admitted in health facility ?:,	choice, false)
-      * item[=].answerValueSet = $YesNo
+  * item[=]
+    * insert Question(clinicalCourse, Patient clinical course, group, false)
+    * insert Question(symptomOnsetDate,	date of onset of symptoms*:____/____/______	,date, false)
+    * insert Question(presentedToHCFDate	,For this episode\, date first presented to health facility:___/___/_____,	date, false)
+    * insert Question(admitted,	Currently admitted in health facility ?:,	choice, false)
+    * item[=].answerValueSet = $YesNo
       * insert Question(admittedHCFName,	name:,	string, false)
         * item[=]
           * enableWhen
@@ -59,63 +59,74 @@ Usage: #definition
             * answerCoding 
               * system = $YesNo
               * code =  #Yes
-      * insert Question(outcome, Outcome of illness*:, choice, false)
-      * item[=].answerValueSet = Canonical(PatientOutcome)
-      * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____,	date, false)
-      * insert Question(outcomeDate,	date* of recovery\, default or death:___/___/_____,	date, false)
-      * insert Question(symptoms, Patient symptoms at presentation - check all reported symptoms, group, false)
-        * item[=]
-        * insert Question(fever,History of fever,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
-        * insert Question(fatigue,Intense fatigue or weakness,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
-        * insert Question(irritability,Irritability/confusion,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-        * insert Question(headache,Head pain,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-        * insert Question(soreThroat,Sore throat,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"     
-        * insert Question(intenseCough,Non-productive cough,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-        * insert Question(expectoration,Productive cough - expectoration,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-        * insert Question(anorexia,Loss of appetite,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-        * insert Question(diarrhoea,Passing rice water-like stool,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-        * insert Question(nausea,Nausea/vomiting,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-        * insert Question(intensePain,Intense pain,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-        * insert Question(musclePain,Muscular pain,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
-          * item[=]
-            * enableWhen
-              * question = "intensePain"
-              * operator = #=
-              * answerCoding 
-                * system = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
-                * code =  #Yes    
-        * insert Question(chestPain,Chest pain,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-        * insert Question(abdominalPain,Abdominal pain,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-        * insert Question(jointPain,Joint pain,choice,false)
-          * item[=].answerValueSet = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"      
-    * insert Question(signs, Patient signs at presention - check all observed signs, group, false)
+    * insert Question(outcome, Outcome of illness*:, choice, false)
+    * item[=].answerValueSet = Canonical(PatientOutcome)
+    * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____,	date, false)
+    * insert Question(outcomeDate,	date* of recovery\, default or death:___/___/_____,	date, false)
+    * insert Question(symptoms, Patient symptoms at presentation - check all reported symptoms, group, false)
+    * item[=]
+      * insert Question(fever,History of fever,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
+      * insert Question(fatigue,Intense fatigue or weakness,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
+      * insert Question(irritability,Irritability/confusion,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question(headache,Head pain,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question(soreThroat,Sore throat,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)     
+      * insert Question(intenseCough,Non-productive cough,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question(expectoration,Productive cough - expectoration,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question(anorexia,Loss of appetite,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question(diarrhoea,Passing rice water-like stool,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question(nausea,Nausea/vomiting,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question(intensePain,Intense pain,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question(musclePain,Muscular pain,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * item[=]
+        * enableWhen
+          * question = "intensePain"
+          * operator = #=
+          * answerCoding 
+            * system = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
+            * code =  #Yes    
+      * insert Question(chestPain,Chest pain,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question(abdominalPain,Abdominal pain,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question(jointPain,Joint pain,choice,false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+    * insert Question(signs, Patient signs at presention - check all observed signs, group, false)
+    * item[=]
       * insert Question(conjunctivitalInjection,Conjunctival injection,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(palpableLiver,Palpable liver,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(palpableSpleen,Palpable spleen,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(jaundice,Jaundice,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(lymphadenopathy,Enlarged lymph nodes,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(lymphadenopathySite,site -enlarged nymph nodes,string, false)
       * insert Question(oedema,Peripheral oedemas,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(seizures,Seizures,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(coma,Drowsiness\, coma,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(stiffNeck,Neck stiffness,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(bleeding,Observed abnormal bleeding,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(otherSignsSymptoms,Other signs \, specify,string, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(heartrate,Heart rate - beats per min,quantity, false)
       * insert Question(Bp,Blood Pressure - mmHg:,group, false)
       * item[=]
@@ -125,13 +136,19 @@ Usage: #definition
       * insert Question(O2Sat,O2 saturation room air,quantity, false)
       * insert Question(temperature,Temperature - degrees:,quantity, false)
       * insert Question(crt,Capillary refill time> 3 sec,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(muac,MUAC - cm:,quantity, false)
     * insert Question(comorbidity, Underlying conditions and comorbidity - check all that apply, display, false)
+    * item[=]
       * insert Question(pregnancy,Pregancy,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(postPartum,Post-partum - <6 weeks after delivering,choice, false)
       * insert Question(malnutrition,Malnutrition,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(immunodeficiency,Immunodeficiency,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(acuteChronicDisease,Associated acute or chronic disease\, please specifiy,choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(specifyAcuteChronicDisease,if yes\, name:,string, false)
       * insert Question(otherConditions,Other conditions impacting health\, specify,string, false)
   //Exposure
@@ -143,18 +160,27 @@ Usage: #definition
     * insert Question(nameAndRelationship,Name and relationship,string, false)
     * insert Question(placeOfInteraction,Place of interaction,string, false)
     * insert Question(massGatheringParticipation,Did the patient participate in mass gathering events,choice, false)
-    * insert Question(dateOfEvent,Date of event,date, false)
-    * insert Question(eventLocation,Location,string, false)
-    * insert Question(gatheringType,Type of gathering and how many people attended,string, false)
-    * insert Question(Did you travel* outside your residential area ?,Did you travel* outside your residential area ?,choice, false)
-    * insert Question(Date of travel,Date of travel,date, false)
-    * insert Question(placeOfTravel,From where to where,string, false)
-    * insert Question(traditionalTreatment,Traditional treatment received,choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown)
+    * insert Question(massGetheringDetails, Mass Gathering details, group, true)
+    * item[=] 
+      * insert Question(dateOfEvent,Date of event,date, false)
+      * insert Question(eventLocation,Location,string, false)
+      * insert Question(gatheringType,Type of gathering and how many people attended,string, false)
+      * insert Question(Did you travel* outside your residential area ?,Did you travel* outside your residential area ?,choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown)
+    * insert Question(travelDetails, Travel Details, group, true)
+    * item[=]    
+      * insert Question(Date of travel,Date of travel,date, false)
+      * insert Question(placeOfTravel,From where to where,string, false)
+      * insert Question(traditionalTreatment,Traditional treatment received,choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown)
     * insert Question(specifyTraditionalTreatment,Specify traditional treatment,string, false)
     * insert Question(animalContact,Were you in close proximity to any animals in the XX week/months prior to symptom onset?,choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown)
     * insert Question(Any other information regarding animal health events near the patient,Any other information regarding animal health events near the patient,string, false)
     * insert Question(specifyInsectExposure,Specify the insect and exposure,string, false)
     * insert Question(foodDiseaseSuspected,Does the patient suspect a specific food or the beverage to be the cause of the disease,choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown)
     * insert Question(explainSuspicion,Explain why this suspicion,string, false)
   //Laboratory Information
   * item[=]
@@ -163,6 +189,7 @@ Usage: #definition
     * insert Question(labName,Name of testing laboratory:,string, false)
     * insert Question(labLocation,Location of testing laboratory,string, false)
     * insert Question(antibioticReceived,Did the patient received antibiotic prior to specimen collection?,choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown)
     * insert Question(labtest, Lab test details, group, true)
     * item[=]  
       * insert Question(sampleId,Sample ID,string, false)
@@ -171,7 +198,7 @@ Usage: #definition
       * insert Question(result,Result,quantity, false)
     * insert Question(proteinuria,Proteinuria,quantity, false)
     * insert Question(hematuria,Hematuria,quantity, false)
-    * insert Question(haemoglobin,Haemoglobin -g/l,quantity, false)
+    * insert Question(haemoglobin,Haemoglobin (-g/l\),quantity, false)
     * insert Question(WBC,WBC count,quantity, false)
     * insert Question(platelet,Platelets,quantity, false)
     * insert Question(CRP,CRP:,quantity, false)
