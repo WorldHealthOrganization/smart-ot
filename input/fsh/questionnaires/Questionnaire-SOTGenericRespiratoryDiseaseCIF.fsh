@@ -1,11 +1,11 @@
-Instance: Questionnaire-SOTT0CaseInvestigationForm
+Instance: Questionnaire-SOTGenericRespiratoryDiseaseCIF
 InstanceOf: sdc-questionnaire-extr-smap
-Description: "T0 Case Investigation Questionnaire"
-Title: "T0 Case Investigation Questionnaire"
+Description: "Generic Respiratory Disease Case Investigation Form"
+Title: "Generic Respiratory Disease Case Investigation Form"
 Usage: #definition
-* title = "T0 Case Investigation Questionnaire"
-* description = "T0 Case Investigation Questionnaire"
-* name = "Questionnaire-SOTT0CaseInvestigationForm"
+* title = "Generic Respiratory Disease Case Investigation Form"
+* description = "Generic Respiratory Disease Case Investigation Form"
+* name = "Questionnaire-SOTGenericRespiratoryDiseaseCIF"
 * version = "2023"
 * status = #draft
 * subjectType = #Patient
@@ -14,87 +14,100 @@ Usage: #definition
 * contained[+] = BiologicalSex
 
 //Header
-* insert Question(investigationForm,T0 Initial Case Investigation Form,display,false)
-  //Demographics
+* insert Question(investigationForm,Generic Respiratory Disease Case Investigation Form,display,false)
+  //Essential Basic Information
 * item[=]
-  * insert Question(Demographics, Section 1: Patient Information, display, false)
+  * insert Question(basicInformation, Section 1: Essential basic Information, display, false)
   * item[=]
-    * insert Question(Name, Name, string, false)
-    * insert Question(identification,Identification, string,false)
-    * insert Question (telephone, Telephone, string, false)
-    * insert Question(BirthDate, Birth Date, date, false)
-    * insert Question(Sex, Sex at birth,choice,false)
-    * item[=].answerValueSet = Canonical(BiologicalSex)
-    * insert Question(estimatedAge, Estimated Age in years/months/days, string, false)
-    * insert Question(occupation,Occupation,string,false)
-    * insert Question(healthServiceName, If working in a health facility\, specify name and locality, string, false)
-    * insert Question(address, Residential street address, string, false)
-    * insert Question(province, Admin Level 1 - province, string, false)
-    * insert Question(district, Admin Level 2 - district, string, false)
-    * insert Question(commune, Admin Level 3 - commune, string, false)
-    * insert Question(ward, Admin Level 4 - ward \, parish, string, false)
-    * insert Question(latitude, GPS residence latitude, string, false)
-    * insert Question(longitude, GPS residence longitude, string, false)
+    * insert Question(dataCollectorInformation, A. Data collector Information, group, false)
+    * item[=]
+      * insert Question(nameOfDataCollector, Name of data collector, string, false)
+      * insert Question(dataCollectorTelephoneNumber, Data collector telephone number, string, false)
+      * insert Question(dataCollectorInstitution, Data collector institution,string, false)
+      * insert Question(formCompletionDate, Form completion date (dd/mm/yyyy\),date, false)
+    * insert Question(respondentInformation, B. Interview respondent Information (if not patient\), group, false)
+    * item[=]
+      * insert Question (nameOfRespondent, Name of respondent, string, false)
+      * insert Question (respondentTelephoneNumber, Respondent telephone number, string, false)
+      * insert Question (respondentAddress, Respondent address, string, false)
+      * insert Question (relationshipToPatient, Relationship to patient, string, false)  
+    * insert Question(signs, C. Patient identifier Information, group, false)
+    * item[=]
+      * insert Question(identification,Unique Case ID/cluster number (if applicable\), string,false)
+      * insert Question(caseStatus, Case Status, choice, false)
+      * item[=].answerValueSet = Canonical(CaseStatus)
+      * insert Question(Name, Name, string, false)
+      * insert Question(country, Country of residence, string, false)
+      * insert Question(Sex, Sex at birth,choice,false)
+      * item[=].answerValueSet = Canonical(BiologicalSex)
+      * insert Question(BirthDate,Date of birth (dd/mm/yyyy\), date, false)
+      * insert Question(Age, Age (years\,months\), string, false)
+      * insert Question(address, Address (village/town\, district\, province/region\), string, false)
+      * insert Question(telephone,Patient telephone number, string, false)
   //Clinical Information
   * item[=]
   * insert Question(Clinical, Section 2: Clinical Information, display, false)
   * item[=]
-    * insert Question(clinicalCourse, Patient clinical course, group, false)
-    * insert Question(symptomOnsetDate,	date of onset of symptoms*:____/____/______	,date, false)
-    * insert Question(presentedToHCFDate,For this episode\, date first presented to health facility:___/___/_____,	date, false)
-    * insert Question(admitted,	Currently admitted in health facility ?:,	choice, false)
-    * item[=].answerValueSet = $YesNo
-    * insert Question(admittedHCFName,	name:,	string, false)
-      * item[=]
-        * enableWhen
-          * question = "admitted"
-          * operator = #=
-          * answerCoding 
-            * system = $YesNo
-            * code =  #Yes
-    * insert Question(outcome, Outcome of illness*:, choice, false)
-    * item[=].answerValueSet = Canonical(PatientOutcome)
-    * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____,	date, false)
-    * insert Question(outcomeDate,	date* of recovery\, default or death:___/___/_____,	date, false)
-    * insert Question(symptoms, Patient symptoms at presentation - check all reported symptoms, group, false)
+    * insert Question(clinicalCourse, D. Patient clinical course, group, false)
     * item[=]
-      * insert Question(fever,History of fever,choice,false)
+      * insert Question(symptomOnsetDate,	date of onset of symptoms:____/____/______	,date, false)
+      * insert Question(presentedToHCFDate,Date of first health facility visit (including traditional care\),	date, false)
+      * insert Question(totalHealthFacilitiesVisited, Total health facilities visited till outcome, integer, false)
+      * insert Question(dateOfFirstHospitalization, Date of first hospitalization, date, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
-      * insert Question(fatigue,Intense fatigue or weakness,choice,false)
+      * insert Question(dateOfICUAdmission, Date of intensive care unit admission, date, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
-      * insert Question(irritability,Irritability/confusion,choice,false)
-      * item[=].answerValueSet = Canonical(YesNoUnknown)      
-      * insert Question(headache,Head pain,choice,false)
-      * item[=].answerValueSet = Canonical(YesNoUnknown)      
-      * insert Question(soreThroat,Sore throat,choice,false)
-      * item[=].answerValueSet = Canonical(YesNoUnknown)     
-      * insert Question(intenseCough,Non-productive cough,choice,false)
-      * item[=].answerValueSet = Canonical(YesNoUnknown)      
-      * insert Question(expectoration,Productive cough (expectoration\),choice,false)
-      * item[=].answerValueSet = Canonical(YesNoUnknown)      
-      * insert Question(anorexia,Loss of appetite,choice,false)
-      * item[=].answerValueSet = Canonical(YesNoUnknown)      
-      * insert Question(diarrhoea,Passing rice water-like stool,choice,false)
-      * item[=].answerValueSet = Canonical(YesNoUnknown)      
-      * insert Question(nausea,Nausea/vomiting,choice,false)
-      * item[=].answerValueSet = Canonical(YesNoUnknown)      
-      * insert Question(intensePain,Intense pain,choice,false)
-      * item[=].answerValueSet = Canonical(YesNoUnknown)      
-      * insert Question(musclePain,Muscular pain,choice,false)
+      * insert Question(startICU, Start: ICU, date, false)
+      * insert Question(stopICU, Stop: ICU, date, false)
+      * insert Question(dateOfMechanicalVentilation, Date of mechanical ventilation, date, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
-      * item[=]
-        * enableWhen
-          * question = "intensePain"
-          * operator = #=
-          * answerCoding 
-            * system = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
-            * code =  #Yes    
-      * insert Question(chestPain,Chest pain,choice,false)
+      * insert Question(startVentilation, Start: Mechanical Ventilation, date, false)
+      * insert Question(stopVentilation, Stop: Mechanical Ventilation, date,false)
+      * insert Question(dateOfAntiviralTreatment, Antiviral Treatment, date, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
+      * insert Question(startVentilation, Start: Antiviral Treatment, date, false)
+      * insert Question(stopVentilation, Stop: Antiviral Treatment, date,false)     
+      * insert Question(outcome, Outcome, choice, false)
+      * item[=].answerValueSet = Canonical(PatientOutcome)
+      * insert Question(outcomeDate,	Outcome date,	date, false)
+    * insert Question(symptoms, Patient symptoms (from disease onset\) and complications, group, false)
+    * item[=]
+      * insert Question (fever, Fever (>=38 °C\) or history of fever, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
+      * insert Question (chills, Chills, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
+      * insert Question (cough, Cough, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
-      * insert Question(abdominalPain,Abdominal pain,choice,false)
+      * insert Question (soreThroat, Sore throat, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
-      * insert Question(jointPain,Joint pain,choice,false)
+      * insert Question (runnyNose, Runny nose, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (vomiting, Vomiting, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (diarrhoea, Diarrhoea, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (headache, Headache, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (neurologicalSigns, Neurological signs, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (rash, Rash, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (conjunctivitis, Conjunctivitis, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (shortnessOfBreath, Shortness of breath, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (muscleAches, Muscle aches, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (pneumoniaByChestXRay, Pneumonia by chest X-ray, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (acuteRespiratoryDistressSyndrome, Acute respiratory distress syndrome, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (acuteRenalFailure, Acute renal failure, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (cardiacFailure, Cardiac failure, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (consumptiveCoagulopathy, Consumptive coagulopathy, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)            
     * insert Question(signs, Patient signs at presention - check all observed signs, group, false)
     * item[=]
       * insert Question(conjunctivitalInjection,Conjunctival injection,choice, false)
@@ -144,9 +157,9 @@ Usage: #definition
       * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(specifyAcuteChronicDisease,if yes\, name:,string, false)
       * insert Question(otherConditions,Other conditions impacting health\, specify,string, false)
-  //Exposure
+  //Exposure and Travel History
   * item[=]
-  * insert Question(Exposure, Section 3: Exposure and travel Information 3 WEEKS PRIOR TO FIRST SYMPTOM ONSET, display, false)
+  * insert Question(Exposure, Section 3: Exposure and travel history, display, false)
   * item[=]
     * insert Question(sickContact,Are you aware of people outside your household with similar illness or symptoms ?,choice, false)
     * insert Question(DateOfOnset,Date of onset,date, false)
