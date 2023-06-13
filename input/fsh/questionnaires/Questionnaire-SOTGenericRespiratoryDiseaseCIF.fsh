@@ -90,6 +90,14 @@ Usage: #definition
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
       * insert Question (neurologicalSigns, Neurological signs, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (specifyNeurologicalSigns, Specify, string, false)
+      * item[=]
+        * enableWhen
+          * question = "neurologicalSigns"
+          * operator = #=
+          * answerCoding 
+            * system = $YesNoUnknown
+            * code =  #Yes
       * insert Question (rash, Rash, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
       * insert Question (conjunctivitis, Conjunctivitis, choice, false)
