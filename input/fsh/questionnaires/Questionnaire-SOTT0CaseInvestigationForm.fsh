@@ -14,7 +14,7 @@ Usage: #definition
 * contained[+] = BiologicalSex
 * contained[+] = YesNoUnknown
 * contained[+] = PatientOutcome
-
+* contained[+] = YesNo
 
 //Header
 * insert Question(investigationForm,T0 Initial Case Investigation Form,display,false)
