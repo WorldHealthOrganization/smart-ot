@@ -21,10 +21,10 @@ Usage: #definition
 * contained[+] = AnimalExposureLocation
 
 //Header
-* insert Question(investigationForm,Generic Respiratory Disease Case Investigation Form,display,false)
+* insert Question(investigationForm,Generic Respiratory Disease Case Investigation Form, group,false)
   //Essential Basic Information
 * item[=]
-  * insert Question(basicInformation, Section 1: Essential basic Information, display, false)
+  * insert Question(basicInformation, Section 1: Essential basic Information, group, false)
   * item[=]
     * insert Question(dataCollectorInformation, A. Data collector Information, group, false)
     * item[=]
@@ -53,7 +53,7 @@ Usage: #definition
       * insert Question(telephone,Patient telephone number, string, false)
   //Clinical Information
   * item[=]
-  * insert Question(Clinical, Section 2: Clinical Information, display, false)
+  * insert Question(Clinical, Section 2: Clinical Information, group, false)
   * item[=]
     * insert Question(clinicalCourse, D. Patient clinical course, group, false)
     * item[=]
@@ -184,7 +184,7 @@ Usage: #definition
           * answerCoding 
             * system = Canonical(YesNoUnknown)
             * code =  #Yes
-    * insert Question(comorbidity, F. Patient pre-existing condition, display, false)
+    * insert Question(comorbidity, F. Patient pre-existing condition, group, false)
     * item[=]
       * insert Question (cancer, Cancer, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
@@ -217,9 +217,9 @@ Usage: #definition
       * insert Question (influenzaVaccination, Patient was vaccinated for influenza in the past 12 months, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
   //Exposure and Travel History
-  * insert Question(Exposure, Section 3: Exposure and travel history, display, false)
+  * insert Question(Exposure, Section 3: Exposure and travel history, group, false)
   * item[=]
-    * insert Question(comorbidity, G. Patient occupational exposures, display, false)
+    * insert Question(comorbidity, G. Patient occupational exposures, group, false)
     * item[=]
       * insert Question (occupation, Occupation (specify location/facility\), choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
@@ -235,7 +235,7 @@ Usage: #definition
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
       * insert Question (farmWorker, Farm worker (if yes\, specify animal types handled in the 10 days before illness\), choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
-    * insert Question (humanExposure, H. Patient human exposures in the 14 days before illness onset, display, false)
+    * insert Question (humanExposure, H. Patient human exposures in the 14 days before illness onset, group, false)
     * item[=]
       * insert Question (visitedOutpatientFacility, Patient visited outpatient treatment facility (if yes\, specify\), choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
@@ -258,7 +258,7 @@ Usage: #definition
       * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question (confirmedProbableCase, Sick person confirmed or deemed a probable case in current event, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
-    * insert Question (travelExposure, I. Patient travel history in the 14 days before illness onset (add sheets if multiple locations visited\), display, false)
+    * insert Question (travelExposure, I. Patient travel history in the 14 days before illness onset (add sheets if multiple locations visited\), group, false)
     * item[=]
       * insert Question (travelledOutside , Patient travelled out of first administrative region, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
@@ -270,7 +270,7 @@ Usage: #definition
         * insert Question (departureDate, Departure: __/__/__, date, false)
       * insert Question (companion, Patient travelled with companions (if yes\, specify\), choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)        
-    * insert Question (animalExposure, J. Patient animal exposures in the 14 days before illness onset, display, false)
+    * insert Question (animalExposure, J. Patient animal exposures in the 14 days before illness onset, group, false)
     * item[=] 
       * insert Question (patientHandledAnimals, Patient handled animals, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
@@ -294,18 +294,18 @@ Usage: #definition
       * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question (visitedLiveAnimalMarket, Patient visited live animal market (if yes\, specify market\), choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)     
-      * insert Question (foodExposure, K. Patient food exposures in the 14 days before illness onset, display, false)
+      * insert Question (foodExposure, K. Patient food exposures in the 14 days before illness onset, group, false)
     * item[=]
       * insert Question (rawConsumption, Patient consumed raw or unpasteurized animal products (if yes\, specify products\), choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question (rawRemedyConsumption, Patient consumed health or traditional remedies with raw or unpasteurized animal products (if yes\, specify products\), choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
-    * insert Question (perceivedExposure, L. Patient perceived exposure, display, false)
+    * insert Question (perceivedExposure, L. Patient perceived exposure, group, false)
     * item[=]
       * insert Question (source, From the point of view of the patient or family\, what is the likely source of infection and geographic location of exposure?, string, false)              
     //Laboratory Information
   * item[=]
-  * insert Question(Laboratory, Section 4: Laboratory Information, display, false)
+  * insert Question(Laboratory, Section 4: Laboratory Information, group, false)
   * item[=]
     * insert Question (specimensCollected, Specimens collected from patient (tick as needed\), choice, false)
     * item[=].answerValueSet = Canonical(SpecimenCollected)
