@@ -1,4 +1,4 @@
-Alias: $YesNo = https://terminology.hl7.org/5.1.0/CodeSystem-v2-0532.html
+Alias: $YesNo = http://terminology.hl7.org/CodeSystem/v2-0532
 
 ValueSet:      YesNo
 Id:	           YesNo
@@ -6,5 +6,5 @@ Title:	       "SOT Yes No"
 Description:   "Yes No"
 
 * ^status = #draft
-* include $YesNo#Yes "Yes"
-* include $YesNo#No "No"
+* include $YesNo#Y "Yes"
+* include $YesNo#N "No"
