@@ -12,6 +12,9 @@ Usage: #definition
 * language = #en
 * status = #draft
 * contained[+] = BiologicalSex
+* contained[+] = YesNoUnknown
+* contained[+] = PatientOutcome
+
 
 //Header
 * insert Question(investigationForm,T0 Initial Case Investigation Form,display,false)

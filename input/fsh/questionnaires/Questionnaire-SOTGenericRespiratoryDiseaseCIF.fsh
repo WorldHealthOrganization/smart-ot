@@ -12,6 +12,13 @@ Usage: #definition
 * language = #en
 * status = #draft
 * contained[+] = BiologicalSex
+* contained[+] = YesNoUnknown
+* contained[+] = CaseStatus
+* contained[+] = PatientOutcome
+* contained[+] = ExposureLocation
+* contained[+] = ContactType
+* contained[+] = AnimalContactLocation
+* contained[+] = AnimalExposureLocation
 
 //Header
 * insert Question(investigationForm,Generic Respiratory Disease Case Investigation Form,display,false)
@@ -50,8 +57,26 @@ Usage: #definition
   * item[=]
     * insert Question(clinicalCourse, D. Patient clinical course, group, false)
     * item[=]
+      * insert Question (symptoms, Symptom, choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(symptomOnsetDate,	date of onset of symptoms:____/____/______	,date, false)
+      * item[=]
+        * enableWhen
+          * question = "symptoms"
+          * operator = #=
+          * answerCoding 
+            * system = $YesNoUnknown
+            * code =  #Yes      
+      * insert Question(presentedToHCF,Health facility visit (including traditional care\),	choice, false)
+      * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(presentedToHCFDate,Date of first health facility visit (including traditional care\),	date, false)
+      * item[=]
+        * enableWhen
+          * question = "presentedToHCF"
+          * operator = #=
+          * answerCoding 
+            * system = $YesNoUnknown
+            * code =  #Yes
       * insert Question(totalHealthFacilitiesVisited, Total health facilities visited till outcome, integer, false)
       * insert Question(dateOfFirstHospitalization, Date of first hospitalization, date, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
@@ -108,17 +133,57 @@ Usage: #definition
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
       * insert Question (pneumoniaByChestXRay, Pneumonia by chest X-ray, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (pneumoniaDateStarted, Date Started __/__/____, date, false)
+      * item[=]
+        * enableWhen
+          * question = "pneumoniaByChestXRay"
+          * operator = #=
+          * answerCoding 
+            * system = $YesNoUnknown
+            * code =  #Yes
       * insert Question (acuteRespiratoryDistressSyndrome, Acute respiratory distress syndrome, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (aRDSDateStarted, Date Started __/__/____, date, false)
+      * item[=]
+        * enableWhen
+          * question = "acuteRespiratoryDistressSyndrome"
+          * operator = #=
+          * answerCoding 
+            * system = $YesNoUnknown
+            * code =  #Yes
       * insert Question (acuteRenalFailure, Acute renal failure, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (acuteRenalFailureDateStarted, Date Started __/__/____, date, false)
+      * item[=]
+        * enableWhen
+          * question = "acuteRenalFailure"
+          * operator = #=
+          * answerCoding 
+            * system = $YesNoUnknown
+            * code =  #Yes
       * insert Question (cardiacFailure, Cardiac failure, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
+      * insert Question (cardiacFailureDateStarted, Date Started __/__/____, date, false)
+      * item[=]
+        * enableWhen
+          * question = "cardiacFailure"
+          * operator = #=
+          * answerCoding 
+            * system = $YesNoUnknown
+            * code =  #Yes
       * insert Question (consumptiveCoagulopathy, Consumptive coagulopathy, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
+
       * insert Question (otherSymptoms, Other symptoms (if yes\, specify\),choice,false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question (otherSymptomsSpecify, Specify, string, false)
+      * item[=]
+        * enableWhen
+          * question = "otherSymptoms"
+          * operator = #=
+          * answerCoding 
+            * system = $YesNoUnknown
+            * code =  #Yes
     * insert Question(comorbidity, F. Patient pre-existing condition, display, false)
     * item[=]
       * insert Question (cancer, Cancer, choice, false)
