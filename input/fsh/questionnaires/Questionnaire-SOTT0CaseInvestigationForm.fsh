@@ -20,7 +20,7 @@ Usage: #definition
 * insert Question(investigationForm,T0 Initial Case Investigation Form,display,false)
   //Demographics
 * item[=]
-  * insert Question(Demographics, Section 1: Patient Information, display, false)
+  * insert Question(Demographics, Section 1: Patient Information, group, false)
   * item[=]
     * insert Question(Name, Name, string, false)
     * insert Question(identification,Identification, string,false)
@@ -40,7 +40,7 @@ Usage: #definition
     * insert Question(longitude, GPS residence longitude, string, false)
   //Clinical Information
   * item[=]
-  * insert Question(Clinical, Section 2: Clinical Information, display, false)
+  * insert Question(Clinical, Section 2: Clinical Information, group, false)
   * item[=]
     * insert Question(clinicalCourse, Patient clinical course, group, false)
     * insert Question(symptomOnsetDate,	date of onset of symptoms*:____/____/______	,date, false)
@@ -134,7 +134,7 @@ Usage: #definition
       * insert Question(crt,Capillary refill time> 3 sec,choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
       * insert Question(muac,MUAC (cm\):,quantity, false)
-    * insert Question(comorbidity, Underlying conditions and comorbidity - check all that apply, display, false)
+    * insert Question(comorbidity, Underlying conditions and comorbidity - check all that apply, group, false)
     * item[=]
       * insert Question(pregnancy,Pregancy,choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
@@ -149,7 +149,7 @@ Usage: #definition
       * insert Question(otherConditions,Other conditions impacting health\, specify,string, false)
   //Exposure
   * item[=]
-  * insert Question(Exposure, Section 3: Exposure and travel Information 3 WEEKS PRIOR TO FIRST SYMPTOM ONSET, display, false)
+  * insert Question(Exposure, Section 3: Exposure and travel Information 3 WEEKS PRIOR TO FIRST SYMPTOM ONSET, group, false)
   * item[=]
     * insert Question(sickContact,Are you aware of people outside your household with similar illness or symptoms ?,choice, false)
     * insert Question(DateOfOnset,Date of onset,date, false)
@@ -180,7 +180,7 @@ Usage: #definition
     * insert Question(explainSuspicion,Explain why this suspicion,string, false)
   //Laboratory Information
   * item[=]
-  * insert Question(Laboratory, Section 4: Laboratory Information, display, false)
+  * insert Question(Laboratory, Section 4: Laboratory Information, group, false)
   * item[=]
     * insert Question(labName,Name of testing laboratory:,string, false)
     * insert Question(labLocation,Location of testing laboratory,string, false)
