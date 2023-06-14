@@ -17,7 +17,7 @@ Usage: #definition
 //* contained[+] = $YesNo
 
 //Header
-* insert Question(investigationForm,T0 Initial Case Investigation Form,display,false)
+* insert Question(investigationForm,T0 Initial Case Investigation Form,group,false)
   //Demographics
 * item[=]
   * insert Question(Demographics, Section 1: Patient Information, group, false)
