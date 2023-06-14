@@ -25,6 +25,6 @@ Parent: BackboneElement
 * earPain	from YesNoUnknown (required)
 * voiceHoarseness	from YesNoUnknown (required)
 * difficultySwallowing from YesNoUnknown (required)
-* soreThroat from $YesNo (required)
+* soreThroat from YesNo (required)
 * oralUlceration from YesNoUnknown (required)
 * hypersalivation	from YesNoUnknown (required)

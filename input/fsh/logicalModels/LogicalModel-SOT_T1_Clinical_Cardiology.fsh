@@ -1,4 +1,6 @@
-Alias: $YesNo = http://terminology.hl7.org/ValueSet/v2-0136
+
+
+
 Logical: SOTT1ClinicalCardiology
 Title: "Surveillance & Outbreak Toolkit T1 Clinical - Cardiology"
 Parent: BackboneElement
@@ -14,7 +16,7 @@ Parent: BackboneElement
 * sysBp	0..1	Quantity	"Systolic blood pressure"	"in mm Hg"
 * diaBp	0..1	Quantity	"Diastolic blood pressure"	"in mm Hg"
 * cardiacDisorders	0..1	code	"Observed cardiac disorders"	"Presence of accelerated pulse, weak pulse, difficulty breathing when performing low llevel effort, chest pain, thoracic oppression, peripheral oedema, low blood pressure, delay capillary refill"
-* cardiacDisorders from $YesNo (required)
+* cardiacDisorders from YesNo (required)
 * weakPulse	0..1	code	"Weak pulse"	"Difficult perception of peripheral pulse"
 * weakPulse from YesNoUnknown (required)
 * cardiacFailure	0..1	code	"Signs of cardiac failure"	"Include signs: pulmonary oedemas, low peripheral blood pressure, oedema, delayed capillary refill,"

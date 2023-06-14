@@ -21,10 +21,10 @@ Parent: BackboneElement
 * malnutrition	0..1	code	"Malnutrition"	"Severly underweight?"
 * muac	0..1	Quantity	"MUAC (cm):"	"if possible provide the MUAC score"
 * otherConditions	0..1	string	"Other conditions impacting health, specify"	"Describe other underlaying conditions that impact the health of the patient"
-* pregnancy from $YesNo (required)
-* postPartum from $YesNo (required)
-* acuteChronicDisease from $YesNo (required)
-* immunodeficiency from $YesNo (required)
-* malnutrition from $YesNo (required)
+* pregnancy from YesNo (required)
+* postPartum from YesNo (required)
+* acuteChronicDisease from YesNo (required)
+* immunodeficiency from YesNo (required)
+* malnutrition from YesNo (required)
 * underlyingConditions from YesNoUnknown (required)
 * chronicDisease from YesNoUnknown (required)

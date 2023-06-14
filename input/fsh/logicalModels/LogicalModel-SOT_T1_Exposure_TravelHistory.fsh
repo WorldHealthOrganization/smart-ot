@@ -12,4 +12,4 @@ Parent: BackboneElement
   * dateOfTravel	0..1	date	"Date of travel"	"When did the patient travel outside his current IDP/town/village/city since XX weeks/months prior to their symptom onset."
   * placeOfTravel	0..1	string	"From where to where"	"From where to where, did the patient travel outside his current IDP/town/village/city since XX weeks/months prior to their symptom onset."
   * transportType	0..1	string	"Type of transport used"	"What type of transport was used for this travel"
-* travelledOutside from $YesNo (required)
+* travelledOutside from YesNo (required)

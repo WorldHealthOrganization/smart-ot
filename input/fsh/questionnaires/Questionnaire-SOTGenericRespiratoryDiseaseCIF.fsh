@@ -65,7 +65,7 @@ Usage: #definition
           * question = "symptoms"
           * operator = #=
           * answerCoding 
-            * system = $YesNoUnknown
+            * system = Canonical(YesNoUnknown)
             * code =  #Yes      
       * insert Question(presentedToHCF,Health facility visit (including traditional care\),	choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
@@ -75,7 +75,7 @@ Usage: #definition
           * question = "presentedToHCF"
           * operator = #=
           * answerCoding 
-            * system = $YesNoUnknown
+            * system = Canonical(YesNoUnknown)
             * code =  #Yes
       * insert Question(totalHealthFacilitiesVisited, Total health facilities visited till outcome, integer, false)
       * insert Question(dateOfFirstHospitalization, Date of first hospitalization, date, false)
@@ -121,7 +121,7 @@ Usage: #definition
           * question = "neurologicalSigns"
           * operator = #=
           * answerCoding 
-            * system = $YesNoUnknown
+            * system = Canonical(YesNoUnknown)
             * code =  #Yes
       * insert Question (rash, Rash, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
@@ -139,7 +139,7 @@ Usage: #definition
           * question = "pneumoniaByChestXRay"
           * operator = #=
           * answerCoding 
-            * system = $YesNoUnknown
+            * system = Canonical(YesNoUnknown)
             * code =  #Yes
       * insert Question (acuteRespiratoryDistressSyndrome, Acute respiratory distress syndrome, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
@@ -149,7 +149,7 @@ Usage: #definition
           * question = "acuteRespiratoryDistressSyndrome"
           * operator = #=
           * answerCoding 
-            * system = $YesNoUnknown
+            * system = Canonical(YesNoUnknown)
             * code =  #Yes
       * insert Question (acuteRenalFailure, Acute renal failure, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
@@ -159,7 +159,7 @@ Usage: #definition
           * question = "acuteRenalFailure"
           * operator = #=
           * answerCoding 
-            * system = $YesNoUnknown
+            * system = Canonical(YesNoUnknown)
             * code =  #Yes
       * insert Question (cardiacFailure, Cardiac failure, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
@@ -169,7 +169,7 @@ Usage: #definition
           * question = "cardiacFailure"
           * operator = #=
           * answerCoding 
-            * system = $YesNoUnknown
+            * system = Canonical(YesNoUnknown)
             * code =  #Yes
       * insert Question (consumptiveCoagulopathy, Consumptive coagulopathy, choice, false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)
@@ -182,7 +182,7 @@ Usage: #definition
           * question = "otherSymptoms"
           * operator = #=
           * answerCoding 
-            * system = $YesNoUnknown
+            * system = Canonical(YesNoUnknown)
             * code =  #Yes
     * insert Question(comorbidity, F. Patient pre-existing condition, display, false)
     * item[=]

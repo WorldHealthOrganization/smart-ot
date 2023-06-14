@@ -10,7 +10,7 @@ Parent: BackboneElement
 * RespiratoryRate	0..1	Quantity	"Respiratory rate (per min)"	"Number of breaths during one minute"
 * O2Sat	0..1	Quantity	"O2 saturation room air"	"in proportion"
 * respiratorySigns	0..1	code	"Observed respiratory signs"	"If yes describe"
-* respiratorySigns from $YesNo (required)
+* respiratorySigns from YesNo (required)
 * intenseCough	0..1	code	"Non-productive cough"	"[Intense] coughing, including dry ."
 * intenseCough from YesNoUnknown (required)
 * expectoration	0..1	code	"Productive cough (expectoration)"	"When coughing the patient produces phlegm or mucus/sputum or bloody sputum"

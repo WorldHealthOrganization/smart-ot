@@ -32,12 +32,12 @@ Parent: BackboneElement
 * specifySyringeContact	0..1	string	"Specify this contact with syinges or needles"	"Specify this contact with syinges or needles"
 * bloodDonation	0..1	code	"Did the patient donate blood or plasma"	"Did the patient donate blood or plasma"
 * noOfDonations	0..1	Quantity	"How many donations of blood or plasma"	"How many donations of blood or plasma"
-* healthcareAccessed from $YesNo (required)
+* healthcareAccessed from YesNo (required)
 * placeOfCare from PlaceOfCare (required)
-* invasiveCare from $YesNo (required)
-* dentalCare from $YesNo (required)
-* deliveryOrAbortion from $YesNo (required)
-* healthFacilityVisit from $YesNo (required)
-* illicitDrugsInjected from $YesNo (required)
-* syringeContact from $YesNo (required)
-* bloodDonation from $YesNo (required)
+* invasiveCare from YesNo (required)
+* dentalCare from YesNo (required)
+* deliveryOrAbortion from YesNo (required)
+* healthFacilityVisit from YesNo (required)
+* illicitDrugsInjected from YesNo (required)
+* syringeContact from YesNo (required)
+* bloodDonation from YesNo (required)

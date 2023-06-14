@@ -18,9 +18,9 @@ Parent: BackboneElement
 * coma	0..1	code	"Drowsiness, coma"	"Absence of reaction to orders"
 * stiffNeck	0..1	code	"Neck stiffness"	"Neck stiffnes"
 * otherNeuroSigns	0..1	string	"Any other neurological sign"	"Any others not mentionned neurological signs observed"
-* neurologicalDisorders from $YesNo (required)
-* seizures from $YesNo (required)
-* stiffNeck from $YesNo (required)
+* neurologicalDisorders from YesNo (required)
+* seizures from YesNo (required)
+* stiffNeck from YesNo (required)
 * paralysis from YesNoUnknown (required)
 * flaccidParalysis from YesNoUnknown (required)
 * spasticParalysis from YesNoUnknown (required)

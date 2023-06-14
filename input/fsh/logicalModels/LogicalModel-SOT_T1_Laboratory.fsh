@@ -50,9 +50,9 @@ Parent: BackboneElement
 * animalSampleDetails 0..1 BackboneElement "Details of animal sample" "Details of animal sample"
   * animalSample	0..1	string	"Products"	"What kind of animal samples were taken (blood, oropharyngeal swabs, tissue, brain, feaces, etc)"
   * collectionDate	0..1	date	"Date of collection"	"When were animal samples taken?"
-* antibioticReceived from $YesNo (required)
+* antibioticReceived from YesNo (required)
 * proteinuria from YesNoUnknown (required)
 * hematuria from YesNoUnknown (required)
-* bloodGas from $YesNo (required)
-* environmentSampleTaken from $YesNo (required)
-* animalSampleTaken from $YesNo (required)
+* bloodGas from YesNo (required)
+* environmentSampleTaken from YesNo (required)
+* animalSampleTaken from YesNo (required)

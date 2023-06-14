@@ -14,7 +14,7 @@ Usage: #definition
 * contained[+] = BiologicalSex
 * contained[+] = YesNoUnknown
 * contained[+] = PatientOutcome
-//* contained[+] = $YesNo
+* contained[+] = YesNo
 
 //Header
 * insert Question(investigationForm,T0 Initial Case Investigation Form,group,false)
@@ -46,14 +46,14 @@ Usage: #definition
     * insert Question(symptomOnsetDate,	date of onset of symptoms*:____/____/______	,date, false)
     * insert Question(presentedToHCFDate,For this episode\, date first presented to health facility:___/___/_____,	date, false)
     * insert Question(admitted,	Currently admitted in health facility ?:,	choice, false)
-    * item[=].answerValueSet = $YesNo
+    * item[=].answerValueSet = Canonical(YesNo)
     * insert Question(admittedHCFName,	name:,	string, false)
       * item[=]
         * enableWhen
           * question = "admitted"
           * operator = #=
           * answerCoding 
-            * system = $YesNo
+            * system = Canonical(YesNo)
             * code =  #Yes
     * insert Question(outcome, Outcome of illness*:, choice, false)
     * item[=].answerValueSet = Canonical(PatientOutcome)
@@ -90,7 +90,7 @@ Usage: #definition
           * question = "intensePain"
           * operator = #=
           * answerCoding 
-            * system = "http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown"
+            * system = Canonical(YesNoUnknown)
             * code =  #Yes    
       * insert Question(chestPain,Chest pain,choice,false)
       * item[=].answerValueSet = Canonical(YesNoUnknown)      
