@@ -53,8 +53,8 @@ Usage: #definition
           * question = "admitted"
           * operator = #=
           * answerCoding 
-            * system = Canonical(YesNo)
-            * code =  #Yes
+            * system = $YesNo
+            * code =  #Y
     * insert Question(outcome, Outcome of illness*:, choice, false)
     * item[=].answerValueSet = Canonical(PatientOutcome)
     * insert Question(outcomeEvaluatedDate,	date outcome was evaluated:___/___/_____,	date, false)
