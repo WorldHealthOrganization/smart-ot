@@ -61,7 +61,7 @@ Usage: #definition
   * insert Question(name, Patient’s first and last names, string, false)
   * insert Question(guardian, Name of the mother or guardian, string, false)
   * insert Question(address, Address, string, false)
-  * insert Question(telephone, Telephone, ContactPoint, false)
+  * insert Question(telephone, Telephone, string, false)
   * insert Question(landmark, Landmarks to locate the house, string, false)
   * insert Question(occupation, Patient’s Occupation, string, false)
   * insert Question(location living in, Type of locality, choice, false)
