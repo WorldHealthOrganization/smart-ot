@@ -3,8 +3,7 @@ Alias: $InitDiag = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSe
 ValueSet:      InitDiag
 Id:	           InitDiag
 Title:	       "SOT Measles Initial Diagnosis"
-Description:   """
-"""
+Description:   "SOT Measles Initial Diagnosis"
 * ^status = #draft
 * ^url = $InitDiag
 * ^version = "0.2.1"

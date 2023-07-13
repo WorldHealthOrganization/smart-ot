@@ -3,7 +3,6 @@ Alias: $ProvType = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSe
 ValueSet:      ProvType
 Id:	           ProvType
 Title:	       "SOT Measles Provider Type"
-Description:   """
-"""
+Description:   "SOT Measles Provider Type"
 * ^status = #draft
 * include codes from system $ProvTypeCs

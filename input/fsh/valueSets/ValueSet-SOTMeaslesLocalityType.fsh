@@ -3,7 +3,6 @@ Alias: $LocType = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet
 ValueSet:      LocType
 Id:	           LocType
 Title:	       "SOT Measles Locality Type"
-Description:   """
-"""
+Description:   "SOT Measles Locality Type"
 * ^status = #draft
 * include codes from system $LocTypeCs 
