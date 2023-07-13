@@ -70,7 +70,7 @@ Usage: #definition
   * insert Question(sex, Patient’s sex, choice, false)
   * item[=].answerValueSet = Canonical(BiologicalSex)
   * insert Question(DoB, Patient’s Date of Birth, date, false)
-  * insert Question(ageOnset, If date of birth is unknown\, age, Age, false)
+  * insert Question(ageOnset, If date of birth is unknown\, age, Quantity, false)
 //Vaccination Status
 * item[=]
   * insert Question(vaccinationStatus, Section III: Vaccination History, group, true)
@@ -94,6 +94,11 @@ Usage: #definition
       * answerCoding 
         * system = Canonical(YesNoUnknown)
         * code =  #Yes
+  * item[=]
+    * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
+    * extension[=].valueCoding = http://unitsofmeasure.org#Cel
+    * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
+    * extension[=].valueCoding = http://unitsofmeasure.org#[degF]
   * insert Question(dateOfFeverOnset, Date of fever onset, date, false)
   * item[=]
     * enableWhen
