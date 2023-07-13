@@ -1,7 +1,7 @@
-Alias: $LocType = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/LocType
+Alias: $NoOfDoses = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/NoOfDoses
 
-ValueSet:      LocType
-Id:	           LocType
-Title:	       "SOT Measles Locality Type"
-Description:   "SOT Measles Locality Type"
+ValueSet:      NoOfDoses
+Id:	           NoOfDoses
+Title:	       "SOT Measles No Of Doses"
+Description:   "SOT Measles No Of Doses"
 * ^status = #draft
