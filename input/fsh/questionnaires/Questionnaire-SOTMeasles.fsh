@@ -70,7 +70,7 @@ Usage: #definition
   * insert Question(sex, Patient’s sex, choice, false)
   * item[=].answerValueSet = Canonical(BiologicalSex)
   * insert Question(DoB, Patient’s Date of Birth, date, false)
-  * insert Question(ageOnset, If date of birth is unknown\, age, Quantity, false)
+  * insert Question(ageOnset, If date of birth is unknown\, age, integer, false)
 //Vaccination Status
 * item[=]
   * insert Question(vaccinationStatus, Section III: Vaccination History, group, true)
