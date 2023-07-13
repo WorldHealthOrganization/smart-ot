@@ -21,11 +21,11 @@ Usage: #definition
 * contained[+] = InitDiag
 
 //Header
-* insert Question(investigationForm,Investigation Form for Measles/Rubella,display,false)
+* insert Question(investigationForm,Investigation Form for Measles/Rubella,group,false)
 * insert Question (description, Complete this form for: Any person in whom a health care worker suspects measles or rubella infection or a patient with fever and rash. The health worker should attempt to collect epidemiological and clinical data \, as well as a blood sample \, on the first contact with the patient. This contact with the patient might be the only one., display,false)
 //Reporting Source
 * item[=]
-* insert Question(ReportingSource, Section I: Identification of the Reporting Institution, display, false)
+* insert Question(ReportingSource, Section I: Identification of the Reporting Institution, group, false)
 * item[=]
   * insert Question(initialDiagnosis, Initial Diagnosis, choice,false)
   * item[=].answerValueSet = Canonical(InitDiag)
