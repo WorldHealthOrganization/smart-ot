@@ -86,7 +86,7 @@ Usage: #definition
   * insert Question(clinical, Section IV: Clinical Data; Follow-up & Treatment, group, false)
   * insert Question(fever, Fever?, choice, false)
   * item[=].answerValueSet = Canonical(YesNoUnknown)
-  * insert Question(temperature, If Yes\, temperature (°\), Quantity, false)
+  * insert Question(temperature, If Yes\, temperature (°\), decimal, false)
   * item[=]
     * enableWhen
       * question = "fever"
@@ -109,7 +109,7 @@ Usage: #definition
         * code =  #Yes
   * insert Question(rash, Rash?, choice, false)
   * item[=].answerValueSet = Canonical(YesNoUnknown) 
-  * insert Question(rashDuration, If Yes\, duration of the rash(in days\),Quantity,false)
+  * insert Question(rashDuration, If Yes\, duration of the rash(in days\),integer,false)
   * item[=]
     * enableWhen
       * question = "rash"
@@ -147,7 +147,7 @@ Usage: #definition
   * item[=].answerValueSet = Canonical(YesNoUnknown)
   * insert Question(pregnancy, Is the patient pregnant?, choice, false)
   * item[=].answerValueSet = Canonical(YesNoUnknown)
-  * insert Question(monthsPregnant, Weeks of pregnancy (01-42\), Quantity, false)
+  * insert Question(monthsPregnant, Weeks of pregnancy (01-42\), integer, false)
   * item[=]
     * enableWhen
       * question = "pregnancy"
