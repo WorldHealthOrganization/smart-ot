@@ -94,12 +94,12 @@ Usage: #definition
       * answerCoding 
         * system = Canonical(YesNoUnknown)
         * code =  #Yes
-  * item[=]
+/*  * item[=]
     * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
     * extension[=].valueCoding = http://unitsofmeasure.org#Cel
     * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
-    * extension[=].valueCoding = http://unitsofmeasure.org#[degF]
-  * insert Question(dateOfFeverOnset, Date of fever onset, date, false)
+    * extension[=].valueCoding = http://unitsofmeasure.org#[degF]*/
+/*  * insert Question(dateOfFeverOnset, Date of fever onset, date, false)
   * item[=]
     * enableWhen
       * question = "fever"
@@ -208,7 +208,7 @@ Usage: #definition
         * system = Canonical(PatientOutcome)
         * code =  #Death
   * insert Question(diseaseAdditionalInfo, Comments, string, false)
-/*//Laboratory Results
+//Laboratory Results
 * insert Question(laboratoryResults, Section V: Specimens & Laboratory Testing, group, false)
 * item[=]
   * insert Question(specimenNumber, Specimen number*, choice, false)
