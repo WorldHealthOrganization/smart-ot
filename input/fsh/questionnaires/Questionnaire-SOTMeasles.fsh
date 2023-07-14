@@ -209,59 +209,59 @@ Usage: #definition
           * system = Canonical(PatientOutcome)
           * code =  #Death
     * insert Question(diseaseAdditionalInfo, Comments, string, false)
-/*/Laboratory Results
-* insert Question(laboratoryResults, Section V: Specimens & Laboratory Testing, group, false)
-* item[=]
-  * insert Question(specimenNumber, Specimen number*, choice, false)
-  * item[=].answerValueSet = Canonical(SpecimenNumber)
-  * insert Question(sampleType, Type of specimen**, choice, false)
-  * item[=].answerValueSet = Canonical(SampleType)
-  * insert Question(collectionDate, Date specimen obtained, date, false)
-  * insert Question(labName, Laboratory Name, string, false)
-  * insert Question(specimenSentDate, Date specimen was sent to lab, date, false)
-  * insert Question(specimenReceivedDate, Date Received, date, false)
-  * insert Question(sampleId, # specimen ID in lab., string, false)
-  * insert Question(testPerformed, Type of test, choice, false)
-  * item[=].answerValueSet = Canonical(TestPerformed)
-  * insert Question(antigen, Antigen, choice, false)
-  * item[=].answerValueSet = Canonical(Antigen)
-  * insert Question(result, Result, choice, false)
-  * item[=].answerValueSet = Canonical(Result)
-  * insert Question(resultDate, Date of Results, date, false)
-  * insert Question(specifyVirus,If virus was detected\, specify viral genotype: (Measles: A\, B1\, B2\, B3\, C1\, C2\, D1\, D2\, D3\, D4\, D5\, D6\, D7\, D8\, D9\, D10\, E\, F\, G1\, G2\, G3\, H1\, H2. Rubella: 1a\, 1B\, 1C\,
+//Laboratory Results
+  * insert Question(laboratoryResults, Section V: Specimens & Laboratory Testing, group, false)
+  * item[=]
+    * insert Question(specimenNumber, Specimen number*, choice, false)
+    * item[=].answerValueSet = Canonical(SpecimenNumber)
+    * insert Question(sampleType, Type of specimen**, choice, false)
+    * item[=].answerValueSet = Canonical(SampleType)
+    * insert Question(collectionDate, Date specimen obtained, date, false)
+    * insert Question(labName, Laboratory Name, string, false)
+    * insert Question(specimenSentDate, Date specimen was sent to lab, date, false)
+    * insert Question(specimenReceivedDate, Date Received, date, false)
+    * insert Question(sampleId, # specimen ID in lab., string, false)
+    * insert Question(testPerformed, Type of test, choice, false)
+    * item[=].answerValueSet = Canonical(TestPerformed)
+    * insert Question(antigen, Antigen, choice, false)
+    * item[=].answerValueSet = Canonical(Antigen)
+    * insert Question(result, Result, choice, false)
+    * item[=].answerValueSet = Canonical(Result)
+    * insert Question(resultDate, Date of Results, date, false)
+    * insert Question(specifyVirus,If virus was detected\, specify viral genotype: (Measles: A\, B1\, B2\, B3\, C1\, C2\, D1\, D2\, D3\, D4\, D5\, D6\, D7\, D8\, D9\, D10\, E\, F\, G1\, G2\, G3\, H1\, H2. Rubella: 1a\, 1B\, 1C\,
 1D\, 1E\, 1F\, 1g\, 2A\, 2B\, 2c\), string, false )
 //Contact Tracing
-* insert Question(contactTracing, Section VI: Investigation, group, false)
-* item[=]
-  * insert Question(caseSearchConducted, Were active case-searches conducted?, choice, false)
-  * item[=].answerValueSet = Canonical(YesNoUnknown)
-  * insert Question(noOfsuspectCases, If Yes\, Number of suspect cases detected during active case-search, integer, false)
+  * insert Question(contactTracing, Section VI: Investigation, group, false)
   * item[=]
-    * enableWhen
-      * question = "caseSearchConducted"
-      * operator = #=
-      * answerCoding 
-        * system = Canonical(YesNoUnknown)
-        * code =  #Yes  
-  * insert Question(pregnantContact, Was the patient in contact with any pregnant woman?, choice, false)
-  * item[=].answerValueSet = Canonical(YesNoUnknown)  
-  * insert Question(pregnantContactNames, If Yes\, Name(s\), string, false)
-  * item[=]
-    * enableWhen
-      * question = "pregnantContact"
-      * operator = #=
-      * answerCoding 
-        * system = Canonical(YesNoUnknown)
-        * code =  #Yes   
-  * insert Question(localCasesPresent, Are there other cases present in the case’s municipality of residence?, choice, false)
-  * item[=].answerValueSet = Canonical(LocalCasesPresent)  
-  * insert Question(travelledOutside, Did the patient travel outside his/her province/state of residence 7-23 days before rash onset?, choice, false)
-  * item[=].answerValueSet = Canonical(YesNoUnknown)  
-  * insert Question(travelDetails, If Yes\,:, group, true)
-  * item[=]  
-    * insert Question(placeOfTravel, Cities/Countries, string, false)
-    * insert Question(arrivalDate, Date of arrival, date, false)
-    * insert Question(departureDate, Date of departure, date, false)
+    * insert Question(caseSearchConducted, Were active case-searches conducted?, choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown)
+    * insert Question(noOfsuspectCases, If Yes\, Number of suspect cases detected during active case-search, integer, false)
+    * item[=]
+      * enableWhen
+        * question = "caseSearchConducted"
+        * operator = #=
+        * answerCoding 
+          * system = Canonical(YesNoUnknown)
+          * code =  #Yes  
+    * insert Question(pregnantContact, Was the patient in contact with any pregnant woman?, choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown)  
+    * insert Question(pregnantContactNames, If Yes\, Name(s\), string, false)
+    * item[=]
+      * enableWhen
+        * question = "pregnantContact"
+        * operator = #=
+        * answerCoding 
+          * system = Canonical(YesNoUnknown)
+          * code =  #Yes   
+    * insert Question(localCasesPresent, Are there other cases present in the case’s municipality of residence?, choice, false)
+    * item[=].answerValueSet = Canonical(LocalCasesPresent)  
+    * insert Question(travelledOutside, Did the patient travel outside his/her province/state of residence 7-23 days before rash onset?, choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown)  
+    * insert Question(travelDetails, If Yes\,:, group, true)
+    * item[=]  
+      * insert Question(placeOfTravel, Cities/Countries, string, false)
+      * insert Question(arrivalDate, Date of arrival, date, false)
+      * insert Question(departureDate, Date of departure, date, false)
     * item[=]    
       * enableWhen
         * question = "travelledOutside"
@@ -269,9 +269,9 @@ Usage: #definition
         * answerCoding 
           * system = Canonical(YesNoUnknown)
           * code =  #Yes  
-  * insert Question(infectionSetting, Setting where infected?, choice, false)
-  * item[=].answerValueSet = Canonical(InfectionSetting)
-//Epidemiological Data
+    * insert Question(infectionSetting, Setting where infected?, choice, false)
+    * item[=].answerValueSet = Canonical(InfectionSetting)
+/*/Epidemiological Data
 * insert Question(epiData, Section VII: Response Measures, group, false)
 * item[=]
   * insert Question(ringVaccination, Ring vaccination?, choice, false)
