@@ -72,7 +72,7 @@ Usage: #definition
   * insert Question(DoB, Patient’s Date of Birth, date, false)
   * insert Question(ageOnset, If date of birth is unknown\, age, integer, false)
 //Vaccination Status
-* insert Question(vaccinationStatus, Section III: Vaccination History, group, false)
+* insert Question(vaccinationStatus, Section III: Vaccination History, group, true)
 * item[=]
   * insert Question(vaccineType, Type of Vaccine*, choice, false)
   * item[=].answerValueSet = Canonical(VaccineType)
@@ -98,8 +98,9 @@ Usage: #definition
     * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
     * extension[=].valueCoding = http://unitsofmeasure.org#Cel
     * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
-    * extension[=].valueCoding = http://unitsofmeasure.org#[degF]*/
-/*  * insert Question(dateOfFeverOnset, Date of fever onset, date, false)
+    * extension[=].valueCoding = http://unitsofmeasure.org#[degF]
+*/
+  * insert Question(dateOfFeverOnset, Date of fever onset, date, false)
   * item[=]
     * enableWhen
       * question = "fever"
@@ -155,7 +156,7 @@ Usage: #definition
       * answerCoding 
         * system = Canonical(YesNoUnknown)
         * code =  #Yes  
-  * insert Question(placeOfBirth, If Yes\, Place where birth will likely take place, string, false)
+/*  * insert Question(placeOfBirth, If Yes\, Place where birth will likely take place, string, false)
   * item[=]
     * enableWhen
       * question = "pregnancy"
