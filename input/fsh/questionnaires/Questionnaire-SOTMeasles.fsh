@@ -94,11 +94,11 @@ Usage: #definition
       * answerCoding 
         * system = Canonical(YesNoUnknown)
         * code =  #Yes
-//  * item[=]
+/*  * item[=]
     * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
     * extension[=].valueCoding = http://unitsofmeasure.org#Cel
     * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
-    * extension[=].valueCoding = http://unitsofmeasure.org#[degF]
+    * extension[=].valueCoding = http://unitsofmeasure.org#[degF]*/
   * insert Question(dateOfFeverOnset, Date of fever onset, date, false)
   * item[=]
     * enableWhen
