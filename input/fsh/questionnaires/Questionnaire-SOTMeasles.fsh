@@ -22,39 +22,39 @@ Usage: #definition
 
 //Header
 * insert Question(investigationForm,Investigation Form for Measles/Rubella,group,false)
-* insert Question (description, Complete this form for: Any person in whom a health care worker suspects measles or rubella infection or a patient with fever and rash. The health worker should attempt to collect epidemiological and clinical data \, as well as a blood sample \, on the first contact with the patient. This contact with the patient might be the only one., display,false)
+* item[=]
+  * insert Question (description, Complete this form for: Any person in whom a health care worker suspects measles or rubella infection or a patient with fever and rash. The health worker should attempt to collect epidemiological and clinical data \, as well as a blood sample \, on the first contact with the patient. This contact with the patient might be the only one., display,false)
 //Reporting Source
-* item[=]
-* insert Question(reportingSource, Section I: Identification of the Reporting Institution, group, false)
-* item[=]
-  * insert Question(initialDiagnosis, Initial Diagnosis, choice,false)
-  * item[=].answerValueSet = Canonical(InitDiag)
-  * insert Question(caseID,Case Number, string,false)
-  * insert Question(reportingInstitution, Reporting Institution, group, false)
+  * insert Question(reportingSource, Section I: Identification of the Reporting Institution, group, false)
   * item[=]
-    * insert Question(reportingFacility, Health Service Name, string, false)
-    * insert Question (telephone, Health Service Telephone, string, false)
-    * insert Question (country, Country, string, false)
-    * insert Question (municipality, Municipality, string, false)
-    * insert Question(state, Province/State, string,false)
-    * insert Question(locality, Locality/Neighborhood, string, false)
-  * insert Question (reportedBy, Reported By, string, false)
-  * insert Question (DateOfConsultation, Date Of Consultation, date, false)
-  * insert Question (DateOfHomeVisit, Date Of Home Visit, date, false)
-  * insert Question (dateReported, Date Reported - Local, date, false)
-  * insert Question (DateReportedNational, Date Reported - National, date, false)
-  * insert Question (DetectedBy, Detected By, choice, false)
-  * item[=].answerValueSet = Canonical(DetectedBy)
-  * insert Question (TypeOfProviderReporting, Type Of Provider Reporting,choice, false)
-  * item[=].answerValueSet = Canonical(ProvType)
-  * insert Question(specifyother, Specify, string, false)
-  * item[=]
-    * enableWhen
-      * question = "TypeOfProviderReporting"
-      * operator = #=
-      * answerCoding 
-        * system = "http://ritikarawlani.github.io/smart-outbreak-measles/ProvType"
-        * code =  #88
+    * insert Question(initialDiagnosis, Initial Diagnosis, choice,false)
+    * item[=].answerValueSet = Canonical(InitDiag)
+    * insert Question(caseID,Case Number, string,false)
+    * insert Question(reportingInstitution, Reporting Institution, group, false)
+    * item[=]
+      * insert Question(reportingFacility, Health Service Name, string, false)
+      * insert Question (telephone, Health Service Telephone, string, false)
+      * insert Question (country, Country, string, false)
+      * insert Question (municipality, Municipality, string, false)
+      * insert Question(state, Province/State, string,false)
+      * insert Question(locality, Locality/Neighborhood, string, false)
+    * insert Question (reportedBy, Reported By, string, false)
+    * insert Question (DateOfConsultation, Date Of Consultation, date, false)
+    * insert Question (DateOfHomeVisit, Date Of Home Visit, date, false)
+    * insert Question (dateReported, Date Reported - Local, date, false)
+    * insert Question (DateReportedNational, Date Reported - National, date, false)
+    * insert Question (DetectedBy, Detected By, choice, false)
+    * item[=].answerValueSet = Canonical(DetectedBy)
+    * insert Question (TypeOfProviderReporting, Type Of Provider Reporting,choice, false)
+    * item[=].answerValueSet = Canonical(ProvType)
+    * insert Question(specifyother, Specify, string, false)
+    * item[=]
+      * enableWhen
+        * question = "TypeOfProviderReporting"
+        * operator = #=
+        * answerCoding 
+          * system = "http://ritikarawlani.github.io/smart-outbreak-measles/ProvType"
+          * code =  #88
 //Demographics
 * insert Question(demographics, Section II: Patient Information, group, false)
 * item[=]
@@ -72,7 +72,7 @@ Usage: #definition
   * insert Question(DoB, Patient’s Date of Birth, date, false)
   * insert Question(ageOnset, If date of birth is unknown\, age, integer, false)
 //Vaccination Status
-* insert Question(vaccinationStatus, Section III: Vaccination History, group, true)
+* insert Question(vaccinationStatus, Section III: Vaccination History, group, false)
 * item[=]
   * insert Question(vaccineType, Type of Vaccine*, choice, false)
   * item[=].answerValueSet = Canonical(VaccineType)
@@ -94,11 +94,11 @@ Usage: #definition
       * answerCoding 
         * system = Canonical(YesNoUnknown)
         * code =  #Yes
-/*  * item[=]
+  * item[=]
     * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
     * extension[=].valueCoding = http://unitsofmeasure.org#Cel
     * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
-    * extension[=].valueCoding = http://unitsofmeasure.org#[degF]*/
+    * extension[=].valueCoding = http://unitsofmeasure.org#[degF]
   * insert Question(dateOfFeverOnset, Date of fever onset, date, false)
   * item[=]
     * enableWhen
@@ -208,7 +208,7 @@ Usage: #definition
         * system = Canonical(PatientOutcome)
         * code =  #Death
   * insert Question(diseaseAdditionalInfo, Comments, string, false)
-//Laboratory Results
+/*//Laboratory Results
 * insert Question(laboratoryResults, Section V: Specimens & Laboratory Testing, group, false)
 * item[=]
   * insert Question(specimenNumber, Specimen number*, choice, false)
@@ -349,4 +349,4 @@ Usage: #definition
         * system = Canonical(YesNoUnknown)
         * code =  #Yes
   * insert Question(classifiedBy, Classified by, string, false)
-  * insert Question(classificationDate, Date of final classification, date, false)
+  * insert Question(classificationDate, Date of final classification, date, false)*/
