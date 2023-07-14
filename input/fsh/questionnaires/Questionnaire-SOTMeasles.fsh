@@ -72,8 +72,8 @@ Usage: #definition
   * insert Question(DoB, Patient’s Date of Birth, date, false)
   * insert Question(ageOnset, If date of birth is unknown\, age, integer, false)
 //Vaccination Status
+* insert Question(vaccinationStatus, Section III: Vaccination History, group, true)
 * item[=]
-  * insert Question(vaccinationStatus, Section III: Vaccination History, group, true)
   * insert Question(vaccineType, Type of Vaccine*, choice, false)
   * item[=].answerValueSet = Canonical(VaccineType)
   * insert Question(noOfDoses, Number of doses**, choice, false)
@@ -82,8 +82,8 @@ Usage: #definition
   * insert Question(sourceOfInformation, Source of vaccination Information †, choice, false)
   * item[=].answerValueSet = Canonical(SourceOfInformation)
 //Clinical
+* insert Question(clinical, Section IV: Clinical Data; Follow-up & Treatment, group, false)
 * item[=]
-  * insert Question(clinical, Section IV: Clinical Data; Follow-up & Treatment, group, false)
   * insert Question(fever, Fever?, choice, false)
   * item[=].answerValueSet = Canonical(YesNoUnknown)
   * insert Question(temperature, If Yes\, temperature (°\), decimal, false)
@@ -95,10 +95,10 @@ Usage: #definition
         * system = Canonical(YesNoUnknown)
         * code =  #Yes
 //  * item[=]
-//    * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
-//    * extension[=].valueCoding = http://unitsofmeasure.org#Cel
-//    * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
-//    * extension[=].valueCoding = http://unitsofmeasure.org#[degF]
+    * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
+    * extension[=].valueCoding = http://unitsofmeasure.org#Cel
+    * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
+    * extension[=].valueCoding = http://unitsofmeasure.org#[degF]
   * insert Question(dateOfFeverOnset, Date of fever onset, date, false)
   * item[=]
     * enableWhen
@@ -209,15 +209,144 @@ Usage: #definition
         * code =  #Death
   * insert Question(diseaseAdditionalInfo, Comments, string, false)
 //Laboratory Results
+* insert Question(laboratoryResults, Section V: Specimens & Laboratory Testing, group, false)
 * item[=]
-  * insert Question(laboratoryResults, Section V: Specimens & Laboratory Testing, group, false)
-
+  * insert Question(specimenNumber, Specimen number*, choice, false)
+  * item[=].answerValueSet = Canonical(SpecimenNumber)
+  * insert Question(sampleType, Type of specimen**, choice, false)
+  * item[=].answerValueSet = Canonical(SampleType)
+  * insert Question(collectionDate, Date specimen obtained, date, false)
+  * insert Question(labName, Laboratory Name, string, false)
+  * insert Question(specimenSentDate, Date specimen was sent to lab, date, false)
+  * insert Question(specimenReceivedDate, Date Received, date, false)
+  * insert Question(sampleId, # specimen ID in lab., string, false)
+  * insert Question(testPerformed, Type of test, choice, false)
+  * item[=].answerValueSet = Canonical(TestPerformed)
+  * insert Question(antigen, Antigen, choice, false)
+  * item[=].answerValueSet = Canonical(Antigen)
+  * insert Question(result, Result, choice, false)
+  * item[=].answerValueSet = Canonical(Result)
+  * insert Question(resultDate, Date of Results, date, false)
+  * insert Question(specifyVirus,If virus was detected\, specify viral genotype: (Measles: A\, B1\, B2\, B3\, C1\, C2\, D1\, D2\, D3\, D4\, D5\, D6\, D7\, D8\, D9\, D10\, E\, F\, G1\, G2\, G3\, H1\, H2. Rubella: 1a\, 1B\, 1C\,
+1D\, 1E\, 1F\, 1g\, 2A\, 2B\, 2c\), string, false )
 //Contact Tracing
+* insert Question(contactTracing, Section VI: Investigation, group, false)
 * item[=]
-  * insert Question(contactTracing, Section VI: Investigation, group, false)
+  * insert Question(caseSearchConducted, Were active case-searches conducted?, choice, false)
+  * item[=].answerValueSet = Canonical(YesNoUnknown)
+  * insert Question(noOfsuspectCases, If Yes\, Number of suspect cases detected during active case-search, integer, false)
+  * item[=]
+    * enableWhen
+      * question = "caseSearchConducted"
+      * operator = #=
+      * answerCoding 
+        * system = Canonical(YesNoUnknown)
+        * code =  #Yes  
+  * insert Question(pregnantContact, Was the patient in contact with any pregnant woman?, choice, false)
+  * item[=].answerValueSet = Canonical(YesNoUnknown)  
+  * insert Question(pregnantContactNames, If Yes\, Name(s\), string, false)
+  * item[=]
+    * enableWhen
+      * question = "pregnantContact"
+      * operator = #=
+      * answerCoding 
+        * system = Canonical(YesNoUnknown)
+        * code =  #Yes   
+  * insert Question(localCasesPresent, Are there other cases present in the case’s municipality of residence?, choice, false)
+  * item[=].answerValueSet = Canonical(LocalCasesPresent)  
+  * insert Question(travelledOutside, Did the patient travel outside his/her province/state of residence 7-23 days before rash onset?, choice, false)
+  * item[=].answerValueSet = Canonical(YesNoUnknown)  
+  * insert Question(travelDetails, If Yes\,:, group, true)
+  * item[=]  
+    * insert Question(placeOfTravel, Cities/Countries, string, false)
+    * insert Question(arrivalDate, Date of arrival, date, false)
+    * insert Question(departureDate, Date of departure, date, false)
+    * item[=]    
+      * enableWhen
+        * question = "travelledOutside"
+        * operator = #=
+        * answerCoding 
+          * system = Canonical(YesNoUnknown)
+          * code =  #Yes  
+  * insert Question(infectionSetting, Setting where infected?, choice, false)
+  * item[=].answerValueSet = Canonical(InfectionSetting)
 //Epidemiological Data
+* insert Question(epiData, Section VII: Response Measures, group, false)
 * item[=]
-  * insert Question(epiData, Section VII: Response Measures, group, false)
+  * insert Question(ringVaccination, Ring vaccination?, choice, false)
+  * item[=].answerValueSet = Canonical(YesNoUnknown)
+  * insert Question(dateStarted, Date started, date, false)
+  * item[=]
+    * enableWhen
+      * question = "ringVaccination"
+      * operator = #=
+      * answerCoding 
+        * system = Canonical(YesNoUnknown)
+        * code =  #Yes  
+  * insert Question(dateEnded, Date Ended, date, false)
+  * item[=]
+    * enableWhen
+      * question = "ringVaccination"
+      * operator = #=
+      * answerCoding 
+        * system = Canonical(YesNoUnknown)
+        * code =  #Yes  
+  * insert Question(noOfDosesRingVaccination, Number of doses given during ring vaccination, integer, false)
+  * item[=]
+    * enableWhen
+      * question = "ringVaccination"
+      * operator = #=
+      * answerCoding 
+        * system = Canonical(YesNoUnknown)
+        * code =  #Yes  
+  * insert Question(rapidCoverageMonitioring, Was rapid coverage monitoring done, choice, false)
+  * item[=].answerValueSet = Canonical(YesNoUnknown)  
+  * insert Question(percentVaccinated, If yes\, what % of vaccinated persons was found?, integer, false)
+  * item[=]
+    * enableWhen
+      * question = "percentVaccinated"
+      * operator = #=
+      * answerCoding 
+        * system = Canonical(YesNoUnknown)
+        * code =  #Yes 
+  * insert Question(contactTracingDone,Were the contacts followed for up to 30 days after the date of the rash onset of the case?, choice, false)
+  * item[=].answerValueSet = Canonical(YesNoUnknown)  
+  * insert Question(lastFollowUp, If yes\, date of the last day of contact follow-up, date, false)
+  * item[=]
+    * enableWhen
+      * question = "contactTracingDone"
+      * operator = #=
+      * answerCoding 
+        * system = Canonical(YesNoUnknown)
+        * code =  #Yes 
 //Classification
+* insert Question(classification, Section VIII: Classification, group, false)
 * item[=]
-  * insert Question(classification, Section VIII: Classification, group, false)
+  * insert Question(finalClassification, Final Classification, choice, false)
+  * item[=].answerValueSet = Canonical(FinalClassification)
+  * insert Question(confirmationBasis, Basis for confirmation, choice, false)
+  * item[=].answerValueSet = Canonical(ConfirmationBasis)
+  * insert Question(countryImportation, If Imported or Import-related\, Country of importation, string, false)
+  * item[=]
+    * enableWhen
+      * question = "confirmationBasis"
+      * operator = #=
+      * answerCoding 
+        * system = Canonical(ConfirmationBasis)
+        * code =  #1
+  * insert Question(DiscardingBasis, Basis for discarding, choice, false)
+  * item[=].answerValueSet = Canonical(DiscardingBasis)
+  * insert Question(SourceOfInfection, For confirmed cases\, Source of infection, choice, false)
+  * item[=].answerValueSet = Canonical(SourceOfInfection)
+  * insert Question(contact, Contact of another case?, choice, false)
+  * item[=].answerValueSet = Canonical(YesNoUnknown) 
+  * insert Question(contactCaseNo, Contact of (or epidemiologically-linked to\) case number, string, false)
+  * item[=]
+    * enableWhen
+      * question = "contact"
+      * operator = #=
+      * answerCoding 
+        * system = Canonical(YesNoUnknown)
+        * code =  #Yes
+  * insert Question(classifiedBy, Classified by, string, false)
+  * insert Question(classificationDate, Date of final classification, date, false)
