@@ -93,7 +93,7 @@ Usage: #definition
         * question = "fever"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes
 /*  * item[=]
     * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
@@ -107,7 +107,7 @@ Usage: #definition
         * question = "fever"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes
     * insert Question(rash, Rash?, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown) 
@@ -117,7 +117,7 @@ Usage: #definition
         * question = "rash"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes  
     * insert Question(rashOnsetDate, Date of rash onset, date, false)
     * item[=]
