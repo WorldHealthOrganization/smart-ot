@@ -305,7 +305,7 @@ Usage: #definition
     * insert Question(percentVaccinated, If yes\, what % of vaccinated persons was found?, integer, false)
     * item[=]
       * enableWhen
-        * question = "percentVaccinated"
+        * question = "rapidCoverageMonitioring"
         * operator = #=
         * answerCoding 
           * system = Canonical(YesNoUnknown)
@@ -335,9 +335,9 @@ Usage: #definition
         * answerCoding 
           * system = Canonical(ConfirmationBasis)
           * code =  #1
-    * insert Question(DiscardingBasis, Basis for discarding, choice, false)
+    * insert Question(discardingBasis, Basis for discarding, choice, false)
     * item[=].answerValueSet = Canonical(DiscardingBasis)
-    * insert Question(SourceOfInfection, For confirmed cases\, Source of infection, choice, false)
+    * insert Question(sourceOfInfection, For confirmed cases\, Source of infection, choice, false)
     * item[=].answerValueSet = Canonical(SourceOfInfection)
     * insert Question(contact, Contact of another case?, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown) 
