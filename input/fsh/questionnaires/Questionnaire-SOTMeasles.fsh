@@ -19,6 +19,7 @@ Usage: #definition
 * language = #en
 * status = #draft
 * contained[+] = InitDiag
+* contained[+] = YesNoUnknown
 
 //Header
 * insert Question(investigationForm,Investigation Form for Measles/Rubella,group,false)
