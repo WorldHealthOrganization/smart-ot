@@ -54,7 +54,7 @@ Usage: #definition
         * question = "TypeOfProviderReporting"
         * operator = #=
         * answerCoding 
-          * system = "http://ritikarawlani.github.io/smart-outbreak-measles/ProvType"
+          * system = Canonical(ProvTypeCs)
           * code =  #88
 //Demographics
   * insert Question(demographics, Section II: Patient Information, group, false)
@@ -125,7 +125,7 @@ Usage: #definition
         * question = "rash"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes  
     * insert Question(rashType, Type of rash, choice, false)
     * item[=]
@@ -133,7 +133,7 @@ Usage: #definition
         * question = "rash"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes  
     * insert Question(cough, Cough?, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)
@@ -155,7 +155,7 @@ Usage: #definition
         * question = "pregnancy"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes  
     * insert Question(placeOfBirth, If Yes\, Place where birth will likely take place, string, false)
     * item[=]
@@ -163,7 +163,7 @@ Usage: #definition
         * question = "pregnancy"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes
     * insert Question(admitted, Hospitalized?, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)
@@ -173,7 +173,7 @@ Usage: #definition
         * question = "admitted"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes
     * insert Question(admissionDate, If Yes\, Date of admission, date, false)
     * item[=]
@@ -181,7 +181,7 @@ Usage: #definition
         * question = "admitted"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes
     * insert Question(hospitalRecordNumber, Hospital record number, string, false)
     * item[=]
@@ -189,7 +189,7 @@ Usage: #definition
         * question = "admitted"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes
     * insert Question(outcome, Death?, choice, false)
     * item[=].answerValueSet = Canonical(PatientOutcome)
@@ -242,7 +242,7 @@ Usage: #definition
         * question = "caseSearchConducted"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes  
     * insert Question(pregnantContact, Was the patient in contact with any pregnant woman?, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)  
@@ -252,7 +252,7 @@ Usage: #definition
         * question = "pregnantContact"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes   
     * insert Question(localCasesPresent, Are there other cases present in the case’s municipality of residence?, choice, false)
     * item[=].answerValueSet = Canonical(LocalCasesPresent)  
@@ -268,10 +268,18 @@ Usage: #definition
         * question = "travelledOutside"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes  
     * insert Question(infectionSetting, Setting where infected?, choice, false)
     * item[=].answerValueSet = Canonical(InfectionSetting)
+    * insert Question(specifyInfectionSetting, Specify, string, false)
+    * item[=]
+      * enableWhen
+        * question = "infectionSetting"
+        * operator = #=
+        * answerCoding
+          * system = Canonical(InfectionSettingCs)
+          * code = #88
 //Epidemiological Data
   * insert Question(epiData, Section VII: Response Measures, group, false)
   * item[=]
@@ -283,7 +291,7 @@ Usage: #definition
         * question = "ringVaccination"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes  
     * insert Question(dateEnded, Date Ended, date, false)
     * item[=]
@@ -291,7 +299,7 @@ Usage: #definition
         * question = "ringVaccination"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes  
     * insert Question(noOfDosesRingVaccination, Number of doses given during ring vaccination, integer, false)
     * item[=]
@@ -299,7 +307,7 @@ Usage: #definition
         * question = "ringVaccination"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes  
     * insert Question(rapidCoverageMonitioring, Was rapid coverage monitoring done, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)  
@@ -309,7 +317,7 @@ Usage: #definition
         * question = "rapidCoverageMonitioring"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes 
     * insert Question(contactTracingDone,Were the contacts followed for up to 30 days after the date of the rash onset of the case?, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)  
@@ -319,7 +327,7 @@ Usage: #definition
         * question = "contactTracingDone"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes 
 //Classification
   * insert Question(classification, Section VIII: Classification, group, false)
@@ -334,7 +342,7 @@ Usage: #definition
         * question = "confirmationBasis"
         * operator = #=
         * answerCoding 
-          * system = Canonical(ConfirmationBasis)
+          * system = Canonical(ConfirmationBasisCs)
           * code =  #1
     * insert Question(discardingBasis, Basis for discarding, choice, false)
     * item[=].answerValueSet = Canonical(DiscardingBasis)
@@ -348,7 +356,7 @@ Usage: #definition
         * question = "contact"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknown)
+          * system = Canonical(YesNoUnknownCs)
           * code =  #Yes
     * insert Question(classifiedBy, Classified by, string, false)
     * insert Question(classificationDate, Date of final classification, date, false)
