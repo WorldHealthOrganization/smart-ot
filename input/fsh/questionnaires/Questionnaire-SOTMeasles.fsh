@@ -350,4 +350,4 @@ Usage: #definition
           * system = Canonical(YesNoUnknown)
           * code =  #Yes
     * insert Question(classifiedBy, Classified by, string, false)
-    * insert Question(classificationDate, Date of final classification, date, false)*/
+    * insert Question(classificationDate, Date of final classification, date, false)
