@@ -271,83 +271,83 @@ Usage: #definition
           * code =  #Yes  
     * insert Question(infectionSetting, Setting where infected?, choice, false)
     * item[=].answerValueSet = Canonical(InfectionSetting)
-/*/Epidemiological Data
-* insert Question(epiData, Section VII: Response Measures, group, false)
-* item[=]
-  * insert Question(ringVaccination, Ring vaccination?, choice, false)
-  * item[=].answerValueSet = Canonical(YesNoUnknown)
-  * insert Question(dateStarted, Date started, date, false)
+//Epidemiological Data
+  * insert Question(epiData, Section VII: Response Measures, group, false)
   * item[=]
-    * enableWhen
-      * question = "ringVaccination"
-      * operator = #=
-      * answerCoding 
-        * system = Canonical(YesNoUnknown)
-        * code =  #Yes  
-  * insert Question(dateEnded, Date Ended, date, false)
-  * item[=]
-    * enableWhen
-      * question = "ringVaccination"
-      * operator = #=
-      * answerCoding 
-        * system = Canonical(YesNoUnknown)
-        * code =  #Yes  
-  * insert Question(noOfDosesRingVaccination, Number of doses given during ring vaccination, integer, false)
-  * item[=]
-    * enableWhen
-      * question = "ringVaccination"
-      * operator = #=
-      * answerCoding 
-        * system = Canonical(YesNoUnknown)
-        * code =  #Yes  
-  * insert Question(rapidCoverageMonitioring, Was rapid coverage monitoring done, choice, false)
-  * item[=].answerValueSet = Canonical(YesNoUnknown)  
-  * insert Question(percentVaccinated, If yes\, what % of vaccinated persons was found?, integer, false)
-  * item[=]
-    * enableWhen
-      * question = "percentVaccinated"
-      * operator = #=
-      * answerCoding 
-        * system = Canonical(YesNoUnknown)
-        * code =  #Yes 
-  * insert Question(contactTracingDone,Were the contacts followed for up to 30 days after the date of the rash onset of the case?, choice, false)
-  * item[=].answerValueSet = Canonical(YesNoUnknown)  
-  * insert Question(lastFollowUp, If yes\, date of the last day of contact follow-up, date, false)
-  * item[=]
-    * enableWhen
-      * question = "contactTracingDone"
-      * operator = #=
-      * answerCoding 
-        * system = Canonical(YesNoUnknown)
-        * code =  #Yes 
+    * insert Question(ringVaccination, Ring vaccination?, choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown)
+    * insert Question(dateStarted, Date started, date, false)
+    * item[=]
+      * enableWhen
+        * question = "ringVaccination"
+        * operator = #=
+        * answerCoding 
+          * system = Canonical(YesNoUnknown)
+          * code =  #Yes  
+    * insert Question(dateEnded, Date Ended, date, false)
+    * item[=]
+      * enableWhen
+        * question = "ringVaccination"
+        * operator = #=
+        * answerCoding 
+          * system = Canonical(YesNoUnknown)
+          * code =  #Yes  
+    * insert Question(noOfDosesRingVaccination, Number of doses given during ring vaccination, integer, false)
+    * item[=]
+      * enableWhen
+        * question = "ringVaccination"
+        * operator = #=
+        * answerCoding 
+          * system = Canonical(YesNoUnknown)
+          * code =  #Yes  
+    * insert Question(rapidCoverageMonitioring, Was rapid coverage monitoring done, choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown)  
+    * insert Question(percentVaccinated, If yes\, what % of vaccinated persons was found?, integer, false)
+    * item[=]
+      * enableWhen
+        * question = "percentVaccinated"
+        * operator = #=
+        * answerCoding 
+          * system = Canonical(YesNoUnknown)
+          * code =  #Yes 
+    * insert Question(contactTracingDone,Were the contacts followed for up to 30 days after the date of the rash onset of the case?, choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown)  
+    * insert Question(lastFollowUp, If yes\, date of the last day of contact follow-up, date, false)
+    * item[=]
+      * enableWhen
+        * question = "contactTracingDone"
+        * operator = #=
+        * answerCoding 
+          * system = Canonical(YesNoUnknown)
+          * code =  #Yes 
 //Classification
-* insert Question(classification, Section VIII: Classification, group, false)
-* item[=]
-  * insert Question(finalClassification, Final Classification, choice, false)
-  * item[=].answerValueSet = Canonical(FinalClassification)
-  * insert Question(confirmationBasis, Basis for confirmation, choice, false)
-  * item[=].answerValueSet = Canonical(ConfirmationBasis)
-  * insert Question(countryImportation, If Imported or Import-related\, Country of importation, string, false)
+  * insert Question(classification, Section VIII: Classification, group, false)
   * item[=]
-    * enableWhen
-      * question = "confirmationBasis"
-      * operator = #=
-      * answerCoding 
-        * system = Canonical(ConfirmationBasis)
-        * code =  #1
-  * insert Question(DiscardingBasis, Basis for discarding, choice, false)
-  * item[=].answerValueSet = Canonical(DiscardingBasis)
-  * insert Question(SourceOfInfection, For confirmed cases\, Source of infection, choice, false)
-  * item[=].answerValueSet = Canonical(SourceOfInfection)
-  * insert Question(contact, Contact of another case?, choice, false)
-  * item[=].answerValueSet = Canonical(YesNoUnknown) 
-  * insert Question(contactCaseNo, Contact of (or epidemiologically-linked to\) case number, string, false)
-  * item[=]
-    * enableWhen
-      * question = "contact"
-      * operator = #=
-      * answerCoding 
-        * system = Canonical(YesNoUnknown)
-        * code =  #Yes
-  * insert Question(classifiedBy, Classified by, string, false)
-  * insert Question(classificationDate, Date of final classification, date, false)*/
+    * insert Question(finalClassification, Final Classification, choice, false)
+    * item[=].answerValueSet = Canonical(FinalClassification)
+    * insert Question(confirmationBasis, Basis for confirmation, choice, false)
+    * item[=].answerValueSet = Canonical(ConfirmationBasis)
+    * insert Question(countryImportation, If Imported or Import-related\, Country of importation, string, false)
+    * item[=]
+      * enableWhen
+        * question = "confirmationBasis"
+        * operator = #=
+        * answerCoding 
+          * system = Canonical(ConfirmationBasis)
+          * code =  #1
+    * insert Question(DiscardingBasis, Basis for discarding, choice, false)
+    * item[=].answerValueSet = Canonical(DiscardingBasis)
+    * insert Question(SourceOfInfection, For confirmed cases\, Source of infection, choice, false)
+    * item[=].answerValueSet = Canonical(SourceOfInfection)
+    * insert Question(contact, Contact of another case?, choice, false)
+    * item[=].answerValueSet = Canonical(YesNoUnknown) 
+    * insert Question(contactCaseNo, Contact of (or epidemiologically-linked to\) case number, string, false)
+    * item[=]
+      * enableWhen
+        * question = "contact"
+        * operator = #=
+        * answerCoding 
+          * system = Canonical(YesNoUnknown)
+          * code =  #Yes
+    * insert Question(classifiedBy, Classified by, string, false)
+    * insert Question(classificationDate, Date of final classification, date, false)*/
