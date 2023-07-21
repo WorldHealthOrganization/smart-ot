@@ -1,0 +1,22 @@
+map "http://ritikarawlani.github.io/smart-outbreak-measles/StructureMap/MeaslesQuestionnaireToLogicalModel" = "MeaslesQuestionnaireToLogicalModel"
+
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
+uses "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeasles" alias MeaslesLogicalModel as target
+
+//uses "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/Binary" alias DDCC as produced
+//might need a 'my binary profile on logical model instance'
+
+group MeaslesQuestionnaireToLogicalModel ( 
+  source qr : QuestionnaireResponse,
+  target measlesLm : MeaslesLogicalModel
+) {
+qr.item as item where linkId.value in ('investigationForm') -> measlesLm as measlesLm then mapInvestigationForm(item, measlesLm) "set Investigation form";
+}
+
+group mapInvestigationForm(source investigationForm, target measlesLm: MeaslesLogicalModel ) {
+  investigationForm.item as reportingInstitution where linkID.value in ('reportingInstitution') -> measlesLm.ReportingSource as reportingSource then mapReportingSource(reportingInstitution,  measlesLm.ReportingSource) "set reporting source";
+}
+
+group mapReportingSource (source reportingInstitution, target reportingSource: ReportingSourceLogicalModel) {
+  reportingInstitution.item as reportingFacility where linkId.value in ('reportingFacility') -> reportingSource.HealthServiceName = reportingFacility.answer.valueString "set health facility name";
+}
