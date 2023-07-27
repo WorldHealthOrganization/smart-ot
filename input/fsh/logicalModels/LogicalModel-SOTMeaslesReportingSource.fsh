@@ -17,6 +17,9 @@ Parent: BackboneElement
 * DateOfHomeVisit	0..1	 date	"Date of home visit"	"Date of home visit"
 * DateReportedLocal	0..1	 date	"DateReported, Local"	"DateReported, Local"
 * DateReportedNational	0..1	 date	"DateReported, National"	"DateReported, National"
-* DetectedBy	1..1	CodeableConcept	"Detected By"	"Detected By"
-* TypeOfProviderReporting	1..1	CodeableConcept	"Type Of Provider Reporting"	"Type Of Provider Reporting"
-* InitialDiagnosis	0..1	CodeableConcept	"Initial Diagnosis"	"Initial Diagnosis"
+* DetectedBy	1..1	code	"Detected By"	"Detected By"
+* TypeOfProviderReporting	1..1	code	"Type Of Provider Reporting"	"Type Of Provider Reporting"
+* InitialDiagnosis	0..1	code	"Initial Diagnosis"	"Initial Diagnosis"
+* DetectedBy from DetectedBy (required)
+* TypeOfProviderReporting from ProvType (required)
+* InitialDiagnosis from InitDiag (required)

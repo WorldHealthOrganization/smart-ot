@@ -1,22 +1,31 @@
 map "http://ritikarawlani.github.io/smart-outbreak-measles/StructureMap/MeaslesQuestionnaireToLogicalModel" = "MeaslesQuestionnaireToLogicalModel"
 
+
 uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
 uses "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeasles" alias MeaslesLogicalModel as target
 
-//uses "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/Binary" alias DDCC as produced
-//might need a 'my binary profile on logical model instance'
-
-group MeaslesQuestionnaireToLogicalModel ( 
-  source qr : QuestionnaireResponse,
-  target measlesLm : MeaslesLogicalModel
-) {
-qr.item as item where linkId.value in ('investigationForm') -> measlesLm as measlesLm then mapInvestigationForm(item, measlesLm) "set Investigation form";
+group MeaslesQuestionnaireToLogicalModel(source qr : QuestionnaireResponse, target measlesLm : MeaslesLogicalModel) {
+  qr.item as item where linkId.value in ('investigationForm') -> measlesLm as measlesLm then mapInvestigationForm(item, measlesLm) "set Investigation form";
 }
 
-group mapInvestigationForm(source investigationForm, target measlesLm: MeaslesLogicalModel ) {
-  investigationForm.item as reportingInstitution where linkID.value in ('reportingInstitution') -> measlesLm.ReportingSource as reportingSource then mapReportingSource(reportingInstitution,  measlesLm.ReportingSource) "set reporting source";
+group mapInvestigationForm(source investigationForm, target measlesLm : MeaslesLogicalModel) {
+  investigationForm.item as qrReportingSource where linkId.value in ('reportingSource') -> measlesLm.ReportingSource as lmReportingSource then mapReportingSource(qrReportingSource, lmReportingSource) "set reporting source";
 }
 
-group mapReportingSource (source reportingInstitution, target reportingSource: ReportingSourceLogicalModel) {
-  reportingInstitution.item as reportingFacility where linkId.value in ('reportingFacility') -> reportingSource.HealthServiceName = reportingFacility.answer.valueString "set health facility name";
+group mapReportingSource(source qrReportingSource, target lmReportingSource : ReportingSourceLogicalModel) {
+    qrReportingSource.item as initialDiagnosis where linkId.value in ('initialDiagnosis') -> lmReportingSource.InitialDiagnosis = (initialDiagnosis.answer.valueCoding) "set Initial Diagnosis";
+    qrReportingSource.item as caseId where linkId.value in ('caseID') -> lmReportingSource.ReportedBy = (caseId.answer.valueString) "set case ID";
+    qrReportingSource.item as qrReportingInstitution where linkId.value in ('reportingInstitution') -> lmReportingSource as lmReportingSource then mapReportingInstitution(qrReportingInstitution,lmReportingSource) "set reporting institution";
+    qrReportingSource.item as dateOfConsultation where linkId.value in ('DateOfConsultation') -> lmReportingSource.DateOfConsultation = (dateOfConsultation.answer.valueDate) "set date of consultation";
+    qrReportingSource.item as dateOfHomeVisit where linkId.value in ('DateOfHomeVisit') -> lmReportingSource.DateOfHomeVisit = (dateOfHomeVisit.answer.valueDate) "set date of home visit";
+    qrReportingSource.item as dateReportedLocal where linkId.value in ('dateReported') -> lmReportingSource.DateReportedLocal = (dateReportedLocal.answer.valueDate) "set date reported local";
+    qrReportingSource.item as dateReportedNational where linkId.value in ('DateReportedNational') -> lmReportingSource.DateReportedNational = (dateReportedNational.answer.valueDate) "set date reported national";
+}
+
+
+
+group mapReportingInstitution(source qrReportingInstitution,target lmReportingSource: ReportingSourceLogicalModel) {
+	qrReportingInstitution.item as reportingFacility where linkId.value in ('reportingFacility') -> lmReportingSource.HealthServiceName = (reportingFacility.answer.valueString) "set health facility name";
+    qrReportingInstitution.item as telephone where linkId.value in ('telephone') -> lmReportingSource.HealthServiceTelephone = (telephone.answer.valueString) "set telephone";
+
 }
