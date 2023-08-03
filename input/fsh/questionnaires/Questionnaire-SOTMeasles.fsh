@@ -65,7 +65,7 @@ Usage: #definition
     * insert Question(telephone, Telephone, string, false)
     * insert Question(landmark, Landmarks to locate the house, string, false)
     * insert Question(occupation, Patient’s Occupation, string, false)
-    * insert Question(location living in, Type of locality, choice, false)
+    * insert Question(localityType, Type of locality, choice, false)
     * item[=].answerValueSet = Canonical(LocType)
     * insert Question(workAddress, Work or school address, string, false)
     * insert Question(sex, Patient’s sex, choice, false)
