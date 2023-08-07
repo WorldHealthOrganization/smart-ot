@@ -1,3 +1,5 @@
+Alias: $Loinc = http://loinc.org
+
 Profile:        MeaslesCIFComposition
 Parent:         Composition
 Id:             MeaslesCIFComposition
@@ -11,20 +13,11 @@ Description:    """Measles Case Investigation Form Composition
 * identifier.system 1.. MS
 * identifier.value 1.. MS
 * status MS
-//* type = $LOINC#82593-5
-//* type ^short = "Kind of composition (\"Measles\")"
-//* type ^definition = "Specifies that this composition refers to a Measles"
+* type = $LOINC#55751-2
 * title 1.. MS
-* title = "Digital Documentation of COVID-19 Certificate (Measles)"
+* title = "Measles Case Investigation Form"
 * subject 1..1 MS
 * subject.reference 1..1 MS
 * subject only Reference(MeaslesPatient)
-* attester 1..1 MS
-* attester.mode = #official
-* attester.party 1..1 MS
-* attester.party only Reference(MeaslesOrganization)
-* attester.party ^label = "Certificate issuer"
-* event 0..1 
-* event.period 0..1
-* event.period.start ^label = "Certificate valid from"
-* event.period.end ^label = "Certificate valid until"
+* author 1..1 MS
+* author only Reference(MeaslesOrganization)

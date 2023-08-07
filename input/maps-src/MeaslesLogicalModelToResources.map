@@ -1,0 +1,9 @@
+map "http://ritikarawlani.github.io/smart-outbreak-measles/StructureMap/MeaslesLogicalModelToResources" = "MeaslesLogicalModelToResources"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/SOTMeasles" alias MeaslesLogicalModel as source
+uses "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/MeaslesCIFBundle" alias MeaslesCIFBundle as target
+
+group MeaslesLogicalModelToResources(source lm : MeaslesLogicalModel, target bundleCif : MeaslesCIFBundle) {
+  qr.item as item where linkId.value in ('investigationForm') -> measlesLm as measlesLm then mapInvestigationForm(item, measlesLm) "set Investigation form";
+}
