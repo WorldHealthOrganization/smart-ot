@@ -1,4 +1,4 @@
-Alias: $Loinc = http://loinc.org
+Alias: $LOINC = http://loinc.org
 
 Profile:        MeaslesCIFComposition
 Parent:         Composition
