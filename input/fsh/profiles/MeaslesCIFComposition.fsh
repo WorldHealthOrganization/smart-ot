@@ -19,5 +19,14 @@ Description:    """Measles Case Investigation Form Composition
 * subject 1..1 MS
 * subject.reference 1..1 MS
 * subject only Reference(MeaslesPatient)
-* author 1..1 MS
-* author only Reference(MeaslesOrganization)
+* author 1..* MS
+* author ^slicing.discriminator.type = #pattern
+* author ^slicing.discriminator.path = "."
+* author ^slicing.rules = #open
+* author ^slicing.ordered = false   // can be omitted, since false is the default
+* author ^slicing.description = "Slice based on the author. pattern"
+* author contains organization 1..1 and practitioner 1..1 MS 
+* author[organization] only Reference(MeaslesOrganization)
+* author[practitioner] only Reference(Practitioner)
+* encounter 1..1 MS
+* encounter only Reference(MeaslesEncounter)

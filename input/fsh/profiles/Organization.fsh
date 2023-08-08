@@ -7,5 +7,6 @@ Abstraction for a Measles Organization. There should be a Measles Organization a
 to each public health authortiy (PHA)
 """
 * name 1..1 MS
+* telecom 1..1 MS
 * contact 1..1 MS
 * extension contains ProviderType named ProviderType 1..1 MS
