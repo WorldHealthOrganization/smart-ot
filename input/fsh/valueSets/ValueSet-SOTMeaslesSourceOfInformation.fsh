@@ -1,4 +1,4 @@
-Alias: $SourceOfInformation = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/SourceOfInformation
+Alias: $SourceOfInformation = http://worldhealthorganization.github.io/smart-ot/ValueSet/SourceOfInformation
 
 ValueSet:      SourceOfInformation
 Id:	           SourceOfInformation

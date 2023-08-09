@@ -2,7 +2,7 @@ Logical: SOTT1CaseInfo
 Title: "Surveillance & Outbreak Toolkit T1  Case Information"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTT1CaseInfo"
+* ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1CaseInfo"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft
@@ -15,7 +15,7 @@ Parent: BackboneElement
   * DoB	1..1	date	"Date of birth*:_____/______/________"	"Date that the case was born on."
   * ageOnset	1..1	Age	"or Age*:_______ with units"	"Age in years on the date of illness onset with units"
   * sex	1..1	code	"Sex at birth*: Male Female"	"Biological sex. That is the biological differential characteristics (chromosomes, hormonal profiles, internal and external sex organs) that best describes the case."
-  * sex from http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/BiologicalSex (required)
+  * sex from http://worldhealthorganization.github.io/smart-ot/ValueSet/BiologicalSex (required)
   * nationality	0..1	string	"Nationality:"	"The nation/country the case identifies as belonging to, whether by birth or naturalization."
 * geographic 1..1 BackboneElement "Geographic" "Geographic"
   * locationResStatus	0..1	Coding	"Residential status: Resident/Refugee/Displaced person"	"Is the case residing in this area or is he/she a refugee or a displaced person"

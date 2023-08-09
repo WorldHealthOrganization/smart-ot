@@ -1,4 +1,4 @@
-Alias: $SourceOfInfection = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/SourceOfInfection
+Alias: $SourceOfInfection = http://worldhealthorganization.github.io/smart-ot/ValueSet/SourceOfInfection
 
 ValueSet:      SourceOfInfection
 Id:	           SourceOfInfection

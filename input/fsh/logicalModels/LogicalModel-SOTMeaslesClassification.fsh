@@ -2,7 +2,7 @@ Logical: SOTMeaslesClassification
 Title: "Surveillance & Outbreak Toolkit Measles- Classification"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeaslesClassification"
+* ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesClassification"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

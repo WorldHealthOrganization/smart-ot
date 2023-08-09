@@ -1,4 +1,4 @@
-Alias: $ReportedByCs =  http://ritikarawlani.github.io/smart-outbreak-measles/ReportedBy
+Alias: $ReportedByCs =  http://worldhealthorganization.github.io/smart-ot/ReportedBy
 CodeSystem: ReportedByCs
 Id:         ReportedByCs
 Title:     "Reported By"

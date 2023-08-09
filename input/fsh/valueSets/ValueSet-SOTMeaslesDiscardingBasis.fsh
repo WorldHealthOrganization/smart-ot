@@ -1,4 +1,4 @@
-Alias: $DiscardingBasis = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/DiscardingBasis
+Alias: $DiscardingBasis = http://worldhealthorganization.github.io/smart-ot/ValueSet/DiscardingBasis
 
 ValueSet:      DiscardingBasis
 Id:	           DiscardingBasis

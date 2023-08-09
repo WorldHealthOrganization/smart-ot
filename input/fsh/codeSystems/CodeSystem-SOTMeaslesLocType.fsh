@@ -1,4 +1,4 @@
-Alias: $LocTypeCs = http://ritikarawlani.github.io/smart-outbreak-measles/LocType
+Alias: $LocTypeCs = http://worldhealthorganization.github.io/smart-ot/LocType
 CodeSystem: LocTypeCs
 Id:         LocTypeCs
 Title:     "Locality Type Code System"

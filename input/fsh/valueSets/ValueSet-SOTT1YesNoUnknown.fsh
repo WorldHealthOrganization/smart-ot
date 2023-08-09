@@ -1,4 +1,4 @@
-Alias: $YesNoUnknown = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/YesNoUnknown
+Alias: $YesNoUnknown = http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown
 
 ValueSet:      YesNoUnknown
 Id:	           YesNoUnknown

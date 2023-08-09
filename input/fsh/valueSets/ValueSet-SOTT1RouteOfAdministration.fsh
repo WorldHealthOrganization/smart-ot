@@ -1,4 +1,4 @@
-Alias: $RouteOfAdministration = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/RouteOfAdministration
+Alias: $RouteOfAdministration = http://worldhealthorganization.github.io/smart-ot/ValueSet/RouteOfAdministration
 
 ValueSet:      RouteOfAdministration
 Id:	           RouteOfAdministration

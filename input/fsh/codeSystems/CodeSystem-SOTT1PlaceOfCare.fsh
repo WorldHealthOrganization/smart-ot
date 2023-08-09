@@ -1,4 +1,4 @@
-Alias: $PlaceOfCareCs =  http://ritikarawlani.github.io/smart-outbreak-measles/PlaceOfCare
+Alias: $PlaceOfCareCs =  http://worldhealthorganization.github.io/smart-ot/PlaceOfCare
 CodeSystem: PlaceOfCareCs
 Id:         PlaceOfCareCs
 Title:     "Place Of Care"

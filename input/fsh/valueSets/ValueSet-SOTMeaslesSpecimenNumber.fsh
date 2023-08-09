@@ -1,4 +1,4 @@
-Alias: $SpecimenNumber = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/SpecimenNumber
+Alias: $SpecimenNumber = http://worldhealthorganization.github.io/smart-ot/ValueSet/SpecimenNumber
 
 ValueSet:      SpecimenNumber
 Id:	           SpecimenNumber

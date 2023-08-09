@@ -1,4 +1,4 @@
-Alias: $BiologicalSex = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/BiologicalSex
+Alias: $BiologicalSex = http://worldhealthorganization.github.io/smart-ot/ValueSet/BiologicalSex
 Alias: $AdministrativeGender = http://hl7.org/fhir/administrative-gender
 
 ValueSet:      BiologicalSex

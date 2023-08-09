@@ -1,4 +1,4 @@
-Alias: $DomesticatedWild = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/DomesticatedWild
+Alias: $DomesticatedWild = http://worldhealthorganization.github.io/smart-ot/ValueSet/DomesticatedWild
 
 ValueSet:      DomesticatedWild
 Id:	           DomesticatedWild

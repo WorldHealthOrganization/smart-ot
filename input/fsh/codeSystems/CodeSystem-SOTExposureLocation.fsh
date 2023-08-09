@@ -1,4 +1,4 @@
-Alias: $ExposureLocationCs =  http://ritikarawlani.github.io/smart-outbreak-measles/ExposureLocation
+Alias: $ExposureLocationCs =  http://worldhealthorganization.github.io/smart-ot/ExposureLocation
 CodeSystem: ExposureLocationCs
 Id:         ExposureLocationCs
 Title:     "Exposure Location"

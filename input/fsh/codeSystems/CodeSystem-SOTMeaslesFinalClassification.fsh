@@ -1,4 +1,4 @@
-Alias: $FinalClassificationCs =  http://ritikarawlani.github.io/smart-outbreak-measles/FinalClassification
+Alias: $FinalClassificationCs =  http://worldhealthorganization.github.io/smart-ot/FinalClassification
 CodeSystem: FinalClassificationCs
 Id:         FinalClassificationCs
 Title:     "Final Classification"

@@ -2,7 +2,7 @@ Logical: SOTT1ExposureMassGathering
 Title: "Surveillance & Outbreak Toolkit T1 Exposure - Mass Gathering"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTT1ExposureMassGathering"
+* ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureMassGathering"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

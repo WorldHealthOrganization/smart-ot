@@ -1,4 +1,4 @@
-Alias: $YesNoUnknownCs =  http://ritikarawlani.github.io/smart-outbreak-measles/YesNoUnknown
+Alias: $YesNoUnknownCs =  http://worldhealthorganization.github.io/smart-ot/YesNoUnknown
 CodeSystem: YesNoUnknownCs
 Id:         YesNoUnknownCs
 Title:     "Yes No Unknown"

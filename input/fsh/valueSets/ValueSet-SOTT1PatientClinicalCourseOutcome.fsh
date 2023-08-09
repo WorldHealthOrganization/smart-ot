@@ -1,4 +1,4 @@
-Alias: $PatientOutcome = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/PatientOutcome
+Alias: $PatientOutcome = http://worldhealthorganization.github.io/smart-ot/ValueSet/PatientOutcome
 
 ValueSet:      PatientOutcome
 Id:	           PatientOutcome
@@ -12,20 +12,20 @@ Description:   "Patient Clinical Course Outcome"
 // * ^expansion.parameter[0].name = "excludeNested"
 // * ^expansion.parameter[=].valueBoolean = false
 // * ^expansion.parameter[+].name = "version"
-// * ^expansion.parameter[=].valueUri = "http://ritikarawlani.github.io/smart-outbreak-measles/PatientOutcome|0.2.1"
-// * ^expansion.contains[0].system = "http://ritikarawlani.github.io/smart-outbreak-measles/PatientOutcome"
+// * ^expansion.parameter[=].valueUri = "http://worldhealthorganization.github.io/smart-ot/PatientOutcome|0.2.1"
+// * ^expansion.contains[0].system = "http://worldhealthorganization.github.io/smart-ot/PatientOutcome"
 // * ^expansion.contains[=].code = #Sick
 // * ^expansion.contains[=].display = "Sick"
-// * ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/PatientOutcome"
+// * ^expansion.contains[+].system = "http://worldhealthorganization.github.io/smart-ot/PatientOutcome"
 // * ^expansion.contains[=].code = #Cured
 // * ^expansion.contains[=].display = "Cured"
-// * ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/PatientOutcome"
+// * ^expansion.contains[+].system = "http://worldhealthorganization.github.io/smart-ot/PatientOutcome"
 // * ^expansion.contains[=].code = #Sequelae
 // * ^expansion.contains[=].display = "Sequelae"
-// * ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/PatientOutcome"
+// * ^expansion.contains[+].system = "http://worldhealthorganization.github.io/smart-ot/PatientOutcome"
 // * ^expansion.contains[=].code = #Defaulter
 // * ^expansion.contains[=].display = "Defaulter"
-// * ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/PatientOutcome"
+// * ^expansion.contains[+].system = "http://worldhealthorganization.github.io/smart-ot/PatientOutcome"
 // * ^expansion.contains[=].code = #Death
 // * ^expansion.contains[=].display = "Death"
-// * ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/PatientOutcome"
+// * ^expansion.contains[+].system = "http://worldhealthorganization.github.io/smart-ot/PatientOutcome"

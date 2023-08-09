@@ -5,7 +5,7 @@ Logical: SOTT1ClinicalCardiology
 Title: "Surveillance & Outbreak Toolkit T1 Clinical - Cardiology"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTT1ClinicalCardiology"
+* ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalCardiology"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

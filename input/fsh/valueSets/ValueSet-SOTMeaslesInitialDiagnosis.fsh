@@ -1,4 +1,4 @@
-Alias: $InitDiag = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/InitDiag
+Alias: $InitDiag = http://worldhealthorganization.github.io/smart-ot/ValueSet/InitDiag
 
 ValueSet:      InitDiag
 Id:	           InitDiag
@@ -14,22 +14,22 @@ Description:   "SOT Measles Initial Diagnosis"
 * ^expansion.parameter[0].name = "excludeNested"
 * ^expansion.parameter[=].valueBoolean = false
 * ^expansion.parameter[+].name = "version"
-* ^expansion.parameter[=].valueUri = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag|0.2.1"
-* ^expansion.contains[0].system = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag"
+* ^expansion.parameter[=].valueUri = "http://worldhealthorganization.github.io/smart-ot/InitDiag|0.2.1"
+* ^expansion.contains[0].system = "http://worldhealthorganization.github.io/smart-ot/InitDiag"
 * ^expansion.contains[=].code = #1
 * ^expansion.contains[=].display = "Measles"
-* ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag"
+* ^expansion.contains[+].system = "http://worldhealthorganization.github.io/smart-ot/InitDiag"
 * ^expansion.contains[=].code = #2
 * ^expansion.contains[=].display = "Rubella"
-* ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag"
+* ^expansion.contains[+].system = "http://worldhealthorganization.github.io/smart-ot/InitDiag"
 * ^expansion.contains[=].code = #3
 * ^expansion.contains[=].display = "Dengue"
-* ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag"
+* ^expansion.contains[+].system = "http://worldhealthorganization.github.io/smart-ot/InitDiag"
 * ^expansion.contains[=].code = #4
 * ^expansion.contains[=].display = "Other Rash illness"
-* ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag"
+* ^expansion.contains[+].system = "http://worldhealthorganization.github.io/smart-ot/InitDiag"
 * ^expansion.contains[=].code = #8
 * ^expansion.contains[=].display = "Other Non-Rash illness"
-* ^expansion.contains[+].system = "http://ritikarawlani.github.io/smart-outbreak-measles/InitDiag"
+* ^expansion.contains[+].system = "http://worldhealthorganization.github.io/smart-ot/InitDiag"
 * ^expansion.contains[=].code = #99
 * ^expansion.contains[=].display = "Unknown"

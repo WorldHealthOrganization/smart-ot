@@ -2,7 +2,7 @@ Logical: SOTMeaslesEpiData
 Title: "Surveillance & Outbreak Toolkit Measles- Epidemiological Data"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeaslesEpiData"
+* ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesEpiData"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

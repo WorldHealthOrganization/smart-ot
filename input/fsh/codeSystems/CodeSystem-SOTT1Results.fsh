@@ -1,4 +1,4 @@
-Alias: $ResultsCs =  http://ritikarawlani.github.io/smart-outbreak-measles/Results
+Alias: $ResultsCs =  http://worldhealthorganization.github.io/smart-ot/Results
 CodeSystem: ResultsCs
 Id:         ResultsCs
 Title:     "Results"

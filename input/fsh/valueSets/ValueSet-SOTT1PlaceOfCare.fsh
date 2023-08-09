@@ -1,4 +1,4 @@
-Alias: $PlaceOfCare = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/PlaceOfCare
+Alias: $PlaceOfCare = http://worldhealthorganization.github.io/smart-ot/ValueSet/PlaceOfCare
 
 ValueSet:      PlaceOfCare
 Id:	           PlaceOfCare

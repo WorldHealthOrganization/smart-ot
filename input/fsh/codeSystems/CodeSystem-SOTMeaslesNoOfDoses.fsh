@@ -1,4 +1,4 @@
-Alias: $NoOfDosesCs =  http://ritikarawlani.github.io/smart-outbreak-measles/NoOfDoses
+Alias: $NoOfDosesCs =  http://worldhealthorganization.github.io/smart-ot/NoOfDoses
 CodeSystem: NoOfDosesCs
 Id:         NoOfDosesCs
 Title:     "Number of Doses"

@@ -1,4 +1,4 @@
-Alias: $RouteOfAdministrationCs =  http://ritikarawlani.github.io/smart-outbreak-measles/RouteOfAdministration
+Alias: $RouteOfAdministrationCs =  http://worldhealthorganization.github.io/smart-ot/RouteOfAdministration
 CodeSystem: RouteOfAdministrationCs
 Id:         RouteOfAdministrationCs
 Title:     "Route Of Administration"

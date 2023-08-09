@@ -1,4 +1,4 @@
-Alias: $SpecimenCollectedCs =  http://ritikarawlani.github.io/smart-outbreak-measles/SpecimenCollected
+Alias: $SpecimenCollectedCs =  http://worldhealthorganization.github.io/smart-ot/SpecimenCollected
 CodeSystem: SpecimenCollectedCs
 Id:         SpecimenCollectedCs
 Title:    "Specimen Collected"

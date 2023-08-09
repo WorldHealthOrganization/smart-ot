@@ -2,7 +2,7 @@ Logical: SOTT1ExposureChemical
 Title: "Surveillance & Outbreak Toolkit T1  Exposure - Chemical"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTT1ExposureChemical"
+* ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureChemical"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

@@ -1,4 +1,4 @@
-Alias: $VaccineInfoSourceCs =  http://ritikarawlani.github.io/smart-outbreak-measles/VaccineInfoSource
+Alias: $VaccineInfoSourceCs =  http://worldhealthorganization.github.io/smart-ot/VaccineInfoSource
 CodeSystem: VaccineInfoSourceCs
 Id:         VaccineInfoSourceCs
 Title:     "Vaccine Info Source"

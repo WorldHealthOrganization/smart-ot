@@ -1,4 +1,4 @@
-Alias: $AnimalContactLocationCs =  http://ritikarawlani.github.io/smart-outbreak-measles/AnimalContactLocation
+Alias: $AnimalContactLocationCs =  http://worldhealthorganization.github.io/smart-ot/AnimalContactLocation
 CodeSystem: AnimalContactLocationCs
 Id:         AnimalContactLocationCs
 Title:     "Animal Contact Location"

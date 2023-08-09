@@ -2,7 +2,7 @@ Logical: SOTT1ExposureTravelHistory
 Title: "Surveillance & Outbreak Toolkit T1  Exposure - Travel History"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTT1ExposureTravelHistory"
+* ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureTravelHistory"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

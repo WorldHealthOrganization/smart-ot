@@ -1,4 +1,4 @@
-Alias: $PathogenTestedCs = http://ritikarawlani.github.io/smart-outbreak-measles/PathogenTested
+Alias: $PathogenTestedCs = http://worldhealthorganization.github.io/smart-ot/PathogenTested
 CodeSystem: PathogenTestedCs
 Id: PathogenTestedCs
 Title: "Pathogen Tested"

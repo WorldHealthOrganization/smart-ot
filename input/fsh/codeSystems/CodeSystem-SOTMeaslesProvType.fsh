@@ -1,4 +1,4 @@
-Alias: $ProvTypeCs =  http://ritikarawlani.github.io/smart-outbreak-measles/ProvType
+Alias: $ProvTypeCs =  http://worldhealthorganization.github.io/smart-ot/ProvType
 CodeSystem: ProvTypeCs
 Id:         ProvTypeCs
 Title:     "Type of Provider Code System"

@@ -1,8 +1,8 @@
-map "http://ritikarawlani.github.io/smart-outbreak-measles/StructureMap/MeaslesQuestionnaireToLogicalModel" = "MeaslesQuestionnaireToLogicalModel"
+map "http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel" = "MeaslesQuestionnaireToLogicalModel"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
-uses "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeasles" alias MeaslesLogicalModel as target
+uses "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles" alias MeaslesLogicalModel as target
 
 group MeaslesQuestionnaireToLogicalModel(source qr : QuestionnaireResponse, target measlesLm : MeaslesLogicalModel) {
   qr.item as item where linkId.value in ('investigationForm') -> measlesLm as measlesLm then mapInvestigationForm(item, measlesLm) "set Investigation form";

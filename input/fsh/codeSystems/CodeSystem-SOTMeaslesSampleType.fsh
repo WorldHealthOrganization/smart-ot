@@ -1,4 +1,4 @@
-Alias: $SampleTypeCs =  http://ritikarawlani.github.io/smart-outbreak-measles/SampleType
+Alias: $SampleTypeCs =  http://worldhealthorganization.github.io/smart-ot/SampleType
 CodeSystem: SampleTypeCs
 Id:         SampleTypeCs
 Title:     "Sample Type Code System"

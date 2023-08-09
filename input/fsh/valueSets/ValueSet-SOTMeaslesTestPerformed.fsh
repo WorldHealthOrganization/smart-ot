@@ -1,4 +1,4 @@
-Alias: $TestPerformed = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/TestPerformed
+Alias: $TestPerformed = http://worldhealthorganization.github.io/smart-ot/ValueSet/TestPerformed
 
 ValueSet:      TestPerformed
 Id:	           TestPerformed

@@ -1,4 +1,4 @@
-Alias: $FinalClassification = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/FinalClassification
+Alias: $FinalClassification = http://worldhealthorganization.github.io/smart-ot/ValueSet/FinalClassification
 
 ValueSet:      FinalClassification
 Id:	           FinalClassification

@@ -1,4 +1,4 @@
-Alias: $SpecimenNumberCs =  http://ritikarawlani.github.io/smart-outbreak-measles/SpecimenNumber
+Alias: $SpecimenNumberCs =  http://worldhealthorganization.github.io/smart-ot/SpecimenNumber
 CodeSystem: SpecimenNumberCs
 Id:         SpecimenNumberCs
 Title:     "Specimen Number Code System"

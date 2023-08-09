@@ -1,4 +1,4 @@
-Alias: $Antigen = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/Antigen
+Alias: $Antigen = http://worldhealthorganization.github.io/smart-ot/ValueSet/Antigen
 
 ValueSet:      Antigen
 Id:	           Antigen

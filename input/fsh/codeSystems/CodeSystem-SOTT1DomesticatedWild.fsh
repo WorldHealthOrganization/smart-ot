@@ -1,4 +1,4 @@
-Alias: $DomesticatedWildCs =  http://ritikarawlani.github.io/smart-outbreak-measles/DomesticatedWild
+Alias: $DomesticatedWildCs =  http://worldhealthorganization.github.io/smart-ot/DomesticatedWild
 CodeSystem: DomesticatedWildCs
 Id:         DomesticatedWildCs
 Title:     "Domesticated or Wild"

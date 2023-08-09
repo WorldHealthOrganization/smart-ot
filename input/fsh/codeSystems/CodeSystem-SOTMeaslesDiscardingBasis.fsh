@@ -1,4 +1,4 @@
-Alias: $DiscardingBasisCs  =  http://ritikarawlani.github.io/smart-outbreak-measles/DiscardingBasis
+Alias: $DiscardingBasisCs  =  http://worldhealthorganization.github.io/smart-ot/DiscardingBasis
 CodeSystem: DiscardingBasisCs
 Id:         DiscardingBasisCs
 Title:     "Discarding Basis"

@@ -1,4 +1,4 @@
-Alias: $WaterCharacteristicsCs =  http://ritikarawlani.github.io/smart-outbreak-measles/WaterCharacteristics
+Alias: $WaterCharacteristicsCs =  http://worldhealthorganization.github.io/smart-ot/WaterCharacteristics
 CodeSystem: WaterCharacteristicsCs
 Id:         WaterCharacteristicsCs
 Title:     "Water Characteristics"

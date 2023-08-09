@@ -1,4 +1,4 @@
-Alias: $NoOfDoses = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/NoOfDoses
+Alias: $NoOfDoses = http://worldhealthorganization.github.io/smart-ot/ValueSet/NoOfDoses
 
 ValueSet:      NoOfDoses
 Id:	           NoOfDoses

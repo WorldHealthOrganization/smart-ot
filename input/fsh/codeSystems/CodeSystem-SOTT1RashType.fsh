@@ -1,4 +1,4 @@
-Alias: $RashTypeCs =  http://ritikarawlani.github.io/smart-outbreak-measles/RashType
+Alias: $RashTypeCs =  http://worldhealthorganization.github.io/smart-ot/RashType
 CodeSystem: RashTypeCs
 Id:         RashTypeCs
 Title:     "Rash Type"

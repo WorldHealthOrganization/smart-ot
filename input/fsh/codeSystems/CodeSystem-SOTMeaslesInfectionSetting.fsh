@@ -1,4 +1,4 @@
-Alias: $InfectionSettingCs =  http://ritikarawlani.github.io/smart-outbreak-measles/InfectionSetting
+Alias: $InfectionSettingCs =  http://worldhealthorganization.github.io/smart-ot/InfectionSetting
 CodeSystem: InfectionSettingCs
 Id:         InfectionSettingCs
 Title:     "InfectionSetting"

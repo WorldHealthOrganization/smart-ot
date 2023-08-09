@@ -1,4 +1,4 @@
-Alias: $LocalizationOfSkinDisorderCs =  http://ritikarawlani.github.io/smart-outbreak-measles/LocalizationOfSkinDisorder
+Alias: $LocalizationOfSkinDisorderCs =  http://worldhealthorganization.github.io/smart-ot/LocalizationOfSkinDisorder
 CodeSystem: LocalizationOfSkinDisorderCs
 Id: LocalizationOfSkinDisorderCs
 Title:     "Localization of Skin Disorder"

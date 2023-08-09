@@ -1,4 +1,4 @@
-Alias: $SpecimenCollected = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/SpecimenCollected
+Alias: $SpecimenCollected = http://worldhealthorganization.github.io/smart-ot/ValueSet/SpecimenCollected
 
 ValueSet:      SpecimenCollected
 Id:	           SpecimenCollected

@@ -2,7 +2,7 @@ Logical: SOTMeaslesContactTracing
 Title: "Surveillance & Outbreak Toolkit Measles- Contact Tracing"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeaslesContactTracing"
+* ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesContactTracing"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

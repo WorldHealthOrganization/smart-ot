@@ -1,4 +1,4 @@
-Alias: $AnimalContactType = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/AnimalContactType
+Alias: $AnimalContactType = http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalContactType
 
 ValueSet:      AnimalContactType
 Id:	           AnimalContactType

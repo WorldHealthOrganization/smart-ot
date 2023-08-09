@@ -1,4 +1,4 @@
-Alias: $LocalCasesPresent = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/LocalCasesPresent
+Alias: $LocalCasesPresent = http://worldhealthorganization.github.io/smart-ot/ValueSet/LocalCasesPresent
 
 ValueSet:      LocalCasesPresent
 Id:	           LocalCasesPresent

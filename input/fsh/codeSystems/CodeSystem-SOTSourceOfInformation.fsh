@@ -1,4 +1,4 @@
-Alias: $SourceOfInformationCs =  http://ritikarawlani.github.io/smart-outbreak-measles/SourceOfInformation
+Alias: $SourceOfInformationCs =  http://worldhealthorganization.github.io/smart-ot/SourceOfInformation
 CodeSystem: SourceOfInformationCs
 Id:         SourceOfInformationCs
 Title:     "Source Of Information"

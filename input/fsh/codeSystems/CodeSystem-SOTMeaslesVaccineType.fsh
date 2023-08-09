@@ -1,4 +1,4 @@
-Alias: $VaccineTypeCs =  http://ritikarawlani.github.io/smart-outbreak-measles/VaccineType
+Alias: $VaccineTypeCs =  http://worldhealthorganization.github.io/smart-ot/VaccineType
 CodeSystem: VaccineTypeCs
 Id:         VaccineTypeCs
 Title:     "Vaccine Type"

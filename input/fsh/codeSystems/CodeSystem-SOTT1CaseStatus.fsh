@@ -1,4 +1,4 @@
-Alias: $CaseStatusCs =  http://ritikarawlani.github.io/smart-outbreak-measles/CaseStatus
+Alias: $CaseStatusCs =  http://worldhealthorganization.github.io/smart-ot/CaseStatus
 CodeSystem: CaseStatusCs
 Id:         CaseStatusCs
 Title:     "Case Status"

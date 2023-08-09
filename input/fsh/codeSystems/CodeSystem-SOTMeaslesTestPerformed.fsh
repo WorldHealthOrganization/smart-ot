@@ -1,4 +1,4 @@
-Alias: $TestPerformedCs =  http://ritikarawlani.github.io/smart-outbreak-measles/TestPerformed
+Alias: $TestPerformedCs =  http://worldhealthorganization.github.io/smart-ot/TestPerformed
 CodeSystem: TestPerformedCs
 Id:         TestPerformedCs
 Title:     "Test Performed Code System"

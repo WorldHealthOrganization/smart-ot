@@ -1,4 +1,4 @@
-Alias: $LocalizationOfSkinDisorder = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/LocalizationOfSkinDisorder
+Alias: $LocalizationOfSkinDisorder = http://worldhealthorganization.github.io/smart-ot/ValueSet/LocalizationOfSkinDisorder
 
 ValueSet:      LocalizationOfSkinDisorder
 Id:	           LocalizationOfSkinDisorder

@@ -1,4 +1,4 @@
-Alias: $PatientOutcomeCs =  http://ritikarawlani.github.io/smart-outbreak-measles/PatientOutcome
+Alias: $PatientOutcomeCs =  http://worldhealthorganization.github.io/smart-ot/PatientOutcome
 CodeSystem: PatientOutcomeCs
 Id:         PatientOutcomeCs
 Title:     "Patient Clinical Course Outcome"

@@ -1,4 +1,4 @@
-Alias: $ProvType = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/ProvType
+Alias: $ProvType = http://worldhealthorganization.github.io/smart-ot/ValueSet/ProvType
 
 ValueSet:      ProvType
 Id:	           ProvType

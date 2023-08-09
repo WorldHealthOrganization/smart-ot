@@ -1,4 +1,4 @@
-Alias: $LocalCasesPresentCs =  http://ritikarawlani.github.io/smart-outbreak-measles/LocalCasesPresent
+Alias: $LocalCasesPresentCs =  http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent
 CodeSystem: LocalCasesPresentCs
 Id:         LocalCasesPresentCs
 Title:     "LocalCasesPresent"

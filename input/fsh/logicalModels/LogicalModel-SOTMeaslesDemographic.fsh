@@ -2,7 +2,7 @@ Logical: SOTMeaslesDemographic
 Title: "Surveillance & Outbreak Toolkit Measles- Demographics"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeaslesDemographic"
+* ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesDemographic"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

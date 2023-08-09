@@ -2,7 +2,7 @@ Logical: SOTMeaslesVaccinationStatus
 Title: "Surveillance & Outbreak Toolkit Measles- Vaccination Statuss"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeaslesVaccinationStatus"
+* ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesVaccinationStatus"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

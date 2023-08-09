@@ -2,7 +2,7 @@ Logical: SOTT1ClinicalRespiratory
 Title: "Surveillance & Outbreak Toolkit T1 Clinical - Respiratory"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTT1ClinicalRespiratory"
+* ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalRespiratory"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

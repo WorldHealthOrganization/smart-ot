@@ -1,14 +1,14 @@
-map "http://ritikarawlani.github.io/smart-outbreak-measles/StructureMap/MeaslesLogicalModelToResources" = "MeaslesLogicalModelToResources"
+map "http://worldhealthorganization.github.io/smart-ot/StructureMap-MeaslesLogicalModelToResources" = "MeaslesLogicalModelToResources"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/SOTMeasles" alias MeaslesLogicalModel as source
-uses "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/Bundle" alias MeaslesCIFBundle as target
+uses "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Bundle" alias MeaslesCIFBundle as target
 
 group MeaslesLogicalModelToResources(source lm : MeaslesLogicalModel, target bundleCif : MeaslesCIFBundle) {
   lm -> bundle.type = 'document' "set bundle type";
   lm -> uuid() as id, bundle.id = id "set id";
   lm -> uuid() as cid then { 
-  lm ->  bundle.entry as entry,  entry.fullUrl = append('urn:uuid:', cid),  entry.request as request,  request.method = 'PUT',  request.url = append('Composition/', cid), create('https://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition-MeaslesCIFComposition') as composition then {
+  lm ->  bundle.entry as entry,  entry.fullUrl = append('urn:uuid:', cid),  entry.request as request,  request.method = 'PUT',  request.url = append('Composition/', cid), create('https://worldhealthorganization.github.io/smart-ot/StructureDefinition-MeaslesCIFComposition') as composition then {
   lm then LmToComposition(lm, composition, cid) "setup composition";
       ddcc -> entry.resource = composition "set composition resource";
   } "create composition resource";
@@ -16,7 +16,7 @@ group MeaslesLogicalModelToResources(source lm : MeaslesLogicalModel, target bun
 
 group LmToComposition(source lm: MeaslesLogicalModel , target composition: MeaslesCIFComposition, source cid) {
   cid -> composition.id = cid "set id";
-  lm.Demographics as demographics -> uuid() as pid, create('https://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition-MeaslesPatient') as patient then { demographics then DemographicsToPatient(demographics, patient, pid) "set patient";
+  lm.Demographics as demographics -> uuid() as pid, create('https://worldhealthorganization.github.io/smart-ot/StructureDefinition-MeaslesPatient') as patient then { demographics then DemographicsToPatient(demographics, patient, pid) "set patient";
   lm -> composition.subject= patient "set subject";
   }
 }

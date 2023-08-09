@@ -1,4 +1,4 @@
-Alias: $ConfirmationBasis = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/ConfirmationBasis
+Alias: $ConfirmationBasis = http://worldhealthorganization.github.io/smart-ot/ValueSet/ConfirmationBasis
 
 ValueSet:      ConfirmationBasis
 Id:	           ConfirmationBasis

@@ -1,4 +1,4 @@
-Alias: $WaterCharacteristics = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/WaterCharacteristics
+Alias: $WaterCharacteristics = http://worldhealthorganization.github.io/smart-ot/ValueSet/WaterCharacteristics
 
 ValueSet:      WaterCharacteristics
 Id:	           WaterCharacteristics

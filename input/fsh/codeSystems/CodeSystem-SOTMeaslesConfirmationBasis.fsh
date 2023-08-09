@@ -1,4 +1,4 @@
-Alias: $ConfirmationBasisCs =  http://ritikarawlani.github.io/smart-outbreak-measles/ConfirmationBasis
+Alias: $ConfirmationBasisCs =  http://worldhealthorganization.github.io/smart-ot/ConfirmationBasis
 CodeSystem: ConfirmationBasisCs
 Id:         ConfirmationBasisCs
 Title:     "Confirmation Basis"

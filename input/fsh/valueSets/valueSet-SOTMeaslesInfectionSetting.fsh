@@ -1,4 +1,4 @@
-Alias: $InfectionSetting = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/InfectionSetting
+Alias: $InfectionSetting = http://worldhealthorganization.github.io/smart-ot/ValueSet/InfectionSetting
 
 ValueSet:      InfectionSetting
 Id:	           InfectionSetting

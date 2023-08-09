@@ -1,4 +1,4 @@
-Alias: $DetectedByCs =  http://ritikarawlani.github.io/smart-outbreak-measles/DetectedBy
+Alias: $DetectedByCs =  http://worldhealthorganization.github.io/smart-ot/DetectedBy
 CodeSystem: DetectedByCs
 Id:         DetectedByCs
 Title:     "Detected By Code System"

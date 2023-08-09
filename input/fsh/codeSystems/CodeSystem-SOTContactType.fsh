@@ -1,4 +1,4 @@
-Alias: $ContactTypeCs =  http://ritikarawlani.github.io/smart-outbreak-measles/ContactType
+Alias: $ContactTypeCs =  http://worldhealthorganization.github.io/smart-ot/ContactType
 CodeSystem: ContactTypeCs
 Id:         ContactTypeCs
 Title:     "Contact Type"

@@ -2,7 +2,7 @@ Logical: SOTMeaslesLaboratoryResults
 Title: "Surveillance & Outbreak Toolkit Measles- Laboratory Resultss"
 Parent: BackboneElement
 
-* ^url = "http://ritikarawlani.github.io/smart-outbreak-measles/StructureDefinition/SOTMeaslesLaboratoryResults"
+* ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesLaboratoryResults"
 * ^version = "0.1"
 * ^abstract = true
 * ^status = #draft

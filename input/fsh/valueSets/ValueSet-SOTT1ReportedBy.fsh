@@ -1,4 +1,4 @@
-Alias: $ReportedBy = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/ReportedBy
+Alias: $ReportedBy = http://worldhealthorganization.github.io/smart-ot/ValueSet/ReportedBy
 
 ValueSet:      ReportedBy
 Id:	           ReportedBy

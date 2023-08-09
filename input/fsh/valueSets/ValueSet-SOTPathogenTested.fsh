@@ -1,4 +1,4 @@
-Alias: $PathogenTested = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/PathogenTested
+Alias: $PathogenTested = http://worldhealthorganization.github.io/smart-ot/ValueSet/PathogenTested
 
 ValueSet:      PathogenTested
 Id:	           PathogenTested

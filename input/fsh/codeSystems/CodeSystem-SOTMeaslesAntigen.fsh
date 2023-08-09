@@ -1,4 +1,4 @@
-Alias: $AntigenCs =  http://ritikarawlani.github.io/smart-outbreak-measles/Antigen
+Alias: $AntigenCs =  http://worldhealthorganization.github.io/smart-ot/Antigen
 CodeSystem: AntigenCs
 Id:         AntigenCs
 Title:     "Antigen Code System"

@@ -1,4 +1,4 @@
-Alias: $ContactType = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/ContactType
+Alias: $ContactType = http://worldhealthorganization.github.io/smart-ot/ValueSet/ContactType
 
 ValueSet:      ContactType
 Id:	           ContactType

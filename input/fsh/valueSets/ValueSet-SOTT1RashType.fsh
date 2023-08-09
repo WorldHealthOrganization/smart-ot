@@ -1,4 +1,4 @@
-Alias: $RashType = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/RashType
+Alias: $RashType = http://worldhealthorganization.github.io/smart-ot/ValueSet/RashType
 
 ValueSet:      RashType
 Id:	           RashType

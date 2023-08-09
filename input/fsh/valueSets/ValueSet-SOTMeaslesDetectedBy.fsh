@@ -1,4 +1,4 @@
-Alias: $DetectedBy = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/DetectedBy
+Alias: $DetectedBy = http://worldhealthorganization.github.io/smart-ot/ValueSet/DetectedBy
 
 ValueSet:      DetectedBy
 Id:	           DetectedBy

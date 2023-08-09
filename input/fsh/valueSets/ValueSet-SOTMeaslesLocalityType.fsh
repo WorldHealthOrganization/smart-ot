@@ -1,4 +1,4 @@
-Alias: $LocType = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/LocType
+Alias: $LocType = http://worldhealthorganization.github.io/smart-ot/ValueSet/LocType
 
 ValueSet:      LocType
 Id:	           LocType

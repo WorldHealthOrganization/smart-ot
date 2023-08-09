@@ -1,4 +1,4 @@
-Alias: $Results = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/Results
+Alias: $Results = http://worldhealthorganization.github.io/smart-ot/ValueSet/Results
 
 ValueSet:      Results
 Id:	           Results

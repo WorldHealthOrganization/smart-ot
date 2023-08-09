@@ -1,4 +1,4 @@
-Alias: $AnimalExposureLocation = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/AnimalExposureLocation
+Alias: $AnimalExposureLocation = http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalExposureLocation
 
 ValueSet:      AnimalExposureLocation
 Id:	           AnimalExposureLocation

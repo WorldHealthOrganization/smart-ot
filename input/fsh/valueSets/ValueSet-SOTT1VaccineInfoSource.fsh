@@ -1,4 +1,4 @@
-Alias: $VaccineInfoSource = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/VaccineInfoSource
+Alias: $VaccineInfoSource = http://worldhealthorganization.github.io/smart-ot/ValueSet/VaccineInfoSource
 
 ValueSet:      VaccineInfoSource
 Id:	           VaccineInfoSource

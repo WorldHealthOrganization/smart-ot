@@ -1,4 +1,4 @@
-Alias: $VaccineType = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/VaccineType
+Alias: $VaccineType = http://worldhealthorganization.github.io/smart-ot/ValueSet/VaccineType
 
 ValueSet:      VaccineType
 Id:	           VaccineType

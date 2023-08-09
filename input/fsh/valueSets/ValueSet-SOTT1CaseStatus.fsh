@@ -1,4 +1,4 @@
-Alias: $CaseStatus = http://ritikarawlani.github.io/smart-outbreak-measles/ValueSet/CaseStatus
+Alias: $CaseStatus = http://worldhealthorganization.github.io/smart-ot/ValueSet/CaseStatus
 
 ValueSet:      CaseStatus
 Id:	           CaseStatus
