@@ -13,6 +13,8 @@ Usage: #definition
 * title = "Measles Case Investigation Questionnaire"
 * description = "Measles Case Investigation Questionnaire"
 * name = "Questionnaire-SOTMeasles"
+* extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-targetStructureMap"
+* extension[=].valueCanonical = "http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel"
 * version = "2023"
 * status = #draft
 * subjectType = #Patient
