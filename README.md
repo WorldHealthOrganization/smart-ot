@@ -4,7 +4,7 @@ This is the SMART Guidelines Implementation Guide for Surveillance and Outbreak 
 <br> </br>
 ###
 ### Publication
-This ImplementationGuide is published in the following locations:
+This Implementation Guide is published in the following locations:
 
 
 Continuous Build:  __https://github.com/WorldHealthOrganization/smart-ot__  
