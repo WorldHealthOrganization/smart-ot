@@ -14,6 +14,7 @@ group MeaslesLogicalModelToResources(source lm : MeaslesLogicalModel, target bun
   } "create composition resource";
 }
 
+
 group LmToComposition(source lm: MeaslesLogicalModel , target composition: MeaslesCIFComposition, source cid) {
   cid -> composition.id = cid "set id";
   lm.Demographics as demographics -> uuid() as pid, create('https://worldhealthorganization.github.io/smart-ot/StructureDefinition-MeaslesPatient') as patient then { demographics then DemographicsToPatient(demographics, patient, pid) "set patient";
