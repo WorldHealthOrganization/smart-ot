@@ -8,7 +8,6 @@ group MeaslesQuestionnaireToLogicalModel(source qr : QuestionnaireResponse, targ
   qr.item as item where linkId.value in ('investigationForm') -> measlesLm as measlesLm then mapInvestigationForm(item, measlesLm) "set Investigation form";
 }
 
-
 group mapInvestigationForm(source investigationForm, target measlesLm : MeaslesLogicalModel) {
   investigationForm.item as qrReportingSource where linkId.value in ('reportingSource') -> measlesLm.ReportingSource as lmReportingSource then mapReportingSource(qrReportingSource, lmReportingSource) "set Reporting Source";
   investigationForm.item as qrDemographics where linkId.value in ('demographics') -> measlesLm.Demographics as lmDemographics then mapDemographics(qrDemographics, lmDemographics) "set Demographics";
