@@ -133,7 +133,7 @@ Usage: #definition
         * question = "rash"
         * operator = #=
         * answerCoding 
-          * system = Canonical(YesNoUnknownCs)
+          * system = Canonical(RashTypeCs)
           * code =  #Yes  
     * insert Question(cough, Cough?, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)
