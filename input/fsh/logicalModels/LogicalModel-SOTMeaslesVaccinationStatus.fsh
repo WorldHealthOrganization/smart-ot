@@ -12,5 +12,5 @@ Parent: BackboneElement
 * Source 1..1 code "Source of vaccination information" "Source of vaccination information"
 * LastDoseDate 1..1 date "Date of last dose" "Date of last dose"
 * VaccineType from VaccineType (required)
-* NumberOfDoses from noOfDoses (required)
+* NumberOfDoses from NoOfDoses (required)
 * Source from VaccineInfoSource (required)
