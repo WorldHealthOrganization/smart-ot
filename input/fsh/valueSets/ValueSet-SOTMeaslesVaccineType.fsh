@@ -5,4 +5,5 @@ Id:	           VaccineType
 Title:	       "SOT Measles Vaccine Type"
 Description:   "SOT Measles Vaccine Type"
 * ^status = #draft
+
 * include codes from system $VaccineTypeCs
