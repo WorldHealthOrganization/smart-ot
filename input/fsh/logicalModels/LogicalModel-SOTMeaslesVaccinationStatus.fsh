@@ -7,6 +7,10 @@ Parent: BackboneElement
 * ^abstract = true
 * ^status = #draft
 
-* VaccineType    1..1  CodeableConcept  "Type of Vaccine"   "Type of Vaccine"
-* NumberOfDoses 1..1 CodeableConcept "Number of doses received" "Number of doses received"
-* Source 1..1 CodeableConcept "Source of vaccination information" "Source of vaccination information"
+* VaccineType    1..1  code  "Type of Vaccine"   "Type of Vaccine"
+* NumberOfDoses 1..1 code "Number of doses received" "Number of doses received"
+* Source 1..1 code "Source of vaccination information" "Source of vaccination information"
+* LastDoseDate 1..1 date "Date of last dose" "Date of last dose"
+* VaccineType from VaccineType (required)
+* NumberOfDoses from noOfDoses (required)
+* Source from VaccineInfoSource (required)
