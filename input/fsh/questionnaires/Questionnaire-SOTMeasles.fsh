@@ -20,7 +20,7 @@ Usage: #definition
 * status = #draft
 * contained[+] = InitDiag
 * contained[+] = YesNoUnknown
-
+* contained[+] = RashType
 //Header
 * insert Question(investigationForm,Investigation Form for Measles/Rubella,group,false)
 * item[=]
