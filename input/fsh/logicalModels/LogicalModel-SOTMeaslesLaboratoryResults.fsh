@@ -11,8 +11,15 @@ Parent: BackboneElement
 * SpecimenSentDate	0..1	 date	"Date specimen(s) sent to laboratory"	"Date specimen(s) sent to laboratory"
 * SpecimenRecdDate	0..1	 date	"Date specimen(s) received in laboratory"	"Date specimen(s) received in laboratory"
 * LabResultsDate	0..1	 date	"Date of results from laboratory"	"Date of results from laboratory"
-* LabResults	0..1	CodeableConcept	"Laboratory results (serology, viral detection,genotype)"	"Laboratory results (serology, viral detection,genotype)"
-* TypeOfTest	0..1	CodeableConcept	"Type of test"	"Type of test"
-* Antigen	0..1	CodeableConcept	"Antigen"	"Antigen"
-* SpecimenNumber	0..1	CodeableConcept	"Specimen number"	"Specimen number"
-* ViralGenotype	0..1	CodeableConcept	"Viral Genotype, if detected"	"Viral Genotype, if detected"
+* LabResults	0..1	code	"Laboratory results (serology, viral detection,genotype)"	"Laboratory results (serology, viral detection,genotype)"
+* Results 1..1 code "Result" "Result"
+* Results from Result (required)
+* SampleType 1..1 code "Type of specimen" "Type of specimen"
+* SampleType from SampleType (required)
+* TypeOfTest	0..1	code	"Type of test"	"Type of test"
+* TypeOfTest from TestPerformed (required)
+* Antigen	0..1	code	"Antigen"	"Antigen"
+* Antigen from Antigen (required)
+* SpecimenNumber	0..1	code	"Specimen number"	"Specimen number"
+* SpecimenNumber from SpecimenNumber (required)
+* ViralGenotype	0..1	string	"Viral Genotype, if detected"	"Viral Genotype, if detected"
