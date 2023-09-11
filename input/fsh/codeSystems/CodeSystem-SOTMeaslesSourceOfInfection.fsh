@@ -7,5 +7,5 @@ Description: "Source Of Infection"
 
 * #1 "Imported"
 * #2 "Import-Related"
-* #3 "Unknow source"
+* #3 "Unknown source"
 * #4 "Indegenous"
