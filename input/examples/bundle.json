@@ -1,0 +1,125 @@
+{
+    "resourceType": "Bundle",
+    "type": "document",
+    "entry": [
+      {
+        "fullUrl": "urn:uuid:0cb16a1d-b96d-42b9-af23-bc95c6e08f6c",
+        "resource": {
+          "resourceType": "Composition",
+          "status": "final",
+          "type": {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "55751-2",
+                "display": "Public health Case report"
+              }
+            ]
+          },
+          "subject": {
+            "reference": "Patient/2214d3c9-d939-4048-824d-9bf0c4d2907a"
+          },
+          "encounter": {
+            "reference": "Encounter/a4a33af4-a396-468c-b2c4-f06c0c53edb6"
+          },
+          "author": [
+            {
+              "reference": "Practitioner/26b9f4bb-c524-47a2-b029-13b19b6da4ca"
+            },
+            {
+              "reference": "Organization/183bbc73-776b-456a-a8c7-1e3faae38531"
+            }
+          ],
+          "title": "PAHO Measles Case Investigation Form"
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:2214d3c9-d939-4048-824d-9bf0c4d2907a",
+        "resource": {
+          "resourceType": "Patient",
+          "extension": [
+            {
+              "url": "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Landmark",
+              "valueString": "Next the spot"
+            },
+            {
+              "url": "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Guardian",
+              "valueHumanName": {
+                "family": "Mother Doe"
+              }
+            },
+            {
+              "url": "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Occupation",
+              "valueString": "Busy"
+            },
+            {
+              "url": "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/WorkAddress",
+              "valueAddress": {
+                "text": "Workaddress"
+              }
+            }
+          ],
+          "name": [
+            {
+              "family": "John Doe"
+            }
+          ],
+          "telecom": [
+            {
+              "value": "234phone"
+            }
+          ],
+          "birthDate": "2014-08-07",
+          "address": [
+            {
+              "text": "Avenue"
+            }
+          ]
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:26b9f4bb-c524-47a2-b029-13b19b6da4ca",
+        "resource": {
+          "resourceType": "Practitioner",
+          "name": [
+            {
+              "text": "reporter"
+            }
+          ]
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:183bbc73-776b-456a-a8c7-1e3faae38531",
+        "resource": {
+          "resourceType": "Organization",
+          "name": "hospital",
+          "contact": [
+            {
+              "telecom": [
+                {
+                  "value": "123-phone"
+                }
+              ]
+            },
+            {
+              "address": {
+                "city": "City",
+                "district": "Locality",
+                "state": "State",
+                "country": "Utopia"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "fullUrl": "urn:uuid:a4a33af4-a396-468c-b2c4-f06c0c53edb6",
+        "resource": {
+          "resourceType": "Encounter",
+          "period": {
+            "start": "2023-08-09"
+          }
+        }
+      }
+    ]
+  }
