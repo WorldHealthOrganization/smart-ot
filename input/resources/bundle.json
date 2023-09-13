@@ -1,5 +1,6 @@
 {
     "resourceType": "Bundle",
+    "id": "example-document-bundle-case-report-1",
     "type": "document",
     "entry": [
       {
