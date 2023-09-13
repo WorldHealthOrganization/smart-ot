@@ -7,6 +7,7 @@
         "fullUrl": "urn:uuid:0cb16a1d-b96d-42b9-af23-bc95c6e08f6c",
         "resource": {
           "resourceType": "Composition",
+          "id" : "0cb16a1d-b96d-42b9-af23-bc95c6e08f6c",
           "status": "final",
           "type": {
             "coding": [
@@ -38,6 +39,7 @@
         "fullUrl": "urn:uuid:2214d3c9-d939-4048-824d-9bf0c4d2907a",
         "resource": {
           "resourceType": "Patient",
+          "id" : "2214d3c9-d939-4048-824d-9bf0c4d2907a",
           "extension": [
             {
               "url": "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Landmark",
@@ -82,6 +84,7 @@
         "fullUrl": "urn:uuid:26b9f4bb-c524-47a2-b029-13b19b6da4ca",
         "resource": {
           "resourceType": "Practitioner",
+          "id" : "26b9f4bb-c524-47a2-b029-13b19b6da4ca",
           "name": [
             {
               "text": "reporter"
@@ -93,6 +96,7 @@
         "fullUrl": "urn:uuid:183bbc73-776b-456a-a8c7-1e3faae38531",
         "resource": {
           "resourceType": "Organization",
+          "id": "183bbc73-776b-456a-a8c7-1e3faae38531",
           "name": "hospital",
           "contact": [
             {
@@ -117,6 +121,7 @@
         "fullUrl": "urn:uuid:a4a33af4-a396-468c-b2c4-f06c0c53edb6",
         "resource": {
           "resourceType": "Encounter",
+          "id": "a4a33af4-a396-468c-b2c4-f06c0c53edb6", 
           "period": {
             "start": "2023-08-09"
           }
