@@ -1,0 +1,105 @@
+<StructureMap 
+  xmlns="http://hl7.org/fhir">
+  <id value="MeaslesQuestionnaireToResources"/>
+  <text>
+    <status value="generated"/>
+    <div 
+      xmlns="http://www.w3.org/1999/xhtml">
+      <pre>map &quot;http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToResources&quot; = &quot;MeaslesQuestionnaireToResources&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse&quot; alias QuestionnaireResponse as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/Bundle&quot; alias MeaslesCIFBundle as target
+
+imports &quot;http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesLogicalModelToResources&quot;
+imports &quot;http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel&quot;
+
+group MeaslesQuestionnaireToResources(source qr : QuestionnaireResponse, target bundleCif : MeaslesCIFBundle) {
+  qr -&gt; create(&apos;http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles&apos;) as model then {
+    qr -&gt; model then MeaslesQuestionnaireToLogicalModel(qr, model) &quot;QRtoLM&quot;;
+    qr -&gt; bundleCif then MeaslesLogicalModelToResources(model, bundleCif) &quot;LMtoBundle&quot;;
+  } &quot;QRtoBundle&quot;;
+}
+
+</pre>
+    </div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToResources"/>
+  <name value="MeaslesQuestionnaireToResources"/>
+  <status value="draft"/>
+  <structure>
+    <url value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
+    <mode value="source"/>
+    <alias value="QuestionnaireResponse"/>
+  </structure>
+  <structure>
+    <url value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+    <mode value="target"/>
+    <alias value="MeaslesCIFBundle"/>
+  </structure>
+  <import value="http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesLogicalModelToResources"/>
+  <import value="http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel"/>
+  <group>
+    <name value="MeaslesQuestionnaireToResources"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qr"/>
+      <type value="QuestionnaireResponse"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="bundleCif"/>
+      <type value="MeaslesCIFBundle"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="QRtoBundle"/>
+      <source>
+        <context value="qr"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="model"/>
+        <transform value="create"/>
+        <parameter>
+          <valueString value="http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles"/>
+        </parameter>
+      </target>
+      <rule>
+        <name value="QRtoLM"/>
+        <source>
+          <context value="qr"/>
+        </source>
+        <target>
+          <contextType value="variable"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="model"/>
+          </parameter>
+        </target>
+        <dependent>
+          <name value="MeaslesQuestionnaireToLogicalModel"/>
+          <variable value="qr"/>
+          <variable value="model"/>
+        </dependent>
+      </rule>
+      <rule>
+        <name value="LMtoBundle"/>
+        <source>
+          <context value="qr"/>
+        </source>
+        <target>
+          <contextType value="variable"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="bundleCif"/>
+          </parameter>
+        </target>
+        <dependent>
+          <name value="MeaslesLogicalModelToResources"/>
+          <variable value="model"/>
+          <variable value="bundleCif"/>
+        </dependent>
+      </rule>
+    </rule>
+  </group>
+</StructureMap>

@@ -1,0 +1,564 @@
+<StructureMap 
+  xmlns="http://hl7.org/fhir">
+  <id value="MeaslesLogicalModelToResources"/>
+  <text>
+    <status value="generated"/>
+    <div 
+      xmlns="http://www.w3.org/1999/xhtml">
+      <pre>map &quot;http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesLogicalModelToResources&quot; = &quot;MeaslesLogicalModelToResources&quot;
+
+uses &quot;http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles&quot; alias MeaslesLogicalModel as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/Bundle&quot; alias MeaslesCIFBundle as target
+
+group MeaslesLogicalModelToResources(source lm : MeaslesLogicalModel, target bundle : MeaslesCIFBundle) {
+  lm -&gt; bundle.type = &apos;document&apos; &quot;set bundle type&quot;;
+  lm -&gt;  uuid() as id,  bundle.id = id &quot;set id&quot;;
+  lm -&gt; uuid() as cid then {
+    lm -&gt;  bundle.entry as entry,  entry.fullUrl = append(&apos;urn:uuid:&apos;, cid),  entry.request as request,  request.method = &apos;PUT&apos;,  request.url = append(&apos;Composition/&apos;, cid),  create(&apos;http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesCIFComposition&apos;) as composition then {
+      lm then LmToComposition(lm, composition) &quot;setup composition&quot;;
+      lm -&gt; entry.resource = composition &quot;set composition resource&quot;;
+    } &quot;create composition resource&quot;;
+  } &quot;do it&quot;;
+}
+
+group LmToComposition(source lm : MeaslesLogicalModel, target composition : MeaslesCIFComposition) {
+  // cid -&gt; composition.id = cid &quot;set id&quot;;
+  lm.Demographics as demographics -&gt;  uuid() as pid,  create(&apos;http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesPatient&apos;) as patient then {
+    demographics then DemographicsToPatient(demographics, patient, pid) &quot;set patient&quot;;
+    lm -&gt; composition.subject = patient &quot;set subject&quot;;
+  } &quot;do this&quot;;
+}
+
+group DemographicsToPatient(source demographics : DemographicsLogicalModel, target patient : MeaslesPatient, source pid) {
+  pid -&gt; patient.id = pid &quot;set id&quot;;
+  demographics.name as name -&gt; patient.name = name &quot;set name&quot;;
+  demographics.DateOfBirth as dob -&gt; patient.birthDate = dob &quot;set date of birth&quot;;
+  demographics.Sex as sex -&gt; patient.gender = sex &quot;set sex&quot;;
+  demographics.CountryOfBirth as cob -&gt; patient.CountryOfBirth = cob &quot;set CountryOfBirth&quot;;
+  demographics.Landmark as landmark -&gt; patient.extension as ext then {
+    landmark -&gt;  ext.url = &apos;http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Landmark&apos;,  ext.value = landmark &quot;set landmark value&quot;;
+  } &quot;set landmark&quot;;
+  demographics.Guardian as guardian -&gt; patient.extension as ext then {
+    guardian -&gt;  ext.url = &apos;http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Guardian&apos;,  ext.value = guardian &quot;set guardian value&quot;;
+  } &quot;set guardian&quot;;
+  demographics.Telephone as phone -&gt; patient.telecom = phone &quot;set telephone&quot;;
+  demographics.PlaceOfResidence as address -&gt; patient.address = address &quot;set address&quot;;
+  demographics.Occupation as occupation -&gt; patient.extension as ext then {
+    occupation -&gt;  ext.url = &apos;http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Occupation&apos;,  ext.value = occupation &quot;set occupation value&quot;;
+  } &quot;set occupation&quot;;
+  demographics.WorkAddress as workAddress -&gt; patient.extension as ext then {
+    workAddress -&gt;  ext.url = &apos;http://worldhealthorganization.github.io/smart-ot/StructureDefinition/WorkAddress&apos;,  ext.value = workAddress &quot;set work address value&quot;;
+  } &quot;set work address&quot;;
+}
+
+</pre>
+    </div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesLogicalModelToResources"/>
+  <name value="MeaslesLogicalModelToResources"/>
+  <status value="draft"/>
+  <structure>
+    <url value="http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles"/>
+    <mode value="source"/>
+    <alias value="MeaslesLogicalModel"/>
+  </structure>
+  <structure>
+    <url value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+    <mode value="target"/>
+    <alias value="MeaslesCIFBundle"/>
+  </structure>
+  <group>
+    <name value="MeaslesLogicalModelToResources"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="lm"/>
+      <type value="MeaslesLogicalModel"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="bundle"/>
+      <type value="MeaslesCIFBundle"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set bundle type"/>
+      <source>
+        <context value="lm"/>
+      </source>
+      <target>
+        <context value="bundle"/>
+        <contextType value="variable"/>
+        <element value="type"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueString value="document"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set id"/>
+      <source>
+        <context value="lm"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="id"/>
+        <transform value="uuid"/>
+      </target>
+      <target>
+        <context value="bundle"/>
+        <contextType value="variable"/>
+        <element value="id"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="id"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="do it"/>
+      <source>
+        <context value="lm"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="cid"/>
+        <transform value="uuid"/>
+      </target>
+      <rule>
+        <name value="create composition resource"/>
+        <source>
+          <context value="lm"/>
+        </source>
+        <target>
+          <context value="bundle"/>
+          <contextType value="variable"/>
+          <element value="entry"/>
+          <variable value="entry"/>
+        </target>
+        <target>
+          <context value="entry"/>
+          <contextType value="variable"/>
+          <element value="fullUrl"/>
+          <transform value="append"/>
+          <parameter>
+            <valueString value="urn:uuid:"/>
+          </parameter>
+          <parameter>
+            <valueId value="cid"/>
+          </parameter>
+        </target>
+        <target>
+          <context value="entry"/>
+          <contextType value="variable"/>
+          <element value="request"/>
+          <variable value="request"/>
+        </target>
+        <target>
+          <context value="request"/>
+          <contextType value="variable"/>
+          <element value="method"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueString value="PUT"/>
+          </parameter>
+        </target>
+        <target>
+          <context value="request"/>
+          <contextType value="variable"/>
+          <element value="url"/>
+          <transform value="append"/>
+          <parameter>
+            <valueString value="Composition/"/>
+          </parameter>
+          <parameter>
+            <valueId value="cid"/>
+          </parameter>
+        </target>
+        <target>
+          <contextType value="variable"/>
+          <variable value="composition"/>
+          <transform value="create"/>
+          <parameter>
+            <valueString value="http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesCIFComposition"/>
+          </parameter>
+        </target>
+        <rule>
+          <name value="setup composition"/>
+          <source>
+            <context value="lm"/>
+          </source>
+          <dependent>
+            <name value="LmToComposition"/>
+            <variable value="lm"/>
+            <variable value="composition"/>
+          </dependent>
+        </rule>
+        <rule>
+          <name value="set composition resource"/>
+          <source>
+            <context value="lm"/>
+          </source>
+          <target>
+            <context value="entry"/>
+            <contextType value="variable"/>
+            <element value="resource"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="composition"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="LmToComposition"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="lm"/>
+      <type value="MeaslesLogicalModel"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="composition"/>
+      <type value="MeaslesCIFComposition"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="do this"/>
+      <source>
+        <context value="lm"/>
+        <element value="Demographics"/>
+        <variable value="demographics"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="pid"/>
+        <transform value="uuid"/>
+      </target>
+      <target>
+        <contextType value="variable"/>
+        <variable value="patient"/>
+        <transform value="create"/>
+        <parameter>
+          <valueString value="http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesPatient"/>
+        </parameter>
+      </target>
+      <rule>
+        <name value="set patient"/>
+        <source>
+          <context value="demographics"/>
+        </source>
+        <dependent>
+          <name value="DemographicsToPatient"/>
+          <variable value="demographics"/>
+          <variable value="patient"/>
+          <variable value="pid"/>
+        </dependent>
+      </rule>
+      <rule>
+        <name value="set subject"/>
+        <source>
+          <context value="lm"/>
+        </source>
+        <target>
+          <context value="composition"/>
+          <contextType value="variable"/>
+          <element value="subject"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="patient"/>
+          </parameter>
+        </target>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="DemographicsToPatient"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="demographics"/>
+      <type value="DemographicsLogicalModel"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="patient"/>
+      <type value="MeaslesPatient"/>
+      <mode value="target"/>
+    </input>
+    <input>
+      <name value="pid"/>
+      <mode value="source"/>
+    </input>
+    <rule>
+      <name value="set id"/>
+      <source>
+        <context value="pid"/>
+      </source>
+      <target>
+        <context value="patient"/>
+        <contextType value="variable"/>
+        <element value="id"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="pid"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set name"/>
+      <source>
+        <context value="demographics"/>
+        <element value="name"/>
+        <variable value="name"/>
+      </source>
+      <target>
+        <context value="patient"/>
+        <contextType value="variable"/>
+        <element value="name"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="name"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set date of birth"/>
+      <source>
+        <context value="demographics"/>
+        <element value="DateOfBirth"/>
+        <variable value="dob"/>
+      </source>
+      <target>
+        <context value="patient"/>
+        <contextType value="variable"/>
+        <element value="birthDate"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="dob"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set sex"/>
+      <source>
+        <context value="demographics"/>
+        <element value="Sex"/>
+        <variable value="sex"/>
+      </source>
+      <target>
+        <context value="patient"/>
+        <contextType value="variable"/>
+        <element value="gender"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="sex"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set CountryOfBirth"/>
+      <source>
+        <context value="demographics"/>
+        <element value="CountryOfBirth"/>
+        <variable value="cob"/>
+      </source>
+      <target>
+        <context value="patient"/>
+        <contextType value="variable"/>
+        <element value="CountryOfBirth"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="cob"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set landmark"/>
+      <source>
+        <context value="demographics"/>
+        <element value="Landmark"/>
+        <variable value="landmark"/>
+      </source>
+      <target>
+        <context value="patient"/>
+        <contextType value="variable"/>
+        <element value="extension"/>
+        <variable value="ext"/>
+      </target>
+      <rule>
+        <name value="set landmark value"/>
+        <source>
+          <context value="landmark"/>
+        </source>
+        <target>
+          <context value="ext"/>
+          <contextType value="variable"/>
+          <element value="url"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueString value="http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Landmark"/>
+          </parameter>
+        </target>
+        <target>
+          <context value="ext"/>
+          <contextType value="variable"/>
+          <element value="value"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="landmark"/>
+          </parameter>
+        </target>
+      </rule>
+    </rule>
+    <rule>
+      <name value="set guardian"/>
+      <source>
+        <context value="demographics"/>
+        <element value="Guardian"/>
+        <variable value="guardian"/>
+      </source>
+      <target>
+        <context value="patient"/>
+        <contextType value="variable"/>
+        <element value="extension"/>
+        <variable value="ext"/>
+      </target>
+      <rule>
+        <name value="set guardian value"/>
+        <source>
+          <context value="guardian"/>
+        </source>
+        <target>
+          <context value="ext"/>
+          <contextType value="variable"/>
+          <element value="url"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueString value="http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Guardian"/>
+          </parameter>
+        </target>
+        <target>
+          <context value="ext"/>
+          <contextType value="variable"/>
+          <element value="value"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="guardian"/>
+          </parameter>
+        </target>
+      </rule>
+    </rule>
+    <rule>
+      <name value="set telephone"/>
+      <source>
+        <context value="demographics"/>
+        <element value="Telephone"/>
+        <variable value="phone"/>
+      </source>
+      <target>
+        <context value="patient"/>
+        <contextType value="variable"/>
+        <element value="telecom"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="phone"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set address"/>
+      <source>
+        <context value="demographics"/>
+        <element value="PlaceOfResidence"/>
+        <variable value="address"/>
+      </source>
+      <target>
+        <context value="patient"/>
+        <contextType value="variable"/>
+        <element value="address"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="address"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set occupation"/>
+      <source>
+        <context value="demographics"/>
+        <element value="Occupation"/>
+        <variable value="occupation"/>
+      </source>
+      <target>
+        <context value="patient"/>
+        <contextType value="variable"/>
+        <element value="extension"/>
+        <variable value="ext"/>
+      </target>
+      <rule>
+        <name value="set occupation value"/>
+        <source>
+          <context value="occupation"/>
+        </source>
+        <target>
+          <context value="ext"/>
+          <contextType value="variable"/>
+          <element value="url"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueString value="http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Occupation"/>
+          </parameter>
+        </target>
+        <target>
+          <context value="ext"/>
+          <contextType value="variable"/>
+          <element value="value"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="occupation"/>
+          </parameter>
+        </target>
+      </rule>
+    </rule>
+    <rule>
+      <name value="set work address"/>
+      <source>
+        <context value="demographics"/>
+        <element value="WorkAddress"/>
+        <variable value="workAddress"/>
+      </source>
+      <target>
+        <context value="patient"/>
+        <contextType value="variable"/>
+        <element value="extension"/>
+        <variable value="ext"/>
+      </target>
+      <rule>
+        <name value="set work address value"/>
+        <source>
+          <context value="workAddress"/>
+        </source>
+        <target>
+          <context value="ext"/>
+          <contextType value="variable"/>
+          <element value="url"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueString value="http://worldhealthorganization.github.io/smart-ot/StructureDefinition/WorkAddress"/>
+          </parameter>
+        </target>
+        <target>
+          <context value="ext"/>
+          <contextType value="variable"/>
+          <element value="value"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="workAddress"/>
+          </parameter>
+        </target>
+      </rule>
+    </rule>
+  </group>
+</StructureMap>

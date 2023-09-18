@@ -24,3 +24,13 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001
 # experimental: true
 dependencies:  
   hl7.fhir.uv.sdc: 3.0.0
+resources:
+  StructureMap/MeaslesLogicalModelToResources:
+    name: MeaslesLogicalModelToResources
+    description: MeaslesLogicalModelToResources
+  StructureMap/MeaslesQuestionnaireToLogicalModel:
+    name: MeaslesQuestionnaireToLogicalModel
+    description: MeaslesQuestionnaireToLogicalModel
+  StructureMap/MeaslesQuestionnaireToResources:
+    name: MeaslesQuestionnaireToResources
+    description: MeaslesQuestionnaireToResources

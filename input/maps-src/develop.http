@@ -1,0 +1,60 @@
+
+@host = https://test.ahdis.ch/matchbox/fhir
+
+### returns metadata confiugraiotn for server, verify that you have in implementation description "Developoment Mode"
+GET {{host}}/metadata HTTP/1.1
+Accept: application/fhir+xml;fhirVersion=4.0
+Origin: http://localhost
+
+###
+POST {{host}}/ImplementationGuide HTTP/1.1
+Accept: application/fhir+json
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "ImplementationGuide",
+  "version": "0.2.1",
+  "name": "fhir.worldhealthorganization.smart-ot",
+  "packageId": "fhir.worldhealthorganization.smart-ot",
+  "url": "https://worldhealthorganization.github.io/smart-ot/package.tgz"
+}
+
+
+### Convert Textual representation of a FHIR Mapping Language to StructureMap resource
+POST {{host}}/StructureMap HTTP/1.1
+Accept: application/fhir+xml
+Content-Type: text/fhir-mapping
+
+< ./MeaslesQuestionnaireToResources.map
+
+###
+POST {{host}}/StructureMap HTTP/1.1
+Accept: application/fhir+xml
+Content-Type: text/fhir-mapping
+
+< ./MeaslesLogicalModelToResources.map
+
+###
+POST {{host}}/StructureMap HTTP/1.1
+Accept: application/fhir+xml
+Content-Type: text/fhir-mapping
+
+< ./MeaslesQuestionnaireToLogicalModel.map
+
+### Get Questiononaire
+GET {{host}}/Questionnaire/Questionnaire-SOTMeasles HTTP/1.1
+Accept: application/fhir+xml;fhirVersion=4.0
+
+### Transform 
+POST {{host}}/StructureMap/$transform?source=http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel
+Accept: application/fhir+json;fhirVersion=4.0
+Content-Type: application/fhir+json;fhirVersion=4.0
+
+< ./QuestionnaireResponse-response1.json
+
+### Extract -> "No sdc-questionnaire-targetStructureMap extension found in resource
+POST {{host}}/QuestionnaireResponse/$extract
+Accept: application/fhir+json;fhirVersion=4.0
+Content-Type: application/fhir+json;fhirVersion=4.0
+
+< ./QuestionnaireResponse-response1.json
