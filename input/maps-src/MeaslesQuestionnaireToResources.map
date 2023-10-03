@@ -5,6 +5,7 @@ uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias MeaslesCIFBundle as 
 imports "http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesLogicalModelToResources"
 imports "http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel"
 
+
 group MeaslesQuestionnaireToResources(source qr : QuestionnaireResponse, target bundleCif : MeaslesCIFBundle) {
   qr -> create ("http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles") as model then { 
   qr -> model then MeaslesQuestionnaireToLogicalModel(qr,model) "QRtoLM";
