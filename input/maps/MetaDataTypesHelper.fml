@@ -1,0 +1,49 @@
+map "http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper" = "MetaDataTypesHelper"
+
+group addressToAddress (source sourceAddress, target targetAddress: Address) {
+  sourceAddress.use as use -> targetAddress.use = use "Copy use";
+  sourceAddress.type as type -> targetAddress.type = type "Copy type";
+  sourceAddress.text as text -> targetAddress.text = text "Copy text";
+  sourceAddress.line as line -> targetAddress.line = line "Copy line";
+  sourceAddress.city as city -> targetAddress.city = city "Copy city";
+  sourceAddress.district as district -> targetAddress.district = district "Copy district";
+  sourceAddress.state as state -> targetAddress.state = state "Copy state";
+  sourceAddress.postalCode as postalCode -> targetAddress.postalCode = postalCode "Copy postalCode";
+  sourceAddress.country as country -> targetAddress.country = country "Copy country";
+  
+  // Copy the period using the previously defined group function
+  sourceAddress.period as sourcePeriod -> targetAddress.period as targetPeriod then {
+    sourcePeriod -> sourcePeriod then periodToPeriod(sourcePeriod, targetPeriod) "Copy period";
+  } "copy period";
+}
+
+group humanNameToHumanName (source sourceName, target targetName: HumanName) {
+  sourceName.use as use -> targetName.use = use "Copy use";
+  sourceName.text as text -> targetName.text = text "Copy text";
+  sourceName.family as family -> targetName.family = family "Copy family";
+  sourceName.given as given -> targetName.given = given "Copy given";
+  sourceName.prefix as prefix -> targetName.prefix = prefix "Copy prefix";
+  sourceName.suffix as suffix -> targetName.suffix = suffix "Copy suffix";
+  
+  // Copy the period using the previously defined group function
+  sourceName.period as sourcePeriod -> targetName.period as targetPeriod then {
+    sourcePeriod -> sourcePeriod then periodToPeriod(sourcePeriod, targetPeriod) "Copy period";
+  } "copy period";
+}
+
+group periodToPeriod (source sourcePeriod , target targetPeriod: Period) {
+  sourcePeriod.start as start -> targetPeriod.start = start "set period start";
+  sourcePeriod.end as end -> targetPeriod.end = end "set period end";
+} 
+
+group contactPointToContactPoint (source sourceContact, target targetContact: ContactPoint) {
+  sourceContact.system as system -> targetContact.system = system "Copy system";
+  sourceContact.value as value -> targetContact.value = value "Copy value";
+  sourceContact.use as use -> targetContact.use = use "Copy use";
+  sourceContact.rank as rank -> targetContact.rank = rank "Copy rank";
+  
+  // Copy the period using the previously defined group function
+  sourceContact.period as sourcePeriod -> targetContact.period as targetPeriod then {
+    sourcePeriod -> sourcePeriod then periodToPeriod(sourcePeriod, targetPeriod) "Copy period";
+  } "copy period";
+}
