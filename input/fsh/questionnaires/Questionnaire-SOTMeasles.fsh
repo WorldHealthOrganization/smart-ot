@@ -200,7 +200,7 @@ Usage: #definition
         * question = "outcome"
         * operator = #=
         * answerCoding 
-          * system = Canonical(PatientOutcome)
+          * system = Canonical(PatientOutcomeCs)
           * code =  #Death
     * insert Question(primaryCauseOfDeath, Primary cause of death, string, false)
     * item[=]
@@ -208,7 +208,7 @@ Usage: #definition
         * question = "outcome"
         * operator = #=
         * answerCoding 
-          * system = Canonical(PatientOutcome)
+          * system = Canonical(PatientOutcomeCs)
           * code =  #Death
     * insert Question(diseaseAdditionalInfo, Comments, string, false)
 //Laboratory Results
