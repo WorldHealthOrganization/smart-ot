@@ -7,9 +7,9 @@ imports "http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaData
 
 group MeaslesLogicalModelToResources(source lm : SOTMeasles, target bundle : Bundle) {
   lm -> bundle.type = 'document' "set bundle type";
-/*  lm.ReportingSource as reportingSource -> reportingSource then {
+  lm.ReportingSource as reportingSource -> reportingSource then {
      reportingSource.DateReportedNational as date -> bundle.timestamp = date "set date";
-    } "set timestamp"; */
+    } "set timestamp"; 
   lm -> uuid() as bid, bundle.id = bid "set id";
   lm -> uuid() as cid, uuid() as pid, uuid() as prid, uuid() as oid, uuid() as eid  then {  
     lm -> bundle.entry as entry,  entry.resource = create('Composition') as composition,  entry.fullUrl = append('urn:uuid:', cid) then {
