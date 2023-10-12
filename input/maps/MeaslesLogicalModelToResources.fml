@@ -235,7 +235,7 @@ group mapLabsToDiagnosticReport(source lm : MeaslesLogicalModel, target bundle: 
 }  
 
 group mapVaccinationStatusToImmunization(source lm : MeaslesLogicalModel, target bundle: Bundle, target composition: MeaslesCIFComposition, source pid) {
-  lm -> composition.section as section, section.title = "Vaccination History" then {
+/*  lm -> composition.section as section, section.title = "Vaccination History" then {
     lm.LaboratoryResults as labs -> uuid() as id, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', id), section.entry as sectionEntry, sectionEntry.reference = append('DiagnosticReport/', id), entry.resource = create('DiagnosticReport') as diagnosticReport then {
       labs -> diagnosticReport.id = id "set id";
       labs -> diagnosticReport.status = "registered" "set status";
@@ -246,6 +246,7 @@ group mapVaccinationStatusToImmunization(source lm : MeaslesLogicalModel, target
       } "set code";
       labs -> diagnosticReport.subject as subject, subject.reference = append('Patient/',pid) "set subject";
     }
+*/
 }
 
 
