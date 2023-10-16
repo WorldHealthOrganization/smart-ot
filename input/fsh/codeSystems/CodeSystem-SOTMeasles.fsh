@@ -6,6 +6,7 @@ Description:  "CodeSystem for PAHO MRCIF Data Elements"
 * ^experimental = false
 * ^caseSensitive = false
 * ^name = "PAHO_MRCIF"
+/*
 * #DE1	Initial diagnosis	Initial Diagnosis
 * #DE8	Case ID	Case Number - Unique identifier for the case, according to the policies applicable to each country.
 * #DE9	Reporting facility	Health Service Name
@@ -101,3 +102,4 @@ Description:  "CodeSystem for PAHO MRCIF Data Elements"
 * #DE242	Contact case no	Contact of (or epidemiologically-linked to) case number
 * #DE243	Classified by	Classified by
 * #DE244	Classification date	Date of final classification
+*/
