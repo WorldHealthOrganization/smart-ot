@@ -21,6 +21,8 @@ Usage: #definition
 * contained[+] = InitDiag
 * contained[+] = YesNoUnknown
 * contained[+] = RashType
+* contained[+] = Antigen
+* contained[+] = Result
 //Header
 * insert Question(investigationForm,Investigation Form for Measles/Rubella,group,false)
 * item[=]
