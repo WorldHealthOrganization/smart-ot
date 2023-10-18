@@ -7,7 +7,7 @@ Parent: BackboneElement
 * ^abstract = true
 * ^status = #draft
 
-* FinalClassification 1..1 code "Final Case Classification" "Final Case Classification"
+* FinalClassification 1..1 Coding "Final Case Classification" "Final Case Classification"
 * Source 1..1 code "Source" "For confirmed cases, Source of infection"
 * ConfirmationBasis 0..1 code "Basis for confirmation" "Basis for confirmation"
 * FinalClassification from FinalClassification (required)

@@ -160,9 +160,9 @@ group mapVaccinationStatus(source qrVaccinationStatus, target lmVaccinationStatu
   } "set";
 }
 
-group mapClinical(source qrClinical, target lmClinical: ClinicalLogicalModel) {
+group mapClinical(source qrClinical, target lmClinical: SOTMeaslesClinical) {
   qrClinical.item as item then {
-    item.answer first  as fever where item.linkId = 'fever' then { 
+    item.answer first  as fever where item.linkId = 'fever' then {
       fever.value as value -> lmClinical.Fever = value "set Fever";
     } "set";
     item.answer first  as temperature where item.linkId = 'temperature' then {
@@ -278,7 +278,7 @@ group mapLaboratoryResults(source qrLaboratoryResults, target lmLaboratoryResult
 } "set labs";
 }
 
-group mapTravelDetails (source qrTravelDetails, target lmTravelDetails : TravelDetails) {
+group mapTravelDetails (source qrTravelDetails, target lmContactTracing : SOTMeaslesContactTracing) {
   qrTravelDetails.answer first as answer where  item.linkId = 'placeOfTravel' then {
     answer.value as value -> lmTravelDetails.placeOfTravel = value "set specify virus";
   } "set";
@@ -310,7 +310,10 @@ group mapContactTracing(source qrContactTracing, target lmContactTracing: SOTMea
     item.answer first as answer where  item.linkId = 'travelledOutside' then {
       answer.value as value -> lmContactTracing.travelledOutside = value "set specify virus";
     } "set";
-    item.answer first as qrTravelDetails where  item.linkId = 'travelDetails' -> lmContactTracing.travelDetails as lmTravelDetails then mapTravelDetails(qrTravelDetails,lmTravelDetails) "set";
+    item.answer first as qrTravelDetails where  item.linkId = 'travelDetails' -> create('http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureTravelHistory') as tgtTravelDetails then {
+      qrTravelDetails -> qrTravelDetails then mapTravelDetails(qrTravelDetails, tgtTravelDetails) "d";
+      qrTravelDetails -> lmContactTracing.travelDetails = tgtTravelDetails "set"; 
+    } "set";
     item.answer first as answer where  item.linkId = 'infectionSetting' then {
       answer.value as value -> lmContactTracing.infectionSetting = value "set specify virus";
     } "set";

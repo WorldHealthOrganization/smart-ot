@@ -7,20 +7,20 @@ Parent: BackboneElement
 * ^abstract = true
 * ^status = #draft
 
-* SpecimenCollectionDate	1..1	 date	"Date of specimen(s) collection"	"Date of specimen(s) collection"
+* SpecimenCollectionDate	1..1	 dateTime	"Date of specimen(s) collection"	"Date of specimen(s) collection"
 * SpecimenSentDate	0..1	 date	"Date specimen(s) sent to laboratory"	"Date specimen(s) sent to laboratory"
-* SpecimenRecdDate	0..1	 date	"Date specimen(s) received in laboratory"	"Date specimen(s) received in laboratory"
+* SpecimenRecdDate	0..1	 dateTime	"Date specimen(s) received in laboratory"	"Date specimen(s) received in laboratory"
 * LabName 0..1 string "Laboratory Name" "Laboratory Name"
-* LabResultsDate	0..1	 date	"Date of results from laboratory"	"Date of results from laboratory"
+* LabResultsDate	0..1	 dateTime	"Date of results from laboratory"	"Date of results from laboratory"
 * LabResults	0..1	code	"Laboratory results (serology, viral detection,genotype)"	"Laboratory results (serology, viral detection,genotype)"
-* Results 1..1 code "Result" "Result"
+* Results 1..1 Coding "Result" "Result"
 * Results from Result (required)
 * SampleId 0..1 string "Sample ID" "Sample ID"
 * SampleType 1..1 code "Type of specimen" "Type of specimen"
 * SampleType from SampleType (required)
 * TypeOfTest	0..1	code	"Type of test"	"Type of test"
 * TypeOfTest from TestPerformed (required)
-* Antigen	0..1	code	"Antigen"	"Antigen"
+* Antigen	0..1	Coding	"Antigen"	"Antigen"
 * Antigen from Antigen (required)
 * SpecimenNumber	0..1	code	"Specimen number"	"Specimen number"
 * SpecimenNumber from SpecimenNumber (required)
