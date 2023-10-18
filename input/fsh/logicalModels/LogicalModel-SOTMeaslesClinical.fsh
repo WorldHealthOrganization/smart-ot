@@ -34,7 +34,7 @@ Parent: BackboneElement
 * Outcome from PatientOutcome (required)
 * DateOfDeath	0..1	 dateTime	"Date of death"	"Date of death"
 * NumberOfPrevious	0..1	Quantity	"Number of previous pregnancies*"	"Number of previous pregnancies*"
-* PregnancyStatus	1..1	code	"Pregnancy status*"	"Pregnancy status*"
+* PregnancyStatus	1..1	Coding	"Pregnancy status*"	"Pregnancy status*"
 * PregnancyStatus from YesNoUnknown (required)
 * GestationWeeks	0..1	Quantity	"Number of weeks gestation at onset of illness*"	"Number of weeks gestation at onset of illness*"
 * PriorEvidence	0..1	string	"Prior evidence or date of rubella serologic immunity, or both*"	"Prior evidence or date of rubella serologic immunity, or both*"

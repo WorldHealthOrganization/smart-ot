@@ -5,9 +5,10 @@ uses "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Meas
 
 imports "http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper"
 
+
 group MeaslesLogicalModelToResources(source lm : SOTMeasles, target bundle : Bundle) {
   lm -> bundle.type = 'document' "set bundle type";
-/* lm.ReportingSource as reportingSource then {
+  /* lm.ReportingSource as reportingSource then {
     reportingSource.DateReportedNational as date -> bundle.timestamp = date "set date";
   } "set timestamp"; */
   lm -> uuid() as bid, bundle.id = bid "set id";
@@ -51,10 +52,10 @@ group mapClassificationToConditions (source lm : MeaslesLogicalModel, target bun
       classification -> condition.id = id "set id";
       classification -> condition.verificationStatus as tgtStatus, create('Coding') as status, status.code = "confirmed", status.system = "http://terminology.hl7.org/CodeSystem/condition-ver-status", status.display = "Confirmed" then mapCodingtoCodeableConcept(status, tgtStatus) "set";
       classification -> condition.subject as subject, subject.reference = append('Patient/',pid) "set subject";
-    //  classification.FinalClassification as coding -> condition.code as code then mapCodingtoCodeableConcept( coding, code) "set code";
+      classification.FinalClassification as coding -> condition.code as code then mapCodingtoCodeableConcept( coding, code) "set code";
       classification -> condition.encounter as encounter, encounter.reference = append('Encounter/',eid) "set subject";
       classification -> condition.category as tgt, create('Coding') as status, status.code = "encounter-diagnosis", status.system = "http://terminology.hl7.org/CodeSystem/condition-category", status.display = "Encounter Diagnosis" then mapCodingtoCodeableConcept(status, tgt) "set"; 
-    classification.ClassificationDate as date -> condition.recordedDate = date "set";
+      classification.ClassificationDate as date -> condition.recordedDate = date "set";
       classification.ClassifiedBy as person ->  uuid() as rpid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', rpid), section.entry as sectionEntry, sectionEntry.reference = append('RelatedPerson/', rpid), entry.resource = create('RelatedPerson') as recorder then {
         person -> recorder.id = rpid "set id";
         person -> recorder.name as targetName, create('HumanName') as name, name.text = person then humanNameToHumanName(name, targetName ) "set";
@@ -225,10 +226,11 @@ group mapLabsToDiagnosticReport(source lm : MeaslesLogicalModel, target bundle: 
       labs -> diagnosticReport.id = id "set id";
       labs -> diagnosticReport.status = "registered" "set status";
       labs -> diagnosticReport.subject as subject, subject.reference = append('Patient/',pid) "set subject";
+      labs.Antigen as antigen -> diagnosticReport.code as code then mapCodingtoCodeableConcept(antigen,code) "set code";
       labs -> uuid() as id, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', id), diagnosticReport.specimen as refSpecimen, refSpecimen.reference = append('Specimen/', id), entry.resource = create('Specimen') as specimen then {
         labs.SpecimenCollectionDate as collectDate -> specimen.collection as collection, collection.collected = collectDate "set date";
-        //labs.SpecimenSentDate as sentDate -> 
-      // labs.SpecimenRecdDate as recdDate -> specimen.receivedTime as dateTime then dateToDateTime(recdDate, dateTime)  "set date";
+      //labs.SpecimenSentDate as sentDate -> 
+        labs.SpecimenRecdDate as recdDate -> specimen.receivedTime = recdDate  "set date";
         labs.SampleId as sampleId -> specimen.identifier as identifier, identifier.value = sampleId "set identifier";
         labs.SampleType as sampleType -> specimen.type = sampleType "set type";
         labs.SpecimenNumber as number then {
@@ -243,7 +245,6 @@ group mapLabsToDiagnosticReport(source lm : MeaslesLogicalModel, target bundle: 
       labs -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), diagnosticReport.result as result, result.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
         labs -> observation.id = obsid "set obsid";
         labs.Antigen as antigen -> antigen then {
-          antigen -> diagnosticReport.code as code then mapCodingtoCodeableConcept(antigen,code) "set code";
           labs.Results as result -> result then createObservationResource( result, antigen, observation, pid) "set obs"; 
           labs.LabResultsDate as resultDate -> observation.effective = resultDate "set start date";
         } "set antigen";
@@ -257,7 +258,7 @@ group mapLabsToDiagnosticReport(source lm : MeaslesLogicalModel, target bundle: 
  } "set section";
 }  
 
-group createImmunizationResource (source vax : SOTMeaslesVaccinationStatus, target bundle : Bundle, target section : Element,  source pid, source date : Any) {
+group createImmunizationResource (source vax : SOTMeaslesVaccinationStatus, target bundle : Bundle, target section : Element,  source pid) {
   vax -> uuid() as id, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', id), section.entry as sectionEntry, sectionEntry.reference = append('Immunization/', id), entry.resource = create('Immunization') as immunization then {
     vax -> immunization.id = id "set id";
     vax -> immunization.status = "completed" "set status";
@@ -267,9 +268,9 @@ group createImmunizationResource (source vax : SOTMeaslesVaccinationStatus, targ
     vax.Source as source -> immunization.reportOrigin as origin then {
       source -> source then mapCodingtoCodeableConcept(source, origin) "set report origin";
     } "set";
-    vax -> immunization.occurrence = date "set date";
+    vax.LastDoseDate as date -> immunization.occurrence = date "set date";
     vax.NumberOfDoses as doses then {
-      doses.display as doseNumber -> immunization.protocolApplied as protocol, protocol.doseNumber = doseNumber "set";
+      doses.display as seriesDose -> immunization.protocolApplied as protocol, protocol.series = seriesDose "set";
     } "set dosenumber"; 
     vax -> immunization.patient as subject, subject.reference = append('Patient/',pid) "set subject";
   } "ad";
@@ -277,25 +278,25 @@ group createImmunizationResource (source vax : SOTMeaslesVaccinationStatus, targ
 group mapVaccinationStatusToImmunization(source lm : MeaslesLogicalModel, target bundle: Bundle, target composition: MeaslesCIFComposition, source pid) {
   lm -> composition.section as section, section.title = "Vaccination History" then {
    lm.VaccinationStatus as vax then {  
-      vax.NumberOfDoses as doses where code = "99" -> doses then createImmunizationResource(vax,bundle,section, pid, date) "do";
+      vax.NumberOfDoses as doses where code = "99" -> doses then createImmunizationResource(vax,bundle,section, pid) "do";
       vax.NumberOfDoses as doses where code = "1" -> doses then {
-        vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section, pid, date) "do1";
+        vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section, pid) "do1";
       } "set";
       vax.NumberOfDoses as doses where code = "2" then {
-   //     doses ->  "do not know" as date then createImmunizationResource(vax, bundle, section, pid, date) "do2";
-        vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section,pid, date) "do";
+        doses ->  doses then createImmunizationResource(vax, bundle, section, pid) "do2";
+        vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section,pid) "do";
       } "set doses";
- /*     vax.NumberOfDoses as doses where code = "3" then {
-        vax -> doses then createImmunizationResource(vax,bundle,section,pid,"unknown") "do";
-        vax -> doses then createImmunizationResource(vax,bundle,section,pid,"unknown") "do";
-        vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section,pid,date) "do";
+      vax.NumberOfDoses as doses where code = "3" then {
+        vax -> doses then createImmunizationResource(vax,bundle,section,pid) "do";
+        vax -> doses then createImmunizationResource(vax,bundle,section,pid) "do";
+        vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section,pid) "do";
       } "set doses";
       vax.NumberOfDoses as doses where code = "4" then {
-        vax -> doses then createImmunizationResource(vax,bundle,section,pid,"unknown") "do";
-        vax -> doses then createImmunizationResource(vax,bundle,section,pid,"unknown") "do";
-        vax -> doses then createImmunizationResource(vax,bundle,section,pid,"unknown") "do";
-        vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section,pid, date) "do";
-      } "set doses"; */
+        vax -> doses then createImmunizationResource(vax,bundle,section,pid) "do";
+        vax -> doses then createImmunizationResource(vax,bundle,section,pid) "do";
+        vax -> doses then createImmunizationResource(vax,bundle,section,pid) "do";
+        vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section,pid) "do";
+      } "set doses"; 
   
     } "set status";
   } "set section";
@@ -307,9 +308,9 @@ group LmToComposition(source lm : SOTMeasles, target composition : Composition, 
   lm -> composition.status = "final" "set status";
   lm -> composition.title = "PAHO Measles Case Investigation Form" "set title";
   lm -> create('Coding') as coding, coding.code = "55751-2", coding.system = "http://loinc.org", coding.display = "Public health Case report", create('CodeableConcept') as code, code.coding = coding,  composition.type = code "set type";
-/*  lm.ReportingSource as reportingSource -> reportingSource then {
+  lm.ReportingSource as reportingSource -> reportingSource then {
     reportingSource.DateReportedLocal as date -> composition.date = date "set date";
-  } "set date reported local"; */
+  } "set date reported local";
   lm -> composition.subject as subject then {
     lm -> subject.reference= append('Patient/',pid) "set subject";
   } "set subject";

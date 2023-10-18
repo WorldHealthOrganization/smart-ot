@@ -103,7 +103,7 @@ Usage: #definition
     * extension[+].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
     * extension[=].valueCoding = http://unitsofmeasure.org#[degF]
 */
-    * insert Question(dateOfFeverOnset, Date of fever onset, dateTime, false)
+    * insert Question(dateOfFeverOnset, Date of fever onset, date, false)
     * item[=]
       * enableWhen
         * question = "fever"
