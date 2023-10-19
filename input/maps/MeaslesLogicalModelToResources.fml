@@ -11,6 +11,7 @@ group MeaslesLogicalModelToResources(source lm : SOTMeasles, target bundle : Bun
   /* lm.ReportingSource as reportingSource then {
     reportingSource.DateReportedNational as date -> bundle.timestamp = date "set date";
   } "set timestamp"; */
+  
   lm -> uuid() as bid, bundle.id = bid "set id";
   lm -> uuid() as cid, uuid() as pid, uuid() as prid, uuid() as oid, uuid() as eid  then {  
     lm -> bundle.entry as entry,  entry.resource = create('Composition') as composition,  entry.fullUrl = append('urn:uuid:', cid) then {
@@ -298,7 +299,7 @@ group mapVaccinationStatusToImmunization(source lm : MeaslesLogicalModel, target
         vax -> doses then createImmunizationResource(vax,bundle,section,pid) "do";
         vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section,pid) "do";
       } "set doses"; 
-  
+ 
     } "set status";
   } "set section";
 }
