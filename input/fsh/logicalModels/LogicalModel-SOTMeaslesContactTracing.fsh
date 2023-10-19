@@ -17,7 +17,7 @@ Parent: BackboneElement
 * pregnantContactNames 0..1 string "If Yes, Name(s)" "If Yes, Name(s)"
 * localCasesPresent 1..1 code "Are there other cases present in the case’s municipality of residence?" "Are there other cases present in the case’s municipality of residence?"
 * travelledOutside 1..1 code "Did the patient travel outside his/her province/state of residence 7-23 days before rash onset?" "Did the patient travel outside his/her province/state of residence 7-23 days before rash onset?"
-* travelDetails 1..1 BackboneElement "Travel History" "Travel History"
+* travelDetails 1..1 SOTMeaslesTravelDetails "Travel History" "Travel History"
   * placeOfTravel 0..1 string "Cities/Countries" "Cities/Countries"
   * arrivalDate 0..1 date "Date of arrival" "Date of arrival"
   * departureDate 0..1 date "Date of departure" "Date of departure"

@@ -7,7 +7,7 @@ Parent: BackboneElement
 * ^abstract = true
 * ^status = #draft
 
-* FinalClassification 1..1 code "Final Case Classification" "Final Case Classification"
+* FinalClassification 1..1 Coding "Final Case Classification" "Final Case Classification"
 * Source 1..1 code "Source" "For confirmed cases, Source of infection"
 * ConfirmationBasis 0..1 code "Basis for confirmation" "Basis for confirmation"
 * FinalClassification from FinalClassification (required)
@@ -20,4 +20,4 @@ Parent: BackboneElement
 * Contact from YesNoUnknown (required) 
 * ContactCaseNo 0..1 string  "Contact of (or epidemiologically-linked to) case number" "Contact of (or epidemiologically-linked to) case number"
 * ClassifiedBy 1..1 string  "Classified by" "Classified by"
-* ClassificationDate 1..1 date  "Date of final classification" "Date of final classification"
+* ClassificationDate 1..1 dateTime  "Date of final classification" "Date of final classification"
