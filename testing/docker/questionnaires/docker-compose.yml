@@ -2,8 +2,6 @@ version: "3.9"
 
 services:
   fhir-server:
-    #image: alphora/cqf-ruler:latest
-    #image: costateixeira/hapi:test
     image: europe-west6-docker.pkg.dev/ahdis-ch/ahdis/matchbox:v3.4.4
     restart: always
 
@@ -22,7 +20,6 @@ services:
       - hapi.fhir.cors.allow_Credentials=true
       - hapi.fhir.cors.allowed_origin_patterns="http:localhost:*"
 
-
       - hapi.fhir.implementationguides.fhir_r4_core.name=hl7.fhir.r4.core
       - hapi.fhir.implementationguides.fhir_r4_core.version=4.0.1
       - hapi.fhir.implementationguides.fhir_r4_core.url=http://hl7.org/fhir/R4/hl7.fhir.r4.core.tgz
@@ -36,14 +33,6 @@ services:
       - hapi.fhir.implementationguides.hl7_fhir_uv_sdc.version=3.0.0
       - hapi.fhir.implementationguides.hl7_fhir_uv_sdc.url=http://hl7.org/fhir/uv/sdc/package.tgz
 
-      # - hapi.fhir.implementationguides.base.url=http://build.fhir.org/ig/WorldHealthOrganization/smart-base/package.tgz
-      # - hapi.fhir.implementationguides.base.name=who.fhir.smart-base
-      # - hapi.fhir.implementationguides.base.version=0.1.0
-
-
-      # - hapi.fhir.implementationguides.${ig_name:-this}.url=${ig_url}/package.tgz
-      # - hapi.fhir.implementationguides.${ig_name:-this}.name=${ig_package_name}
-      # - hapi.fhir.implementationguides.${ig_name:-this}.version=${ig_version}
 
   web:
     image: nginx:alpine
@@ -60,7 +49,6 @@ services:
       echo '{\"ig_url\": \"'$ig_url'\", \"server_url\": \"http://localhost:'$server_port'/fhir\"}' > config.json && \
       cd /tmp && \
       rm -rf fhirservers && \
-      git clone https://github.com/DigitalSQR/fhirservers.git && \
-      cp -r /tmp/fhirservers/matchbox/app/* /usr/share/nginx/html/ && \
-      cp -r /tmp/fhirservers/matchbox/app/index2.html /usr/share/nginx/html/index.html && \
+      git clone https://github.com/WorldHealthOrganization/smart-ig-starter-kit.git && \
+      cp -r /tmp/smart-ig-starter-kit/testing/app/* /usr/share/nginx/html/ && \
       nginx -g 'daemon off;'"

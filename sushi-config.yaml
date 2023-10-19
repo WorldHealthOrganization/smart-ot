@@ -2,7 +2,7 @@
 # │  The properties below are used to create the ImplementationGuide resource. For a list of       │
 # │  supported properties, see: https://fshschool.org/sushi/configuration/                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: fhir.worldhealthorganization.smart-ot
+id: who.fhir.smart-ot
 canonical: http://worldhealthorganization.github.io/smart-ot
 name: smart-ot
 status: draft
