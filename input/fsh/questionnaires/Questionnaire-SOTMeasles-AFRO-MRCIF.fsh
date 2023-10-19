@@ -1,5 +1,4 @@
-/*
-RuleSet: Question(linkId, text, type, repeats)
+RuleSet: Quest(linkId, text, type, repeats)
 * item[+].linkId = "{linkId}"
 * item[=].text = "{text}"
 * item[=].type = #{type}
@@ -19,100 +18,110 @@ Usage: #definition
 * subjectType = #Patient
 * language = #en
 * status = #draft
-* contained[+] = InitDiag
+
 * contained[+] = YesNoUnknown
-* contained[+] = RashType
-* contained[+] = Antigen
 * contained[+] = Result
 //Header
-* insert Question(investigationForm,Measles/ rubella suspected case investigation form for immediate reporting,group,false)
+* insert Quest(investigationForm,Measles/ rubella suspected case investigation form for immediate reporting,group,false)
 * item[=]
-  * insert Question (description, Complete this form for: health facility / district to the national level, display,false)
+  * insert Quest(description, Complete this form for: health facility / district to the national level, display,false)
 //Reporting Source
-  * insert Question(reportingSource, For Official Use Only \(to be completed by the district / national team), group, false)
+  * insert Quest(reportingSource, For Official Use Only -to be completed by the district / national team, group, false)
   * item[=]
-    * insert Question(caseID,EPID Number:  Country-Province-District-year-onset-case #, string,false)
-    * insert Question(reportingInstitution, Reporting Institution, group, false)
+    * insert Quest(caseID,EPID Number:  Country-Province-District-year-onset-case #, string,false)
+    * insert Quest(reportingInstitution, Reporting Institution, group, false)
     * item[=]
-      * insert Question(reportingFacility, Reporting Health Facility, string, false)
-      * insert Question(locality, Reporting District, string, false)
-    * insert Question (DateReportedNational, Date the form was received at national level, date, false)
+      * insert Quest(reportingFacility, Reporting Health Facility, string, false)
+      * insert Quest(locality, Reporting District, string, false)
+    * insert Quest(DateReportedNational, Date the form was received at national level, date, false)
 //Demographics
-  * insert Question(demographics, IDENTIFICATION:, group, false)
+  * insert Quest(demographics, IDENTIFICATION:, group, false)
   * item[=]
-    * insert Question(name, Patient’s first and last names, string, false)
-    * insert Question(address, Address, string, false)
-    * insert Question(occupation, Patient’s Occupation, string, false)
-    * insert Question(localityType, Type of locality, choice, false)
+    * insert Quest(name, Name of Patient, string, false)
     * item[=].answerValueSet = Canonical(LocType)
-    * insert Question(sex, Patient’s sex, choice, false)
+    * insert Quest(DoB, Date of Birth, date, false)
+    * insert Quest(ageOnset, If date of birth is unknown\, age, integer, false)
+    * insert Quest(sex, Sex, choice, false)
     * item[=].answerValueSet = Canonical(BiologicalSex)
-    * insert Question(DoB, Patient’s Date of Birth, date, false)
-    * insert Question(ageOnset, If date of birth is unknown\, age, integer, false)
+//START ADAPT HERE - Break address into separate fields, and update value set for localityType
+    * insert Quest(address, Address, string, false)
+    * insert Quest(localityType, Urban/Rural, choice, false)
+    * item[=].answerValueSet = Canonical(LocType)
+//STOP ADAPT HERE - HACKATHON 
 //Vaccination Status
-  * insert Question(vaccinationStatus, VACCINATION STATUS:, group, true)
+  * insert Quest(vaccinationStatus, VACCINATION STATUS:, group, true)
   * item[=]
-    * insert Question(vaccineType, Type of Vaccine received, choice, false)
+    * insert Quest(vaccineType, Type of Vaccine received, choice, false)
     * item[=].answerValueSet = Canonical(VaccineType)
-    * insert Question(noOfDoses, Number of measles containing vaccine doses received in routine EPI and/or SIAs \(valid values: 1 – 4 doses), choice, false)
+    * insert Quest(noOfDoses, Number of measles containing vaccine doses received in routine EPI and/or SIAs -valid values: 1 - 4 doses, choice, false)
     * item[=].answerValueSet = Canonical(NoOfDoses)
-    * insert Question(lastDoseDate, Date of last dose, date, false)
+    * insert Quest(lastDoseDate, Date of last dose, date, false)
 //Case Investigation
-  * insert Question(caseInvestigation, CASE INVESTIGATION:, group, true)
+  * insert Quest(caseInvestigation, CASE INVESTIGATION:, group, true)
   * item[=]
-    * insert Question (DateOfConsultation, Date Of case investigation, date, false)
-    * insert Question (dateReported, Date case was notified to the district, date, false)
-    * insert Question(rashOnsetDate, Date of rash onset, date, false)
+    * insert Quest(dateReported, Date case was notified to the district, date, false)
+    * insert Quest(DateOfConsultation, Date Of case investigation, date, false)
+    * insert Quest(rashOnsetDate, Date of rash onset, date, false)
 //Clinical
-  * insert Question(clinical, Clinical HISTORY:, group, false)
+  * insert Quest(clinical, Clinical HISTORY:, group, false)
   * item[=]
-    * insert Question(fever, Fever, choice, false)
+    * insert Quest(fever, Fever, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)
-    * insert Question(rash, Generalized Rash, choice, false)
+    * insert Quest(rash, Generalized Rash, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown) 
-    * insert Question(cough, Cough, choice, false)
+    * insert Quest(cough, Cough, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)
-    * insert Question(conjunctivitis, Red Eyes, choice, false)
+    * insert Quest(conjunctivitis, Red Eyes, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)   
-    * insert Question(coryza, Running nose, choice, false)
+    * insert Quest(coryza, Running nose, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)   
-    * insert Question(lymphadenopathy, Sowllen lymph nodes behind ears, choice, false)
+    * insert Quest(lymphadenopathy, Sowllen lymph nodes behind ears, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)
-    * insert Question(jointPain, joint pain/swelling, choice, false)
+    * insert Quest(jointPain, joint pain/swelling, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)
-    * insert Question(admitted, Hospitalized, choice, false)
+  //START ADAPT HERE - update inpatient outpatient value set, and outcome value set
+    * insert Quest(admitted, In/out-patient, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)
-    * insert Question(outcome, Outcome, choice, false)
+    * insert Quest(outcome, Outcome, choice, false)
     * item[=].answerValueSet = Canonical(PatientOutcome)
-    * insert Question(travelledOutside, History of travel outside the village/ town/ district in last 7 – 21 days before onset of rash, choice, false)
+  //STOP ADAPT HERE - HACKATHON
+    * insert Quest(travelledOutside, History of travel outside the village/ town/ district in last 7 - 21 days before onset of rash, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)  
-    * insert Question(infectionSetting, Most probable place of exposure to measles/ rubella: district, string, false)
+    * insert Quest(infectionSetting, Most probable place of exposure to measles/ rubella: district, string, false)
 //Classification
-  * insert Question(classification, FINAL CLASSIFICATION:, group, false)
+  * insert Quest(classification, FINAL CLASSIFICATION:, group, false)
   * item[=]
-    * insert Question(finalClassification, Final Classification, choice, false)
+  //START ADAPT HERE - update final classification value set, add date field
+    * insert Quest(finalClassification, Final Classification, choice, false)
     * item[=].answerValueSet = Canonical(FinalClassification)
-    * insert Question (reportedBy, Person Completing the form: Name, string, false)
+    * insert Quest(reportedBy, Person Completing the form: Name, string, false)
+  //STOP ADAPT HERE - HACKATHON
 //Laboratory Results
-  * insert Question(laboratoryResults, FOR SUSPECTED MEASLES/ RUBELLA CASES WITH LAB SPECIMENS, group, false)
+  * insert Quest(laboratoryResults, FOR SUSPECTED MEASLES/ RUBELLA CASES WITH LAB SPECIMENS, group, false)
   * item[=]
-    * insert Question(specimenNumber, Specimen number*, choice, false)
-    * item[=].answerValueSet = Canonical(SpecimenNumber)
-    * insert Question(sampleType, Type of specimen**, choice, false)
+    //START ADAPT HERE - update spencimen value set,add fields for other, add enableWhen behaviour
+    * insert Quest(sampleType, Specimen source, choice, false)
     * item[=].answerValueSet = Canonical(SampleType)
-    * insert Question(collectionDate, Date specimen obtained, date, false)
-    * insert Question(labName, Laboratory Name, string, false)
-    * insert Question(specimenSentDate, Date specimen was sent to lab, date, false)
-    * insert Question(specimenReceivedDate, Date Received, date, false)
-    * insert Question(sampleId, # specimen ID in lab., string, false)
-    * insert Question(testPerformed, Type of test, choice, false)
-    * item[=].answerValueSet = Canonical(TestPerformed)
-    * insert Question(antigen, Antigen, choice, false)
-    * item[=].answerValueSet = Canonical(Antigen)
-    * insert Question(result, Result, choice, false)
+/*  * item[=]
+      * enableWhen
+        * question = "specimen"
+        * operator = #=
+        * answerCoding 
+          * system = Canonical(add code system name here)
+          * code =  #Other  */
+    //STOP ADAPT HERE - HACKATHON 
+    * insert Quest(collectionDate, Date specimen obtained, date, false)
+    * insert Quest(specimenSentDate, Date specimen was sent to lab, date, false)
+    * insert Quest(specimenReceivedDate, Date Received, date, false)
+    //START ADAPT HERE - ADD QUESTION for specimen condition
+    //STOP ADAPT HERE 
+    * insert Quest(testPerformed, Type of test, choice, false)
+    * item[=].answerValueSet = Canonical(TestType)
+    * insert Quest(result, Result, choice, false)
     * item[=].answerValueSet = Canonical(Result)
-    * insert Question(resultDate, Date of Results, date, false)
-    * insert Question(specifyVirus,If virus was detected\, specify viral genotype: (Measles: A\, B1\, B2\, B3\, C1\, C2\, D1\, D2\, D3\, D4\, D5\, D6\, D7\, D8\, D9\, D10\, E\, F\, G1\, G2\, G3\, H1\, H2. Rubella: 1a\, 1B\, 1C\,
-1D\, 1E\, 1F\, 1g\, 2A\, 2B\, 2c\), string, false )
+    * insert Quest(specifyVirus,Virus Detection -Genotype, string, false )
+    //START ADAPT HERE - ADD REMARKS
+    * insert Quest(labName, Laboratory Name, string, false)
+    //START ADAPT HERE - ADD Dates
 
-*/
+

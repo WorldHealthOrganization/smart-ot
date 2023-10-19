@@ -228,6 +228,7 @@ group mapLabsToDiagnosticReport(source lm : MeaslesLogicalModel, target bundle: 
       labs -> diagnosticReport.subject as subject, subject.reference = append('Patient/',pid) "set subject";
       labs.Antigen as antigen -> diagnosticReport.code as code then mapCodingtoCodeableConcept(antigen,code) "set code";
       labs -> uuid() as id, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', id), diagnosticReport.specimen as refSpecimen, refSpecimen.reference = append('Specimen/', id), entry.resource = create('Specimen') as specimen then {
+        labs -> specimen.id = id "Set idn";
         labs.SpecimenCollectionDate as collectDate -> specimen.collection as collection, collection.collected = collectDate "set date";
       //labs.SpecimenSentDate as sentDate -> 
         labs.SpecimenRecdDate as recdDate -> specimen.receivedTime = recdDate  "set date";
