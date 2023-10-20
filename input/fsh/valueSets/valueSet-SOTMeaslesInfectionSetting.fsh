@@ -7,4 +7,4 @@ Description:   " InfectionSetting"
 
 * ^status = #draft
 
-* include codes from system $InfectionSettingCs
+* include codes from system $InfectionSettingCS

@@ -7,4 +7,4 @@ Description:   "Pathogen  Tested"
 
 * ^status = #draft
 
-* include codes from system $PathogenTestedCs
+* include codes from system $PathogenTestedCS

@@ -1,9 +1,9 @@
-Alias: $LocalCasesPresentCs =  http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent
-CodeSystem: LocalCasesPresentCs
-Id:         LocalCasesPresentCs
+Alias: $LocalCasesPresentCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/LocalCasesPresentCS
+CodeSystem: LocalCasesPresentCS
+Id:         LocalCasesPresentCS
 Title:     "LocalCasesPresent"
 Description: "LocalCasesPresent"
-* ^url =  $LocalCasesPresentCs
+* ^url =  $LocalCasesPresentCS
 
 * #1 "Yes, with measles"
 * #2 "Yes, with rubella"

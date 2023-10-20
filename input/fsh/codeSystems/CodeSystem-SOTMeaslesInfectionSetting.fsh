@@ -1,9 +1,9 @@
-Alias: $InfectionSettingCs =  http://worldhealthorganization.github.io/smart-ot/InfectionSetting
-CodeSystem: InfectionSettingCs
-Id:         InfectionSettingCs
+Alias: $InfectionSettingCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/InfectionSettingCS
+CodeSystem: InfectionSettingCS
+Id:         InfectionSettingCS
 Title:     "InfectionSetting"
 Description: "InfectionSetting"
-* ^url =  $InfectionSettingCs
+* ^url =  $InfectionSettingCS
 
 * #1 "Household contact"
 * #2 "Community"

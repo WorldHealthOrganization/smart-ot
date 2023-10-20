@@ -31,3 +31,5 @@ pages:
     title: Home
   testing.md: 
     title: Testing
+  license.md: 
+    title: License

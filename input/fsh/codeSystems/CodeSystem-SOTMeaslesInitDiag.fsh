@@ -1,9 +1,9 @@
-Alias: $InitDiagCs =  http://worldhealthorganization.github.io/smart-ot/InitDiag
+Alias: $InitDiagCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/InitDiagCS
 CodeSystem: InitDiagCs
-Id:         InitDiagCs
+Id:         InitDiagCS
 Title:     "Initial Diagnosis Code System"
 Description: "Initial Diagnosis Code System"
-* ^url =  $InitDiagCs
+* ^url =  $InitDiagCS
 
 * #1 "Measles"
 * #2 "Rubella"

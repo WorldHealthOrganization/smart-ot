@@ -1,9 +1,9 @@
-Alias: $ResultsCs =  http://worldhealthorganization.github.io/smart-ot/Results
-CodeSystem: ResultsCs
-Id:         ResultsCs
+Alias: $ResultsCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/ResultsCS
+CodeSystem: ResultsCS
+Id:         ResultsCS
 Title:     "Results"
 Description: "Results"
-* ^url =  $ResultsCs
+* ^url =  $ResultsCS
 
 * #Positive "Positive"
 * #Negative "Negative"

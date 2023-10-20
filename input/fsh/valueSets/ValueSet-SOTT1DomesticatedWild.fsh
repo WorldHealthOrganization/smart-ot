@@ -7,4 +7,4 @@ Description:   "Domesticated or Wild"
 
 * ^status = #draft
 
-* include codes from system $DomesticatedWildCs
+* include codes from system $DomesticatedWildCS

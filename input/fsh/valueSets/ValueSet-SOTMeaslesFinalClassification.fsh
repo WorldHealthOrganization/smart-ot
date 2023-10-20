@@ -7,4 +7,4 @@ Description:   " FinalClassification"
 
 * ^status = #draft
 
-* include codes from system $FinalClassificationCs
+* include codes from system $FinalClassificationCS

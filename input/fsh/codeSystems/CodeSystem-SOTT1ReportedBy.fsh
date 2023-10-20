@@ -1,9 +1,9 @@
-Alias: $ReportedByCs =  http://worldhealthorganization.github.io/smart-ot/ReportedBy
-CodeSystem: ReportedByCs
-Id:         ReportedByCs
+Alias: $ReportedByCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/ReportedByCS
+CodeSystem: ReportedByCS
+Id:         ReportedByCS
 Title:     "Reported By"
 Description: "Reported By"
-* ^url =  $ReportedByCs
+* ^url =  $ReportedByCS
 
 * #MobileTeam "Mobile team"
 * #HealthCentre "Health Cantre/post"

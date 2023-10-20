@@ -1,9 +1,9 @@
-Alias: $DiscardingBasisCs  =  http://worldhealthorganization.github.io/smart-ot/DiscardingBasis
-CodeSystem: DiscardingBasisCs
-Id:         DiscardingBasisCs
+Alias: $DiscardingBasisCS  =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/DiscardingBasisCS
+CodeSystem: DiscardingBasisCS
+Id:         DiscardingBasisCS
 Title:     "Discarding Basis"
 Description: "Discarding Basis"
-* ^url  =  $DiscardingBasisCs
+* ^url  =  $DiscardingBasisCS
 
 * #1 "Measles/Rubella IgM-neg"
 * #2 "Vaccine Reaction"

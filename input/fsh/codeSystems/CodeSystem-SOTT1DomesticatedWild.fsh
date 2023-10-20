@@ -1,9 +1,9 @@
-Alias: $DomesticatedWildCs =  http://worldhealthorganization.github.io/smart-ot/DomesticatedWild
-CodeSystem: DomesticatedWildCs
-Id:         DomesticatedWildCs
+Alias: $DomesticatedWildCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/DomesticatedWildCS
+CodeSystem: DomesticatedWildCS
+Id:         DomesticatedWildCS
 Title:     "Domesticated or Wild"
 Description: "Domesticated or Wild"
-* ^url =  $DomesticatedWildCs
+* ^url =  $DomesticatedWildCS
 
 * #Domestic "Domestic"
 * #Wild "Wild"

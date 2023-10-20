@@ -7,4 +7,4 @@ Description:   "Rash Type"
 
 * ^status = #draft
 
-* include codes from system $RashTypeCs
+* include codes from system $RashTypeCS

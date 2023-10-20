@@ -4,6 +4,7 @@ ValueSet:      DetectedBy
 Id:	           DetectedBy
 Title:	       "SOT Measles Detected By"
 Description:   """
+SOT Measles Detected By
 """
 * ^status = #draft
-* include codes from system $DetectedByCs 
+* include codes from system $DetectedByCS 

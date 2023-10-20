@@ -1,9 +1,9 @@
-Alias: $AnimalContactTypeCs =  http://worldhealthorganization.github.io/smart-ot/AnimalContactType
-CodeSystem: AnimalContactTypeCs
-Id:         AnimalContactTypeCs
+Alias: $AnimalContactTypeCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/AnimalContactTypeCS
+CodeSystem: AnimalContactTypeCS
+Id:         AnimalContactTypeCS
 Title:     "Animal Contact Type"
 Description: "Animal Contact Type"
-* ^url =  $AnimalContactTypeCs
+* ^url =  $AnimalContactTypeCS
 
 * #Trading "trading"
 * #Slaughtered "slaughtered/butchered"

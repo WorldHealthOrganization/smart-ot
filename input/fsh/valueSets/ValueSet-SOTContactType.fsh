@@ -7,4 +7,4 @@ Description:   "Contact Type"
 
 * ^status = #draft
 
-* include codes from system $ContactTypeCs
+* include codes from system $ContactTypeCS

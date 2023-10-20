@@ -1,9 +1,9 @@
-Alias: $NoOfDosesCs =  http://worldhealthorganization.github.io/smart-ot/NoOfDoses
-CodeSystem: NoOfDosesCs
-Id:         NoOfDosesCs
+Alias: $NoOfDosesCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/NoOfDosesCS
+CodeSystem: NoOfDosesCS
+Id:         NoOfDosesCS
 Title:     "Number of Doses"
 Description: "Number of Doses"
-* ^url =  $NoOfDosesCs
+* ^url =  $NoOfDosesCS
 
 * #0 "Zero dose"
 * #1 "One dose"

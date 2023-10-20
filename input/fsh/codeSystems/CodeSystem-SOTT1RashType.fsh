@@ -1,9 +1,9 @@
-Alias: $RashTypeCs =  http://worldhealthorganization.github.io/smart-ot/RashType
-CodeSystem: RashTypeCs
-Id:         RashTypeCs
+Alias: $RashTypeCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/RashTypeCS
+CodeSystem: RashTypeCS
+Id:         RashTypeCS
 Title:     "Rash Type"
 Description: "Rash Type"
-* ^url =  $RashTypeCs
+* ^url =  $RashTypeCS
 
 * #Haemorrhagic "Haemorrhagic"
 * #Erythematous "Erythematous"

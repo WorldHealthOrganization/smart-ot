@@ -1,9 +1,9 @@
-Alias: $PathogenTestedCs = http://worldhealthorganization.github.io/smart-ot/PathogenTested
-CodeSystem: PathogenTestedCs
-Id: PathogenTestedCs
+Alias: $PathogenTestedCS = http://worldhealthorganization.github.io/smart-ot/CodeSystem/PathogenTestedCS
+CodeSystem: PathogenTestedCS
+Id: PathogenTestedCS
 Title: "Pathogen Tested"
 Description: "Pathogen Tested"
-* ^url = $PathogenTestedCs
+* ^url = $PathogenTestedCS
 
 * #InfluenzaA/B "Influenza A/B"
 * #InfluenzaSubtyping "Influenza subtyping"

@@ -1,9 +1,9 @@
-Alias: $DetectedByCs =  http://worldhealthorganization.github.io/smart-ot/DetectedBy
-CodeSystem: DetectedByCs
-Id:         DetectedByCs
+Alias: $DetectedByCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/DetectedByCS
+CodeSystem: DetectedByCS
+Id:         DetectedByCS
 Title:     "Detected By Code System"
 Description: "Detected By Code System"
-* ^url =  $DetectedByCs
+* ^url =  $DetectedByCS
 
 * #1 "Spontaneous Consultation"
 * #2 "Laboratory"

@@ -7,4 +7,4 @@ Description:   "Reported By"
 
 * ^status = #draft
 
-* include codes from system $ReportedByCs
+* include codes from system $ReportedByCS

@@ -1,9 +1,9 @@
-Alias: $ContactTypeCs =  http://worldhealthorganization.github.io/smart-ot/ContactType
-CodeSystem: ContactTypeCs
-Id:         ContactTypeCs
+Alias: $ContactTypeCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/ContactTypeCS
+CodeSystem: ContactTypeCS
+Id:         ContactTypeCS
 Title:     "Contact Type"
 Description: "Contact Type"
-* ^url =  $ContactTypeCs
+* ^url =  $ContactTypeCS
 
 * #CloseContact "Close contact (within 1 metre)"
 * #FluidContact "Handled person's bodily fluids/excreta"

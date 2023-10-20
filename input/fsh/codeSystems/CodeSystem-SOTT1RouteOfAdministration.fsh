@@ -1,9 +1,9 @@
-Alias: $RouteOfAdministrationCs =  http://worldhealthorganization.github.io/smart-ot/RouteOfAdministration
-CodeSystem: RouteOfAdministrationCs
-Id:         RouteOfAdministrationCs
+Alias: $RouteOfAdministrationCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/RouteOfAdministration
+CodeSystem: RouteOfAdministrationCS
+Id:         RouteOfAdministrationCS
 Title:     "Route Of Administration"
 Description: "Route Of Administration"
-* ^url =  $RouteOfAdministrationCs
+* ^url =  $RouteOfAdministrationCS
 
 * #IV "Intravenous"
 * #IM "Intramuscular"

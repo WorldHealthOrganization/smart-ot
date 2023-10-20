@@ -41,7 +41,7 @@ Usage: #definition
     * insert Question(reportingInstitution, Reporting Institution, group, false)
     * item[=]
       * insert Question(reportingFacility, Health Service Name, string, false)
-      * insert Question (telephone, Health Service Telephone, string, false)
+      * insert Question (itelephone, Health Service Telephone, string, false)
       * insert Question (country, Country, string, false)
       * insert Question (municipality, Municipality, string, false)
       * insert Question(state, Province/State, string,false)
@@ -286,7 +286,7 @@ Usage: #definition
         * question = "infectionSetting"
         * operator = #=
         * answerCoding
-          * system = Canonical(InfectionSettingCs)
+          * system = Canonical(InfectionSettingCS)
           * code = #88
 //Epidemiological Data
   * insert Question(epiData, Section VII: Response Measures, group, false)
@@ -350,7 +350,7 @@ Usage: #definition
         * question = "confirmationBasis"
         * operator = #=
         * answerCoding 
-          * system = Canonical(ConfirmationBasisCs)
+          * system = Canonical(ConfirmationBasisCS)
           * code =  #1
     * insert Question(discardingBasis, Basis for discarding, choice, false)
     * item[=].answerValueSet = Canonical(DiscardingBasis)

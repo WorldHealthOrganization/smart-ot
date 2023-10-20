@@ -1,9 +1,9 @@
-Alias: $AnimalExposureLocationCs =  http://worldhealthorganization.github.io/smart-ot/ExposureLocation
-CodeSystem: AnimalExposureLocationCs
-Id:         AnimalExposureLocationCs
+Alias: $AnimalExposureLocationCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/AnimalExposureLocationCS
+CodeSystem: AnimalExposureLocationCS
+Id:         AnimalExposureLocationCS
 Title:     "Exposure Location"
 Description: "Exposure Location"
-* ^url =  $ExposureLocationCs
+* ^url =  $AnimalExposureLocationCS
 
 * #Home "Home"
 * #Neighbourhood "Neighbourhood"

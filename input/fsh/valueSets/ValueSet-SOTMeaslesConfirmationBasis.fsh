@@ -7,4 +7,4 @@ Description:   " ConfirmationBasis"
 
 * ^status = #draft
 
-* include codes from system $ConfirmationBasisCs
+* include codes from system $ConfirmationBasisCS

@@ -7,4 +7,4 @@ Description:   "Animal Contact Location"
 
 * ^status = #draft
 
-* include codes from system $AnimalContactLocationCs
+* include codes from system $AnimalContactLocationCS

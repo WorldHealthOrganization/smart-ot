@@ -7,4 +7,4 @@ Description:   "Route Of Administration"
 
 * ^status = #draft
 
-* include codes from system $RouteOfAdministrationCs
+* include codes from system $RouteOfAdministrationCS

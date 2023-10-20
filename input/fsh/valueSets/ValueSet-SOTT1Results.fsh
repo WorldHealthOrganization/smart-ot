@@ -7,4 +7,4 @@ Description:   "Results"
 
 * ^status = #draft
 
-* include codes from system $ResultsCs
+* include codes from system $ResultsCS

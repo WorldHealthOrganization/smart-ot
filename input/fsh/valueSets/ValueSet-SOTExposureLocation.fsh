@@ -7,4 +7,4 @@ Description:   " Exposure Location"
 
 * ^status = #draft
 
-* include codes from system $ExposureLocationCs
+* include codes from system $ExposureLocationCS

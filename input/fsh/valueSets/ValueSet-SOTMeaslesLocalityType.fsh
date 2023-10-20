@@ -5,4 +5,4 @@ Id:	           LocType
 Title:	       "SOT Measles Locality Type"
 Description:   "SOT Measles Locality Type"
 * ^status = #draft
-* include codes from system $LocTypeCs 
+* include codes from system $LocTypeCS 

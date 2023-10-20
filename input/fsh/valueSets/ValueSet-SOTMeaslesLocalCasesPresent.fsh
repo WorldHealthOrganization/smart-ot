@@ -7,4 +7,4 @@ Description:   " LocalCasesPresent"
 
 * ^status = #draft
 
-* include codes from system $LocalCasesPresentCs
+* include codes from system $LocalCasesPresentCS

@@ -7,4 +7,4 @@ Description:   "Localization of Skin Disorder"
 
 * ^status = #draft
 
-* include codes from system $LocalizationOfSkinDisorderCs
+* include codes from system $LocalizationOfSkinDisorderCS

@@ -7,4 +7,4 @@ Description:   "Animal Contact Type"
 
 * ^status = #draft
 
-* include codes from system $AnimalContactTypeCs
+* include codes from system $AnimalContactTypeCS

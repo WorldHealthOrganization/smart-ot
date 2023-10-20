@@ -6,7 +6,7 @@ Instance: Response1
 InstanceOf: QuestionnaireResponse
 Usage: #example
 * meta
-  * profile = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaireresponse|2.7"
+  * profile = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaireresponse"
   * tag.code = #"lformsVersion: 33.3.6"
 * questionnaire = "http://worldhealthorganization.github.io/smart-ot/Questionnaire/Questionnaire-SOTMeasles"
 * status = #completed
@@ -75,11 +75,11 @@ Usage: #example
     * item[+]
       * linkId = "DetectedBy"
       * text = "Detected By"
-      * answer.valueCoding = http://worldhealthorganization.github.io/smart-ot/DetectedBy#88 "Other"
+      * answer.valueCoding = http://worldhealthorganization.github.io/smart-ot/CodeSystem/DetectedBy#88 "Other"
     * item[+]
       * linkId = "TypeOfProviderReporting"
       * text = "Type Of Provider Reporting"
-      * answer.valueCoding =  http://worldhealthorganization.github.io/smart-ot/ProvType#1 "Public"
+      * answer.valueCoding =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/ProvType#1 "Public"
   * item[+]
     * linkId = "demographics"
     * text = "Section II: Patient Information"
@@ -110,7 +110,7 @@ Usage: #example
     * item[+]
       * linkId = "localityType"
       * text = "Type of locality"
-      * answer.valueCoding = http://worldhealthorganization.github.io/smart-ot/LocType#1 "Urban"
+      * answer.valueCoding = http://worldhealthorganization.github.io/smart-ot/CodeSystem/LocType#1 "Urban"
     * item[+]
       * linkId = "workAddress"
       * text = "Work or school address"
@@ -129,22 +129,22 @@ Usage: #example
     * item[0]
       * linkId = "vaccineType"
       * text = "Type of Vaccine*"
-      * answer.valueCoding = http://worldhealthorganization.github.io/smart-ot/VaccineType#1 "Measles"
+      * answer.valueCoding = http://worldhealthorganization.github.io/smart-ot/CodeSystem/VaccineType#1 "Measles"
     * item[+]
       * linkId = "noOfDoses"
       * text = "Number of doses**"
-      * answer.valueCoding = http://worldhealthorganization.github.io/smart-ot/NoOfDoses#0 "Zero dose"
+      * answer.valueCoding = http://worldhealthorganization.github.io/smart-ot/CodeSystem/NoOfDoses#0 "Zero dose"
     * item[+]
       * linkId = "sourceOfInformation"
       * text = "Source of vaccination Information †"
-      * answer.valueCoding = http://worldhealthorganization.github.io/smart-ot/VaccineInfoSource#HealthServices "Health Services"
+      * answer.valueCoding = http://worldhealthorganization.github.io/smart-ot/CodeSystem/VaccineInfoSource#HealthServices "Health Services"
   * item[+]
     * linkId = "clinical"
     * text = "Section IV: Clinical Data; Follow-up & Treatment"
     * item[0]
       * linkId = "fever"
       * text = "Fever?"
-      * answer.valueCoding = http://worldhealthorganization.github.io/smart-ot/YesNoUnknown#No "No"
+      * answer.valueCoding = http://worldhealthorganization.github.io/smart-ot/CodeSystem/YesNoUnknown#No "No"
     * item[+]
       * linkId = "rash"
       * text = "Rash?"

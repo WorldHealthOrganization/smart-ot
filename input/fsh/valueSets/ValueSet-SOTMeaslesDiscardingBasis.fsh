@@ -7,4 +7,4 @@ Description:   " DiscardingBasis"
 
 * ^status = #draft
 
-* include codes from system $DiscardingBasisCs
+* include codes from system $DiscardingBasisCS

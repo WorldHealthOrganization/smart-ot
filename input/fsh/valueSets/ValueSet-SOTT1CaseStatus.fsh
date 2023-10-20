@@ -7,4 +7,4 @@ Description:   "Case Status"
 
 * ^status = #draft
 
-* include codes from system $CaseStatusCs
+* include codes from system $CaseStatusCS

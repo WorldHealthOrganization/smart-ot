@@ -1,9 +1,9 @@
-Alias: $FinalClassificationCs =  http://worldhealthorganization.github.io/smart-ot/FinalClassification
-CodeSystem: FinalClassificationCs
-Id:         FinalClassificationCs
+Alias: $FinalClassificationCS =  http://worldhealthorganization.github.io/smart-ot/CodeSystem/FinalClassificationCS
+CodeSystem: FinalClassificationCS
+Id:         FinalClassificationCS
 Title:     "Final Classification"
 Description: "Final Classification"
-* ^url =  $FinalClassificationCs
+* ^url =  $FinalClassificationCS
 
 * #1 "Measles"
 * #2 "Rubella"
