@@ -1,12 +1,12 @@
-map "http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesLogicalModelToResources" = "MeaslesLogicalModelToResources"
-uses "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesF" alias MeaslesLogicalModel as source
+map "http://worldhealthorganization.github.io/smart-ot/StructureMap/AFROMRCIFLogicalModelToResources" = "AFROMRCIFLogicalModelToResources"
+uses "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIF" alias MeaslesLogicalModel as source
 uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias MeaslesCIFBundle as target
 uses "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesCIFComposition" alias MeaslesCIFComposition as target
 
 imports "http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper"
 
 
-group MeaslesLogicalModelToResources(source lm : SOTMeasles, target bundle : Bundle) {
+group MeaslesLogicalModelToResources(source lm : AFROMRCIF, target bundle : Bundle) {
   lm -> bundle.type = 'document' "set bundle type";
   /* lm.ReportingSource as reportingSource then {
     reportingSource.DateReportedNational as date -> bundle.timestamp = date "set date";
@@ -21,7 +21,7 @@ group MeaslesLogicalModelToResources(source lm : SOTMeasles, target bundle : Bun
     lm -> entry.resource = patient "set patient as entry";
     } "map patient resource";
     lm -> bundle.entry as entry, entry.fullUrl = append('urn:uuid:', prid), create('Practitioner') as practitioner then {
-    lm.ReportingSource as reportingSource -> reportingSource then ReportingSourceToPractitioner(reportingSource, practitioner, prid) "create practitioner";
+    lm.Classification as classification -> classification then classificationToPractitioner(classification, practitioner, prid) "create practitioner";
     lm -> entry.resource = practitioner "set practitioner as entry";
     } "map practitioner resource" ;
     lm -> bundle.entry as entry, entry.fullUrl = append('urn:uuid:', oid), create('Organization') as organization then {
@@ -29,12 +29,9 @@ group MeaslesLogicalModelToResources(source lm : SOTMeasles, target bundle : Bun
     lm -> entry.resource = organization "set organization as entry";
     } "map organization resource";
     lm -> bundle.entry as entry, entry.fullUrl = append('urn:uuid:', eid), create('Encounter') as encounter then {
-    lm.ReportingSource as reportingSource then {
-      reportingSource.DateOfConsultation as date then {
+    lm.lmCaseInvestigation as var then {
+      var.DateOfConsultation as date then {
         date -> create('Coding') as type, type.code = "AMB", type.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode", type.display = "ambulatory" then createCompositionEncounterResource(date,pid, type, eid,  encounter) "create encounter";
-      } "set encounter";
-      reportingSource.DateOfHomeVisit as date then {
-        date -> create('Coding') as type, type.code = "HH", type.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode", type.display = "home health" then createCompositionEncounterResource(date,pid, type, eid,  encounter) "create encounter";
       } "set encounter";
     } "set encounter"; 
     lm -> entry.resource = encounter "set encounter as entry"; 
@@ -62,7 +59,6 @@ group mapClassificationToConditions (source lm : MeaslesLogicalModel, target bun
         person -> recorder.name as targetName, create('HumanName') as name, name.text = person then humanNameToHumanName(name, targetName ) "set";
         person -> recorder.patient as patient, patient.reference = append('Patient/',pid) "set patient";
       } "set person";
-     // classification.ConfirmationBasis as basis -> condition
     } "Set classification";
   } "set section";
 }
@@ -70,144 +66,88 @@ group mapContactTracing(source lm : MeaslesLogicalModel, target bundle: Bundle, 
   lm -> composition.section as section, section.title = "Contact Tracing" "set";
 }  
 
-group mapClinicalToObservations(source lm : SOTMeasles, target bundle: Bundle, target composition: Composition, source pid) {
+group mapClinicalToObservations(source lm : AFROMRCIF, target bundle: Bundle, target composition: Composition, source pid) {
   lm -> composition.section as section, section.title = "Clinical Data, Follow up and Treatment" then {
     lm.Clinical as clinical -> clinical then {
       clinical.Fever as fever -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
         fever -> observation.id = obsid "set obsid";
-        fever -> create('Coding') as coding, coding.code = "DE66", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Fever" then {  
+        fever -> create('Coding') as coding, coding.code = "DE31", coding.system = "http://worldhealthorganization.github.io/smart-ot/AFROMRCIF", coding.display = "Fever" then {  
         fever -> fever then createObservationResource(fever, coding, observation, pid) "set obs"; 
-        clinical.FeverOnsetDate as onsetDate -> create('Period') as period, period.start = onsetDate, observation.effective = period "set start date";
         } "set obs";
       } "set fever";
       
-      clinical.Temperature as temperature -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
-        temperature -> observation.id = obsid "set obsid";
-        temperature -> create('Coding') as coding, coding.code = "DE70", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Temperature" then { 
-        temperature -> temperature then createObservationResource(temperature, coding, observation, pid) "set obs"; 
-        } "set obs";
-      } "set Temperature";
 
-      clinical.Rash as rash where code != 'Yes' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+      clinical.Rash as rash -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
         rash -> observation.id = obsid "set obsid";
-        rash -> create('Coding') as coding, coding.code = "DE72", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Rash" then { 
+        rash -> create('Coding') as coding, coding.code = "DE35", coding.system = "http://worldhealthorganization.github.io/smart-ot/AFROMRCIF", coding.display = "Rash" then { 
         rash -> rash then createObservationResource(rash, coding, observation, pid) "set obs"; 
+        lm.lmCaseInvestigation as var then {
+          var.RashOnsetDate as onsetDate -> create('Period') as period, period.start = onsetDate, observation.effective = period "set start date";
+        } "set";
         } "set obs";
       } "set Rash";
 
-      clinical.TypeOfRash as haemorrhagic where code = 'Haemorrhagic' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
-        haemorrhagic -> observation.id = obsid "set obsid";
-        haemorrhagic -> create('Coding') as coding, coding.code = "Haemorrhagic", coding.system = "http://worldhealthorganization.github.io/smart-ot/RashType", coding.display = "Haemorrhagic" then { 
-          haemorrhagic -> create('Coding') as ValueCoding, ValueCoding.code = "Yes" , ValueCoding.system = "http://ritikarawlani.github.io/smart-outbreak-measles/YesNoUnknown", ValueCoding.display= "Yes" then {
-          haemorrhagic -> haemorrhagic then createObservationResource(ValueCoding, coding, observation, pid) "set obs"; 
-          } "set value";
-       clinical.RashOnsetDate as onsetDate -> create('Period') as period, period.start = onsetDate, observation.effective = period "set start date";
-        } "set obs";
-      } "set haemorrhagic";
-
-      clinical.TypeOfRash as erythematous where code = 'Erythematous' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
-        erythematous -> observation.id = obsid "set obsid";
-        erythematous -> create('Coding') as coding, coding.code = "Erythematous", coding.system = "http://worldhealthorganization.github.io/smart-ot/RashType", coding.display = "Erythematous" then { 
-          erythematous -> create('Coding') as ValueCoding, ValueCoding.code = "Yes" , ValueCoding.system = "http://ritikarawlani.github.io/smart-outbreak-measles/YesNoUnknown", ValueCoding.display= "Yes" then {
-          erythematous -> erythematous then createObservationResource(ValueCoding, coding, observation, pid) "set obs"; 
-          } "set value";
-        clinical.RashOnsetDate as onsetDate -> create('Period') as period, period.start = onsetDate, observation.effective = period "set start date";
-        } "set obs";
-      } "set erythematous";
-
-      clinical.TypeOfRash as vesicularPustular where code = 'VesicularPustular' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
-        vesicularPustular -> observation.id = obsid "set obsid";
-        vesicularPustular -> create('Coding') as coding, coding.code = "Vesicular-pustular", coding.system = "http://worldhealthorganization.github.io/smart-ot/RashType", coding.display = "Vesicular Pustular" then { 
-          vesicularPustular -> create('Coding') as ValueCoding, ValueCoding.code = "Yes" , ValueCoding.system = "http://ritikarawlani.github.io/smart-outbreak-measles/YesNoUnknown", ValueCoding.display= "Yes" then {
-          vesicularPustular -> vesicularPustular then createObservationResource(ValueCoding, coding, observation, pid) "set obs"; 
-          } "set value";
-        } "set obs";
-       clinical.RashOnsetDate as onsetDate -> create('Period') as period, period.start = onsetDate, observation.effective = period "set start date";
-      } "set vesicularPustular";
-
-      clinical.TypeOfRash as petechialPurpuric where code = 'PetechialPurpuric' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
-        petechialPurpuric -> observation.id = obsid "set obsid";
-        petechialPurpuric -> create('Coding') as coding, coding.code = "Petechial-purpuric", coding.system = "http://worldhealthorganization.github.io/smart-ot/RashType", coding.display = "Petechial Purpuric" then { 
-          petechialPurpuric -> create('Coding') as ValueCoding, ValueCoding.code = "Yes" , ValueCoding.system = "http://ritikarawlani.github.io/smart-outbreak-measles/YesNoUnknown", ValueCoding.display= "Yes" then {
-          petechialPurpuric -> petechialPurpuric then createObservationResource(petechialPurpuric, coding, observation, pid) "set obs"; 
-          } "set value";
-        } "set obs";
-       clinical.RashOnsetDate as onsetDate -> create('Period') as period, period.start = onsetDate, observation.effective = period "set start date";
-      } "set petechialPurpuric";
-
-      clinical.TypeOfRash as other where code = 'Other' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
-        other -> observation.id = obsid "set obsid";
-        other -> create('Coding') as coding, coding.code = "Other", coding.system = "http://worldhealthorganization.github.io/smart-ot/RashType", coding.display = "Rash" then { 
-          other -> create('Coding') as ValueCoding, ValueCoding.code = "Yes" , ValueCoding.system = "http://ritikarawlani.github.io/smart-outbreak-measles/YesNoUnknown", ValueCoding.display= "Yes" then {
-          other -> other then createObservationResource(ValueCoding, coding, observation, pid) "set obs"; 
-          } "set value";
-        } "set obs";
-      } "set other";
 
       clinical.Cough as cough -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
         cough -> observation.id = obsid "set obsid";
-        cough -> create('Coding') as coding, coding.code = "DE84", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Cough" then { 
+        cough -> create('Coding') as coding, coding.code = "DE39", coding.system = "http://worldhealthorganization.github.io/smart-ot/AFROMRCIF", coding.display = "Cough" then { 
           cough -> cough then createObservationResource(cough, coding, observation, pid) "set obs"; 
         } "set obs";
       } "set cough";
 
       clinical.Conjunctivitis as conjunctivitis -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
         conjunctivitis -> observation.id = obsid "set obsid";
-        conjunctivitis -> create('Coding') as coding, coding.code = "DE88", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Conjunctivitis" then { 
+        conjunctivitis -> create('Coding') as coding, coding.code = "DE43", coding.system = "http://worldhealthorganization.github.io/smart-ot/AFROMRCIF", coding.display = "Conjunctivitis" then { 
           conjunctivitis -> conjunctivitis then createObservationResource(conjunctivitis, coding, observation, pid) "set obs"; 
         } "set obs";
       } "set conjunctivitis";
 
       clinical.Coryza as coryza -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
         coryza -> observation.id = obsid "set obsid";
-        coryza -> create('Coding') as coding, coding.code = "DE92", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Coryza" then { 
+        coryza -> create('Coding') as coding, coding.code = "DE47", coding.system = "http://worldhealthorganization.github.io/smart-ot/AFROMRCIF", coding.display = "Coryza" then { 
           coryza -> coryza then createObservationResource(coryza, coding, observation, pid) "set obs"; 
         } "set obs";
       } "set coryza";
 
-      clinical.KoplikSpots as koplikSpots -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
-        koplikSpots -> observation.id = obsid "set obsid";
-        koplikSpots -> create('Coding') as coding, coding.code = "DE96", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Koplik Spots" then { 
-          koplikSpots -> koplikSpots then createObservationResource(koplikSpots, coding, observation, pid) "set obs"; 
-        } "set obs";
-      } "set koplikSpots";
-
       clinical.Lymphadenopathy as lymphadenopathy -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
         lymphadenopathy -> observation.id = obsid "set obsid";
-        lymphadenopathy -> create('Coding') as coding, coding.code = "DE100", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Lymphadenopathy" then { 
+        lymphadenopathy -> create('Coding') as coding, coding.code = "DE51", coding.system = "http://worldhealthorganization.github.io/smart-ot/AFROMRCIF", coding.display = "Lymphadenopathy" then { 
           lymphadenopathy -> lymphadenopathy then createObservationResource(lymphadenopathy, coding, observation, pid) "set obs"; 
         } "set obs";
       } "set lymphadenopathy";
 
       clinical.JointPain as jointPain -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
         jointPain -> observation.id = obsid "set obsid";
-        jointPain -> create('Coding') as coding, coding.code = "DE104", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Joint Pain" then { 
+        jointPain -> create('Coding') as coding, coding.code = "DE55", coding.system = "http://worldhealthorganization.github.io/smart-ot/AFROMRCIF", coding.display = "Joint Pain" then { 
           jointPain -> jointPain then createObservationResource(jointPain, coding, observation, pid) "set obs"; 
         } "set obs";
       } "set jointPain";
 
-      clinical.PregnancyStatus as pregnancy -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
-        pregnancy -> observation.id = obsid "set obsid";
-        pregnancy -> create('Coding') as coding, coding.code = "DE108", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Pregnancy" then { 
-          pregnancy -> pregnancy then createObservationResource(pregnancy, coding, observation, pid) "set obs"; 
-        } "set obs";
-      } "set pregnancy";
-
-      clinical.PregnancyStatus as pregnancy where code = 'Yes' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
-       pregnancy -> observation.id = obsid "set obsid";
-       clinical.GestationWeeks as weeks -> create('Coding') as coding, coding.code = "DE112", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Weeks Pregnant" then { 
-          weeks -> weeks then createObservationResource(weeks, coding, observation, pid) "set obs"; 
-        } "set obs";
-      } "set pregnancy weeks";
-
       clinical.Outcome as outcome -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
        outcome -> observation.id = obsid "set obsid";
-       outcome -> create('Coding') as coding, coding.code = "DE121", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Outcome" then { 
+       outcome -> create('Coding') as coding, coding.code = "DE63", coding.system = "http://worldhealthorganization.github.io/smart-ot/AFROMRCIF", coding.display = "Outcome" then { 
           outcome -> outcome then createObservationResource(outcome, coding, observation, pid) "set obs"; 
         } "set obs";
-       clinical.DateOfDeath as onsetDate -> observation.effective = onsetDate "set start date";
       } "set outcome";
-      clinical -> clinical then mapEncounters(clinical, bundle, section, pid) "set encounter";
+      clinical.travelledOutside as travel -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+       travel -> observation.id = obsid "set obsid";
+       travel -> create('Coding') as coding, coding.code = "DE67", coding.system = "http://worldhealthorganization.github.io/smart-ot/AFROMRCIF", coding.display = "Outcome" then { 
+          travel -> travel then createObservationResource(travel, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set travel";
+      clinical.specifyInfectionSetting as infection -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+       infection -> observation.id = obsid "set obsid";
+       infection -> create('Coding') as coding, coding.code = "DE71", coding.system = "http://worldhealthorganization.github.io/smart-ot/AFROMRCIF", coding.display = "Outcome" then { 
+          infection -> infection then createObservationResource(infection, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set infection";
+
+      clinical.HistoryOfHospitalization as admitted -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+       admitted -> observation.id = obsid "set obsid";
+       admitted -> create('Coding') as coding, coding.code = "DE59", coding.system = "http://worldhealthorganization.github.io/smart-ot/AFROMRCIF", coding.display = "Outcome" then { 
+          admitted -> admitted then createObservationResource(admitted, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set infection";
     } "set clinical";
   } "set section";
 }
@@ -246,21 +186,20 @@ group mapLabsToDiagnosticReport(source lm : MeaslesLogicalModel, target bundle: 
 
       labs -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), diagnosticReport.result as result, result.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
         labs -> observation.id = obsid "set obsid";
-        labs.Antigen as antigen -> antigen then {
-          labs.Results as result -> result then createObservationResource( result, antigen, observation, pid) "set obs"; 
+        labs.TypeOfTest as testType -> testType then {
+          labs.Results as result -> result then createObservationResource( result, testType, observation, pid) "set obs"; 
           labs.LabResultsDate as resultDate -> observation.effective = resultDate "set start date";
-        } "set antigen";
+        } "set testType";
       } "set results";
-      labs.Antigen as antigen -> diagnosticReport.code = antigen "set code";
+      labs.TypeOfTest as testType -> diagnosticReport.code = testType "set code";
       labs.LabResultsDate as resultDate -> diagnosticReport.effective = resultDate "set date";
 /*
-        labs.TypeOfTest as testType ->          
         labs.ViralGenotype as genotype ->  */
   } "set diagnosticReport" ;
  } "set section";
 }  
 
-group createImmunizationResource (source vax : SOTMeaslesVaccinationStatus, target bundle : Bundle, target section : Element,  source pid) {
+group createImmunizationResource (source vax : AFROMRCIFVaccinationStatus, target bundle : Bundle, target section : Element,  source pid) {
   vax -> uuid() as id, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', id), section.entry as sectionEntry, sectionEntry.reference = append('Immunization/', id), entry.resource = create('Immunization') as immunization then {
     vax -> immunization.id = id "set id";
     vax -> immunization.status = "completed" "set status";
@@ -305,13 +244,16 @@ group mapVaccinationStatusToImmunization(source lm : MeaslesLogicalModel, target
 }
 
 
-group LmToComposition(source lm : SOTMeasles, target composition : Composition, source cid, source pid, source prid, source oid, source eid) {
+group LmToComposition(source lm : AFROMRCIF, target composition : Composition, source cid, source pid, source prid, source oid, source eid) {
   cid -> composition.id = cid "set id";
   lm -> composition.status = "final" "set status";
+  lm.ReportingSource as src then {
+    src.UniqueId as EPIDno -> composition.identifier = EPIDno "set identifier";
+  } "set";
   lm -> composition.title = "PAHO Measles Case Investigation Form" "set title";
   lm -> create('Coding') as coding, coding.code = "55751-2", coding.system = "http://loinc.org", coding.display = "Public health Case report", create('CodeableConcept') as code, code.coding = coding,  composition.type = code "set type";
-  lm.ReportingSource as reportingSource -> reportingSource then {
-    reportingSource.DateReportedLocal as date -> composition.date = date "set date";
+  lm.CaseInvestigation as var -> var then {
+    var.DateReportedLocal as date -> composition.date = date "set date";
   } "set date reported local";
   lm -> composition.subject as subject then {
     lm -> subject.reference= append('Patient/',pid) "set subject";
@@ -335,33 +277,16 @@ group DemographicsToPatient(source demographics:DemographicsLogicalModel , targe
  } "Set name";
  demographics.DateOfBirth as dob -> patient.birthDate = dob "set date of birth";
  demographics.Sex as sex -> patient.gender = sex "set sex";
- demographics.CountryOfBirth as cob -> patient.CountryOfBirth = cob "set CountryOfBirth";
- demographics.Landmark as landmark -> patient.extension as ext then {
-  landmark -> ext.url = 'http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Landmark' , ext.value = landmark "set landmark value";
- } "set landmark";
- demographics.Guardian as guardian -> patient.extension as ext then {
-  guardian -> ext.url = 'http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Guardian' , ext.value = guardian "set guardian value";
- } "set guardian";
-
-demographics.Telephone as sourcePhone -> patient.telecom as targetPhone then {
-  sourcePhone -> sourcePhone then contactPointToContactPoint(sourcePhone, targetPhone) "Copy contact";
- } "Set contact";
- 
+  
  demographics.PlaceOfResidence as sourceAddress -> patient.address as targetAddress then {
   sourceAddress -> sourceAddress then addressToAddress(sourceAddress,targetAddress) "Copy Address";
  } "set address";
 
- demographics.Occupation as occupation -> patient.extension as ext then {
-  occupation -> ext.url ='http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Occupation', ext.value = occupation "set occupation value";
- } "set occupation";
- demographics.WorkAddress as workAddress -> patient.extension as ext then {
- workAddress -> ext.url = 'http://worldhealthorganization.github.io/smart-ot/StructureDefinition/WorkAddress', ext.value = workAddress "set work address value";
- } "set work address";
 }
 
-group ReportingSourceToPractitioner (source reportingSource: ReportingSourceLogicalModel, target practitioner: Practitioner, source prid) {
+group ClassificationToPractitioner (source var: AFROMRCIFClassification, target practitioner: Practitioner, source prid) {
 prid -> practitioner.id = prid "set id";
-reportingSource.ReportedBy as name -> practitioner.name as humanName, humanName.text = name "set name";
+var.ReportedBy as name -> practitioner.name as humanName, humanName.text = name "set name";
 }
 
 group ReportingSourceToOrganization (source reportingSource: ReportingSourceLogicalModel, target organization: Organization, source oid) {
@@ -375,24 +300,6 @@ reportingSource.PlaceOfReporting as locationSource -> organization.contact as co
   locationSource -> locationSource then contactPointToContactPoint(locationSource, locationTarget) "set org address"; 
 } "set address";
 
-}
-
-group mapEncounters (source clinical : SOTMeaslesClinical, target bundle: Bundle, target section: Element, source pid) {
-clinical.HistoryOfHospitalization where code = 'Yes' then {
-  clinical.DateOfAdmission as date then {
-    date -> create('Coding') as type, type.code = "IMP", type.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode", type.display = "inpatient encounter" then createEncounterResource(date, bundle, section, pid, type) "create";
-  } "d";
-} "dff";
-}
-
-group createEncounterResource (source date, target bundle : Bundle, target section : Element,  source pid, source type: Coding ) {
-  date -> uuid() as eid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', eid), section.entry as sectionEntry, sectionEntry.reference = append('Encounter/', eid), entry.resource = create('Encounter') as encounter then {
-   date -> encounter.id = eid "set id";
-   date -> encounter.status = "finished" "set status";
-   pid -> encounter.subject as subject, subject.reference = append('Patient/',pid) "set subject";
-   date -> encounter.period as period, period.start = date "set date";
-   type -> encounter.class = type "set type";
-  } "dssd";
 }
 
 group createCompositionEncounterResource (source date,  source pid, source type: Coding, source eid, target encounter : Encounter ) {
