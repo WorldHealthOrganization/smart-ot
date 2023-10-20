@@ -7,8 +7,8 @@ RuleSet: Quest(linkId, text, type, repeats)
 
 Instance: SOTMeasles-AFRO-MRCIF
 InstanceOf: sdc-questionnaire-extr-smap
-Description: "Measles Case Investigation Questionnaire"
-Title: "Measles Case Investigation Questionnaire"
+Description: "AFRO MEASLES/ RUBELLA SUSPECTED CASE REPORTING FORM"
+Title: "AFRO MEASLES/ RUBELLA SUSPECTED CASE REPORTING FORM"
 Usage: #definition
 * title = "AFRO Measles Case Investigation Questionnaire"
 * description = "AFRO Measles Case Investigation Questionnaire"
@@ -38,7 +38,6 @@ Usage: #definition
   * insert Quest(demographics, IDENTIFICATION:, group, false)
   * item[=]
     * insert Quest(name, Name of Patient, string, false)
-    * item[=].answerValueSet = Canonical(LocType)
     * insert Quest(DoB, Date of Birth, date, false)
     * insert Quest(ageOnset, If date of birth is unknown\, age, integer, false)
     * insert Quest(sex, Sex, choice, false)
@@ -75,9 +74,9 @@ Usage: #definition
     * item[=].answerValueSet = Canonical(YesNoUnknown)   
     * insert Quest(coryza, Running nose, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)   
-    * insert Quest(lymphadenopathy, Sowllen lymph nodes behind ears, choice, false)
+    * insert Quest(lymphadenopathy, Swollen lymph nodes behind ears, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)
-    * insert Quest(jointPain, joint pain/swelling, choice, false)
+    * insert Quest(jointPain, Joint pain/swelling, choice, false)
     * item[=].answerValueSet = Canonical(YesNoUnknown)
   //START ADAPT HERE - update inpatient outpatient value set, and outcome value set
     * insert Quest(admitted, In/out-patient, choice, false)

@@ -1,5 +1,5 @@
 Logical: AFROMRCIF
-Title: "MEASLES/ RUBELLA SUSPECTED CASE REPORTING FORM"
+Title: "Surveillance & Outbreak Toolkit - AFRO MRCIF"
 Parent: BackboneElement
 
 * ^url = "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIF"
