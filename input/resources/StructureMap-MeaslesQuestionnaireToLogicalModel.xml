@@ -1,0 +1,1046 @@
+<StructureMap 
+  xmlns="http://hl7.org/fhir">
+  <id value="MeaslesQuestionnaireToLogicalModel"/>
+  <text>
+    <status value="generated"/>
+    <div 
+      xmlns="http://www.w3.org/1999/xhtml">
+      <pre>map &quot;http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel&quot; = &quot;MeaslesQuestionnaireToLogicalModel&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse&quot; alias QuestionnaireResponse as source
+uses &quot;http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles&quot; alias MeaslesLogicalModel as target
+
+group MeaslesQuestionnaireToLogicalModel(source qr : QuestionnaireResponse, target measlesLm : MeaslesLogicalModel) {
+  qr.item as item where linkId.value in (&apos;investigationForm&apos;) -&gt; measlesLm as measlesLm then mapInvestigationForm(item, measlesLm) &quot;set Investigation form&quot;;
+}
+
+group mapInvestigationForm(source investigationForm, target measlesLm : MeaslesLogicalModel) {
+  investigationForm.item as qrReportingSource where linkId.value in (&apos;reportingSource&apos;) -&gt; measlesLm.ReportingSource as lmReportingSource then mapReportingSource(qrReportingSource, lmReportingSource) &quot;set Reporting Source&quot;;
+  investigationForm.item as qrDemographics where linkId.value in (&apos;demographics&apos;) -&gt; measlesLm.Demographics as lmDemographics then mapDemographics(qrDemographics, lmDemographics) &quot;set Demographics&quot;;
+  investigationForm.item as qrVaccinationStatus where linkId.value in (&apos;vaccinationStatus&apos;) -&gt; measlesLm.VaccinationStatus as lmVaccinationStatus then mapVaccinationStatus(qrVaccinationStatus, lmVaccinationStatus) &quot;set Vaccination Status&quot;;
+  investigationForm.item as qrClinical where linkId.value in (&apos;clinical&apos;) -&gt; measlesLm.Clinical as lmClinical then mapClinical(qrClinical, lmClinical) &quot;set Clinical&quot;;
+  investigationForm.item as qrLaboratoryResults where linkId.value in (&apos;laboratoryResults&apos;) -&gt; measlesLm.LaboratoryResults as lmLaboratoryResults then mapLaboratoryResults(qrLaboratoryResults, lmLaboratoryResults) &quot;set Laboratory Results&quot;;
+  investigationForm.item as qrContactTracing where linkId.value in (&apos;contactTracing&apos;) -&gt; measlesLm.ContactTracing as lmContactTracing then mapContactTracing(qrContactTracing, lmContactTracing) &quot;set Contact Tracing&quot;;
+  investigationForm.item as qrEpiData where linkId.value in (&apos;epiData&apos;) -&gt; measlesLm.EpiData as lmEpiData then mapEpiData(qrEpiData, lmEpiData) &quot;set Epi Data&quot;;
+  investigationForm.item as qrClassification where linkId.value in (&apos;classification&apos;) -&gt; measlesLm.Classification as lmClassification then mapClassification(qrClassification, lmClassification) &quot;set Classification&quot;;
+}
+
+group mapReportingSource(source qrReportingSource, target lmReportingSource : ReportingSourceLogicalModel) {
+  qrReportingSource.item as initialDiagnosis where linkId.value in (&apos;initialDiagnosis&apos;) -&gt; lmReportingSource.InitialDiagnosis = (initialDiagnosis.answer.valueCoding) &quot;set Initial Diagnosis&quot;;
+  qrReportingSource.item as reportedBy where linkId.value in (&apos;reportedBy&apos;) -&gt; lmReportingSource.ReportedBy = (reportedBy.answer.valueString) &quot;set case ID&quot;;
+  qrReportingSource.item as qrReportingInstitution where linkId.value in (&apos;reportingInstitution&apos;) -&gt; lmReportingSource as lmReportingSource then mapReportingInstitution(qrReportingInstitution, lmReportingSource) &quot;set reporting institution&quot;;
+  qrReportingSource.item as dateOfConsultation where linkId.value in (&apos;DateOfConsultation&apos;) -&gt; lmReportingSource.DateOfConsultation = (dateOfConsultation.answer.valueDate) &quot;set date of consultation&quot;;
+  qrReportingSource.item as dateOfHomeVisit where linkId.value in (&apos;DateOfHomeVisit&apos;) -&gt; lmReportingSource.DateOfHomeVisit = (dateOfHomeVisit.answer.valueDate) &quot;set date of home visit&quot;;
+  qrReportingSource.item as dateReportedLocal where linkId.value in (&apos;dateReported&apos;) -&gt; lmReportingSource.DateReportedLocal = (dateReportedLocal.answer.valueDate) &quot;set date reported local&quot;;
+  qrReportingSource.item as dateReportedNational where linkId.value in (&apos;DateReportedNational&apos;) -&gt; lmReportingSource.DateReportedNational = (dateReportedNational.answer.valueDate) &quot;set date reported national&quot;;
+  qrReportingSource.item as providerType where linkId.value in (&apos;TypeOfProviderReporting&apos;) -&gt; lmReportingSource.TypeOfProviderReporting = (providerType.answer.valueCoding) &quot;set provider type&quot;;
+  qrReportingSource.item as detectedBy where linkId.value in (&apos;DetectedBy&apos;) -&gt; lmReportingSource.DetectedBy = (detectedBy.answer.valueCoding) &quot;set provider type&quot;;
+}
+
+group mapReportingInstitution(source qrReportingInstitution, target lmReportingSource : ReportingSourceLogicalModel) {
+  qrReportingInstitution.item as reportingFacility where linkId.value in (&apos;reportingFacility&apos;) -&gt; lmReportingSource.HealthServiceName = (reportingFacility.answer.valueString) &quot;set health facility name&quot;;
+  qrReportingInstitution.item as telephone where linkId.value in (&apos;telephone&apos;) -&gt;  create(&apos;ContactPoint&apos;) as lmTelephone,  lmTelephone.value = (telephone.answer.valueString),  lmReportingSource.HealthServiceTelephone = lmTelephone &quot;set telephone&quot;;
+  qrReportingInstitution -&gt; create(&apos;Address&apos;) as lmAddress then {
+    qrReportingInstitution.item as country where linkId.value in (&apos;country&apos;) -&gt; lmAddress.country = (country.answer.valueString) &quot;set country&quot;;
+    qrReportingInstitution.item as municipality where linkId.value in (&apos;municipality&apos;) -&gt; lmAddress.city = (municipality.answer.valueString) &quot;set city&quot;;
+    qrReportingInstitution.item as state where linkId.value in (&apos;state&apos;) -&gt; lmAddress.state = (state.answer.valueString) &quot;set state&quot;;
+    qrReportingInstitution.item as locality where linkId.value in (&apos;locality&apos;) -&gt; lmAddress.district = (locality.answer.valueString) &quot;set locality&quot;;
+    qrReportingInstitution -&gt; lmReportingSource.PlaceOfReporting = lmAddress &quot;assign address&quot;;
+  } &quot;set address&quot;;
+}
+
+group mapDemographics(source qrDemographics, target lmDemographics : DemographicsLogicalModel) {
+  qrDemographics.item as name where linkId.value in (&apos;name&apos;) -&gt;  create(&apos;HumanName&apos;) as lmName,  lmName.family = (name.answer.valueString),  lmDemographics.Name = lmName &quot;set name&quot;;
+  qrDemographics.item as guardian where linkId.value in (&apos;guardian&apos;) -&gt;  create(&apos;HumanName&apos;) as lmGuardian,  lmGuardian.family = (guardian.answer.valueString),  lmDemographics.Guardian = lmGuardian &quot;set guardian&quot;;
+  qrDemographics.item as address where linkId.value in (&apos;address&apos;) -&gt;  create(&apos;Address&apos;) as lmAddress,  lmAddress.text = (address.answer.valueString),  lmDemographics.PlaceOfResidence = lmAddress &quot;set address&quot;;
+  qrDemographics.item as telephone where linkId.value in (&apos;telephone&apos;) -&gt;  create(&apos;ContactPoint&apos;) as lmTelephone,  lmTelephone.value = (telephone.answer.valueString),  lmDemographics.Telephone = lmTelephone &quot;set telephone&quot;;
+  qrDemographics.item as landmark where linkId.value in (&apos;landmark&apos;) -&gt; lmDemographics.Landmark = (landmark.answer.valueString) &quot;set landmark&quot;;
+  qrDemographics.item as occupation where linkId.value in (&apos;occupation&apos;) -&gt; lmDemographics.Occupation = (occupation.answer.valueString) &quot;set occupation&quot;;
+  qrDemographics.item as location where linkId.value in (&apos;location living in&apos;) -&gt; lmDemographics.LocalityType = (location.answer.valueCoding) &quot;set Locality Type&quot;;
+  qrDemographics.item as workAddress where linkId.value in (&apos;workAddress&apos;) -&gt;  create(&apos;Address&apos;) as lmAddress,  lmAddress.text = (workAddress.answer.valueString),  lmDemographics.WorkAddress = lmAddress &quot;set workAddress&quot;;
+  qrDemographics.item as sex where linkId.value in (&apos;sex&apos;) -&gt; lmDemographics.Sex = (sex.answer.valueCoding) &quot;set sex&quot;;
+  qrDemographics.item as DoB where linkId.value in (&apos;DoB&apos;) -&gt; lmDemographics.DateOfBirth = (DoB.answer.valueDate) &quot;set DoB&quot;;
+  qrDemographics.item as ageOnset where linkId.value in (&apos;ageOnset&apos;) -&gt;  create(&apos;Quantity&apos;) as lmAgeOnset,  lmAgeOnset.value = (ageOnset.answer.valueInteger),  lmDemographics.Age = lmAgeOnset &quot;set ageOnset&quot;;
+}
+
+group mapVaccinationStatus(source qrVaccinationStatus, target lmVaccinationStatus : VaccinationStatusLogicalModel) {
+}
+
+group mapClinical(source qrClinical, target lmClinical : ClinicalLogicalModel) {
+}
+
+group mapLaboratoryResults(source qrLaboratoryResults, target lmLaboratoryResults : LaboratoryResultsLogicalModel) {
+}
+
+group mapContactTracing(source qrContactTracing, target lmContactTracing : ContactTracingLogicalModel) {
+}
+
+group mapEpiData(source qrEpiData, target lmEpiData : EpiDataLogicalModel) {
+}
+
+group mapClassification(source qrClassification, target lmClassification : ClassificationLogicalModel) {
+}
+
+</pre>
+    </div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel"/>
+  <name value="MeaslesQuestionnaireToLogicalModel"/>
+  <status value="draft"/>
+  <structure>
+    <url value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
+    <mode value="source"/>
+    <alias value="QuestionnaireResponse"/>
+  </structure>
+  <structure>
+    <url value="http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles"/>
+    <mode value="target"/>
+    <alias value="MeaslesLogicalModel"/>
+  </structure>
+  <group>
+    <name value="MeaslesQuestionnaireToLogicalModel"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qr"/>
+      <type value="QuestionnaireResponse"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="measlesLm"/>
+      <type value="MeaslesLogicalModel"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set Investigation form"/>
+      <source>
+        <context value="qr"/>
+        <element value="item"/>
+        <variable value="item"/>
+        <condition value="linkId.value in ('investigationForm')"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="measlesLm"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="measlesLm"/>
+        </parameter>
+      </target>
+      <dependent>
+        <name value="mapInvestigationForm"/>
+        <variable value="item"/>
+        <variable value="measlesLm"/>
+      </dependent>
+    </rule>
+  </group>
+  <group>
+    <name value="mapInvestigationForm"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="investigationForm"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="measlesLm"/>
+      <type value="MeaslesLogicalModel"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set Reporting Source"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrReportingSource"/>
+        <condition value="linkId.value in ('reportingSource')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="ReportingSource"/>
+        <variable value="lmReportingSource"/>
+      </target>
+      <dependent>
+        <name value="mapReportingSource"/>
+        <variable value="qrReportingSource"/>
+        <variable value="lmReportingSource"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Demographics"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrDemographics"/>
+        <condition value="linkId.value in ('demographics')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="Demographics"/>
+        <variable value="lmDemographics"/>
+      </target>
+      <dependent>
+        <name value="mapDemographics"/>
+        <variable value="qrDemographics"/>
+        <variable value="lmDemographics"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Vaccination Status"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrVaccinationStatus"/>
+        <condition value="linkId.value in ('vaccinationStatus')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="VaccinationStatus"/>
+        <variable value="lmVaccinationStatus"/>
+      </target>
+      <dependent>
+        <name value="mapVaccinationStatus"/>
+        <variable value="qrVaccinationStatus"/>
+        <variable value="lmVaccinationStatus"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Clinical"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrClinical"/>
+        <condition value="linkId.value in ('clinical')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="Clinical"/>
+        <variable value="lmClinical"/>
+      </target>
+      <dependent>
+        <name value="mapClinical"/>
+        <variable value="qrClinical"/>
+        <variable value="lmClinical"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Laboratory Results"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrLaboratoryResults"/>
+        <condition value="linkId.value in ('laboratoryResults')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="LaboratoryResults"/>
+        <variable value="lmLaboratoryResults"/>
+      </target>
+      <dependent>
+        <name value="mapLaboratoryResults"/>
+        <variable value="qrLaboratoryResults"/>
+        <variable value="lmLaboratoryResults"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Contact Tracing"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrContactTracing"/>
+        <condition value="linkId.value in ('contactTracing')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="ContactTracing"/>
+        <variable value="lmContactTracing"/>
+      </target>
+      <dependent>
+        <name value="mapContactTracing"/>
+        <variable value="qrContactTracing"/>
+        <variable value="lmContactTracing"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Epi Data"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrEpiData"/>
+        <condition value="linkId.value in ('epiData')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="EpiData"/>
+        <variable value="lmEpiData"/>
+      </target>
+      <dependent>
+        <name value="mapEpiData"/>
+        <variable value="qrEpiData"/>
+        <variable value="lmEpiData"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Classification"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrClassification"/>
+        <condition value="linkId.value in ('classification')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="Classification"/>
+        <variable value="lmClassification"/>
+      </target>
+      <dependent>
+        <name value="mapClassification"/>
+        <variable value="qrClassification"/>
+        <variable value="lmClassification"/>
+      </dependent>
+    </rule>
+  </group>
+  <group>
+    <name value="mapReportingSource"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrReportingSource"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmReportingSource"/>
+      <type value="ReportingSourceLogicalModel"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set Initial Diagnosis"/>
+      <source>
+        <context value="qrReportingSource"/>
+        <element value="item"/>
+        <variable value="initialDiagnosis"/>
+        <condition value="linkId.value in ('initialDiagnosis')"/>
+      </source>
+      <target>
+        <context value="lmReportingSource"/>
+        <contextType value="variable"/>
+        <element value="InitialDiagnosis"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="initialDiagnosis.answer.valueCoding"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set case ID"/>
+      <source>
+        <context value="qrReportingSource"/>
+        <element value="item"/>
+        <variable value="reportedBy"/>
+        <condition value="linkId.value in ('reportedBy')"/>
+      </source>
+      <target>
+        <context value="lmReportingSource"/>
+        <contextType value="variable"/>
+        <element value="ReportedBy"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="reportedBy.answer.valueString"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set reporting institution"/>
+      <source>
+        <context value="qrReportingSource"/>
+        <element value="item"/>
+        <variable value="qrReportingInstitution"/>
+        <condition value="linkId.value in ('reportingInstitution')"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="lmReportingSource"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="lmReportingSource"/>
+        </parameter>
+      </target>
+      <dependent>
+        <name value="mapReportingInstitution"/>
+        <variable value="qrReportingInstitution"/>
+        <variable value="lmReportingSource"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set date of consultation"/>
+      <source>
+        <context value="qrReportingSource"/>
+        <element value="item"/>
+        <variable value="dateOfConsultation"/>
+        <condition value="linkId.value in ('DateOfConsultation')"/>
+      </source>
+      <target>
+        <context value="lmReportingSource"/>
+        <contextType value="variable"/>
+        <element value="DateOfConsultation"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="dateOfConsultation.answer.valueDate"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set date of home visit"/>
+      <source>
+        <context value="qrReportingSource"/>
+        <element value="item"/>
+        <variable value="dateOfHomeVisit"/>
+        <condition value="linkId.value in ('DateOfHomeVisit')"/>
+      </source>
+      <target>
+        <context value="lmReportingSource"/>
+        <contextType value="variable"/>
+        <element value="DateOfHomeVisit"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="dateOfHomeVisit.answer.valueDate"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set date reported local"/>
+      <source>
+        <context value="qrReportingSource"/>
+        <element value="item"/>
+        <variable value="dateReportedLocal"/>
+        <condition value="linkId.value in ('dateReported')"/>
+      </source>
+      <target>
+        <context value="lmReportingSource"/>
+        <contextType value="variable"/>
+        <element value="DateReportedLocal"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="dateReportedLocal.answer.valueDate"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set date reported national"/>
+      <source>
+        <context value="qrReportingSource"/>
+        <element value="item"/>
+        <variable value="dateReportedNational"/>
+        <condition value="linkId.value in ('DateReportedNational')"/>
+      </source>
+      <target>
+        <context value="lmReportingSource"/>
+        <contextType value="variable"/>
+        <element value="DateReportedNational"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="dateReportedNational.answer.valueDate"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set provider type"/>
+      <source>
+        <context value="qrReportingSource"/>
+        <element value="item"/>
+        <variable value="providerType"/>
+        <condition value="linkId.value in ('TypeOfProviderReporting')"/>
+      </source>
+      <target>
+        <context value="lmReportingSource"/>
+        <contextType value="variable"/>
+        <element value="TypeOfProviderReporting"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="providerType.answer.valueCoding"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set provider type"/>
+      <source>
+        <context value="qrReportingSource"/>
+        <element value="item"/>
+        <variable value="detectedBy"/>
+        <condition value="linkId.value in ('DetectedBy')"/>
+      </source>
+      <target>
+        <context value="lmReportingSource"/>
+        <contextType value="variable"/>
+        <element value="DetectedBy"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="detectedBy.answer.valueCoding"/>
+        </parameter>
+      </target>
+    </rule>
+  </group>
+  <group>
+    <name value="mapReportingInstitution"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrReportingInstitution"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmReportingSource"/>
+      <type value="ReportingSourceLogicalModel"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set health facility name"/>
+      <source>
+        <context value="qrReportingInstitution"/>
+        <element value="item"/>
+        <variable value="reportingFacility"/>
+        <condition value="linkId.value in ('reportingFacility')"/>
+      </source>
+      <target>
+        <context value="lmReportingSource"/>
+        <contextType value="variable"/>
+        <element value="HealthServiceName"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="reportingFacility.answer.valueString"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set telephone"/>
+      <source>
+        <context value="qrReportingInstitution"/>
+        <element value="item"/>
+        <variable value="telephone"/>
+        <condition value="linkId.value in ('telephone')"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="lmTelephone"/>
+        <transform value="create"/>
+        <parameter>
+          <valueString value="ContactPoint"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmTelephone"/>
+        <contextType value="variable"/>
+        <element value="value"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="telephone.answer.valueString"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmReportingSource"/>
+        <contextType value="variable"/>
+        <element value="HealthServiceTelephone"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="lmTelephone"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set address"/>
+      <source>
+        <context value="qrReportingInstitution"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="lmAddress"/>
+        <transform value="create"/>
+        <parameter>
+          <valueString value="Address"/>
+        </parameter>
+      </target>
+      <rule>
+        <name value="set country"/>
+        <source>
+          <context value="qrReportingInstitution"/>
+          <element value="item"/>
+          <variable value="country"/>
+          <condition value="linkId.value in ('country')"/>
+        </source>
+        <target>
+          <context value="lmAddress"/>
+          <contextType value="variable"/>
+          <element value="country"/>
+          <transform value="evaluate"/>
+          <parameter>
+            <valueString value="country.answer.valueString"/>
+          </parameter>
+        </target>
+      </rule>
+      <rule>
+        <name value="set city"/>
+        <source>
+          <context value="qrReportingInstitution"/>
+          <element value="item"/>
+          <variable value="municipality"/>
+          <condition value="linkId.value in ('municipality')"/>
+        </source>
+        <target>
+          <context value="lmAddress"/>
+          <contextType value="variable"/>
+          <element value="city"/>
+          <transform value="evaluate"/>
+          <parameter>
+            <valueString value="municipality.answer.valueString"/>
+          </parameter>
+        </target>
+      </rule>
+      <rule>
+        <name value="set state"/>
+        <source>
+          <context value="qrReportingInstitution"/>
+          <element value="item"/>
+          <variable value="state"/>
+          <condition value="linkId.value in ('state')"/>
+        </source>
+        <target>
+          <context value="lmAddress"/>
+          <contextType value="variable"/>
+          <element value="state"/>
+          <transform value="evaluate"/>
+          <parameter>
+            <valueString value="state.answer.valueString"/>
+          </parameter>
+        </target>
+      </rule>
+      <rule>
+        <name value="set locality"/>
+        <source>
+          <context value="qrReportingInstitution"/>
+          <element value="item"/>
+          <variable value="locality"/>
+          <condition value="linkId.value in ('locality')"/>
+        </source>
+        <target>
+          <context value="lmAddress"/>
+          <contextType value="variable"/>
+          <element value="district"/>
+          <transform value="evaluate"/>
+          <parameter>
+            <valueString value="locality.answer.valueString"/>
+          </parameter>
+        </target>
+      </rule>
+      <rule>
+        <name value="assign address"/>
+        <source>
+          <context value="qrReportingInstitution"/>
+        </source>
+        <target>
+          <context value="lmReportingSource"/>
+          <contextType value="variable"/>
+          <element value="PlaceOfReporting"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="lmAddress"/>
+          </parameter>
+        </target>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="mapDemographics"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrDemographics"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmDemographics"/>
+      <type value="DemographicsLogicalModel"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set name"/>
+      <source>
+        <context value="qrDemographics"/>
+        <element value="item"/>
+        <variable value="name"/>
+        <condition value="linkId.value in ('name')"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="lmName"/>
+        <transform value="create"/>
+        <parameter>
+          <valueString value="HumanName"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmName"/>
+        <contextType value="variable"/>
+        <element value="family"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="name.answer.valueString"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmDemographics"/>
+        <contextType value="variable"/>
+        <element value="Name"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="lmName"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set guardian"/>
+      <source>
+        <context value="qrDemographics"/>
+        <element value="item"/>
+        <variable value="guardian"/>
+        <condition value="linkId.value in ('guardian')"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="lmGuardian"/>
+        <transform value="create"/>
+        <parameter>
+          <valueString value="HumanName"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmGuardian"/>
+        <contextType value="variable"/>
+        <element value="family"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="guardian.answer.valueString"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmDemographics"/>
+        <contextType value="variable"/>
+        <element value="Guardian"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="lmGuardian"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set address"/>
+      <source>
+        <context value="qrDemographics"/>
+        <element value="item"/>
+        <variable value="address"/>
+        <condition value="linkId.value in ('address')"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="lmAddress"/>
+        <transform value="create"/>
+        <parameter>
+          <valueString value="Address"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmAddress"/>
+        <contextType value="variable"/>
+        <element value="text"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="address.answer.valueString"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmDemographics"/>
+        <contextType value="variable"/>
+        <element value="PlaceOfResidence"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="lmAddress"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set telephone"/>
+      <source>
+        <context value="qrDemographics"/>
+        <element value="item"/>
+        <variable value="telephone"/>
+        <condition value="linkId.value in ('telephone')"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="lmTelephone"/>
+        <transform value="create"/>
+        <parameter>
+          <valueString value="ContactPoint"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmTelephone"/>
+        <contextType value="variable"/>
+        <element value="value"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="telephone.answer.valueString"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmDemographics"/>
+        <contextType value="variable"/>
+        <element value="Telephone"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="lmTelephone"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set landmark"/>
+      <source>
+        <context value="qrDemographics"/>
+        <element value="item"/>
+        <variable value="landmark"/>
+        <condition value="linkId.value in ('landmark')"/>
+      </source>
+      <target>
+        <context value="lmDemographics"/>
+        <contextType value="variable"/>
+        <element value="Landmark"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="landmark.answer.valueString"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set occupation"/>
+      <source>
+        <context value="qrDemographics"/>
+        <element value="item"/>
+        <variable value="occupation"/>
+        <condition value="linkId.value in ('occupation')"/>
+      </source>
+      <target>
+        <context value="lmDemographics"/>
+        <contextType value="variable"/>
+        <element value="Occupation"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="occupation.answer.valueString"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set Locality Type"/>
+      <source>
+        <context value="qrDemographics"/>
+        <element value="item"/>
+        <variable value="location"/>
+        <condition value="linkId.value in ('location living in')"/>
+      </source>
+      <target>
+        <context value="lmDemographics"/>
+        <contextType value="variable"/>
+        <element value="LocalityType"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="location.answer.valueCoding"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set workAddress"/>
+      <source>
+        <context value="qrDemographics"/>
+        <element value="item"/>
+        <variable value="workAddress"/>
+        <condition value="linkId.value in ('workAddress')"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="lmAddress"/>
+        <transform value="create"/>
+        <parameter>
+          <valueString value="Address"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmAddress"/>
+        <contextType value="variable"/>
+        <element value="text"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="workAddress.answer.valueString"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmDemographics"/>
+        <contextType value="variable"/>
+        <element value="WorkAddress"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="lmAddress"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set sex"/>
+      <source>
+        <context value="qrDemographics"/>
+        <element value="item"/>
+        <variable value="sex"/>
+        <condition value="linkId.value in ('sex')"/>
+      </source>
+      <target>
+        <context value="lmDemographics"/>
+        <contextType value="variable"/>
+        <element value="Sex"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="sex.answer.valueCoding"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set DoB"/>
+      <source>
+        <context value="qrDemographics"/>
+        <element value="item"/>
+        <variable value="DoB"/>
+        <condition value="linkId.value in ('DoB')"/>
+      </source>
+      <target>
+        <context value="lmDemographics"/>
+        <contextType value="variable"/>
+        <element value="DateOfBirth"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="DoB.answer.valueDate"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set ageOnset"/>
+      <source>
+        <context value="qrDemographics"/>
+        <element value="item"/>
+        <variable value="ageOnset"/>
+        <condition value="linkId.value in ('ageOnset')"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="lmAgeOnset"/>
+        <transform value="create"/>
+        <parameter>
+          <valueString value="Quantity"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmAgeOnset"/>
+        <contextType value="variable"/>
+        <element value="value"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="ageOnset.answer.valueInteger"/>
+        </parameter>
+      </target>
+      <target>
+        <context value="lmDemographics"/>
+        <contextType value="variable"/>
+        <element value="Age"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="lmAgeOnset"/>
+        </parameter>
+      </target>
+    </rule>
+  </group>
+  <group>
+    <name value="mapVaccinationStatus"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrVaccinationStatus"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmVaccinationStatus"/>
+      <type value="VaccinationStatusLogicalModel"/>
+      <mode value="target"/>
+    </input>
+  </group>
+  <group>
+    <name value="mapClinical"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrClinical"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmClinical"/>
+      <type value="ClinicalLogicalModel"/>
+      <mode value="target"/>
+    </input>
+  </group>
+  <group>
+    <name value="mapLaboratoryResults"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrLaboratoryResults"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmLaboratoryResults"/>
+      <type value="LaboratoryResultsLogicalModel"/>
+      <mode value="target"/>
+    </input>
+  </group>
+  <group>
+    <name value="mapContactTracing"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrContactTracing"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmContactTracing"/>
+      <type value="ContactTracingLogicalModel"/>
+      <mode value="target"/>
+    </input>
+  </group>
+  <group>
+    <name value="mapEpiData"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrEpiData"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmEpiData"/>
+      <type value="EpiDataLogicalModel"/>
+      <mode value="target"/>
+    </input>
+  </group>
+  <group>
+    <name value="mapClassification"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrClassification"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmClassification"/>
+      <type value="ClassificationLogicalModel"/>
+      <mode value="target"/>
+    </input>
+  </group>
+</StructureMap>
