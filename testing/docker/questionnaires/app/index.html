@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuestionnaireResponse Extraction Test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    .status-searching {
+      color: red;
+    }
+
+    .status-found {
+      color: darkgreen;
+    }
+
+    textarea {
+      font-family: 'Courier New', monospace;
+    }
+
+    .code-container {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .block {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding: 0 5px;
+    }
+
+    #left-block {
+      max-width: 50%;
+      position: relative;
+      /* Ensure the positioning is relative to this block */
+    }
+
+    #left-block.collapsed {
+      max-width: 5ch;
+      /* Reduced width instead of display:none; */
+      margin-right: 10px;
+      /* Add some margin when collapsed */
+    }
+
+    #left-block.collapsed #left-code {
+      /* max-width: 5ch; */
+      /* Almost hide the code box when collapsed */
+    }
+
+
+    #right-block {
+      width: 100%;
+    }
+
+    #left-code {
+      width: 100%;
+      margin-left: 0;
+      /* Remove or reduce left margin */
+      margin-right: 0;
+    }
+
+
+    .code-box {
+      width: 100%;
+      height: 100%;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      border: 1px solid #ccc;
+      margin-right: 0px;
+      margin-right: 0px;
+      /* padding: 5px; */
+    }
+
+    .code-container {
+      display: flex;
+      align-items: stretch;
+      /* Ensures the children of .code-container expand to the same height */
+      margin-top: 20px;
+      height: 350px;
+    }
+
+    #collapse-button {
+      width: 100%;
+      min-width: 5ch;
+      margin-left: 0;
+      /* Remove or reduce left margin */
+      margin-right: 0;
+      /* Remove or reduce right margin */
+      text-align: left;
+      /* Align text to the left */
+      padding: 0px;
+      /* Adjust padding as per requirement */
+      margin-bottom: 10px;
+      /* space between button and text area */
+    }
+
+    #left-block.collapsed #collapse-button {
+      padding: 0px;
+      /* Adjust padding when collapsed */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-4">
+    <h2>QuestionnaireResponse Extraction Test</h2>
+    <p id="server-status" class="status-searching">Searching for server...</p>
+    <p>IG URL: <span id="igUrlLabel"></span></p>
+
+    <div><label><input type="checkbox" id="localOutputCheckbox"> Local output</label></div>
+
+    <button id="refreshFromServerBtn" class="btn btn-secondary mb-2 mr-2">Refresh from package</button>
+    <button id="uploadBtn" class="btn btn-secondary mb-2">Upload package resources to server</button>
+    <select id="questionnaireResponseDropdown" class="form-select mb-2">
+      <!-- Options will be dynamically added -->
+    </select>
+    <button id="processBtn" class="btn btn-primary mb-2">Extract QR</button>
+
+    <div class="code-container">
+      <div id="left-block" class="block">
+        <button id="collapse-button" class="btn btn-primary mb-2">&lt;&lt;</button>
+        <pre id="left-code" class="code-box"></pre>
+      </div>
+      <div id="right-block" class="block">
+        <textarea id="responseBox" class="code-box form-control" rows="10"></textarea>
+
+
+        <!-- Adding the group of two horizontally laid-out buttons below the response box -->
+        <div class="d-flex justify-content-end mt-3">
+          <!-- Dummy Button (Add functionality as needed) -->
+          <button id="dummyBtn" class="btn btn-primary me-2">POST to server</button>
+
+          <!-- Button for POSTing to FHIR server -->
+          <button id="validateBtn" class="btn btn-secondary">Validate</button>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/0.5.0/js/sql.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let serverUrl;
+      let resourcesBaseUrl;
+      let commit = false;
+
+      fetch('/config.json')
+        .then(response => response.json())
+        .then(config => {
+          serverUrl = config.server_url;
+          resourcesBaseUrl = config.ig_url;
+          updateIgUrlLabel();
+          function updateIgUrlLabel() {
+            $("#igUrlLabel").text(resourcesBaseUrl);
+          }
+
+          $("#localOutputCheckbox").change(function () {
+            if ($(this).is(':checked')) {
+              resourcesBaseUrl = "./output/";
+            } else {
+              resourcesBaseUrl = config.ig_url;
+            }
+            updateIgUrlLabel();
+            // ... rest of your code
+          });
+
+
+          fetch('/output/package.db', { method: 'HEAD' })
+            .then(response => {
+              if (response.ok) {
+                $("#localOutputCheckbox").prop('checked', true);
+                resourcesBaseUrl = "./output/"; // Update the base URL
+              } else {
+                $("#localOutputCheckbox").prop('checked', false).prop('disabled', true);
+              }
+            })
+            .catch(error => {
+              // Handle any other type of errors here, if necessary.
+              $("#localOutputCheckbox").prop('checked', false).prop('disabled', true);
+            });
+
+          $("#localOutputCheckbox").change(function () {
+            if ($(this).is(':checked')) {
+              resourcesBaseUrl = "./output/";
+            } else {
+              resourcesBaseUrl = config.ig_url; // assuming you have 'config' in this context
+            }
+            // Call any function or update any other variables that depend on resourcesBaseUrl here
+          });
+
+          var fetchServer = function () {
+            fetch(serverUrl + '/metadata')
+              .then(response => {
+                if (response.ok) {
+                  clearInterval(serverInterval);
+                  $("#server-status")
+                    .removeClass('status-searching')
+                    .addClass('status-found')
+                    .text("Server found at: " + serverUrl);
+                  //                                   fetchAndProcessSQLData();
+                }
+              })
+              .catch(error => console.error("Error:", error));
+          };
+          fetchServer();
+          var serverInterval = setInterval(fetchServer, 5000);
+
+
+          function populateQuestionnaireResponseDropdown(db) {
+            var questionnaireResults = db.exec("SELECT Id FROM Resources WHERE Type='QuestionnaireResponse';");
+            $('#questionnaireResponseDropdown').empty();
+
+            // Add an "empty" option to the dropdown
+            $('#questionnaireResponseDropdown').append(new Option("Select a QuestionnaireResponse", "", true, true));
+
+            if (questionnaireResults[0]) {
+              questionnaireResults[0].values.forEach(response => {
+                var responseId = response[0];
+                $('#questionnaireResponseDropdown').append(new Option(responseId, responseId));
+              });
+            } else {
+              console.error('No QuestionnaireResponse found');
+            }
+          }
+
+
+
+          $("#refreshFromServerBtn").click(function () {
+            fetchAndProcessSQLData();
+          });
+
+
+
+          var fetchAndProcessSQLData = function () {
+            fetch(resourcesBaseUrl + 'package.db')
+              .then(response => response.arrayBuffer())
+              .then(dbBuffer => {
+                var db = new SQL.Database(new Uint8Array(dbBuffer));
+                populateQuestionnaireResponseDropdown(db);
+                var results = db.exec("SELECT Type, Id FROM Resources WHERE Url IS NOT NULL AND Url != '';");
+
+                if (results[0]) {
+                  results[0].values.forEach(resource => {
+                    var resourceType = resource[0];
+                    var resourceId = resource[1];
+                    fetchAndProcessResourceData(resourceType, resourceId);
+                  });
+                } else {
+                  console.error('No results found');
+                }
+
+                var questionnaireResults = db.exec("SELECT Id FROM Resources WHERE Type='QuestionnaireResponse';");
+                $('#questionnaireResponseDropdown').empty();
+
+
+                // Add an "empty" option to the dropdown
+                $('#questionnaireResponseDropdown').append(new Option("Select a QuestionnaireResponse", "", true, true));
+
+                if (questionnaireResults[0]) {
+                  questionnaireResults[0].values.forEach(response => {
+                    var responseId = response[0];
+                    $('#questionnaireResponseDropdown').append(new Option(responseId, responseId));
+                  });
+                } else {
+                  console.error('No QuestionnaireResponse found');
+                }
+                db.close();
+              })
+              .catch(error => console.error('Error loading the database:', error));
+          };
+
+          var fetchAndProcessResourceData = function (resourceType, resourceId) {
+            fetch(`${resourcesBaseUrl}${resourceType}-${resourceId}.json`)
+              .then(response => response.json())
+              .then(resourceData => {
+                if (resourceType === "Bundle" && resourceData.type === "transaction") {
+                  console.log("Would POST to: " + serverUrl);
+                  console.log("Data: ", resourceData);
+
+                  if (commit) {
+                    fetch(serverUrl, {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify(resourceData)
+                    }).then(response => {
+                      console.log("POST Response: ", response);
+                    }).catch(error => {
+                      console.error("POST Error: ", error);
+                    });
+                  }
+                } else {
+                  const putUrl = `${serverUrl}/${resourceType}/${resourceId}`;
+                  console.log("Would PUT to: " + putUrl);
+                  console.log("Data: ", resourceData);
+
+                  if (commit) {
+                    fetch(putUrl, {
+                      method: 'PUT',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify(resourceData)
+                    }).then(response => {
+                      console.log("PUT Response: ", response);
+                    }).catch(error => {
+                      console.error("PUT Error: ", error);
+                    });
+                  }
+                }
+              })
+              .catch(error => console.error(`Error loading the resource (${resourceType}-${resourceId}):`, error));
+          };
+          $("#uploadBtn").click(function () {
+            commit = true;
+            fetchAndProcessSQLData();
+          });
+
+
+          $("#questionnaireResponseDropdown").change(function () {
+            var selectedResponse = $(this).val();
+
+            fetch(`${resourcesBaseUrl}QuestionnaireResponse-${selectedResponse}.json`)
+              .then(response => response.json())
+              .then(data => {
+                if (data.text) {
+                  delete data.text;
+                };
+                $("#left-code").text(JSON.stringify(data, null, 2));
+              })
+              .catch(error => {
+                console.error(`Error fetching the resource (QuestionnaireResponse-${selectedResponse}):`, error);
+              });
+          });
+
+          $("#collapse-button").click(function () {
+            $("#left-block").toggleClass("collapsed");
+            if ($("#left-block").hasClass("collapsed")) {
+              $("#collapse-button").text(">>");
+            } else {
+              $("#collapse-button").text("<<                 Collapse ");
+            }
+          });
+
+          // ...
+          $("#processBtn").click(function () {
+            var selectedResponse = $("#questionnaireResponseDropdown").val();
+            fetch(`${resourcesBaseUrl}QuestionnaireResponse-${selectedResponse}.json`)
+              .then(response => response.json())
+              .then(resourceJson => {
+                fetch(`${serverUrl}/QuestionnaireResponse/$extract`, {
+                  method: 'POST',
+                  headers: {
+                    'Accept': 'application/fhir+json;fhirVersion=4.0',
+                    'Content-Type': 'application/fhir+json;fhirVersion=4.0'
+                  },
+                  body: JSON.stringify(resourceJson)
+                })
+                  .then(response => response.json())
+                  .then(data => {
+                    console.log("POST Response: ", data);
+                    $("#responseBox").val(JSON.stringify(data, null, 2)); // Updated line here
+                  })
+                  .catch(error => {
+                    console.error("POST Error: ", error);
+                    $("#responseBox").val("Error: " + error); // And here
+                  });
+              })
+              .catch(error => {
+                console.error(`Error fetching the resource (QuestionnaireResponse-${selectedResponse}):`, error);
+              });
+          });
+          // ...
+
+        })
+        .catch(error => {
+          console.error('Error fetching config:', error);
+        });
+
+      // Add functionality to the Validate button
+      $("#validateBtn").click(function () {
+        const responseData = $("#responseBox").val();
+        const parsedResponse = JSON.parse(responseData);
+        const resourceType = parsedResponse.resourceType;
+        const serverPort = ""; // Add your server port here
+        //            const validateUrl = `${serverUrl}/${resourceType}/$validate?profile=http://hl7.org/fhir/StructureDefinition/document-bundle`;
+        //            const validateUrl = `${serverUrl}/$validate?profile=http://hl7.org/fhir/StructureDefinition/document-bundle`;
+        const validateUrl = `http://hapi.fhir.org/fhir/$validate`;
+
+        fetch(validateUrl, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/fhir+json;fhirVersion=4.0',
+            'Content-Type': 'application/fhir+json;fhirVersion=4.0'
+          },
+          body: JSON.stringify(parsedResponse)
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log("Validation Response: ", data);
+            $("#validationResponseBox").text(JSON.stringify(data, null, 2));
+            new bootstrap.Modal(document.getElementById('validationModal')).show();
+          })
+          .catch(error => {
+            console.error("POST Error: ", error);
+            // Handle error here
+          });
+      });
+
+
+
+      $("#refreshFromServerBtn").click(function () {
+        fetch(`${serverUrl}/QuestionnaireResponse`)
+          .then(response => response.json())
+          .then(data => {
+            // Clear the dropdown and add the empty option
+            $('#questionnaireResponseDropdown').empty();
+            $('#questionnaireResponseDropdown').append(new Option("-- Select a QuestionnaireResponse --", ""));
+
+            // Assuming data.entry contains the resources
+            data.entry.forEach(entry => {
+              let id = entry.resource.id;
+              $('#questionnaireResponseDropdown').append(new Option(id, id));
+            });
+
+            if ($('#questionnaireResponseDropdown option').length == 2) {
+              $('#questionnaireResponseDropdown').val($('#questionnaireResponseDropdown option:last').val()).change();
+            }
+          })
+          .catch(error => {
+            console.error("Error fetching QuestionnaireResponses:", error);
+          });
+      });
+
+
+
+      $("#dummyBtn").click(function () {
+        // URL of the StructureDefinition resource
+        const structureDefinitionURL = "http://hl7.org/fhir/StructureDefinition/document-bundle";
+
+        fetch(structureDefinitionURL)
+          .then(response => response.json())
+          .then(data => {
+            // Check if the fetched data is valid and contains necessary information
+            if (data && data.id) {
+              // URL of your FHIR server endpoint for StructureDefinition with id "Bundle"
+              const serverEndpoint = `${serverUrl}/StructureDefinition/Bundle`;
+
+              // Performing a PUT request to update/create the StructureDefinition on the server
+              fetch(serverEndpoint, {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/fhir+json'
+                },
+                body: JSON.stringify(data)
+              })
+                .then(response => {
+                  if (response.ok) {
+                    return response.json();
+                  } else {
+                    throw new Error('Failed to PUT the StructureDefinition');
+                  }
+                })
+                .then(putResponseData => {
+                  console.log("PUT Response: ", putResponseData);
+                })
+                .catch(error => {
+                  console.error("PUT Error: ", error);
+                });
+            } else {
+              console.error("Fetched StructureDefinition is not valid.");
+            }
+          })
+          .catch(error => {
+            console.error("Fetch Error: ", error);
+          });
+      });
+
+
+
+
+
+
+
+
+
+
+
+
+    });
+  </script>
+
+</body>
+
+</html>

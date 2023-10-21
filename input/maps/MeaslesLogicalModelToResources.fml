@@ -228,8 +228,8 @@ group mapClinicalToObservations(source lm : SOTMeasles, target bundle: Bundle, t
 }
 
 group createObservationResource(source src, source coding: Coding, target observation : Observation, source pid) {
- src -> create('CodeableConcept') as code, code.Coding = coding, observation.code = code "setCode"; 
- src -> create('CodeableConcept') as value, value.Coding = src, observation.value = value "setValue";
+ src -> create('CodeableConcept') as code, code.coding = coding, observation.code = code "setCode"; 
+ src -> create('CodeableConcept') as value, value.coding = src, observation.valueCodeableConcept = value "setValue";
  src -> observation.status  = "registered" "setStatus";
  src -> observation.subject as subject then {
  src -> subject.reference = append('Patient/',pid) "setSubject";
@@ -324,7 +324,7 @@ group LmToComposition(source lm : SOTMeasles, target composition : Composition, 
   cid -> composition.id = cid "setId";
   lm -> composition.status = "final" "setStatus";
   lm -> composition.title = "PAHO Measles Case Investigation Form" "setTitle";
-  lm -> create('Coding') as coding, coding.code = "55751-2", coding.system = "http://loinc.org", coding.display = "Public health Case report", create('CodeableConcept') as code, code.Coding = coding,  composition.type = code "setType";
+  lm -> create('Coding') as coding, coding.code = "55751-2", coding.system = "http://loinc.org", coding.display = "Public health Case report", create('CodeableConcept') as code, code.coding = coding,  composition.type = code "setType";
   lm.ReportingSource as reportingSource -> reportingSource then {
     reportingSource.DateReportedLocal as date -> composition.date = date "setDate";
   } "setDateReportedLocal";
