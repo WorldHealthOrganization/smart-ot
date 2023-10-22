@@ -74,7 +74,7 @@ group mapDemographics(source qrDemographics, target lmDemographics : SOTMeaslesD
     } "set address";
     
     item.answer first as location where item.linkId = 'localityType' then {
-        location.value as value -> locationlmDemographics.LocalityType = value "set Locality Type";
+        location.value as value -> lmDemographics.LocalityType = value "set Locality Type";
     } "set Locality Type";
     
     item.answer first as sex where item.linkId = 'sex' then {
