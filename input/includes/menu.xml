@@ -18,10 +18,6 @@
       <li><a href="usecases.html">Use Cases</a></li>
       <li><a href="business_process.html">Business Processes</a></li>
       <li><a href="dictionary.html">Data Dictionary</a></li>
-      <li><a href="decision_support.html">Decision-support Logic</a></li>
-      <li><a href="indicators.html">Indicator and Performance Metrics</a></li>
-      <li><a href="functional.html">Functional Requirements</a></li>    
-      <li><a href="nonfunctional.html">Non-functional Requirements</a></li>
     </ul>
   </li>
 
@@ -29,7 +25,7 @@
     <a data-toggle="dropdown" href="data_exchange.html" class="dropdown-toggle">Data Models and Exchange<b class="caret"></b></a>
     <ul class="dropdown-menu">
       <li><a href="actors.html">System Actors</a></li>
-	  <li><a href="sequence_diagram.html">Sequence Diagram</a></li>
+	    <li><a href="sequence_diagram.html">Sequence Diagram</a></li>
       <li><a href="transactions.html">Transactions</a></li>
       <li><a href="workflows.html">Workflows</a></li>
       <li><a href="content_profiles.html">Content Profiles</a></li>

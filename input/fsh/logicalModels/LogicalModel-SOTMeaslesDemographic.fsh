@@ -15,7 +15,7 @@ Parent: BackboneElement
   "Date of birth"	"The client's date of birth (DOB), if known"
 * Age	 1..1 	Quantity
   "Age (number of years)"	"Age of the client if date of birth is not known"
-* Sex	 1..1 	Coding
+* Sex	 1..1 	code
   "Sex at birth"	"Assigned sex at birth of the client"
 * Ethnicity	 0..1 	code
   "Race/Ethnicity"	"Client's race and/or ethnicity, if appropriate in country setting"
