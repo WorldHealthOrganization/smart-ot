@@ -35,7 +35,7 @@ pages:
       title: Dependencies
     references.xml:
       title: References
-    adapting_guidelines.xml:
+    adapting.xml:
       title: Adapting Guidelines for Country use
     license.xml:
       title: License
@@ -57,24 +57,24 @@ pages:
       title: Indicator and Performance Metrics
     requirements.xml:
       title: Functional Requirements
-    # non-functional-requirements.md:
-    #   title: Non-functional Requirements
-#   data-models-and-exchange.md:
-#     title: Data Models and Exchange
-#     system-actors.md:
-#       title: System Actors
-#     sequence_diagrams.xml:
-#       title: Sequence Diagrams
-#     transactions.xml:
-#       title: Transactions
-# #    logical-models.md:
-# #      title: Logical Models
-#     indicators-measures.md:
-#       title: Indicators and Measures
-# #    profiles.xml:
-# #      title: Content profiles
-#     codings.md:
-#       title: Codings
+    non-functional-requirements.md:
+      title: Non-functional Requirements
+  data_exchange.xml:
+    title: Data Exchange
+    data-models-and-exchange.md:
+      title: Data Models and Exchange
+    system-actors.md:
+      title: System Actors
+    sequence-diagrams.md:
+      title: Sequence Diagrams
+    transactions.md:
+      title: Transactions
+    indicators-measures.md:
+      title: Indicators and Measures
+    profiles.xml:
+      title: Content profiles
+    codings.md:
+      title: Codings
 
   deployment.xml:
     title: Deployment
@@ -84,7 +84,7 @@ pages:
       title: Testing
     # test-data.md: 
     #   title: Test Data
-    reference_implementations.xml: 
+    reference-implementations.md: 
       title: Reference Implementations
     downloads.xml: 
       title: Downloads
@@ -94,3 +94,6 @@ pages:
     title: Artifact Index
     # maps.md: 
     #   title: Mappings
+
+
+
