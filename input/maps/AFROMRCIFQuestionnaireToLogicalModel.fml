@@ -23,7 +23,7 @@ group mapReportingSource(source qrReportingSource, target lmReportingSource : SO
   qrReportingSource.item as item then{
       item.answer first as caseId where item.linkId = 'caseID' then {
         caseId.value as value -> lmReportingSource.UniqueId = value "set01";
-      }
+      } "set";
       qrReportingSource.item as qrReportingInstitution where linkId.value in ('reportingInstitution') -> lmReportingSource as lmReportingSource then mapReportingInstitution(qrReportingInstitution, lmReportingSource) "set reporting institution";
 
       item.answer first as dateReportedNational where item.linkId = 'DateReportedNational' then {
