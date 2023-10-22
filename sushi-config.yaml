@@ -27,7 +27,73 @@ dependencies:
 
 
 pages:
+pages:
   index.xml:
     title: Home
-  testing.md: 
-    title: Testing
+    index.xml:
+      title: Summary
+    changes.xml:
+      title: Changes
+    dependencies.xml:
+      title: Dependencies
+    references.xml:
+      title: References
+    adapting_guidelines.xml:
+      title: Adapting Guidelines for Country use
+    license.xml:
+      title: License
+  business-requirements.md:
+    title: Business Requirements
+    concepts.xml:
+      title: Concepts
+    personas.xml:
+      title: Generic Personas
+    usecases.xml:
+      title: User Scenarios
+    business_process.xml:
+      title: Business Processes
+    dictionary.xml:
+      title: Data Dictionary
+    decision_support.xml:
+      title: Decision-support logic
+    indicators.xml:
+      title: Indicator and Performance Metrics
+    requirements.xml:
+      title: Functional Requirements
+    non-functional-requirements.md:
+      title: Non-functional Requirements
+  data-models-and-exchange.md:
+    title: Data Models and Exchange
+    system-actors.md:
+      title: System Actors
+    sequence_diagrams.xml:
+      title: Sequence Diagrams
+    transactions.xml:
+      title: Transactions
+#    logical-models.md:
+#      title: Logical Models
+    indicators-measures.md:
+      title: Indicators and Measures
+#    profiles.xml:
+#      title: Content profiles
+    codings.md:
+      title: Codings
+
+  deployment.md:
+    title: Deployment
+    security-privacy.md:
+      title: Security and Privacy Considerations
+    testing.xml: 
+      title: Testing
+    test-data.md: 
+      title: Test Data
+    reference-implementations.md: 
+      title: Reference Implementations
+    downloads.xml: 
+      title: Downloads
+  indices.md:
+    title: Indices
+    artifacts.html: 
+      title: Artifact Index
+    maps.md: 
+      title: Mappings
