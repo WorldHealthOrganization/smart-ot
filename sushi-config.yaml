@@ -27,7 +27,6 @@ dependencies:
 
 
 pages:
-pages:
   index.xml:
     title: Home
     index.xml:
