@@ -14,7 +14,7 @@ group mapInvestigationForm(source investigationForm, target measlesLm : AFROMRCI
   investigationForm.item as qrVaccinationStatus where linkId.value in ('vaccinationStatus') -> measlesLm.VaccinationStatus as lmVaccinationStatus then mapVaccinationStatus(qrVaccinationStatus, lmVaccinationStatus) "set Vaccination Status";
   investigationForm.item as qrClinical where linkId.value in ('clinical') -> measlesLm.Clinical as lmClinical then mapClinical(qrClinical, lmClinical) "set Clinical";
   investigationForm.item as qrLaboratoryResults where linkId.value in ('laboratoryResults') -> measlesLm.LaboratoryResults as lmLaboratoryResults then mapLaboratoryResults(qrLaboratoryResults, lmLaboratoryResults) "set Laboratory Results";
-  investigationForm.item as qrCaseInvestigation where linkId.value in ('qrCaseInvestigation') -> measlesLm.qrCaseInvestigation as lmCaseInvestigationthen mapCaseInvestigation(qrCaseInvestigation, lmCaseInvestigation) "set Contact Tracing";
+  investigationForm.item as qrCaseInvestigation where linkId.value in ('qrCaseInvestigation') -> measlesLm.qrCaseInvestigation as lmCaseInvestigation then mapCaseInvestigation(qrCaseInvestigation, lmCaseInvestigation) "set Contact Tracing";
   investigationForm.item as qrClassification where linkId.value in ('classification') -> measlesLm.Classification as lmClassification then mapClassification(qrClassification, lmClassification) "set Classification";
 
 }

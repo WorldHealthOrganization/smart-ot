@@ -19,13 +19,14 @@
     The guide is part of the <a href="https://www.who.int/teams/digital-health-and-innovation/smart-guidelines">WHO SMART Guidelines approach</a> to support countries to integrate WHO global health and data recommendations into digital systems accurately and consistently. 
 
 <!-- BEGIN SECTION TO REMOVE WHEN CREATING A NEW GUIDE-->
-  <h3>About this implementation guide=</h3> <a name="guide"> </a>
+  <h3>About this implementation guide</h3> <a name="guide"> </a>
    This implementation guide is broken into the following levels of [knowledge representation](https://hl7.org/fhir/uv/cpg/documentation-approach-06-01-levels-of-knowledge-representation.html):
-    <a href="index.html">Home</a> - contains references to the guidance, guidelines, policies and recommendations underpinning this implementation guide.
-    <a href="business-requirements.html">Business Requirements</a> - contains the requirements for this implementation guide including the definition of key concepts, use cases, and a data dictionary.      
-    <a href="data-models-and-exchange.html">Data Models and Exchange</a> - contains the data models and data exchange protocols with actors and transactions defined.
-    <a href="deployment.html">Deployment Guidance </a> - contains relevant technical specifications and guidance, testing resources, reference implementation materials, and supporting guidance for adaptation to local contexts.
-  
+   <ul>
+    <li><a href="index.html">Home</a> - contains references to the guidance, guidelines, policies and recommendations underpinning this implementation guide.</li>
+    <li><a href="business-requirements.html">Business Requirements</a> - contains the requirements for this implementation guide including the definition of key concepts, use cases, and a data dictionary.</li>   
+    <li><a href="data-models-and-exchange.html">Data Models and Exchange</a> - contains the data models and data exchange protocols with actors and transactions defined.</li>
+    <li><a href="deployment.html">Deployment Guidance </a> - contains relevant technical specifications and guidance, testing resources, reference implementation materials, and supporting guidance for adaptation to local contexts.</li>
+</ul>  
 
 <!-- END SECTION TO REMOVE WHEN CREATING A NEW GUIDE-->
   
