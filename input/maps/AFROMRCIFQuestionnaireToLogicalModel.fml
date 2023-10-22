@@ -143,7 +143,7 @@ group mapClinical(source qrClinical, target lmClinical: SOTMeaslesClinical) {
       answer.value as value -> lmClinical.travelledOutside = value "set specify virus";
     } "set";
     item.answer first as answer where  item.linkId = 'infectionSetting' then {
-      answer.value as value -> lmClinical.infectionSetting = value "set specify virus";
+      answer.value as value -> lmClinical.specifyInfectionSetting = value "set specify virus";
     } "set";
   } "set clinical";
 }
