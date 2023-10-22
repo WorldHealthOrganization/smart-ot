@@ -1,6 +1,6 @@
 WHO SMART Guidelines Starter Template
 ---
-This is the SMART Guidelines Implementation Guide for Surveillance and Outbreak Toolkit
+This is the SMART Guidelines Implementation Guide for Surveillance and Outbreak Toolkit 
 <br> </br>
 ###
 ### Publication
@@ -17,4 +17,5 @@ Issues and change requests are managed here:
 
 Issues:  __https://github.com/WorldHealthOrganization/smart-ot/issues__  
     or the Kanban board: __https://github.com/WorldHealthOrganization/smart-ot/projects/1__
+
 

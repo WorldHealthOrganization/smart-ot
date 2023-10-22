@@ -1,5 +1,4 @@
-# This workflow reuses the openHIE GitHub action for building IGs
-# Initial idea by Carl Leitner, developed by Elliot Silver, available from: https://www.argentixinfo.com/archives/156
+# This workflow reuses the GitHub action for building IGs in the FHIR CI Build
 # Change log:
 # v0.1.0
 # 2021-06-18: publish default branches to / , other branches branches/<branch>
@@ -20,4 +19,4 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   call_build: 
-    uses: openhie/empty-fhir-ig/.github/workflows/main.yml@master
+    uses: WorldHealthOrganization/smart-base/.github/workflows/fhirbuild.yml@main
