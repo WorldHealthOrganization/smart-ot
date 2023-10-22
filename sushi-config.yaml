@@ -28,9 +28,7 @@ dependencies:
 
 pages:
   index.xml:
-    title: Home
-    index.xml:
-      title: Summary
+    title: Summary
     changes.xml:
       title: Changes
     dependencies.xml:
