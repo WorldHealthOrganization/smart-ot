@@ -201,7 +201,7 @@ group mapClassification(source qrClassification, target lmClassification: Classi
     answer.value as value -> lmClassification.FinalClassification = value "set finalClassification";
     } "set";
   item.answer first as reportedBy where item.linkId = 'reportedBy' then {
-    reportedBy.value as value -> lmReportingSource.ReportedBy = value "set case ID";
+    reportedBy.value as value -> lmClassification.ReportedBy = value "set case ID";
     } "set case ID";
       
 } "set classification";
