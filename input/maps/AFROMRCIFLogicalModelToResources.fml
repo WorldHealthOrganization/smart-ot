@@ -248,7 +248,7 @@ group LmToComposition(source lm : AFROMRCIF, target composition : Composition, s
   cid -> composition.id = cid "set id";
   lm -> composition.status = "final" "set status";
   lm.ReportingSource as src then {
-    src.UniqueId as EPIDno -> composition.identifier = EPIDno "set identifier";
+   src.UniqueId as EPIDno -> composition.identifier as identifier, identifier.value = EPIDno "set identifier";
   } "set";
   lm -> composition.title = "PAHO Measles Case Investigation Form" "set title";
   lm -> create('Coding') as coding, coding.code = "55751-2", coding.system = "http://loinc.org", coding.display = "Public health Case report", create('CodeableConcept') as code, code.coding = coding,  composition.type = code "set type";
