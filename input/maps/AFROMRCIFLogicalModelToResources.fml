@@ -6,7 +6,7 @@ uses "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Meas
 imports "http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper"
 
 
-group MeaslesLogicalModelToResources(source lm : AFROMRCIF, target bundle : Bundle) {
+group MRCIFLogicalModelToResources(source lm : AFROMRCIF, target bundle : Bundle) {
   lm -> bundle.type = 'document' "set bundle type";
   /* lm.ReportingSource as reportingSource then {
     reportingSource.DateReportedNational as date -> bundle.timestamp = date "set date";
@@ -135,12 +135,12 @@ group mapClinicalToObservations(source lm : AFROMRCIF, target bundle: Bundle, ta
           travel -> travel then createObservationResource(travel, coding, observation, pid) "set obs"; 
         } "set obs";
       } "set travel";
-      clinical.specifyInfectionSetting as infection -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+     /* clinical.specifyInfectionSetting as infection -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
        infection -> observation.id = obsid "set obsid";
        infection -> create('Coding') as coding, coding.code = "DE71", coding.system = "http://worldhealthorganization.github.io/smart-ot/AFROMRCIF", coding.display = "Outcome" then { 
           infection -> infection then createObservationResource(infection, coding, observation, pid) "set obs"; 
         } "set obs";
-      } "set infection";
+      } "set infection"; */
 
       clinical.HistoryOfHospitalization as admitted -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
        admitted -> observation.id = obsid "set obsid";
@@ -173,7 +173,7 @@ group mapLabsToDiagnosticReport(source lm : MeaslesLogicalModel, target bundle: 
         labs.SpecimenCollectionDate as collectDate -> specimen.collection as collection, collection.collected = collectDate "set date";
       //labs.SpecimenSentDate as sentDate -> 
         labs.SpecimenRecdDate as recdDate -> specimen.receivedTime = recdDate  "set date";
-        labs.SampleId as sampleId -> specimen.identifier as identifier, identifier.value = sampleId "set identifier";
+    //    labs.SampleId as sampleId -> specimen.identifier as identifier, identifier.value = sampleId "set identifier";
         labs.SampleType as sampleType -> specimen.type = sampleType "set type";
         labs.SpecimenNumber as number then {
           number.display as text -> specimen.note as note, note.text = text "set note" ;
@@ -284,7 +284,7 @@ group DemographicsToPatient(source demographics:DemographicsLogicalModel , targe
 
 }
 
-group ClassificationToPractitioner (source var: AFROMRCIFClassification, target practitioner: Practitioner, source prid) {
+group classificationToPractitioner (source var: AFROMRCIFClassification, target practitioner: Practitioner, source prid) {
 prid -> practitioner.id = prid "set id";
 var.ReportedBy as name -> practitioner.name as humanName, humanName.text = name "set name";
 }

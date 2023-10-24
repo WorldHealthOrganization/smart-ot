@@ -39,6 +39,7 @@ Usage: #definition
   * item[=]
     * insert Quest(name, Name of Patient, string, false)
     * insert Quest(DoB, Date of Birth, date, false)
+    * item[=].
     * insert Quest(ageOnset, If date of birth is unknown\, age, integer, false)
     * insert Quest(sex, Sex, choice, false)
     * item[=].answerValueSet = Canonical(BiologicalSex)
