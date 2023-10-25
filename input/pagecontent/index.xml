@@ -8,21 +8,25 @@
 
   
   <blockquote class="stu-note">
-    This is an empty HL7 FHIR Implementation Guide (IG) for WHO's <a href="https://www.who.int/teams/digital-health-and-innovation/smart-guidelines">SMART Guidelines</a> which should be used as a basis for any SMART Guideline Implementation Guide (IG). See the directions for use below.
+  This implementation guide and set of artifacts are still undergoing development.
+  Content is for demonstration purposes only.
   </blockquote>
 
   
   <h3>Summary</h3>  <a name="summary"> </a>
-  {% include layers.xml %}
+    This implementation guide includes a DRFAFT machine-readable representation of WHO guidelines for Surveillance and Outbreak Toolkit. This implementation guide explicitly encodes data models, forms, terminologies, and data extractions, in a computable language to support implementation of case based surveillance use cases by WHO Member States.
+
+    The guide is part of the <a href="https://www.who.int/teams/digital-health-and-innovation/smart-guidelines">WHO SMART Guidelines approach</a> to support countries to integrate WHO global health and data recommendations into digital systems accurately and consistently. 
 
 <!-- BEGIN SECTION TO REMOVE WHEN CREATING A NEW GUIDE-->
-  <h3>Creating a new SMART Guideline IG</h3> <a name="new-guide"> </a>
-  Please review the <a href="instructions.html">instructions</a> for initializing a new SMART Guidelines Implementation Guide.
-
-  <h3>SMART Guidelines IG Checklist</h3><a name="checklist"> </a>
-  Pleasee review the <a href="checklist.html">checklist</a> of requirements for a SMART Guidelines Implementation Guide.
-
-
+  <h3>About this implementation guide</h3> <a name="guide"> </a>
+   This implementation guide is broken into the following levels of [knowledge representation](https://hl7.org/fhir/uv/cpg/documentation-approach-06-01-levels-of-knowledge-representation.html):
+   <ul>
+    <li><a href="index.html">Home</a> - contains references to the guidance, guidelines, policies and recommendations underpinning this implementation guide.</li>
+    <li><a href="business-requirements.html">Business Requirements</a> - contains the requirements for this implementation guide including the definition of key concepts, use cases, and a data dictionary.</li>   
+    <li><a href="data-models-and-exchange.html">Data Models and Exchange</a> - contains the data models and data exchange protocols with actors and transactions defined.</li>
+    <li><a href="deployment.html">Deployment Guidance </a> - contains relevant technical specifications and guidance, testing resources, reference implementation materials, and supporting guidance for adaptation to local contexts.</li>
+</ul>  
 
 <!-- END SECTION TO REMOVE WHEN CREATING A NEW GUIDE-->
   
@@ -31,14 +35,10 @@
 
   <h3>Dependencies</h3>  <a name="dependencies"> </a>
   {% include dependencies.xml %}
-
-  
   
   <h3>Providing Feedback</h3>  <a name="feedback"> </a>
   {% include feedback.xml %}
 
-  <h3>Community</h3>  <a name="Community"></a>
-  {% include community.xml %}
   <h3>Disclaimer</h3>  <a name="disclaimer"> </a>
   {% include disclaimer.xml %}
 </div>  

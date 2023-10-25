@@ -5,6 +5,9 @@
 	<p>
     Download the entire implementation guide <a href="full-ig.zip">here</a>
 	</p>
+	<p>
+    Download the FHIR package <a href="package.tgz">here</a>
+	</p>
 	<table>
 		<tbody>
 			<tr>
@@ -46,3 +49,4 @@
 		</tbody>
 	</table>
 </div>
+

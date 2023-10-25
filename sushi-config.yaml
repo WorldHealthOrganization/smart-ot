@@ -24,3 +24,78 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001
 # experimental: true
 dependencies:  
   hl7.fhir.uv.sdc: 3.0.0
+
+
+pages:
+  index.xml:
+    title: Summary
+    changes.xml:
+      title: Changes
+    dependencies.xml:
+      title: Dependencies
+    references.xml:
+      title: References
+    adapting.xml:
+      title: Adapting Guidelines for Country use
+    license.xml:
+      title: License
+  # business-requirements.md:
+  #   title: Business Requirements
+    concepts.xml:
+      title: Concepts
+    personas.xml:
+      title: Generic Personas
+    usecases.xml:
+      title: User Scenarios
+    business_process.xml:
+      title: Business Processes
+    dictionary.xml:
+      title: Data Dictionary
+    decision_support.xml:
+      title: Decision-support logic
+    indicators.xml:
+      title: Indicator and Performance Metrics
+    requirements.xml:
+      title: Functional Requirements
+    non-functional-requirements.md:
+      title: Non-functional Requirements
+  data_exchange.xml:
+    title: Data Exchange
+    data-models-and-exchange.md:
+      title: Data Models and Exchange
+    system-actors.md:
+      title: System Actors
+    sequence-diagrams.md:
+      title: Sequence Diagrams
+    transactions.md:
+      title: Transactions
+    indicators-measures.md:
+      title: Indicators and Measures
+    workflows.xml:
+      title: Workflows
+    profiles.xml:
+      title: Content profiles
+    codings.md:
+      title: Codings
+
+  deployment.xml:
+    title: Deployment
+    security_privacy.xml:
+      title: Security and Privacy Considerations
+    testing.xml: 
+      title: Testing
+    # test-data.md: 
+    #   title: Test Data
+    reference-implementations.md: 
+      title: Reference Implementations
+    downloads.xml: 
+      title: Downloads
+  # indices.md:
+  #   title: Indices
+  artifacts.xml: 
+    title: Artifact Index
+    # maps.md: 
+    #   title: Mappings
+
+
+

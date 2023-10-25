@@ -9,11 +9,11 @@ Parent: BackboneElement
 
 * UniqueId	 1..1 	id
   "Unique identification"	"Generated for new clients or a universal ID, if used in the country"
-* Name	 0..1 	HumanName
+* Name	 1..1 	HumanName
   "Client's name"	"Client's full name"
-* DateOfBirth	0..1	 date
+* DateOfBirth	1..1	 date
   "Date of birth"	"The client's date of birth (DOB), if known"
-* Age	 0..1 	Quantity
+* Age	 1..1 	Quantity
   "Age (number of years)"	"Age of the client if date of birth is not known"
 * Sex	 1..1 	code
   "Sex at birth"	"Assigned sex at birth of the client"

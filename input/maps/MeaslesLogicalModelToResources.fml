@@ -1,0 +1,404 @@
+map "http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesLogicalModelToResources" = "MeaslesLogicalModelToResources"
+uses "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesF" alias MeaslesLogicalModel as source
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias MeaslesCIFBundle as target
+uses "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesCIFComposition" alias MeaslesCIFComposition as target
+
+imports "http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper"
+
+
+group MeaslesLogicalModelToResources(source lm : SOTMeasles, target bundle : Bundle) {
+  lm -> bundle.type = 'document' "set bundle type";
+  /* lm.ReportingSource as reportingSource then {
+    reportingSource.DateReportedNational as date -> bundle.timestamp = date "set date";
+  } "set timestamp"; */
+  
+  lm -> uuid() as bid, bundle.id = bid "set id";
+  lm -> uuid() as cid, uuid() as pid, uuid() as prid, uuid() as oid, uuid() as eid  then {  
+    lm -> bundle.entry as entry,  entry.resource = create('Composition') as composition,  entry.fullUrl = append('urn:uuid:', cid) then {
+    lm -> lm then LmToComposition(lm, composition,  cid,  pid,  prid,  oid,  eid ) "set";
+    lm -> bundle.entry as entry, entry.fullUrl = append('urn:uuid:', pid), create('Patient') as patient then {
+    lm.Demographics as demographics -> demographics then DemographicsToPatient(demographics, patient, pid) "create patient";
+    lm -> entry.resource = patient "set patient as entry";
+    } "map patient resource";
+    lm -> bundle.entry as entry, entry.fullUrl = append('urn:uuid:', prid), create('Practitioner') as practitioner then {
+    lm.ReportingSource as reportingSource -> reportingSource then ReportingSourceToPractitioner(reportingSource, practitioner, prid) "create practitioner";
+    lm -> entry.resource = practitioner "set practitioner as entry";
+    } "map practitioner resource" ;
+    lm -> bundle.entry as entry, entry.fullUrl = append('urn:uuid:', oid), create('Organization') as organization then {
+    lm.ReportingSource as reportingSource -> reportingSource then ReportingSourceToOrganization(reportingSource, organization, oid) "create organization";
+    lm -> entry.resource = organization "set organization as entry";
+    } "map organization resource";
+    lm -> bundle.entry as entry, entry.fullUrl = append('urn:uuid:', eid), create('Encounter') as encounter then {
+    lm.ReportingSource as reportingSource then {
+      reportingSource.DateOfConsultation as date then {
+        date -> create('Coding') as type, type.code = "AMB", type.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode", type.display = "ambulatory" then createCompositionEncounterResource(date,pid, type, eid,  encounter) "create encounter";
+      } "set encounter";
+      reportingSource.DateOfHomeVisit as date then {
+        date -> create('Coding') as type, type.code = "HH", type.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode", type.display = "home health" then createCompositionEncounterResource(date,pid, type, eid,  encounter) "create encounter";
+      } "set encounter";
+    } "set encounter"; 
+    lm -> entry.resource = encounter "set encounter as entry"; 
+    } "map encounter resource";
+    lm -> lm then mapClinicalToObservations (lm, bundle, composition, pid) "set clinical data";
+    lm -> lm then mapLabsToDiagnosticReport (lm, bundle, composition, pid) "set labs data";
+    lm -> lm then mapVaccinationStatusToImmunization (lm, bundle, composition, pid) "set immunization data";
+    lm -> lm then mapClassificationToConditions (lm, bundle, composition, pid,eid) "set classification";
+  } "map composition resource";
+  } "set entries" ;
+}
+
+group mapClassificationToConditions (source lm : MeaslesLogicalModel, target bundle: Bundle, target composition: MeaslesCIFComposition, source pid, source eid) {
+  lm -> composition.section as section, section.title = "Classification" then {
+    lm.Classification as classification -> uuid() as id, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', id), section.entry as sectionEntry, sectionEntry.reference = append('Condition/', id), entry.resource = create('Condition') as condition then {
+      classification -> condition.id = id "set id";
+      classification -> condition.verificationStatus as tgtStatus, create('Coding') as status, status.code = "confirmed", status.system = "http://terminology.hl7.org/CodeSystem/condition-ver-status", status.display = "Confirmed" then mapCodingtoCodeableConcept(status, tgtStatus) "set";
+      classification -> condition.subject as subject, subject.reference = append('Patient/',pid) "set subject";
+      classification.FinalClassification as coding -> condition.code as code then mapCodingtoCodeableConcept( coding, code) "set code";
+      classification -> condition.encounter as encounter, encounter.reference = append('Encounter/',eid) "set subject";
+      classification -> condition.category as tgt, create('Coding') as status, status.code = "encounter-diagnosis", status.system = "http://terminology.hl7.org/CodeSystem/condition-category", status.display = "Encounter Diagnosis" then mapCodingtoCodeableConcept(status, tgt) "set"; 
+      classification.ClassificationDate as date -> condition.recordedDate = date "set";
+      classification.ClassifiedBy as person ->  uuid() as rpid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', rpid), section.entry as sectionEntry, sectionEntry.reference = append('RelatedPerson/', rpid), entry.resource = create('RelatedPerson') as recorder then {
+        person -> recorder.id = rpid "set id";
+        person -> recorder.name as targetName, create('HumanName') as name, name.text = person then humanNameToHumanName(name, targetName ) "set";
+        person -> recorder.patient as patient, patient.reference = append('Patient/',pid) "set patient";
+      } "set person";
+     // classification.ConfirmationBasis as basis -> condition
+    } "Set classification";
+  } "set section";
+}
+group mapContactTracing(source lm : MeaslesLogicalModel, target bundle: Bundle, target composition: MeaslesCIFComposition, source pid) {
+  lm -> composition.section as section, section.title = "Contact Tracing" "set";
+}  
+
+group mapClinicalToObservations(source lm : SOTMeasles, target bundle: Bundle, target composition: Composition, source pid) {
+  lm -> composition.section as section, section.title = "Clinical Data, Follow up and Treatment" then {
+    lm.Clinical as clinical -> clinical then {
+      clinical.Fever as fever -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        fever -> observation.id = obsid "set obsid";
+        fever -> create('Coding') as coding, coding.code = "DE66", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Fever" then {  
+        fever -> fever then createObservationResource(fever, coding, observation, pid) "set obs"; 
+        clinical.FeverOnsetDate as onsetDate -> create('Period') as period, period.start = onsetDate, observation.effective = period "set start date";
+        } "set obs";
+      } "set fever";
+      
+      clinical.Temperature as temperature -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        temperature -> observation.id = obsid "set obsid";
+        temperature -> create('Coding') as coding, coding.code = "DE70", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Temperature" then { 
+        temperature -> temperature then createObservationResource(temperature, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set Temperature";
+
+      clinical.Rash as rash where code != 'Yes' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        rash -> observation.id = obsid "set obsid";
+        rash -> create('Coding') as coding, coding.code = "DE72", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Rash" then { 
+        rash -> rash then createObservationResource(rash, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set Rash";
+
+      clinical.TypeOfRash as haemorrhagic where code = 'Haemorrhagic' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        haemorrhagic -> observation.id = obsid "set obsid";
+        haemorrhagic -> create('Coding') as coding, coding.code = "Haemorrhagic", coding.system = "http://worldhealthorganization.github.io/smart-ot/RashType", coding.display = "Haemorrhagic" then { 
+          haemorrhagic -> create('Coding') as ValueCoding, ValueCoding.code = "Yes" , ValueCoding.system = "http://ritikarawlani.github.io/smart-outbreak-measles/YesNoUnknown", ValueCoding.display= "Yes" then {
+          haemorrhagic -> haemorrhagic then createObservationResource(ValueCoding, coding, observation, pid) "set obs"; 
+          } "set value";
+       clinical.RashOnsetDate as onsetDate -> create('Period') as period, period.start = onsetDate, observation.effective = period "set start date";
+        } "set obs";
+      } "set haemorrhagic";
+
+      clinical.TypeOfRash as erythematous where code = 'Erythematous' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        erythematous -> observation.id = obsid "set obsid";
+        erythematous -> create('Coding') as coding, coding.code = "Erythematous", coding.system = "http://worldhealthorganization.github.io/smart-ot/RashType", coding.display = "Erythematous" then { 
+          erythematous -> create('Coding') as ValueCoding, ValueCoding.code = "Yes" , ValueCoding.system = "http://ritikarawlani.github.io/smart-outbreak-measles/YesNoUnknown", ValueCoding.display= "Yes" then {
+          erythematous -> erythematous then createObservationResource(ValueCoding, coding, observation, pid) "set obs"; 
+          } "set value";
+        clinical.RashOnsetDate as onsetDate -> create('Period') as period, period.start = onsetDate, observation.effective = period "set start date";
+        } "set obs";
+      } "set erythematous";
+
+      clinical.TypeOfRash as vesicularPustular where code = 'VesicularPustular' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        vesicularPustular -> observation.id = obsid "set obsid";
+        vesicularPustular -> create('Coding') as coding, coding.code = "Vesicular-pustular", coding.system = "http://worldhealthorganization.github.io/smart-ot/RashType", coding.display = "Vesicular Pustular" then { 
+          vesicularPustular -> create('Coding') as ValueCoding, ValueCoding.code = "Yes" , ValueCoding.system = "http://ritikarawlani.github.io/smart-outbreak-measles/YesNoUnknown", ValueCoding.display= "Yes" then {
+          vesicularPustular -> vesicularPustular then createObservationResource(ValueCoding, coding, observation, pid) "set obs"; 
+          } "set value";
+        } "set obs";
+       clinical.RashOnsetDate as onsetDate -> create('Period') as period, period.start = onsetDate, observation.effective = period "set start date";
+      } "set vesicularPustular";
+
+      clinical.TypeOfRash as petechialPurpuric where code = 'PetechialPurpuric' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        petechialPurpuric -> observation.id = obsid "set obsid";
+        petechialPurpuric -> create('Coding') as coding, coding.code = "Petechial-purpuric", coding.system = "http://worldhealthorganization.github.io/smart-ot/RashType", coding.display = "Petechial Purpuric" then { 
+          petechialPurpuric -> create('Coding') as ValueCoding, ValueCoding.code = "Yes" , ValueCoding.system = "http://ritikarawlani.github.io/smart-outbreak-measles/YesNoUnknown", ValueCoding.display= "Yes" then {
+          petechialPurpuric -> petechialPurpuric then createObservationResource(petechialPurpuric, coding, observation, pid) "set obs"; 
+          } "set value";
+        } "set obs";
+       clinical.RashOnsetDate as onsetDate -> create('Period') as period, period.start = onsetDate, observation.effective = period "set start date";
+      } "set petechialPurpuric";
+
+      clinical.TypeOfRash as other where code = 'Other' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        other -> observation.id = obsid "set obsid";
+        other -> create('Coding') as coding, coding.code = "Other", coding.system = "http://worldhealthorganization.github.io/smart-ot/RashType", coding.display = "Rash" then { 
+          other -> create('Coding') as ValueCoding, ValueCoding.code = "Yes" , ValueCoding.system = "http://ritikarawlani.github.io/smart-outbreak-measles/YesNoUnknown", ValueCoding.display= "Yes" then {
+          other -> other then createObservationResource(ValueCoding, coding, observation, pid) "set obs"; 
+          } "set value";
+        } "set obs";
+      } "set other";
+
+      clinical.Cough as cough -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        cough -> observation.id = obsid "set obsid";
+        cough -> create('Coding') as coding, coding.code = "DE84", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Cough" then { 
+          cough -> cough then createObservationResource(cough, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set cough";
+
+      clinical.Conjunctivitis as conjunctivitis -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        conjunctivitis -> observation.id = obsid "set obsid";
+        conjunctivitis -> create('Coding') as coding, coding.code = "DE88", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Conjunctivitis" then { 
+          conjunctivitis -> conjunctivitis then createObservationResource(conjunctivitis, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set conjunctivitis";
+
+      clinical.Coryza as coryza -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        coryza -> observation.id = obsid "set obsid";
+        coryza -> create('Coding') as coding, coding.code = "DE92", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Coryza" then { 
+          coryza -> coryza then createObservationResource(coryza, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set coryza";
+
+      clinical.KoplikSpots as koplikSpots -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        koplikSpots -> observation.id = obsid "set obsid";
+        koplikSpots -> create('Coding') as coding, coding.code = "DE96", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Koplik Spots" then { 
+          koplikSpots -> koplikSpots then createObservationResource(koplikSpots, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set koplikSpots";
+
+      clinical.Lymphadenopathy as lymphadenopathy -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        lymphadenopathy -> observation.id = obsid "set obsid";
+        lymphadenopathy -> create('Coding') as coding, coding.code = "DE100", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Lymphadenopathy" then { 
+          lymphadenopathy -> lymphadenopathy then createObservationResource(lymphadenopathy, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set lymphadenopathy";
+
+      clinical.JointPain as jointPain -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        jointPain -> observation.id = obsid "set obsid";
+        jointPain -> create('Coding') as coding, coding.code = "DE104", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Joint Pain" then { 
+          jointPain -> jointPain then createObservationResource(jointPain, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set jointPain";
+
+      clinical.PregnancyStatus as pregnancy -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        pregnancy -> observation.id = obsid "set obsid";
+        pregnancy -> create('Coding') as coding, coding.code = "DE108", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Pregnancy" then { 
+          pregnancy -> pregnancy then createObservationResource(pregnancy, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set pregnancy";
+
+      clinical.PregnancyStatus as pregnancy where code = 'Yes' -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+       pregnancy -> observation.id = obsid "set obsid";
+       clinical.GestationWeeks as weeks -> create('Coding') as coding, coding.code = "DE112", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Weeks Pregnant" then { 
+          weeks -> weeks then createObservationResource(weeks, coding, observation, pid) "set obs"; 
+        } "set obs";
+      } "set pregnancy weeks";
+
+      clinical.Outcome as outcome -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), section.entry as sectionEntry, sectionEntry.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+       outcome -> observation.id = obsid "set obsid";
+       outcome -> create('Coding') as coding, coding.code = "DE121", coding.system = "http://worldhealthorganization.github.io/smart-ot/PAHO_MRCIF", coding.display = "Outcome" then { 
+          outcome -> outcome then createObservationResource(outcome, coding, observation, pid) "set obs"; 
+        } "set obs";
+       clinical.DateOfDeath as onsetDate -> observation.effective = onsetDate "set start date";
+      } "set outcome";
+      clinical -> clinical then mapEncounters(clinical, bundle, section, pid) "set encounter";
+    } "set clinical";
+  } "set section";
+}
+
+group createObservationResource(source src, source coding: Coding, target observation : Observation, source pid) {
+ src -> create('CodeableConcept') as code, code.coding = coding, observation.code = code "set code"; 
+ src -> create('CodeableConcept') as value, value.coding = src, observation.value = value "set value";
+ src -> observation.status  = "registered" "set status";
+ src -> observation.subject as subject then {
+ src -> subject.reference = append('Patient/',pid) "set subject";
+ } "set subject";
+} 
+
+group mapLabsToDiagnosticReport(source lm : MeaslesLogicalModel, target bundle: Bundle, target composition: MeaslesCIFComposition, source pid) {
+  lm -> composition.section as section, section.title = "Specimens & Laboratory Testing" then {
+    lm.LaboratoryResults as labs -> uuid() as id, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', id), section.entry as sectionEntry, sectionEntry.reference = append('DiagnosticReport/', id), entry.resource = create('DiagnosticReport') as diagnosticReport then {
+      labs -> diagnosticReport.id = id "set id";
+      labs -> diagnosticReport.status = "registered" "set status";
+      labs -> diagnosticReport.subject as subject, subject.reference = append('Patient/',pid) "set subject";
+      labs.Antigen as antigen -> diagnosticReport.code as code then mapCodingtoCodeableConcept(antigen,code) "set code";
+      labs -> uuid() as id, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', id), diagnosticReport.specimen as refSpecimen, refSpecimen.reference = append('Specimen/', id), entry.resource = create('Specimen') as specimen then {
+        labs -> specimen.id = id "Set idn";
+        labs.SpecimenCollectionDate as collectDate -> specimen.collection as collection, collection.collected = collectDate "set date";
+      //labs.SpecimenSentDate as sentDate -> 
+        labs.SpecimenRecdDate as recdDate -> specimen.receivedTime = recdDate  "set date";
+        labs.SampleId as sampleId -> specimen.identifier as identifier, identifier.value = sampleId "set identifier";
+        labs.SampleType as sampleType -> specimen.type = sampleType "set type";
+        labs.SpecimenNumber as number then {
+          number.display as text -> specimen.note as note, note.text = text "set note" ;
+        } "set note";
+      } "set specimen";
+      labs -> uuid() as id, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', id), diagnosticReport.performer as performer, performer.reference = append('Organization/', id), entry.resource = create('Organization') as perfOrg then {
+        labs.LabName as labName -> perfOrg.name = labName "set name";
+        labs -> perfOrg.id = id "set id" ;
+      } "set performer";
+
+      labs -> uuid() as obsid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', obsid), diagnosticReport.result as result, result.reference = append('Observation/', obsid), entry.resource = create('Observation') as observation then {
+        labs -> observation.id = obsid "set obsid";
+        labs.Antigen as antigen -> antigen then {
+          labs.Results as result -> result then createObservationResource( result, antigen, observation, pid) "set obs"; 
+          labs.LabResultsDate as resultDate -> observation.effective = resultDate "set start date";
+        } "set antigen";
+      } "set results";
+      labs.Antigen as antigen -> diagnosticReport.code = antigen "set code";
+      labs.LabResultsDate as resultDate -> diagnosticReport.effective = resultDate "set date";
+/*
+        labs.TypeOfTest as testType ->          
+        labs.ViralGenotype as genotype ->  */
+  } "set diagnosticReport" ;
+ } "set section";
+}  
+
+group createImmunizationResource (source vax : SOTMeaslesVaccinationStatus, target bundle : Bundle, target section : Element,  source pid) {
+  vax -> uuid() as id, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', id), section.entry as sectionEntry, sectionEntry.reference = append('Immunization/', id), entry.resource = create('Immunization') as immunization then {
+    vax -> immunization.id = id "set id";
+    vax -> immunization.status = "completed" "set status";
+    vax -> immunization.vaccineCode as code then {
+      vax.VaccineType as vaccineType -> vaccineType then mapCodingtoCodeableConcept( vaccineType, code) "set code";
+    } "set";
+    vax.Source as source -> immunization.reportOrigin as origin then {
+      source -> source then mapCodingtoCodeableConcept(source, origin) "set report origin";
+    } "set";
+    vax.LastDoseDate as date -> immunization.occurrence = date "set date";
+    vax.NumberOfDoses as doses then {
+      doses.display as seriesDose -> immunization.protocolApplied as protocol, protocol.series = seriesDose "set";
+    } "set dosenumber"; 
+    vax -> immunization.patient as subject, subject.reference = append('Patient/',pid) "set subject";
+  } "ad";
+}
+group mapVaccinationStatusToImmunization(source lm : MeaslesLogicalModel, target bundle: Bundle, target composition: MeaslesCIFComposition, source pid) {
+  lm -> composition.section as section, section.title = "Vaccination History" then {
+   lm.VaccinationStatus as vax then {  
+      vax.NumberOfDoses as doses where code = "99" -> doses then createImmunizationResource(vax,bundle,section, pid) "do";
+      vax.NumberOfDoses as doses where code = "1" -> doses then {
+        vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section, pid) "do1";
+      } "set";
+      vax.NumberOfDoses as doses where code = "2" then {
+        doses ->  doses then createImmunizationResource(vax, bundle, section, pid) "do2";
+        vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section,pid) "do";
+      } "set doses";
+      vax.NumberOfDoses as doses where code = "3" then {
+        vax -> doses then createImmunizationResource(vax,bundle,section,pid) "do";
+        vax -> doses then createImmunizationResource(vax,bundle,section,pid) "do";
+        vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section,pid) "do";
+      } "set doses";
+      vax.NumberOfDoses as doses where code = "4" then {
+        vax -> doses then createImmunizationResource(vax,bundle,section,pid) "do";
+        vax -> doses then createImmunizationResource(vax,bundle,section,pid) "do";
+        vax -> doses then createImmunizationResource(vax,bundle,section,pid) "do";
+        vax.LastDoseDate as date -> date then createImmunizationResource(vax,bundle,section,pid) "do";
+      } "set doses"; 
+ 
+    } "set status";
+  } "set section";
+}
+
+
+group LmToComposition(source lm : SOTMeasles, target composition : Composition, source cid, source pid, source prid, source oid, source eid) {
+  cid -> composition.id = cid "set id";
+  lm -> composition.status = "final" "set status";
+  lm -> composition.title = "PAHO Measles Case Investigation Form" "set title";
+  lm -> create('Coding') as coding, coding.code = "55751-2", coding.system = "http://loinc.org", coding.display = "Public health Case report", create('CodeableConcept') as code, code.coding = coding,  composition.type = code "set type";
+  lm.ReportingSource as reportingSource -> reportingSource then {
+    reportingSource.DateReportedLocal as date -> composition.date = date "set date";
+  } "set date reported local";
+  lm -> composition.subject as subject then {
+    lm -> subject.reference= append('Patient/',pid) "set subject";
+  } "set subject";
+  lm -> composition.author as practitioner then {
+    lm -> practitioner.reference = append('Practitioner/', prid) "set author practitioner";
+  } "set author practitioner";
+  lm -> composition.author as institution then {
+    lm -> institution.reference = append('Organization/', oid) "set author institution";
+  } "set author org";
+  lm -> composition.encounter as encounter then {
+    lm -> encounter.reference = append ('Encounter/', eid) "set encounter";
+  } "set encounter";
+}
+
+
+group DemographicsToPatient(source demographics:DemographicsLogicalModel , target patient: MeaslesPatient, source pid) {
+ pid -> patient.id = pid "set patient id";
+ demographics.Name as sourceName -> patient.name as targetName then {
+  sourceName -> sourceName then humanNameToHumanName(sourceName, targetName) "Copy name";
+ } "Set name";
+ demographics.DateOfBirth as dob -> patient.birthDate = dob "set date of birth";
+ demographics.Sex as sex -> patient.gender = sex "set sex";
+ demographics.CountryOfBirth as cob -> patient.CountryOfBirth = cob "set CountryOfBirth";
+ demographics.Landmark as landmark -> patient.extension as ext then {
+  landmark -> ext.url = 'http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Landmark' , ext.value = landmark "set landmark value";
+ } "set landmark";
+ demographics.Guardian as guardian -> patient.extension as ext then {
+  guardian -> ext.url = 'http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Guardian' , ext.value = guardian "set guardian value";
+ } "set guardian";
+
+demographics.Telephone as sourcePhone -> patient.telecom as targetPhone then {
+  sourcePhone -> sourcePhone then contactPointToContactPoint(sourcePhone, targetPhone) "Copy contact";
+ } "Set contact";
+ 
+ demographics.PlaceOfResidence as sourceAddress -> patient.address as targetAddress then {
+  sourceAddress -> sourceAddress then addressToAddress(sourceAddress,targetAddress) "Copy Address";
+ } "set address";
+
+ demographics.Occupation as occupation -> patient.extension as ext then {
+  occupation -> ext.url ='http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Occupation', ext.value = occupation "set occupation value";
+ } "set occupation";
+ demographics.WorkAddress as workAddress -> patient.extension as ext then {
+ workAddress -> ext.url = 'http://worldhealthorganization.github.io/smart-ot/StructureDefinition/WorkAddress', ext.value = workAddress "set work address value";
+ } "set work address";
+}
+
+group ReportingSourceToPractitioner (source reportingSource: ReportingSourceLogicalModel, target practitioner: Practitioner, source prid) {
+prid -> practitioner.id = prid "set id";
+reportingSource.ReportedBy as name -> practitioner.name as humanName, humanName.text = name "set name";
+}
+
+group ReportingSourceToOrganization (source reportingSource: ReportingSourceLogicalModel, target organization: Organization, source oid) {
+oid -> organization.id = oid "set id";
+reportingSource.HealthServiceName as name -> organization.name = name "set name";
+reportingSource.HealthServiceTelephone as phoneSource -> organization.contact as contactDetails, contactDetails.telecom as phoneTarget then {
+  phoneSource -> phoneSource then contactPointToContactPoint(phoneSource, phoneTarget) "set org contact"; 
+} "set phone";
+
+reportingSource.PlaceOfReporting as locationSource -> organization.contact as contactDetails, contactDetails.address as locationTarget then {
+  locationSource -> locationSource then contactPointToContactPoint(locationSource, locationTarget) "set org address"; 
+} "set address";
+
+}
+
+group mapEncounters (source clinical : SOTMeaslesClinical, target bundle: Bundle, target section: Element, source pid) {
+clinical.HistoryOfHospitalization where code = 'Yes' then {
+  clinical.DateOfAdmission as date then {
+    date -> create('Coding') as type, type.code = "IMP", type.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode", type.display = "inpatient encounter" then createEncounterResource(date, bundle, section, pid, type) "create";
+  } "d";
+} "dff";
+}
+
+group createEncounterResource (source date, target bundle : Bundle, target section : Element,  source pid, source type: Coding ) {
+  date -> uuid() as eid, bundle.entry as entry, entry.fullUrl = append('urn:uuid:', eid), section.entry as sectionEntry, sectionEntry.reference = append('Encounter/', eid), entry.resource = create('Encounter') as encounter then {
+   date -> encounter.id = eid "set id";
+   date -> encounter.status = "finished" "set status";
+   pid -> encounter.subject as subject, subject.reference = append('Patient/',pid) "set subject";
+   date -> encounter.period as period, period.start = date "set date";
+   type -> encounter.class = type "set type";
+  } "dssd";
+}
+
+group createCompositionEncounterResource (source date,  source pid, source type: Coding, source eid, target encounter : Encounter ) {
+   date -> encounter.id = eid "set id";
+   date -> encounter.status = "finished" "set status";
+   pid -> encounter.subject as subject, subject.reference = append('Patient/',pid) "set subject";
+   date -> encounter.period as period, period.start = date "set date";
+   type -> encounter.class = type "set type";
+}

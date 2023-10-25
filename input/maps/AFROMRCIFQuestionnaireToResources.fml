@@ -1,0 +1,14 @@
+map "http://worldhealthorganization.github.io/smart-ot/StructureMap/AFROMRCIFQuestionnaireToResources" = "AFROMRCIFQuestionnaireToResources"
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias MeaslesCIFBundle as target
+
+imports "http://worldhealthorganization.github.io/smart-ot/StructureMap/AFROMRCIFLogicalModelToResources"
+imports "http://worldhealthorganization.github.io/smart-ot/StructureMap/AFROMRCIFQuestionnaireToLogicalModel"
+
+
+group MeaslesQuestionnaireToResources(source qr : QuestionnaireResponse, target bundleCif : MeaslesCIFBundle) {
+  qr -> create ("http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIF") as model then { 
+  qr -> model then MRCIFQuestionnaireToLogicalModel(qr,model) "QRtoLM";
+  qr -> bundleCif then MRCIFLogicalModelToResources (model, bundleCif) "LMtoBundle";
+  } "QRtoBundle";
+}

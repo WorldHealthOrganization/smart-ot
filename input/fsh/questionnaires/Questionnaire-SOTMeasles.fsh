@@ -21,6 +21,13 @@ Usage: #definition
 * contained[+] = InitDiag
 * contained[+] = YesNoUnknown
 * contained[+] = RashType
+
+* contained[+] = Antigen
+* contained[+] = Result
+
+* extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-targetStructureMap"
+* extension[=].valueCanonical = "http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToResources"
+
 //Header
 * insert Question(investigationForm,Investigation Form for Measles/Rubella,group,false)
 * item[=]

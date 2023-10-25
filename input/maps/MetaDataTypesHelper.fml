@@ -47,3 +47,7 @@ group contactPointToContactPoint (source sourceContact, target targetContact: Co
     sourcePeriod -> sourcePeriod then periodToPeriod(sourcePeriod, targetPeriod) "Copy period";
   } "copy period";
 }
+
+group mapCodingtoCodeableConcept (source coding: Coding, target codeableConcept : CodeableConcept) {
+  coding -> codeableConcept.coding = coding "set coding";
+}

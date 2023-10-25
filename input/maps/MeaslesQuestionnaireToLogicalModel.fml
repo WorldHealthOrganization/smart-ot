@@ -1,0 +1,385 @@
+map "http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel" = "MeaslesQuestionnaireToLogicalModel"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
+uses "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles" alias MeaslesLogicalModel as target
+
+group MeaslesQuestionnaireToLogicalModel(source qr : QuestionnaireResponse, target measlesLm : SOTMeasles) {
+  qr.item as item where linkId.value in ('investigationForm') -> measlesLm as measlesLm then mapInvestigationForm(item, measlesLm) "set Investigation form";
+}
+
+group mapInvestigationForm(source investigationForm, target measlesLm : SOTMeasles) {
+  investigationForm.item as qrReportingSource where linkId.value in ('reportingSource') -> measlesLm.ReportingSource as lmReportingSource then mapReportingSource(qrReportingSource, lmReportingSource) "set Reporting Source";
+  investigationForm.item as qrDemographics where linkId.value in ('demographics') -> measlesLm.Demographics as lmDemographics then mapDemographics(qrDemographics, lmDemographics) "set Demographics";
+  investigationForm.item as qrVaccinationStatus where linkId.value in ('vaccinationStatus') -> measlesLm.VaccinationStatus as lmVaccinationStatus then mapVaccinationStatus(qrVaccinationStatus, lmVaccinationStatus) "set Vaccination Status";
+  investigationForm.item as qrClinical where linkId.value in ('clinical') -> measlesLm.Clinical as lmClinical then mapClinical(qrClinical, lmClinical) "set Clinical";
+  investigationForm.item as qrLaboratoryResults where linkId.value in ('laboratoryResults') -> measlesLm.LaboratoryResults as lmLaboratoryResults then mapLaboratoryResults(qrLaboratoryResults, lmLaboratoryResults) "set Laboratory Results";
+  investigationForm.item as qrContactTracing where linkId.value in ('contactTracing') -> measlesLm.ContactTracing as lmContactTracing then mapContactTracing(qrContactTracing, lmContactTracing) "set Contact Tracing";
+  investigationForm.item as qrEpiData where linkId.value in ('epiData') -> measlesLm.EpiData as lmEpiData then mapEpiData(qrEpiData, lmEpiData) "set Epi Data";
+  investigationForm.item as qrClassification where linkId.value in ('classification') -> measlesLm.Classification as lmClassification then mapClassification(qrClassification, lmClassification) "set Classification";
+
+}
+
+group mapReportingSource(source qrReportingSource, target lmReportingSource : SOTMeaslesReportingSource) {
+  qrReportingSource.item as item then{
+     item.answer first as initialDiagnosis where item.linkId = 'initialDiagnosis' then {
+        initialDiagnosis.value as coding -> lmReportingSource.InitialDiagnosis = coding "set Initial Diagnosis";
+      } "set initial diag";
+  
+      item.answer first as reportedBy where item.linkId = 'reportedBy' then {
+          reportedBy.value as value -> lmReportingSource.ReportedBy = value "set case ID";
+      } "set case ID";
+      
+      qrReportingSource.item as qrReportingInstitution where linkId.value in ('reportingInstitution') -> lmReportingSource as lmReportingSource then mapReportingInstitution(qrReportingInstitution, lmReportingSource) "set reporting institution";
+
+      item.answer first as dateOfConsultation where item.linkId = 'DateOfConsultation' then {
+          dateOfConsultation.value as value -> lmReportingSource.DateOfConsultation = value "set date of consultation";
+      } "set date of consultation";
+      
+      item.answer first as dateOfHomeVisit where item.linkId = 'DateOfHomeVisit' then {
+          dateOfHomeVisit.value as value -> lmReportingSource.DateOfHomeVisit = value "set date of home visit";
+      } "set date of home visit";
+      
+      item.answer first as dateReportedLocal where item.linkId = 'dateReported' then {
+          dateReportedLocal.value as value -> lmReportingSource.DateReportedLocal = value "set date reported local";
+      } "set date reported local";
+      
+      item.answer first as dateReportedNational where item.linkId = 'DateReportedNational' then {
+          dateReportedNational.value as value -> lmReportingSource.DateReportedNational = value "set date reported national";
+      } "set date reported national";
+      
+      item.answer first as providerType where item.linkId = 'TypeOfProviderReporting' then {
+          providerType.value as value -> lmReportingSource.TypeOfProviderReporting = value "set provider type";
+      } "set provider type";
+      
+      item.answer first as detectedBy where item.linkId = 'DetectedBy' then {
+          detectedBy.value as value -> lmReportingSource.DetectedBy = value "set detected by";
+      } "set detected by";
+  } "set reporting source";
+}
+
+group mapReportingInstitution(source qrReportingInstitution, target lmReportingSource : SOTMeaslesReportingSource) {
+  qrReportingInstitution.item as item then {
+     item.answer first as reportingFacility where item.linkId = 'reportingFacility' then {
+        reportingFacility.value as healthFacilityName -> lmReportingSource.HealthServiceName = healthFacilityName "set health facility name";
+     } "set health facility name";
+    
+     item.answer first as telephone where item.linkId = 'telephone' then {
+        telephone.value as value -> create('ContactPoint') as lmTelephone, lmTelephone.value = value, lmReportingSource.HealthServiceTelephone = lmTelephone "set telephone";
+     } "set telephone";
+    
+     qrReportingInstitution -> create('Address') as lmAddress then {
+      item.answer first as country where item.linkId = 'country' then {
+        country.value as countryValue -> lmAddress.country = countryValue "set country";
+      } "set country"  ;
+    
+      item.answer first as municipality where item.linkId = 'municipality' then {
+        municipality.value as cityValue -> lmAddress.city = cityValue "set city";
+      } "set city  ";
+    
+      item.answer first as state where item.linkId = 'state' then {
+        state.value as stateValue -> lmAddress.state = stateValue "set state";
+      } "set state";
+    
+      item.answer first as locality where item.linkId = 'locality' then {
+        locality.value as localityValue -> lmAddress.line = localityValue "set locality";
+      } "set locality";  
+    
+      qrReportingInstitution -> lmReportingSource.PlaceOfReporting = lmAddress "assign address";
+    
+     } "set address";
+  } "set reporting institution";
+}
+
+
+group mapDemographics(source qrDemographics, target lmDemographics : SOTMeaslesDemographic) {
+
+    qrDemographics.item as item then {
+    item.answer first as name where item.linkId = 'name' then {
+        name.value as nameValue -> create('HumanName') as lmName, lmName.family = nameValue, lmDemographics.Name = lmName "set name";
+    } "set name";
+    
+    item.answer first as guardian where item.linkId = 'guardian' then {
+        guardian.value as value -> create('HumanName') as lmGuardian, lmGuardian.family = value, lmDemographics.Guardian = lmGuardian "set guardian";
+    } "set guardian";
+    
+    item.answer first as address where item.linkId = 'address' then {
+        address.value as value -> create('Address') as lmAddress, lmAddress.text = value, lmDemographics.PlaceOfResidence = lmAddress "set address";
+    } "set address";
+    
+    item.answer first as telephone where item.linkId = 'telephone' then {
+        telephone.value as value -> create('ContactPoint') as lmTelephone, lmTelephone.value = value, lmDemographics.Telephone = lmTelephone "set telephone";
+    } "set telephone";
+    
+    item.answer first as landmark where item.linkId = 'landmark' then {
+        landmark.value as value -> lmDemographics.Landmark = value "set landmark";
+    } "set landmark";
+    
+    item.answer first as occupation where item.linkId = 'occupation' then {
+        occupation.value as value -> lmDemographics.Occupation = value "set occupation";
+    } "set occupation";
+    
+    item.answer first as location where item.linkId = 'location living in' then {
+        location.value as value -> locationlmDemographics.LocalityType = value "set Locality Type";
+    } "set Locality Type";
+    
+    item.answer first as workAddress where item.linkId = 'workAddress' then {
+      workAddress.value as value ->  create('Address') as lmAddress, lmAddress.text = value, lmDemographics.WorkAddress = lmAddress "set workAddress";
+    } "set workAddress";
+    
+    item.answer first as sex where item.linkId = 'sex' then {
+      sex.value as value ->  lmDemographics.Sex = value "set sex";
+    } "set sex";
+    
+    item.answer first as DoB where item.linkId = 'DoB' then {
+      DoB.value as value -> lmDemographics.DateOfBirth = value "set DoB";
+    } "set DoB";
+    
+    item.answer first as ageOnset where item.linkId = 'ageOnset' then {
+      ageOnset.value as value ->  create('Quantity') as lmAgeOnset, lmAgeOnset.value = value, lmDemographics.Age = lmAgeOnset "set ageOnset";
+    } "set ageOnset";
+  } "set demographics";
+
+}
+
+group mapVaccinationStatus(source qrVaccinationStatus, target lmVaccinationStatus: SOTMeaslesVaccinationStatus)
+{
+  qrVaccinationStatus.item as item then {
+    item.answer first as lastDoseDate where item.linkId = 'lastDoseDate' then {
+      lastDoseDate.value as value -> lmVaccinationStatus.LastDoseDate = value "set Last Dose Date";
+    } "set last dose date";
+    item.answer first as sourceOfInformation where item.linkId = 'sourceOfInformation' then {
+      sourceOfInformation.value as value -> lmVaccinationStatus.Source = value "set Source of Vaccination Information";
+    } "set";
+    item.answer first as noOfDoses where item.linkId = 'noOfDoses' then {
+      noOfDoses.value as value -> lmVaccinationStatus.NumberOfDoses = value "set number of doses";
+    } "set";
+    item.answer first as vaccineType where item.linkId = 'vaccineType' then {
+      vaccineType.value as value -> lmVaccinationStatus.VaccineType = value "set vaccine type";
+    } "set";
+  } "set";
+}
+
+group mapClinical(source qrClinical, target lmClinical: SOTMeaslesClinical) {
+  qrClinical.item as item then {
+    item.answer first  as fever where item.linkId = 'fever' then {
+      fever.value as value -> lmClinical.Fever = value "set Fever";
+    } "set";
+    item.answer first  as temperature where item.linkId = 'temperature' then {
+      temperature.value as value -> lmClinical.Temperature as temp, temp.value = value "set Temperature";
+    } "set";
+    item.answer first  as dateOfFeverOnset where item.linkId = 'dateOfFeverOnset' then {
+      dateOfFeverOnset.value as value -> lmClinical.FeverOnsetDate = value "set Date of Fever Onset";
+    } "set";
+    item.answer first  as rash where item.linkId = 'rash' then {
+      rash.value as value -> lmClinical.Rash = value "set Rash";
+    } "set";
+    item.answer first  as rashType where item.linkId = 'rashType' then {
+      rashType.value as value -> lmClinical.TypeOfRash = value "set Rash Type";
+    } "set";
+    item.answer first  as rashDuration where item.linkId = 'rashDuration' then {
+      rashDuration.value as value -> lmClinical.DurationOfRash = value "set Rash Duration";
+    } "set";
+    item.answer first  as rashOnsetDate where item.linkId = 'rashOnsetDate' then {
+      rashOnsetDate.value as value -> lmClinical.RashOnsetDate = value "set Rash Onset Date";
+    } "set";
+    item.answer first  as cough where item.linkId = 'cough' then {
+      cough.value as value -> lmClinical.Cough = value "set Cough";
+    } "set";
+    item.answer first  as conjunctivitis where item.linkId = 'conjunctivitis' then {
+      conjunctivitis.value as value -> lmClinical.Conjunctivitis = value "set Conjunctivitis";
+    } "set";
+    item.answer first  as coryza where item.linkId = 'coryza' then {
+      coryza.value as value -> lmClinical.Coryza = value "set Coryza";
+    } "set";
+    item.answer first  as koplikSpots where item.linkId = 'koplikSpots' then {
+      koplikSpots.value as value -> lmClinical.KoplikSpots = value "set Koplik Spots";
+    } "set";
+    item.answer first  as lymphadenopathy where item.linkId = 'lymphadenopathy' then {
+      lymphadenopathy.value as value -> lmClinical.Lymphadenopathy = value "set Lymphadenopathy";
+      } "set";
+    item.answer first  as jointPain where item.linkId = 'jointPain' then {
+      jointPain.value as value -> lmClinical.JointPain = value "set Arthralgia";
+    } "set";
+    item.answer first  as pregnancy where item.linkId = 'pregnancy' then {
+     pregnancy.value as value -> lmClinical.PregnancyStatus = value "set Pregnant";
+    } "set";
+    item.answer first  as monthsPregnant where item.linkId = 'monthsPregnant' then {
+      monthsPregnant.value as value -> lmClinical.GestationWeeks as weeks, weeks.value = value "set Pregnancy Weeks";
+    } "set";
+    item.answer first  as placeOfBirth where item.linkId = 'placeOfBirth' then {
+      placeOfBirth.value as value -> lmClinical.IntentedBirthPlacce = value "set Place of Birth";
+    } "set";
+    item.answer first  as admitted where item.linkId = 'admitted' then {
+      admitted.value as value -> lmClinical.HistoryOfHospitalization = value "set Hospitalized";
+    } "set";
+    item.answer first  as admittedHCFName where item.linkId = 'admittedHCFName' then {
+      admittedHCFName.value as value -> lmClinical.HospitalName = value "set Hospital Name";
+    } "set";
+    item.answer first  as admissionDate where item.linkId = 'admissionDate' then {
+      admissionDate.value as value -> lmClinical.DateOfAdmission = value "set Admission Date";
+    } "set";
+    item.answer first  as hospitalRecordNumber where item.linkId = 'hospitalRecordNumber' then {
+      hospitalRecordNumber.value as value -> lmClinical.HospitalRecordNumber = value "set Hospital Record Number";
+    } "set";
+    item.answer first  as outcome where item.linkId = 'outcome' then {
+      outcome.value as value -> lmClinical.Outcome = value "set Outcome";
+    } "set";
+    item.answer first  as deathCause where item.linkId = 'primaryCauseOfDeath' then {
+      deathCause.value as value -> lmClinical.primaryCauseOfDeath = value "set cause";
+    } "set";
+    item.answer first  as outcomeDate where item.linkId = 'outcomeDate' then {
+      outcomeDate.value as value -> lmClinical.DateOfDeath = value "set death date";
+    } "set";
+    item.answer first  as diseaseAdditionalInfo where item.linkId = 'diseaseAdditionalInfo' then {
+      diseaseAdditionalInfo.value as value -> lmClinical.Comments = value "set Comments";
+    } "set"; 
+  } "set clinical";
+}
+
+group mapLaboratoryResults(source qrLaboratoryResults, target lmLaboratoryResults: LaboratoryResultsLogicalModel) {
+  qrLaboratoryResults.item as item then {
+  item.answer first as answer where  item.linkId = 'specimenNumber' then {
+    answer.value as value -> lmLaboratoryResults.SpecimenNumber = value "set SpecimenNumber";
+  } "set";
+  item.answer first as answer where  item.linkId = 'sampleType' then {
+    answer.value as value -> lmLaboratoryResults.SampleType = value "set SampleType";
+  } "set";
+  item.answer first as answer where  item.linkId = 'collectionDate' then {
+    answer.value as value -> lmLaboratoryResults.SpecimenCollectionDate = value "set SpecimenCollectionDate";
+  } "set";
+  item.answer first as answer where  item.linkId = 'labName' then {
+    answer.value as value -> lmLaboratoryResults.LabName = value "set Shipment Date";
+  } "set";
+  item.answer first as answer where  item.linkId = 'specimenSentDate' then {
+    answer.value as value -> lmLaboratoryResults.SpecimenSentDate = value "set SpecimenSentDate";
+  } "set";
+  item.answer first as answer where  item.linkId = 'specimenReceivedDate' then {
+    answer.value as value -> lmLaboratoryResults.SpecimenRecdDate = value "set SpecimenRecdDate";
+  } "set"; 
+  item.answer first as answer where  item.linkId = 'sampleId' then {
+    answer.value as value -> lmLaboratoryResults.SampleId = value "set SampleId";
+  } "set";
+  item.answer first as answer where  item.linkId = 'testPerformed' then {
+    answer.value as value -> lmLaboratoryResults.TypeOfTest = value "set TypeOfTest";
+  } "set";
+  item.answer first as answer where  item.linkId = 'antigen' then {
+    answer.value as value -> lmLaboratoryResults.Antigen = value "set Antigen";
+  } "set";
+  item.answer first as answer where  item.linkId = 'result' then {
+    answer.value as value -> lmLaboratoryResults.Results = value "set Results";
+  } "set";
+  item.answer first as answer where  item.linkId = 'resultDate' then {
+    answer.value as value -> lmLaboratoryResults.LabResultsDate = value "set LabResultsDate  ";
+  } "set";
+  item.answer first as answer where  item.linkId = 'specifyVirus' then {
+    answer.value as value -> lmLaboratoryResults.ViralGenotype = value "set specify virus";
+  } "set";
+} "set labs";
+}
+
+group mapTravelDetails (source qrTravelDetails, target lmContactTracing : SOTMeaslesContactTracing) {
+  qrTravelDetails.answer first as answer where  item.linkId = 'placeOfTravel' then {
+    answer.value as value -> lmTravelDetails.placeOfTravel = value "set specify virus";
+  } "set";
+  qrTravelDetails.answer first as answer where  item.linkId = 'arrivalDate' then {
+    answer.value as value -> lmTravelDetails.arrivalDate = value "set specify virus";
+  } "set";
+  qrTravelDetails.answer first as answer where  item.linkId = 'departureDate' then {
+    answer.value as value -> lmTravelDetails.departureDate = value "set specify virus";
+  } "set";
+}
+
+group mapContactTracing(source qrContactTracing, target lmContactTracing: SOTMeaslesContactTracing) {
+  qrContactTracing.item as item then {
+    item.answer first as answer where  item.linkId = 'caseSearchConducted' then {
+      answer.value as value -> lmContactTracing.caseSearchConducted = value "set specify virus";
+    } "set";
+    item.answer first as answer where  item.linkId = 'noOfsuspectCases' then {
+      answer.value as value -> lmContactTracing.noOfsuspectCases = value "set specify virus";
+    } "set";
+    item.answer first as answer where  item.linkId = 'pregnantContact' then {
+      answer.value as value -> lmContactTracing.pregnantContact = value "set specify virus";
+    } "set";
+    item.answer first as answer where  item.linkId = 'pregnantContactNames' then {
+      answer.value as value -> lmContactTracing.pregnantContactNames = value "set specify virus";
+    } "set";
+    item.answer first as answer where  item.linkId = 'localCasesPresent' then {
+      answer.value as value -> lmContactTracing.localCasesPresent = value "set specify virus";
+    } "set";
+    item.answer first as answer where  item.linkId = 'travelledOutside' then {
+      answer.value as value -> lmContactTracing.travelledOutside = value "set specify virus";
+    } "set";
+    item.answer first as qrTravelDetails where  item.linkId = 'travelDetails' -> create('http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureTravelHistory') as tgtTravelDetails then {
+      qrTravelDetails -> qrTravelDetails then mapTravelDetails(qrTravelDetails, tgtTravelDetails) "d";
+      qrTravelDetails -> lmContactTracing.travelDetails = tgtTravelDetails "set"; 
+    } "set";
+    item.answer first as answer where  item.linkId = 'infectionSetting' then {
+      answer.value as value -> lmContactTracing.infectionSetting = value "set specify virus";
+    } "set";
+    item.answer first as answer where  item.linkId = 'specifyInfectionSetting' then {
+      answer.value as value -> lmContactTracing.specifyInfectionSetting = value "set specify virus";
+    } "set";
+  } "set contact tracing";
+}
+
+group mapEpiData(source qrEpiData, target lmEpiData: EpiDataLogicalModel) {
+  qrEpiData.item as item then {
+    item.answer first as answer where  item.linkId = 'ringVaccination' then {
+    answer.value as value -> lmEpiData.ringVaccination = value "set finalClassification";
+    } "set";
+    item.answer first as answer where  item.linkId = 'dateStarted' then {
+    answer.value as value -> lmEpiData.dateStarted = value "set finalClassification";
+    } "set";
+    item.answer first as answer where  item.linkId = 'dateEnded' then {
+    answer.value as value -> lmEpiData.dateEnded = value "set finalClassification";
+    } "set";
+    item.answer first as answer where  item.linkId = 'noOfDosesRingVaccination' then {
+    answer.value as value -> lmEpiData.noOfDosesRingVaccination = value "set finalClassification";
+    } "set";
+    item.answer first as answer where  item.linkId = 'rapidCoverageMonitioring' then {
+    answer.value as value -> lmEpiData.rapidCoverageMonitioring = value "set finalClassification";
+    } "set";
+    item.answer first as answer where  item.linkId = 'percentVaccinated' then {
+    answer.value as value -> lmEpiData.percentVaccinated = value "set finalClassification";
+    } "set";
+    item.answer first as answer where  item.linkId = 'contactTracingDone' then {
+    answer.value as value -> lmEpiData.contactTracingDone = value "set finalClassification";
+    } "set";
+    item.answer first as answer where  item.linkId = 'lastFollowUp' then {
+    answer.value as value -> lmEpiData.lastFollowUp = value "set finalClassification";
+    } "set";
+  } "set epi data";
+}
+
+group mapClassification(source qrClassification, target lmClassification: ClassificationLogicalModel) {
+  qrClassification.item as item then {
+  item.answer first as answer where  item.linkId = 'finalClassification' then {
+    answer.value as value -> lmClassification.FinalClassification = value "set finalClassification";
+    } "set";
+  item.answer first as answer where  item.linkId = 'confirmationBasis' then {
+    answer.value as value -> lmClassification.ConfirmationBasis = value "set confirmationBasis";
+    } "set";
+  item.answer first as answer where  item.linkId = 'source' then {
+    answer.value as value -> lmClassification.Source = value "set source";
+    } "set";
+  item.answer first as answer where  item.linkId = 'countryImportation' then {
+    answer.value as value -> lmClassification.CountryImportation = value "set countryImportation";
+    } "set";
+  item.answer first as answer where  item.linkId = 'discardingBasis' then {
+    answer.value as value -> lmClassification.DiscardingBasis = value "set discardingBasis";
+    } "set";
+  item.answer first as answer where  item.linkId = 'contact' then {
+    answer.value as value -> lmClassification.Contact = value "set contact";
+    } "set";
+  item.answer first as answer where  item.linkId = 'contactCaseNo' then {
+    answer.value as value -> lmClassification.ContactCaseNo = value "set contactCaseNo";
+    } "set";
+  item.answer first as answer where  item.linkId = 'classifiedBy' then {
+    answer.value as value -> lmClassification.ClassifiedBy = value "set classifiedBy";
+    } "set";
+  item.answer first as answer where  item.linkId = 'classificationDate' then {
+    answer.value as value -> lmClassification.ClassificationDate = value "set classificationDate";
+    } "set";
+} "set classification";
+}
