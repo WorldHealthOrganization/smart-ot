@@ -1,0 +1,56 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/CodeSystem/LocalCasesPresentCs> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "LocalCasesPresentCs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">1<a name=\"LocalCasesPresentCs-1\"> </a></td><td>Yes, with measles</td></tr><tr><td style=\"white-space:nowrap\">2<a name=\"LocalCasesPresentCs-2\"> </a></td><td>Yes, with rubella</td></tr><tr><td style=\"white-space:nowrap\">3<a name=\"LocalCasesPresentCs-3\"> </a></td><td>Yes, with both</td></tr><tr><td style=\"white-space:nowrap\">4<a name=\"LocalCasesPresentCs-4\"> </a></td><td>No</td></tr><tr><td style=\"white-space:nowrap\">99<a name=\"LocalCasesPresentCs-99\"> </a></td><td>Unknown</td></tr></table></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "LocalCasesPresentCs"] ; # 
+  fhir:title [ fhir:v "LocalCasesPresent"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-11-07T05:59:29+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "LocalCasesPresent"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "5"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "1" ] ;
+     fhir:display [ fhir:v "Yes, with measles" ]
+  ] [
+     fhir:code [ fhir:v "2" ] ;
+     fhir:display [ fhir:v "Yes, with rubella" ]
+  ] [
+     fhir:code [ fhir:v "3" ] ;
+     fhir:display [ fhir:v "Yes, with both" ]
+  ] [
+     fhir:code [ fhir:v "4" ] ;
+     fhir:display [ fhir:v "No" ]
+  ] [
+     fhir:code [ fhir:v "99" ] ;
+     fhir:display [ fhir:v "Unknown" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

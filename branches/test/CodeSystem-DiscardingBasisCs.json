@@ -1,0 +1,59 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "DiscardingBasisCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/DiscardingBasis</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">1<a name=\"DiscardingBasisCs-1\"> </a></td><td>Measles/Rubella IgM-neg</td></tr><tr><td style=\"white-space:nowrap\">2<a name=\"DiscardingBasisCs-2\"> </a></td><td>Vaccine Reaction</td></tr><tr><td style=\"white-space:nowrap\">3<a name=\"DiscardingBasisCs-3\"> </a></td><td>Dengue</td></tr><tr><td style=\"white-space:nowrap\">4<a name=\"DiscardingBasisCs-4\"> </a></td><td>Parvovirus B19</td></tr><tr><td style=\"white-space:nowrap\">5<a name=\"DiscardingBasisCs-5\"> </a></td><td>Herpes 6</td></tr><tr><td style=\"white-space:nowrap\">6<a name=\"DiscardingBasisCs-6\"> </a></td><td>Allergic Reaction</td></tr><tr><td style=\"white-space:nowrap\">88<a name=\"DiscardingBasisCs-88\"> </a></td><td>Other Diagnosis</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/DiscardingBasis",
+  "version" : "0.2.1",
+  "name" : "DiscardingBasisCs",
+  "title" : "Discarding Basis",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Discarding Basis",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 7,
+  "concept" : [{
+    "code" : "1",
+    "display" : "Measles/Rubella IgM-neg"
+  },
+  {
+    "code" : "2",
+    "display" : "Vaccine Reaction"
+  },
+  {
+    "code" : "3",
+    "display" : "Dengue"
+  },
+  {
+    "code" : "4",
+    "display" : "Parvovirus B19"
+  },
+  {
+    "code" : "5",
+    "display" : "Herpes 6"
+  },
+  {
+    "code" : "6",
+    "display" : "Allergic Reaction"
+  },
+  {
+    "code" : "88",
+    "display" : "Other Diagnosis"
+  }]
+}

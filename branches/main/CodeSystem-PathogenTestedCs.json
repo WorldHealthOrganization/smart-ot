@@ -1,0 +1,95 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "PathogenTestedCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/PathogenTested</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">InfluenzaA/B<a name=\"PathogenTestedCs-InfluenzaA.47B\"> </a></td><td>Influenza A/B</td></tr><tr><td style=\"white-space:nowrap\">InfluenzaSubtyping<a name=\"PathogenTestedCs-InfluenzaSubtyping\"> </a></td><td>Influenza subtyping</td></tr><tr><td style=\"white-space:nowrap\">MERSCV<a name=\"PathogenTestedCs-MERSCV\"> </a></td><td>MERS-CV</td></tr><tr><td style=\"white-space:nowrap\">SARS<a name=\"PathogenTestedCs-SARS\"> </a></td><td>SARS</td></tr><tr><td style=\"white-space:nowrap\">Rsv<a name=\"PathogenTestedCs-Rsv\"> </a></td><td>Rsv</td></tr><tr><td style=\"white-space:nowrap\">HumanMetapneumovirus<a name=\"PathogenTestedCs-HumanMetapneumovirus\"> </a></td><td>Human metapneumovirus</td></tr><tr><td style=\"white-space:nowrap\">Parainfluenza123<a name=\"PathogenTestedCs-Parainfluenza123\"> </a></td><td>Parainfluenza (1,2,3)</td></tr><tr><td style=\"white-space:nowrap\">Adenovirus<a name=\"PathogenTestedCs-Adenovirus\"> </a></td><td>Adenovirus</td></tr><tr><td style=\"white-space:nowrap\">Rhinvoirus<a name=\"PathogenTestedCs-Rhinvoirus\"> </a></td><td>Rhinvoirus</td></tr><tr><td style=\"white-space:nowrap\">Enterovirus<a name=\"PathogenTestedCs-Enterovirus\"> </a></td><td>Enterovirus</td></tr><tr><td style=\"white-space:nowrap\">Coronavirus<a name=\"PathogenTestedCs-Coronavirus\"> </a></td><td>Coronavirus</td></tr><tr><td style=\"white-space:nowrap\">ChlamydiaPneumonia<a name=\"PathogenTestedCs-ChlamydiaPneumonia\"> </a></td><td>Chlamydia pneumonia</td></tr><tr><td style=\"white-space:nowrap\">MycoplasmaPneumonia<a name=\"PathogenTestedCs-MycoplasmaPneumonia\"> </a></td><td>Mycoplasma pneumonia</td></tr><tr><td style=\"white-space:nowrap\">Legionella<a name=\"PathogenTestedCs-Legionella\"> </a></td><td>Legionella</td></tr><tr><td style=\"white-space:nowrap\">StreptococcusPneumonia<a name=\"PathogenTestedCs-StreptococcusPneumonia\"> </a></td><td>Streptococcus pneumonia</td></tr><tr><td style=\"white-space:nowrap\">Other<a name=\"PathogenTestedCs-Other\"> </a></td><td>Other</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/PathogenTested",
+  "version" : "0.2.1",
+  "name" : "PathogenTestedCs",
+  "title" : "Pathogen Tested",
+  "status" : "draft",
+  "date" : "2023-11-07T05:59:29+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Pathogen Tested",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 16,
+  "concept" : [{
+    "code" : "InfluenzaA/B",
+    "display" : "Influenza A/B"
+  },
+  {
+    "code" : "InfluenzaSubtyping",
+    "display" : "Influenza subtyping"
+  },
+  {
+    "code" : "MERSCV",
+    "display" : "MERS-CV"
+  },
+  {
+    "code" : "SARS",
+    "display" : "SARS"
+  },
+  {
+    "code" : "Rsv",
+    "display" : "Rsv"
+  },
+  {
+    "code" : "HumanMetapneumovirus",
+    "display" : "Human metapneumovirus"
+  },
+  {
+    "code" : "Parainfluenza123",
+    "display" : "Parainfluenza (1,2,3)"
+  },
+  {
+    "code" : "Adenovirus",
+    "display" : "Adenovirus"
+  },
+  {
+    "code" : "Rhinvoirus",
+    "display" : "Rhinvoirus"
+  },
+  {
+    "code" : "Enterovirus",
+    "display" : "Enterovirus"
+  },
+  {
+    "code" : "Coronavirus",
+    "display" : "Coronavirus"
+  },
+  {
+    "code" : "ChlamydiaPneumonia",
+    "display" : "Chlamydia pneumonia"
+  },
+  {
+    "code" : "MycoplasmaPneumonia",
+    "display" : "Mycoplasma pneumonia"
+  },
+  {
+    "code" : "Legionella",
+    "display" : "Legionella"
+  },
+  {
+    "code" : "StreptococcusPneumonia",
+    "display" : "Streptococcus pneumonia"
+  },
+  {
+    "code" : "Other",
+    "display" : "Other"
+  }]
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="SpecimenCollectedCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/SpecimenCollected</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">NasalSwab<a name="SpecimenCollectedCs-NasalSwab"> </a></td><td>Nasal swab</td></tr><tr><td style="white-space:nowrap">ThroatSwab<a name="SpecimenCollectedCs-ThroatSwab"> </a></td><td>Throat swab</td></tr><tr><td style="white-space:nowrap">NasopharyngealSwab<a name="SpecimenCollectedCs-NasopharyngealSwab"> </a></td><td>Nasopharyngeal swab</td></tr><tr><td style="white-space:nowrap">NasalWash<a name="SpecimenCollectedCs-NasalWash"> </a></td><td>Nasal wash</td></tr><tr><td style="white-space:nowrap">Sputum<a name="SpecimenCollectedCs-Sputum"> </a></td><td>Sputum</td></tr><tr><td style="white-space:nowrap">NasopharyngealSspirate<a name="SpecimenCollectedCs-NasopharyngealSspirate"> </a></td><td>Nasopharyngeal aspirate</td></tr><tr><td style="white-space:nowrap">TrachealAspirate<a name="SpecimenCollectedCs-TrachealAspirate"> </a></td><td>Tracheal aspirate</td></tr><tr><td style="white-space:nowrap">BronchoalveolarLavage<a name="SpecimenCollectedCs-BronchoalveolarLavage"> </a></td><td>Bronchoalveolar lavage</td></tr><tr><td style="white-space:nowrap">TissueBiopsy<a name="SpecimenCollectedCs-TissueBiopsy"> </a></td><td>Tissue biopsy</td></tr><tr><td style="white-space:nowrap">SerumFirst<a name="SpecimenCollectedCs-SerumFirst"> </a></td><td>Serum (first sample)</td></tr><tr><td style="white-space:nowrap">SerumSecond<a name="SpecimenCollectedCs-SerumSecond"> </a></td><td>Serum (second sample)</td></tr><tr><td style="white-space:nowrap">WholeBlood<a name="SpecimenCollectedCs-WholeBlood"> </a></td><td>Whole blood</td></tr><tr><td style="white-space:nowrap">Urine<a name="SpecimenCollectedCs-Urine"> </a></td><td>Urine</td></tr><tr><td style="white-space:nowrap">Other<a name="SpecimenCollectedCs-Other"> </a></td><td>Other</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/SpecimenCollected"/>
+  <version value="0.2.1"/>
+  <name value="SpecimenCollectedCs"/>
+  <title value="Specimen Collected"/>
+  <status value="draft"/>
+  <date value="2023-11-07T05:59:29+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Specimen Collected"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="14"/>
+  <concept>
+    <code value="NasalSwab"/>
+    <display value="Nasal swab"/>
+  </concept>
+  <concept>
+    <code value="ThroatSwab"/>
+    <display value="Throat swab"/>
+  </concept>
+  <concept>
+    <code value="NasopharyngealSwab"/>
+    <display value="Nasopharyngeal swab"/>
+  </concept>
+  <concept>
+    <code value="NasalWash"/>
+    <display value="Nasal wash"/>
+  </concept>
+  <concept>
+    <code value="Sputum"/>
+    <display value="Sputum"/>
+  </concept>
+  <concept>
+    <code value="NasopharyngealSspirate"/>
+    <display value="Nasopharyngeal aspirate"/>
+  </concept>
+  <concept>
+    <code value="TrachealAspirate"/>
+    <display value="Tracheal aspirate"/>
+  </concept>
+  <concept>
+    <code value="BronchoalveolarLavage"/>
+    <display value="Bronchoalveolar lavage"/>
+  </concept>
+  <concept>
+    <code value="TissueBiopsy"/>
+    <display value="Tissue biopsy"/>
+  </concept>
+  <concept>
+    <code value="SerumFirst"/>
+    <display value="Serum (first sample)"/>
+  </concept>
+  <concept>
+    <code value="SerumSecond"/>
+    <display value="Serum (second sample)"/>
+  </concept>
+  <concept>
+    <code value="WholeBlood"/>
+    <display value="Whole blood"/>
+  </concept>
+  <concept>
+    <code value="Urine"/>
+    <display value="Urine"/>
+  </concept>
+  <concept>
+    <code value="Other"/>
+    <display value="Other"/>
+  </concept>
+</CodeSystem>

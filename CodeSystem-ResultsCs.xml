@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="ResultsCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/Results</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">Positive<a name="ResultsCs-Positive"> </a></td><td>Positive</td></tr><tr><td style="white-space:nowrap">Negative<a name="ResultsCs-Negative"> </a></td><td>Negative</td></tr><tr><td style="white-space:nowrap">PendingUnknown<a name="ResultsCs-PendingUnknown"> </a></td><td>Still pending/ Unknown</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/Results"/>
+  <version value="0.2.1"/>
+  <name value="ResultsCs"/>
+  <title value="Results"/>
+  <status value="draft"/>
+  <date value="2023-11-07T05:59:29+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Results"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="3"/>
+  <concept>
+    <code value="Positive"/>
+    <display value="Positive"/>
+  </concept>
+  <concept>
+    <code value="Negative"/>
+    <display value="Negative"/>
+  </concept>
+  <concept>
+    <code value="PendingUnknown"/>
+    <display value="Still pending/ Unknown"/>
+  </concept>
+</CodeSystem>

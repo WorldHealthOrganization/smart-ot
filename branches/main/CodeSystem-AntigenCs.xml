@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="AntigenCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/CodeSystem/AntigenCs</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">1<a name="AntigenCs-1"> </a></td><td>Measles</td></tr><tr><td style="white-space:nowrap">2<a name="AntigenCs-2"> </a></td><td>Rubella</td></tr><tr><td style="white-space:nowrap">3<a name="AntigenCs-3"> </a></td><td>Dengue</td></tr><tr><td style="white-space:nowrap">4<a name="AntigenCs-4"> </a></td><td>Parvovirus B19</td></tr><tr><td style="white-space:nowrap">5<a name="AntigenCs-5"> </a></td><td>Herpes</td></tr><tr><td style="white-space:nowrap">6<a name="AntigenCs-6"> </a></td><td>Enterovirus</td></tr><tr><td style="white-space:nowrap">88<a name="AntigenCs-88"> </a></td><td>Other</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/CodeSystem/AntigenCs"/>
+  <version value="0.2.1"/>
+  <name value="AntigenCs"/>
+  <title value="Antigen Code System"/>
+  <status value="draft"/>
+  <date value="2023-11-07T05:59:29+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Antigen Code System"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="7"/>
+  <concept>
+    <code value="1"/>
+    <display value="Measles"/>
+  </concept>
+  <concept>
+    <code value="2"/>
+    <display value="Rubella"/>
+  </concept>
+  <concept>
+    <code value="3"/>
+    <display value="Dengue"/>
+  </concept>
+  <concept>
+    <code value="4"/>
+    <display value="Parvovirus B19"/>
+  </concept>
+  <concept>
+    <code value="5"/>
+    <display value="Herpes"/>
+  </concept>
+  <concept>
+    <code value="6"/>
+    <display value="Enterovirus"/>
+  </concept>
+  <concept>
+    <code value="88"/>
+    <display value="Other"/>
+  </concept>
+</CodeSystem>

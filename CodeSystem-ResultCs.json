@@ -1,0 +1,55 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "ResultCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/Result</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">0<a name=\"ResultCs-0\"> </a></td><td>Negative</td></tr><tr><td style=\"white-space:nowrap\">1<a name=\"ResultCs-1\"> </a></td><td>Positive</td></tr><tr><td style=\"white-space:nowrap\">2<a name=\"ResultCs-2\"> </a></td><td>Inadequate specimen</td></tr><tr><td style=\"white-space:nowrap\">3<a name=\"ResultCs-3\"> </a></td><td>Equivocal (indeterminate)</td></tr><tr><td style=\"white-space:nowrap\">4<a name=\"ResultCs-4\"> </a></td><td>Community Case Search</td></tr><tr><td style=\"white-space:nowrap\">99<a name=\"ResultCs-99\"> </a></td><td>Unknown (result not available)</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/Result",
+  "version" : "0.2.1",
+  "name" : "ResultCs",
+  "title" : "Result Code System",
+  "status" : "draft",
+  "date" : "2023-11-07T05:59:29+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Result Code System",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 6,
+  "concept" : [{
+    "code" : "0",
+    "display" : "Negative"
+  },
+  {
+    "code" : "1",
+    "display" : "Positive"
+  },
+  {
+    "code" : "2",
+    "display" : "Inadequate specimen"
+  },
+  {
+    "code" : "3",
+    "display" : "Equivocal (indeterminate)"
+  },
+  {
+    "code" : "4",
+    "display" : "Community Case Search"
+  },
+  {
+    "code" : "99",
+    "display" : "Unknown (result not available)"
+  }]
+}

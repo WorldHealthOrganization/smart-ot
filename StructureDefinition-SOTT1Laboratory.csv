@@ -1,0 +1,144 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: RIM Mapping"
+"SOTT1Laboratory","SOTT1Laboratory","","","",0,*,"","","","null {[]} {[]}
+","Surveillance & Outbreak Toolkit T1 - Laboratory","Base definition for all elements that are defined inside a resource - but not those in a data type.","","","","","","","","","",,,,,"",,,,"BackboneElement",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","n/a"
+"SOTT1Laboratory.id","SOTT1Laboratory.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"","","n/a"
+"SOTT1Laboratory.extension","SOTT1Laboratory.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","n/a"
+"SOTT1Laboratory.modifierExtension","SOTT1Laboratory.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","N/A"
+"SOTT1Laboratory.laboratoryId","SOTT1Laboratory.laboratoryId","","","",0,1,"","","","string {[]} {[]}
+","Laboratory ID:","Laboratory identification assigned to the case.","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.laboratoryId",0,1,"",""
+"SOTT1Laboratory.labName","SOTT1Laboratory.labName","","","",0,1,"","","","string {[]} {[]}
+","Name of testing laboratory:","Name of testing laboratory.","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.labName",0,1,"",""
+"SOTT1Laboratory.labLocation","SOTT1Laboratory.labLocation","","","",0,1,"","","","string {[]} {[]}
+","Location of testing laboratory","Location of testing laboratory.","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.labLocation",0,1,"",""
+"SOTT1Laboratory.antibioticReceived","SOTT1Laboratory.antibioticReceived","","","",0,1,"","","","code {[]} {[]}
+","Did the patient received antibiotic prior to specimen collection?","Did the patient received antibiotic prior to specimen collection?","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1Laboratory.antibioticReceived",0,1,"",""
+"SOTT1Laboratory.labTests","SOTT1Laboratory.labTests","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Details of tests performed","Details of tests performed","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.labTests",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"SOTT1Laboratory.labTests.id","SOTT1Laboratory.labTests.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"","","n/a"
+"SOTT1Laboratory.labTests.extension","SOTT1Laboratory.labTests.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","n/a"
+"SOTT1Laboratory.labTests.modifierExtension","SOTT1Laboratory.labTests.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","N/A"
+"SOTT1Laboratory.labTests.sampleId","SOTT1Laboratory.labTests.sampleId","","","",0,1,"","","","string {[]} {[]}
+","Sample ID","First Sample ID","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.labTests.sampleId",0,1,"",""
+"SOTT1Laboratory.labTests.sampleType","SOTT1Laboratory.labTests.sampleType","","","",0,1,"","","","string {[]} {[]}
+","Type of specimen (blood, stool, CSF, skin smear…..)","Type of specimen (blood, stool, CSF, skin smear…..)","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.labTests.sampleType",0,1,"",""
+"SOTT1Laboratory.labTests.collectionDate","SOTT1Laboratory.labTests.collectionDate","","","",0,1,"","","","date {[]} {[]}
+","Collection date","Collection date","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.labTests.collectionDate",0,1,"",""
+"SOTT1Laboratory.labTests.testPerformedDate","SOTT1Laboratory.labTests.testPerformedDate","","","",0,1,"","","","date {[]} {[]}
+","Date of test performed","Date of test performed","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.labTests.testPerformedDate",0,1,"",""
+"SOTT1Laboratory.labTests.testPerformed","SOTT1Laboratory.labTests.testPerformed","","","",0,1,"","","","string {[]} {[]}
+","Test performed","Test performed","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.labTests.testPerformed",0,1,"",""
+"SOTT1Laboratory.labTests.result","SOTT1Laboratory.labTests.result","","","",0,1,"","","","code {[]} {[]}
+","Result","Result","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/Results","",,,,"SOTT1Laboratory.labTests.result",0,1,"",""
+"SOTT1Laboratory.proteinuria","SOTT1Laboratory.proteinuria","","","",0,1,"","","","code {[]} {[]}
+","Proteinuria","Record laboratory test results: Proteinuria","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1Laboratory.proteinuria",0,1,"",""
+"SOTT1Laboratory.hematuria","SOTT1Laboratory.hematuria","","","",0,1,"","","","code {[]} {[]}
+","Hematuria","Record laboratory test results: Hematuria","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1Laboratory.hematuria",0,1,"",""
+"SOTT1Laboratory.haemoglobin","SOTT1Laboratory.haemoglobin","","","",0,1,"","","","Quantity {[]} {[]}
+","Haemoglobin (g/l)","Record laboratory test results: Haemoglobin (g/l)","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.haemoglobin",0,1,"",""
+"SOTT1Laboratory.WBC","SOTT1Laboratory.WBC","","","",0,1,"","","","Quantity {[]} {[]}
+","WBC count","Record laboratory test results: WBC count","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.WBC",0,1,"",""
+"SOTT1Laboratory.platelet","SOTT1Laboratory.platelet","","","",0,1,"","","","Quantity {[]} {[]}
+","Platelets","Record laboratory test results: Platelets","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.platelet",0,1,"",""
+"SOTT1Laboratory.CRP","SOTT1Laboratory.CRP","","","",0,1,"","","","Quantity {[]} {[]}
+","CRP:","Record laboratory test results: CRP:","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.CRP",0,1,"",""
+"SOTT1Laboratory.potassium","SOTT1Laboratory.potassium","","","",0,1,"","","","Quantity {[]} {[]}
+","Potassium","Record laboratory test results: Potassium","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.potassium",0,1,"",""
+"SOTT1Laboratory.ALT","SOTT1Laboratory.ALT","","","",0,1,"","","","Quantity {[]} {[]}
+","ALT/SGPT","Record laboratory test results: ALT/SGPT","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.ALT",0,1,"",""
+"SOTT1Laboratory.AST","SOTT1Laboratory.AST","","","",0,1,"","","","Quantity {[]} {[]}
+","AST/SGOT","Record laboratory test results: AST/SGOT","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.AST",0,1,"",""
+"SOTT1Laboratory.lactate","SOTT1Laboratory.lactate","","","",0,1,"","","","Quantity {[]} {[]}
+","Lactate","Record laboratory test results: Lactate","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.lactate",0,1,"",""
+"SOTT1Laboratory.totalBilirubin","SOTT1Laboratory.totalBilirubin","","","",0,1,"","","","Quantity {[]} {[]}
+","Total bilirubin","Record laboratory test results: Total bilirubin","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.totalBilirubin",0,1,"",""
+"SOTT1Laboratory.creatinine","SOTT1Laboratory.creatinine","","","",0,1,"","","","Quantity {[]} {[]}
+","Creatinine","Record laboratory test results: Creatinine","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.creatinine",0,1,"",""
+"SOTT1Laboratory.urea","SOTT1Laboratory.urea","","","",0,1,"","","","Quantity {[]} {[]}
+","Urea","Record laboratory test results: Urea","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.urea",0,1,"",""
+"SOTT1Laboratory.kinase","SOTT1Laboratory.kinase","","","",0,1,"","","","Quantity {[]} {[]}
+","Creatine kinase","Record laboratory test results: Creatine kinase","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.kinase",0,1,"",""
+"SOTT1Laboratory.otherBloodTest","SOTT1Laboratory.otherBloodTest","","","",0,1,"","","","Quantity {[]} {[]}
+","Other blood test:","Describe additional blood tests and give the results","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.otherBloodTest",0,1,"",""
+"SOTT1Laboratory.bloodGas","SOTT1Laboratory.bloodGas","","","",0,1,"","","","code {[]} {[]}
+","Blood gasses analysis","Record laboratory test results: Blood gasses analysis","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1Laboratory.bloodGas",0,1,"",""
+"SOTT1Laboratory.arterialBloodPH","SOTT1Laboratory.arterialBloodPH","","","",0,1,"","","","string {[]} {[]}
+","Arterial blood PH","Record laboratory test results: Arterial blood PH","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.arterialBloodPH",0,1,"",""
+"SOTT1Laboratory.bicarbonates","SOTT1Laboratory.bicarbonates","","","",0,1,"","","","string {[]} {[]}
+","Bicarbonates","Record laboratory test results: Bicarbonates","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.bicarbonates",0,1,"",""
+"SOTT1Laboratory.PO2","SOTT1Laboratory.PO2","","","",0,1,"","","","string {[]} {[]}
+","Partial pressure of oxygen","Record laboratory test results: Partial pressure of oxygen","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.PO2",0,1,"",""
+"SOTT1Laboratory.PCO2","SOTT1Laboratory.PCO2","","","",0,1,"","","","string {[]} {[]}
+","Partial pressure of carbon dioxide","Record laboratory test results: Partial pressure of carbon dioxide","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.PCO2",0,1,"",""
+"SOTT1Laboratory.O2SAT","SOTT1Laboratory.O2SAT","","","",0,1,"","","","string {[]} {[]}
+","Oxygen saturation","Record laboratory test results: Oxygen saturation","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.O2SAT",0,1,"",""
+"SOTT1Laboratory.otherTestsPerformed","SOTT1Laboratory.otherTestsPerformed","","","",0,1,"","","","string {[]} {[]}
+","Other tests performed and results (even negative results)","Other tests performed and results (even negative results)","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.otherTestsPerformed",0,1,"",""
+"SOTT1Laboratory.labConclusion","SOTT1Laboratory.labConclusion","","","",0,1,"","","","string {[]} {[]}
+","Laboratory conclusion","Evaluate the laboratory test results and draw a conclusion from these results","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.labConclusion",0,1,"",""
+"SOTT1Laboratory.environmentSampleTaken","SOTT1Laboratory.environmentSampleTaken","","","",0,1,"","","","code {[]} {[]}
+","Environmental samples taken","Where any environmental samples taken and submitted to a laboratory","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1Laboratory.environmentSampleTaken",0,1,"",""
+"SOTT1Laboratory.environmentSampleDetails","SOTT1Laboratory.environmentSampleDetails","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Details of environment sample","Details of environment sample","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.environmentSampleDetails",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"SOTT1Laboratory.environmentSampleDetails.id","SOTT1Laboratory.environmentSampleDetails.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"","","n/a"
+"SOTT1Laboratory.environmentSampleDetails.extension","SOTT1Laboratory.environmentSampleDetails.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","n/a"
+"SOTT1Laboratory.environmentSampleDetails.modifierExtension","SOTT1Laboratory.environmentSampleDetails.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","N/A"
+"SOTT1Laboratory.environmentSampleDetails.environmentSample","SOTT1Laboratory.environmentSampleDetails.environmentSample","","","",0,1,"","","","string {[]} {[]}
+","Products","Describe the environmental samples (soil, water, air, etc)","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.environmentSampleDetails.environmentSample",0,1,"",""
+"SOTT1Laboratory.environmentSampleDetails.collectionDate","SOTT1Laboratory.environmentSampleDetails.collectionDate","","","",0,1,"","","","date {[]} {[]}
+","Date of collection","When where these environmental samples taken","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.environmentSampleDetails.collectionDate",0,1,"",""
+"SOTT1Laboratory.animalSampleTaken","SOTT1Laboratory.animalSampleTaken","","","",0,1,"","","","code {[]} {[]}
+","Animal samples taken","Where any animal samples taken and submitted to the laboratory (blood, oropharyngeal swabs, tissue, brain, feaces, etc)","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1Laboratory.animalSampleTaken",0,1,"",""
+"SOTT1Laboratory.animalSampleDetails","SOTT1Laboratory.animalSampleDetails","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Details of animal sample","Details of animal sample","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.animalSampleDetails",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"SOTT1Laboratory.animalSampleDetails.id","SOTT1Laboratory.animalSampleDetails.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"","","n/a"
+"SOTT1Laboratory.animalSampleDetails.extension","SOTT1Laboratory.animalSampleDetails.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","n/a"
+"SOTT1Laboratory.animalSampleDetails.modifierExtension","SOTT1Laboratory.animalSampleDetails.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","N/A"
+"SOTT1Laboratory.animalSampleDetails.animalSample","SOTT1Laboratory.animalSampleDetails.animalSample","","","",0,1,"","","","string {[]} {[]}
+","Products","What kind of animal samples were taken (blood, oropharyngeal swabs, tissue, brain, feaces, etc)","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.animalSampleDetails.animalSample",0,1,"",""
+"SOTT1Laboratory.animalSampleDetails.collectionDate","SOTT1Laboratory.animalSampleDetails.collectionDate","","","",0,1,"","","","date {[]} {[]}
+","Date of collection","When were animal samples taken?","","","","","","","","","",,,,,"",,,,"SOTT1Laboratory.animalSampleDetails.collectionDate",0,1,"",""

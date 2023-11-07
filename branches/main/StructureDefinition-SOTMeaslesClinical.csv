@@ -1,0 +1,82 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: RIM Mapping"
+"SOTMeaslesClinical","SOTMeaslesClinical","","","",0,*,"","","","null {[]} {[]}
+","Surveillance & Outbreak Toolkit Measles- Clinical","Base definition for all elements that are defined inside a resource - but not those in a data type.","","","","","","","","","",,,,,"",,,,"BackboneElement",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","n/a"
+"SOTMeaslesClinical.id","SOTMeaslesClinical.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"","","n/a"
+"SOTMeaslesClinical.extension","SOTMeaslesClinical.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","n/a"
+"SOTMeaslesClinical.modifierExtension","SOTMeaslesClinical.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","N/A"
+"SOTMeaslesClinical.RashOnsetDate","SOTMeaslesClinical.RashOnsetDate","","","",0,1,"","","","dateTime {[]} {[]}
+","Date of rash onset","Date of rash onset","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.RashOnsetDate",0,1,"",""
+"SOTMeaslesClinical.Symptoms","SOTMeaslesClinical.Symptoms","","","",1,1,"","","","code {[]} {[]}
+","Symptoms","Symptoms","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.Symptoms",1,1,"",""
+"SOTMeaslesClinical.Fever","SOTMeaslesClinical.Fever","","","",1,1,"","","","Coding {[]} {[]}
+","Fever","Fever","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTMeaslesClinical.Fever",1,1,"",""
+"SOTMeaslesClinical.Rash","SOTMeaslesClinical.Rash","","","",1,1,"","","","Coding {[]} {[]}
+","Rash","Rash","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTMeaslesClinical.Rash",1,1,"",""
+"SOTMeaslesClinical.Cough","SOTMeaslesClinical.Cough","","","",1,1,"","","","Coding {[]} {[]}
+","Cough?","Cough","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTMeaslesClinical.Cough",1,1,"",""
+"SOTMeaslesClinical.Conjunctivitis","SOTMeaslesClinical.Conjunctivitis","","","",1,1,"","","","Coding {[]} {[]}
+","Conjunctivitis?","Conjunctivitis","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTMeaslesClinical.Conjunctivitis",1,1,"",""
+"SOTMeaslesClinical.Coryza","SOTMeaslesClinical.Coryza","","","",1,1,"","","","Coding {[]} {[]}
+","Coryza?","Coryza","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTMeaslesClinical.Coryza",1,1,"",""
+"SOTMeaslesClinical.KoplikSpots","SOTMeaslesClinical.KoplikSpots","","","",1,1,"","","","Coding {[]} {[]}
+","Koplik Spots?","Koplik Spots","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTMeaslesClinical.KoplikSpots",1,1,"",""
+"SOTMeaslesClinical.Lymphadenopathy","SOTMeaslesClinical.Lymphadenopathy","","","",1,1,"","","","Coding {[]} {[]}
+","Lymphadenopathy?","Lymphadenopathy","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTMeaslesClinical.Lymphadenopathy",1,1,"",""
+"SOTMeaslesClinical.JointPain","SOTMeaslesClinical.JointPain","","","",1,1,"","","","Coding {[]} {[]}
+","Arthralgia?","Arthralgia","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTMeaslesClinical.JointPain",1,1,"",""
+"SOTMeaslesClinical.SevereComplications","SOTMeaslesClinical.SevereComplications","","","",0,1,"","","","Coding {[]} {[]}
+","Severe Complications","Severe Complications","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.SevereComplications",0,1,"",""
+"SOTMeaslesClinical.HistoryOfHospitalization","SOTMeaslesClinical.HistoryOfHospitalization","","","",1,1,"","","","Coding {[]} {[]}
+","History of hospitalization in 23 days prior to rash onset?","History of hospitalization in 23 days prior to rash onset?","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTMeaslesClinical.HistoryOfHospitalization",1,1,"",""
+"SOTMeaslesClinical.DatesOfHospitalization","SOTMeaslesClinical.DatesOfHospitalization","","","",0,1,"","","","Period {[]} {[]}
+","Dates of hospitalization","Dates of hospitalization","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.DatesOfHospitalization",0,1,"",""
+"SOTMeaslesClinical.HospitalizedReason","SOTMeaslesClinical.HospitalizedReason","","","",1,1,"","","","code {[]} {[]}
+","Hospitalized because of this current fever rash diagnosis?","Hospitalized because of this current fever rash diagnosis?","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.HospitalizedReason",1,1,"",""
+"SOTMeaslesClinical.Outcome","SOTMeaslesClinical.Outcome","","","",1,1,"","","","Coding {[]} {[]}
+","Outcome (patient survived or died)","Outcome (patient survived or died)","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/PatientOutcome","",,,,"SOTMeaslesClinical.Outcome",1,1,"",""
+"SOTMeaslesClinical.DateOfDeath","SOTMeaslesClinical.DateOfDeath","","","",0,1,"","","","dateTime {[]} {[]}
+","Date of death","Date of death","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.DateOfDeath",0,1,"",""
+"SOTMeaslesClinical.NumberOfPrevious","SOTMeaslesClinical.NumberOfPrevious","","","",0,1,"","","","Quantity {[]} {[]}
+","Number of previous pregnancies*","Number of previous pregnancies*","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.NumberOfPrevious",0,1,"",""
+"SOTMeaslesClinical.PregnancyStatus","SOTMeaslesClinical.PregnancyStatus","","","",1,1,"","","","Coding {[]} {[]}
+","Pregnancy status*","Pregnancy status*","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTMeaslesClinical.PregnancyStatus",1,1,"",""
+"SOTMeaslesClinical.GestationWeeks","SOTMeaslesClinical.GestationWeeks","","","",0,1,"","","","Quantity {[]} {[]}
+","Number of weeks gestation at onset of illness*","Number of weeks gestation at onset of illness*","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.GestationWeeks",0,1,"",""
+"SOTMeaslesClinical.PriorEvidence","SOTMeaslesClinical.PriorEvidence","","","",0,1,"","","","string {[]} {[]}
+","Prior evidence or date of rubella serologic immunity, or both*","Prior evidence or date of rubella serologic immunity, or both*","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.PriorEvidence",0,1,"",""
+"SOTMeaslesClinical.PreviousPregnancies","SOTMeaslesClinical.PreviousPregnancies","","","",0,1,"","","","string {[]} {[]}
+","Number and dates of previous pregnancies and location (secondadministrative level or country) of these pregnancies*","Number and dates of previous pregnancies and location (secondadministrative level or country) of these pregnancies*","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.PreviousPregnancies",0,1,"",""
+"SOTMeaslesClinical.PregnancyOutcome","SOTMeaslesClinical.PregnancyOutcome","","","",0,1,"","","","code {[]} {[]}
+","Pregnancy outcome, when available*","Pregnancy outcome, when available*","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.PregnancyOutcome",0,1,"",""
+"SOTMeaslesClinical.FeverOnsetDate","SOTMeaslesClinical.FeverOnsetDate","","","",0,1,"","","","dateTime {[]} {[]}
+","Date of fever onset","Date of fever onset","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.FeverOnsetDate",0,1,"",""
+"SOTMeaslesClinical.TypeOfRash","SOTMeaslesClinical.TypeOfRash","","","",0,1,"","","","Coding {[]} {[]}
+","Type of rash","Type of rash","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/RashType","",,,,"SOTMeaslesClinical.TypeOfRash",0,1,"",""
+"SOTMeaslesClinical.DurationOfRash","SOTMeaslesClinical.DurationOfRash","","","",0,1,"","","","Quantity {[]} {[]}
+","Duration of the rash in days","Duration of the rash in days","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.DurationOfRash",0,1,"",""
+"SOTMeaslesClinical.Temperature","SOTMeaslesClinical.Temperature","","","",0,1,"","","","Quantity {[]} {[]}
+","Temperature (degree Celcius)","Temperature (degree Celcius)","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.Temperature",0,1,"",""
+"SOTMeaslesClinical.HospitalName","SOTMeaslesClinical.HospitalName","","","",0,1,"","","","string {[]} {[]}
+","Hospital Name","Hospital Name","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.HospitalName",0,1,"",""
+"SOTMeaslesClinical.DateOfAdmission","SOTMeaslesClinical.DateOfAdmission","","","",0,1,"","","","dateTime {[]} {[]}
+","Date of admission","Date of admission","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.DateOfAdmission",0,1,"",""
+"SOTMeaslesClinical.HospitalRecordNumber","SOTMeaslesClinical.HospitalRecordNumber","","","",0,1,"","","","id {[]} {[]}
+","Hospital record number","Hospital record number","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.HospitalRecordNumber",0,1,"",""
+"SOTMeaslesClinical.primaryCauseOfDeath","SOTMeaslesClinical.primaryCauseOfDeath","","","",0,1,"","","","string {[]} {[]}
+","Primary cause of death","Primary cause of death","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.primaryCauseOfDeath",0,1,"",""
+"SOTMeaslesClinical.IntentedBirthPlacce","SOTMeaslesClinical.IntentedBirthPlacce","","","",0,1,"","","","string {[]} {[]}
+","Place where birth will likely take placed","Place where birth will likely take placed","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.IntentedBirthPlacce",0,1,"",""
+"SOTMeaslesClinical.Comments","SOTMeaslesClinical.Comments","","","",0,1,"","","","string {[]} {[]}
+","Comments","Comments","","","","","","","","","",,,,,"",,,,"SOTMeaslesClinical.Comments",0,1,"",""

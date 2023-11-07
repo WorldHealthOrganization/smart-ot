@@ -1,0 +1,34 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "RouteOfAdministration",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Include all codes defined in <a href=\"CodeSystem-RouteOfAdministrationCs.html\"><code>http://worldhealthorganization.github.io/smart-ot/RouteOfAdministration</code></a></li></ul></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/RouteOfAdministration",
+  "version" : "0.2.1",
+  "name" : "RouteOfAdministration",
+  "title" : "Route Of Administration",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Route Of Administration",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "system" : "http://worldhealthorganization.github.io/smart-ot/RouteOfAdministration"
+    }]
+  }
+}

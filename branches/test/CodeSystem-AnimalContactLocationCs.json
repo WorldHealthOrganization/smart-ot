@@ -1,0 +1,51 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "AnimalContactLocationCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/AnimalContactLocation</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">Home<a name=\"AnimalContactLocationCs-Home\"> </a></td><td>Home</td></tr><tr><td style=\"white-space:nowrap\">Hospital<a name=\"AnimalContactLocationCs-Hospital\"> </a></td><td>Hospital</td></tr><tr><td style=\"white-space:nowrap\">Workplace<a name=\"AnimalContactLocationCs-Workplace\"> </a></td><td>Workplace</td></tr><tr><td style=\"white-space:nowrap\">TourGroup<a name=\"AnimalContactLocationCs-TourGroup\"> </a></td><td>Tour Group</td></tr><tr><td style=\"white-space:nowrap\">Other<a name=\"AnimalContactLocationCs-Other\"> </a></td><td>Other</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/AnimalContactLocation",
+  "version" : "0.2.1",
+  "name" : "AnimalContactLocationCs",
+  "title" : "Animal Contact Location",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Animal Contact Location",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 5,
+  "concept" : [{
+    "code" : "Home",
+    "display" : "Home"
+  },
+  {
+    "code" : "Hospital",
+    "display" : "Hospital"
+  },
+  {
+    "code" : "Workplace",
+    "display" : "Workplace"
+  },
+  {
+    "code" : "TourGroup",
+    "display" : "Tour Group"
+  },
+  {
+    "code" : "Other",
+    "display" : "Other"
+  }]
+}

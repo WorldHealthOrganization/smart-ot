@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="ExposureLocationCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/ExposureLocation</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">Home<a name="ExposureLocationCs-Home"> </a></td><td>Home</td></tr><tr><td style="white-space:nowrap">Hospital<a name="ExposureLocationCs-Hospital"> </a></td><td>Hospital</td></tr><tr><td style="white-space:nowrap">Workplace<a name="ExposureLocationCs-Workplace"> </a></td><td>Workplace</td></tr><tr><td style="white-space:nowrap">TourGroup<a name="ExposureLocationCs-TourGroup"> </a></td><td>Tour Group</td></tr><tr><td style="white-space:nowrap">Other<a name="ExposureLocationCs-Other"> </a></td><td>Other</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/ExposureLocation"/>
+  <version value="0.2.1"/>
+  <name value="ExposureLocationCs"/>
+  <title value="Exposure Location"/>
+  <status value="draft"/>
+  <date value="2023-11-07T05:59:29+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Exposure Location"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="5"/>
+  <concept>
+    <code value="Home"/>
+    <display value="Home"/>
+  </concept>
+  <concept>
+    <code value="Hospital"/>
+    <display value="Hospital"/>
+  </concept>
+  <concept>
+    <code value="Workplace"/>
+    <display value="Workplace"/>
+  </concept>
+  <concept>
+    <code value="TourGroup"/>
+    <display value="Tour Group"/>
+  </concept>
+  <concept>
+    <code value="Other"/>
+    <display value="Other"/>
+  </concept>
+</CodeSystem>

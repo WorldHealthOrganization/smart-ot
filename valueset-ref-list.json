@@ -1,0 +1,818 @@
+{
+  "codeSystems" : [
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalContactLocation",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AnimalContactLocation",
+      "title" : "Animal Contact Location",
+      "description" : "Animal Contact Location",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/AnimalContactLocation"
+      ],
+      "uses" : {
+      },
+      "Questionnaire-Questionnaire-SOTGenericRespiratoryDiseaseCIF.html" : "Generic Respiratory Disease Case Investigation Form"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalContactLocation",
+      "version" : null,
+      "status" : "draft",
+      "name" : "AnimalContactLocation",
+      "title" : "Animal Contact Location",
+      "description" : "Animal Contact Location",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/AnimalContactLocation"
+      ]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalContactType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AnimalContactType",
+      "title" : "Animal Contact Type",
+      "description" : "Animal Contact Type",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/AnimalContactType"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTT1ExposureAnimal.html" : "Surveillance & Outbreak Toolkit T1  Exposure - Animal"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalExposureLocation",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AnimalExposureLocation",
+      "title" : "Animal Exposure Location",
+      "description" : "Animal Exposure Location",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/ExposureLocation"
+      ],
+      "uses" : {
+      },
+      "Questionnaire-Questionnaire-SOTGenericRespiratoryDiseaseCIF.html" : "Generic Respiratory Disease Case Investigation Form"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalExposureLocation",
+      "version" : null,
+      "status" : "draft",
+      "name" : "AnimalExposureLocation",
+      "title" : "Animal Exposure Location",
+      "description" : "Animal Exposure Location",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/ExposureLocation"
+      ]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/Antigen",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "Antigen",
+      "title" : " Antigen",
+      "description" : " Antigen",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/CodeSystem/AntigenCs"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTMeaslesLaboratoryResults.html" : "Surveillance & Outbreak Toolkit Measles- Laboratory Resultss",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/Antigen",
+      "version" : null,
+      "status" : "draft",
+      "name" : "Antigen",
+      "title" : " Antigen",
+      "description" : " Antigen",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/CodeSystem/AntigenCs"
+      ]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/BiologicalSex",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "BiologicalSex",
+      "title" : "SOT Biological Sex",
+      "description" : "Biological Sex",
+      "systems" : ["http://hl7.org/fhir/administrative-gender"],
+      "uses" : {
+      },
+      "StructureDefinition-AFROMRCIFDemographic.html" : "Surveillance & Outbreak Toolkit Measles- Demographics",
+      "StructureDefinition-MeaslesPatient.html" : "Measles Patient",
+      "StructureDefinition-SOTMeaslesDemographic.html" : "Surveillance & Outbreak Toolkit Measles- Demographics",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "Questionnaire-Questionnaire-SOTT0CaseInvestigationForm.html" : "T0 Case Investigation Questionnaire",
+      "Questionnaire-Questionnaire-SOTGenericRespiratoryDiseaseCIF.html" : "Generic Respiratory Disease Case Investigation Form",
+      "StructureDefinition-SOTT1CaseInfo.html" : "Surveillance & Outbreak Toolkit T1  Case Information",
+      "Questionnaire-SOTMeasles-AFRO-MRCIF.html" : "AFRO Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/BiologicalSex",
+      "version" : null,
+      "status" : "draft",
+      "name" : "BiologicalSex",
+      "title" : "SOT Biological Sex",
+      "description" : "Biological Sex",
+      "systems" : ["http://hl7.org/fhir/administrative-gender"]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/BiologicalSex",
+      "version" : null,
+      "status" : "draft",
+      "name" : "BiologicalSex",
+      "title" : "SOT Biological Sex",
+      "description" : "Biological Sex",
+      "systems" : ["http://hl7.org/fhir/administrative-gender"]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/CaseStatus",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "CaseStatus",
+      "title" : "Case Status",
+      "description" : "Case Status",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/CaseStatus"
+      ],
+      "uses" : {
+      },
+      "Questionnaire-Questionnaire-SOTGenericRespiratoryDiseaseCIF.html" : "Generic Respiratory Disease Case Investigation Form"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/CaseStatus",
+      "version" : null,
+      "status" : "draft",
+      "name" : "CaseStatus",
+      "title" : "Case Status",
+      "description" : "Case Status",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/CaseStatus"
+      ]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/ConfirmationBasis",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ConfirmationBasis",
+      "title" : " ConfirmationBasis",
+      "description" : " ConfirmationBasis",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/ConfirmationBasis"
+      ],
+      "uses" : {
+      },
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "StructureDefinition-SOTMeaslesClassification.html" : "Surveillance & Outbreak Toolkit Measles- Classification"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/ContactType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ContactType",
+      "title" : "Contact Type",
+      "description" : "Contact Type",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/ContactType"
+      ],
+      "uses" : {
+      },
+      "Questionnaire-Questionnaire-SOTGenericRespiratoryDiseaseCIF.html" : "Generic Respiratory Disease Case Investigation Form"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/ContactType",
+      "version" : null,
+      "status" : "draft",
+      "name" : "ContactType",
+      "title" : "Contact Type",
+      "description" : "Contact Type",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/ContactType"
+      ]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/DetectedBy",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "DetectedBy",
+      "title" : "SOT Measles Detected By",
+      "description" : null,
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/DetectedBy"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTMeaslesReportingSource.html" : "Surveillance & Outbreak Toolkit Measles- Reporting Source",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/DiscardingBasis",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "DiscardingBasis",
+      "title" : " DiscardingBasis",
+      "description" : " DiscardingBasis",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/DiscardingBasis"
+      ],
+      "uses" : {
+      },
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "StructureDefinition-SOTMeaslesClassification.html" : "Surveillance & Outbreak Toolkit Measles- Classification"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/DomesticatedWild",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "DomesticatedWild",
+      "title" : "Domesticated or Wild",
+      "description" : "Domesticated or Wild",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/DomesticatedWild"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTT1ExposureAnimal.html" : "Surveillance & Outbreak Toolkit T1  Exposure - Animal"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/ExposureLocation",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ExposureLocation",
+      "title" : " Exposure Location",
+      "description" : " Exposure Location",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/ExposureLocation"
+      ],
+      "uses" : {
+      },
+      "Questionnaire-Questionnaire-SOTGenericRespiratoryDiseaseCIF.html" : "Generic Respiratory Disease Case Investigation Form"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/ExposureLocation",
+      "version" : null,
+      "status" : "draft",
+      "name" : "ExposureLocation",
+      "title" : " Exposure Location",
+      "description" : " Exposure Location",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/ExposureLocation"
+      ]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/FinalClassification",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "FinalClassification",
+      "title" : " FinalClassification",
+      "description" : " FinalClassification",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/FinalClassification"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-AFROMRCIFClassification.html" : "Surveillance & Outbreak Toolkit Measles- Classification",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "Questionnaire-SOTMeasles-AFRO-MRCIF.html" : "AFRO Measles Case Investigation Questionnaire",
+      "StructureDefinition-SOTMeaslesClassification.html" : "Surveillance & Outbreak Toolkit Measles- Classification"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/InfectionSetting",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "InfectionSetting",
+      "title" : " InfectionSetting",
+      "description" : " InfectionSetting",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/InfectionSetting"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTMeaslesContactTracing.html" : "Surveillance & Outbreak Toolkit Measles- Contact Tracing",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/InitDiag",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "InitDiag",
+      "title" : "SOT Measles Initial Diagnosis",
+      "description" : "SOT Measles Initial Diagnosis",
+      "uses" : {
+      },
+      "StructureDefinition-SOTMeaslesReportingSource.html" : "Surveillance & Outbreak Toolkit Measles- Reporting Source",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/InitDiag",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "InitDiag",
+      "title" : "SOT Measles Initial Diagnosis",
+      "description" : "SOT Measles Initial Diagnosis"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/LocType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "LocType",
+      "title" : "SOT Measles Locality Type",
+      "description" : "SOT Measles Locality Type",
+      "systems" : ["http://worldhealthorganization.github.io/smart-ot/LocType"],
+      "uses" : {
+      },
+      "StructureDefinition-AFROMRCIFDemographic.html" : "Surveillance & Outbreak Toolkit Measles- Demographics",
+      "StructureDefinition-SOTMeaslesDemographic.html" : "Surveillance & Outbreak Toolkit Measles- Demographics",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "Questionnaire-SOTMeasles-AFRO-MRCIF.html" : "AFRO Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/LocalCasesPresent",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "LocalCasesPresent",
+      "title" : " LocalCasesPresent",
+      "description" : " LocalCasesPresent",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent"
+      ],
+      "uses" : {
+      },
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/LocalizationOfSkinDisorder",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "LocalizationOfSkinDisorder",
+      "title" : "Localization of Skin Disorder",
+      "description" : "Localization of Skin Disorder",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/LocalizationOfSkinDisorder"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTT1ClinicalCutaneous.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Cutaneous"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/NoOfDoses",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "NoOfDoses",
+      "title" : "SOT Measles No Of Doses",
+      "description" : "SOT Measles No Of Doses",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/NoOfDoses"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTMeaslesVaccinationStatus.html" : "Surveillance & Outbreak Toolkit Measles- Vaccination Statuss",
+      "StructureDefinition-AFROMRCIFVaccinationStatus.html" : "Surveillance & Outbreak Toolkit Measles- Vaccination Statuss",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "Questionnaire-SOTMeasles-AFRO-MRCIF.html" : "AFRO Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/PathogenTested",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PathogenTested",
+      "title" : "Pathogen  Tested",
+      "description" : "Pathogen  Tested",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/PathogenTested"
+      ],
+      "uses" : {
+      },
+      "Questionnaire-Questionnaire-SOTGenericRespiratoryDiseaseCIF.html" : "Generic Respiratory Disease Case Investigation Form"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/PatientOutcome",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PatientOutcome",
+      "title" : "Patient Clinical Course Outcome",
+      "description" : "Patient Clinical Course Outcome",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/PatientOutcome"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-AFROMRCIFClinical.html" : "Surveillance & Outbreak Toolkit Measles- Clinical",
+      "StructureDefinition-SOTMeaslesClinical.html" : "Surveillance & Outbreak Toolkit Measles- Clinical",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "Questionnaire-Questionnaire-SOTT0CaseInvestigationForm.html" : "T0 Case Investigation Questionnaire",
+      "Questionnaire-Questionnaire-SOTGenericRespiratoryDiseaseCIF.html" : "Generic Respiratory Disease Case Investigation Form",
+      "Questionnaire-SOTMeasles-AFRO-MRCIF.html" : "AFRO Measles Case Investigation Questionnaire",
+      "StructureDefinition-SOTT1Clinical.html" : "Surveillance & Outbreak Toolkit T1 Clinical"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/PatientOutcome",
+      "version" : null,
+      "status" : "draft",
+      "name" : "PatientOutcome",
+      "title" : "Patient Clinical Course Outcome",
+      "description" : "Patient Clinical Course Outcome",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/PatientOutcome"
+      ]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/PatientOutcome",
+      "version" : null,
+      "status" : "draft",
+      "name" : "PatientOutcome",
+      "title" : "Patient Clinical Course Outcome",
+      "description" : "Patient Clinical Course Outcome",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/PatientOutcome"
+      ]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/PlaceOfCare",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PlaceOfCare",
+      "title" : "Place Of Care",
+      "description" : "Place Of Care",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/PlaceOfCare"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTT1ExposureNosocomial.html" : "Surveillance & Outbreak Toolkit T1  Exposure - Nosocomial"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/ProvType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ProvType",
+      "title" : "SOT Measles Provider Type",
+      "description" : "SOT Measles Provider Type",
+      "systems" : ["http://worldhealthorganization.github.io/smart-ot/ProvType"],
+      "uses" : {
+      },
+      "StructureDefinition-SOTMeaslesReportingSource.html" : "Surveillance & Outbreak Toolkit Measles- Reporting Source",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/RashType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "RashType",
+      "title" : "Rash Type",
+      "description" : "Rash Type",
+      "systems" : ["http://worldhealthorganization.github.io/smart-ot/RashType"],
+      "uses" : {
+      },
+      "StructureDefinition-SOTMeaslesClinical.html" : "Surveillance & Outbreak Toolkit Measles- Clinical",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "StructureDefinition-SOTT1ClinicalCutaneous.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Cutaneous"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/RashType",
+      "version" : null,
+      "status" : "draft",
+      "name" : "RashType",
+      "title" : "Rash Type",
+      "description" : "Rash Type",
+      "systems" : ["http://worldhealthorganization.github.io/smart-ot/RashType"]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/ReportedBy",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ReportedBy",
+      "title" : "Reported By",
+      "description" : "Reported By",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/ReportedBy"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTT1NotificationInterview.html" : "Surveillance & Outbreak Toolkit T1 - Notification Interview"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/Result",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "Result",
+      "title" : " Result",
+      "description" : " Result",
+      "systems" : ["http://worldhealthorganization.github.io/smart-ot/Result"],
+      "uses" : {
+      },
+      "StructureDefinition-AFROMRCIFLaboratoryResults.html" : "Surveillance & Outbreak Toolkit Measles- Laboratory Resultss",
+      "StructureDefinition-SOTMeaslesLaboratoryResults.html" : "Surveillance & Outbreak Toolkit Measles- Laboratory Resultss",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "Questionnaire-SOTMeasles-AFRO-MRCIF.html" : "AFRO Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/Result",
+      "version" : null,
+      "status" : "draft",
+      "name" : "Result",
+      "title" : " Result",
+      "description" : " Result",
+      "systems" : ["http://worldhealthorganization.github.io/smart-ot/Result"]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/Result",
+      "version" : null,
+      "status" : "draft",
+      "name" : "Result",
+      "title" : " Result",
+      "description" : " Result",
+      "systems" : ["http://worldhealthorganization.github.io/smart-ot/Result"]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/Results",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "Results",
+      "title" : "Results",
+      "description" : "Results",
+      "systems" : ["http://worldhealthorganization.github.io/smart-ot/Results"],
+      "uses" : {
+      },
+      "StructureDefinition-SOTT1Laboratory.html" : "Surveillance & Outbreak Toolkit T1 - Laboratory"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/RouteOfAdministration",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "RouteOfAdministration",
+      "title" : "Route Of Administration",
+      "description" : "Route Of Administration",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/RouteOfAdministration"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTT1ClinicalTreatmentInfo.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Treatment Info"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/SampleType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SampleType",
+      "title" : " Sample Type",
+      "description" : " Sample Type",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/SampleType"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-AFROMRCIFLaboratoryResults.html" : "Surveillance & Outbreak Toolkit Measles- Laboratory Resultss",
+      "StructureDefinition-SOTMeaslesLaboratoryResults.html" : "Surveillance & Outbreak Toolkit Measles- Laboratory Resultss",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "Questionnaire-SOTMeasles-AFRO-MRCIF.html" : "AFRO Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/SourceOfInfection",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SourceOfInfection",
+      "title" : " SourceOfInfection",
+      "description" : " SourceOfInfection",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/SourceOfInfection"
+      ],
+      "uses" : {
+      },
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "StructureDefinition-SOTMeaslesClassification.html" : "Surveillance & Outbreak Toolkit Measles- Classification"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/SourceOfInformation",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SourceOfInformation",
+      "title" : "SOT Measles Source Of Information Type",
+      "description" : "SOT Measles Source Of Information Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/SpecimenCollected",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SpecimenCollected",
+      "title" : "Specimen Collected",
+      "description" : "Specimen Collected",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/SpecimenCollected"
+      ],
+      "uses" : {
+      },
+      "Questionnaire-Questionnaire-SOTGenericRespiratoryDiseaseCIF.html" : "Generic Respiratory Disease Case Investigation Form"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/SpecimenNumber",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SpecimenNumber",
+      "title" : " Specimen Number",
+      "description" : " Specimen Number",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/SpecimenNumber"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTMeaslesLaboratoryResults.html" : "Surveillance & Outbreak Toolkit Measles- Laboratory Resultss",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/TestPerformed",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "TestPerformed",
+      "title" : " Test Performed",
+      "description" : " Test Performed",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/TestPerformed"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTMeaslesLaboratoryResults.html" : "Surveillance & Outbreak Toolkit Measles- Laboratory Resultss",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/TestType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "TestType",
+      "title" : "AFRO MRCIF Test Type",
+      "description" : "AFRO MRCIF Test Type",
+      "systems" : ["http://worldhealthorganization.github.io/smart-ot/TestType"],
+      "uses" : {
+      },
+      "StructureDefinition-AFROMRCIFLaboratoryResults.html" : "Surveillance & Outbreak Toolkit Measles- Laboratory Resultss",
+      "Questionnaire-SOTMeasles-AFRO-MRCIF.html" : "AFRO Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/VaccineInfoSource",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "VaccineInfoSource",
+      "title" : "Vaccine Info Source",
+      "description" : "Vaccine Info Source",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/VaccineInfoSource"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTMeaslesVaccinationStatus.html" : "Surveillance & Outbreak Toolkit Measles- Vaccination Statuss",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "StructureDefinition-SOTT1ClinicalVaccination.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Vaccination"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/VaccineType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "VaccineType",
+      "title" : "SOT Measles Vaccine Type",
+      "description" : "SOT Measles Vaccine Type",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/VaccineType"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTMeaslesVaccinationStatus.html" : "Surveillance & Outbreak Toolkit Measles- Vaccination Statuss",
+      "StructureDefinition-AFROMRCIFVaccinationStatus.html" : "Surveillance & Outbreak Toolkit Measles- Vaccination Statuss",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "Questionnaire-SOTMeasles-AFRO-MRCIF.html" : "AFRO Measles Case Investigation Questionnaire"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/WaterCharacteristics",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "WaterCharacteristics",
+      "title" : "Water Characteristics",
+      "description" : "Water Characteristics",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/WaterCharacteristics"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-SOTT1ExposureWaterDetails.html" : "Surveillance & Outbreak Toolkit T1  Exposure - Water Details"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "YesNo",
+      "title" : "SOT Yes No",
+      "description" : "Yes No",
+      "systems" : ["http://terminology.hl7.org/CodeSystem/v2-0532"],
+      "uses" : {
+      },
+      "StructureDefinition-SOTT1ClinicalENT.html" : "Surveillance & Outbreak Toolkit T1 Clinical - ENT",
+      "StructureDefinition-SOTT1ClinicalGastroIntestinal.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Gastro-intestinal",
+      "StructureDefinition-SOTT1Laboratory.html" : "Surveillance & Outbreak Toolkit T1 - Laboratory",
+      "StructureDefinition-SOTT1Clinical.html" : "Surveillance & Outbreak Toolkit T1 Clinical",
+      "StructureDefinition-SOTT1ClinicalNeurology.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Neurology",
+      "StructureDefinition-SOTT1ExposureTravelHistory.html" : "Surveillance & Outbreak Toolkit T1  Exposure - Travel History",
+      "StructureDefinition-SOTT1ClinicalCardiology.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Cardiology",
+      "Questionnaire-Questionnaire-SOTT0CaseInvestigationForm.html" : "T0 Case Investigation Questionnaire",
+      "StructureDefinition-SOTT1ClinicalRespiratory.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Respiratory",
+      "StructureDefinition-SOTT1ExposureNosocomial.html" : "Surveillance & Outbreak Toolkit T1  Exposure - Nosocomial",
+      "StructureDefinition-SOTT1ClinicalCutaneous.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Cutaneous",
+      "StructureDefinition-SOTT1ClinicalComorbidity.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Comorbidity",
+      "StructureDefinition-SOTT1ClinicalTreatments.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Treatments"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo",
+      "version" : null,
+      "status" : "draft",
+      "name" : "YesNo",
+      "title" : "SOT Yes No",
+      "description" : "Yes No",
+      "systems" : ["http://terminology.hl7.org/CodeSystem/v2-0532"]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "YesNoUnknown",
+      "title" : "Yes No Unknown",
+      "description" : "Yes No Unknown",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/YesNoUnknown"
+      ],
+      "uses" : {
+      },
+      "StructureDefinition-AFROMRCIFClinical.html" : "Surveillance & Outbreak Toolkit Measles- Clinical",
+      "StructureDefinition-SOTT1ExposurePersonalAssumption.html" : "Surveillance & Outbreak Toolkit T1  Exposure - Personal Assumption",
+      "StructureDefinition-SOTT1ExposureChemical.html" : "Surveillance & Outbreak Toolkit T1  Exposure - Chemical",
+      "StructureDefinition-SOTT1ExposureContacts.html" : "Surveillance & Outbreak Toolkit T1 Exposure - Contacts",
+      "StructureDefinition-SOTT1ExposureInsect.html" : "Surveillance & Outbreak Toolkit T1  Exposure - Insect",
+      "StructureDefinition-SOTT1Clinical.html" : "Surveillance & Outbreak Toolkit T1 Clinical",
+      "StructureDefinition-SOTT1ClinicalNeurology.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Neurology",
+      "StructureDefinition-SOTMeaslesClinical.html" : "Surveillance & Outbreak Toolkit Measles- Clinical",
+      "StructureDefinition-SOTT1ClinicalCardiology.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Cardiology",
+      "Questionnaire-Questionnaire-SOTMeasles.html" : "Measles Case Investigation Questionnaire",
+      "Questionnaire-Questionnaire-SOTGenericRespiratoryDiseaseCIF.html" : "Generic Respiratory Disease Case Investigation Form",
+      "StructureDefinition-SOTT1ClinicalCutaneous.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Cutaneous",
+      "StructureDefinition-SOTT1ClinicalComorbidity.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Comorbidity",
+      "StructureDefinition-SOTMeaslesClassification.html" : "Surveillance & Outbreak Toolkit Measles- Classification",
+      "StructureDefinition-SOTT1ClinicalENT.html" : "Surveillance & Outbreak Toolkit T1 Clinical - ENT",
+      "StructureDefinition-SOTT1ClinicalGastroIntestinal.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Gastro-intestinal",
+      "StructureDefinition-SOTT1ExposureAnimal.html" : "Surveillance & Outbreak Toolkit T1  Exposure - Animal",
+      "StructureDefinition-SOTT1Laboratory.html" : "Surveillance & Outbreak Toolkit T1 - Laboratory",
+      "StructureDefinition-SOTT1ClinicalUrogynecology.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Urogynecology",
+      "Questionnaire-SOTMeasles-AFRO-MRCIF.html" : "AFRO Measles Case Investigation Questionnaire",
+      "StructureDefinition-SOTMeaslesEpiData.html" : "Surveillance & Outbreak Toolkit Measles- Epidemiological Data",
+      "StructureDefinition-SOTMeaslesContactTracing.html" : "Surveillance & Outbreak Toolkit Measles- Contact Tracing",
+      "StructureDefinition-SOTT1ExposureMassGathering.html" : "Surveillance & Outbreak Toolkit T1 Exposure - Mass Gathering",
+      "StructureDefinition-SOTT1ExposureWaterFood.html" : "Surveillance & Outbreak Toolkit T1  Exposure - Water and Food",
+      "Questionnaire-Questionnaire-SOTT0CaseInvestigationForm.html" : "T0 Case Investigation Questionnaire",
+      "StructureDefinition-SOTT1ClinicalRespiratory.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Respiratory",
+      "StructureDefinition-SOTT1ClinicalVaccination.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Vaccination",
+      "StructureDefinition-SOTT1ClinicalTreatments.html" : "Surveillance & Outbreak Toolkit T1 Clinical - Treatments"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown",
+      "version" : null,
+      "status" : "draft",
+      "name" : "YesNoUnknown",
+      "title" : "Yes No Unknown",
+      "description" : "Yes No Unknown",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/YesNoUnknown"
+      ]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown",
+      "version" : null,
+      "status" : "draft",
+      "name" : "YesNoUnknown",
+      "title" : "Yes No Unknown",
+      "description" : "Yes No Unknown",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/YesNoUnknown"
+      ]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown",
+      "version" : null,
+      "status" : "draft",
+      "name" : "YesNoUnknown",
+      "title" : "Yes No Unknown",
+      "description" : "Yes No Unknown",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/YesNoUnknown"
+      ]
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown",
+      "version" : null,
+      "status" : "draft",
+      "name" : "YesNoUnknown",
+      "title" : "Yes No Unknown",
+      "description" : "Yes No Unknown",
+      "systems" : [
+        "http://worldhealthorganization.github.io/smart-ot/YesNoUnknown"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/ValueSet/BiologicalSex> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "BiologicalSex"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set includes codes based on the following rules:</p><ul><li>Include all codes defined in <a href=\"http://hl7.org/fhir/R4/codesystem-administrative-gender.html\"><code>http://hl7.org/fhir/administrative-gender</code></a></li></ul><p>This value set excludes codes based on the following rules:</p><ul><li>Exclude these codes as defined in <a href=\"http://hl7.org/fhir/R4/codesystem-administrative-gender.html\"><code>http://hl7.org/fhir/administrative-gender</code></a><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href=\"http://hl7.org/fhir/R4/codesystem-administrative-gender.html#administrative-gender-unknown\">unknown</a></td><td>Unknown</td><td>Unknown.</td></tr><tr><td><a href=\"http://hl7.org/fhir/R4/codesystem-administrative-gender.html#administrative-gender-other\">other</a></td><td>Other</td><td>Other.</td></tr></table></li></ul></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/ValueSet/BiologicalSex"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "BiologicalSex"] ; # 
+  fhir:title [ fhir:v "SOT Biological Sex"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-10-25T07:26:32+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Biological Sex"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [ fhir:v "http://hl7.org/fhir/administrative-gender"^^xsd:anyURI ]
+     ] ) ;
+     fhir:exclude ( [
+       fhir:system [ fhir:v "http://hl7.org/fhir/administrative-gender"^^xsd:anyURI ] ;
+       fhir:concept ( [
+         fhir:code [ fhir:v "unknown" ] ;
+         fhir:display [ fhir:v "Unknown" ]
+       ] [
+         fhir:code [ fhir:v "other" ] ;
+         fhir:display [ fhir:v "Other" ]
+       ] )
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

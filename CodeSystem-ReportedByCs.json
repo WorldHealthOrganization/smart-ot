@@ -1,0 +1,51 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "ReportedByCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/ReportedBy</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">MobileTeam<a name=\"ReportedByCs-MobileTeam\"> </a></td><td>Mobile team</td></tr><tr><td style=\"white-space:nowrap\">HealthCentre<a name=\"ReportedByCs-HealthCentre\"> </a></td><td>Health Cantre/post</td></tr><tr><td style=\"white-space:nowrap\">Hospital<a name=\"ReportedByCs-Hospital\"> </a></td><td>Hospital</td></tr><tr><td style=\"white-space:nowrap\">Other<a name=\"ReportedByCs-Other\"> </a></td><td>Other</td></tr><tr><td style=\"white-space:nowrap\">Unknown<a name=\"ReportedByCs-Unknown\"> </a></td><td>Unknown</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/ReportedBy",
+  "version" : "0.2.1",
+  "name" : "ReportedByCs",
+  "title" : "Reported By",
+  "status" : "draft",
+  "date" : "2023-11-07T05:59:29+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Reported By",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 5,
+  "concept" : [{
+    "code" : "MobileTeam",
+    "display" : "Mobile team"
+  },
+  {
+    "code" : "HealthCentre",
+    "display" : "Health Cantre/post"
+  },
+  {
+    "code" : "Hospital",
+    "display" : "Hospital"
+  },
+  {
+    "code" : "Other",
+    "display" : "Other"
+  },
+  {
+    "code" : "Unknown",
+    "display" : "Unknown"
+  }]
+}

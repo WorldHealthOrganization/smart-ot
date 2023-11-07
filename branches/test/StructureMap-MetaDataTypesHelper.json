@@ -1,0 +1,561 @@
+{
+  "resourceType" : "StructureMap",
+  "id" : "MetaDataTypesHelper",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre class=\"fml\">\r\n<b>map</b><span style=\"color: navy\"> &quot;</span>http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper<span style=\"color: navy\">&quot; = &quot;</span>MetaDataTypesHelper<span style=\"color: navy\">&quot;\r\n\r\n</span><b>group </b>addressToAddress<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">sourceAddress</span>, <b>target</b> <span style=\"color: maroon\">targetAddress</span><span style=\"color: navy\"> : </span>Address<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  sourceAddress.use<b> as </b><span style=\"color: maroon\">use</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.use = <span style=\"color: maroon\">use</span> <i>&quot;Copy use&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.type<b> as </b><span style=\"color: maroon\">type</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.type = <span style=\"color: maroon\">type</span> <i>&quot;Copy type&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.text<b> as </b><span style=\"color: maroon\">text</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.text = <span style=\"color: maroon\">text</span> <i>&quot;Copy text&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.line<b> as </b><span style=\"color: maroon\">line</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.line = <span style=\"color: maroon\">line</span> <i>&quot;Copy line&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.city<b> as </b><span style=\"color: maroon\">city</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.city = <span style=\"color: maroon\">city</span> <i>&quot;Copy city&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.district<b> as </b><span style=\"color: maroon\">district</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.district = <span style=\"color: maroon\">district</span> <i>&quot;Copy district&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.state<b> as </b><span style=\"color: maroon\">state</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.state = <span style=\"color: maroon\">state</span> <i>&quot;Copy state&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.postalCode<b> as </b><span style=\"color: maroon\">postalCode</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.postalCode = <span style=\"color: maroon\">postalCode</span> <i>&quot;Copy postalCode&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.country<b> as </b><span style=\"color: maroon\">country</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.country = <span style=\"color: maroon\">country</span> <i>&quot;Copy country&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">// </span><span style=\"color: green\">Copy the period using the previously defined group function</span>\r\n  sourceAddress.period<b> as </b><span style=\"color: maroon\">sourcePeriod</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.period<b> as </b><span style=\"color: maroon\">targetPeriod</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    sourcePeriod<span style=\"color: navy\"><b> -&gt; </b></span><span style=\"color: maroon\">sourcePeriod</span><b> then </b>periodToPeriod<span style=\"color: navy\">(</span><span style=\"color: maroon\">sourcePeriod</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">targetPeriod</span><span style=\"color: navy\">)</span> <i>&quot;Copy period&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;copy period&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>humanNameToHumanName<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">sourceName</span>, <b>target</b> <span style=\"color: maroon\">targetName</span><span style=\"color: navy\"> : </span>HumanName<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  sourceName.use<b> as </b><span style=\"color: maroon\">use</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.use = <span style=\"color: maroon\">use</span> <i>&quot;Copy use&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceName.text<b> as </b><span style=\"color: maroon\">text</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.text = <span style=\"color: maroon\">text</span> <i>&quot;Copy text&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceName.family<b> as </b><span style=\"color: maroon\">family</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.family = <span style=\"color: maroon\">family</span> <i>&quot;Copy family&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceName.given<b> as </b><span style=\"color: maroon\">given</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.given = <span style=\"color: maroon\">given</span> <i>&quot;Copy given&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceName.prefix<b> as </b><span style=\"color: maroon\">prefix</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.prefix = <span style=\"color: maroon\">prefix</span> <i>&quot;Copy prefix&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceName.suffix<b> as </b><span style=\"color: maroon\">suffix</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.suffix = <span style=\"color: maroon\">suffix</span> <i>&quot;Copy suffix&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">// </span><span style=\"color: green\">Copy the period using the previously defined group function</span>\r\n  sourceName.period<b> as </b><span style=\"color: maroon\">sourcePeriod</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.period<b> as </b><span style=\"color: maroon\">targetPeriod</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    sourcePeriod<span style=\"color: navy\"><b> -&gt; </b></span><span style=\"color: maroon\">sourcePeriod</span><b> then </b>periodToPeriod<span style=\"color: navy\">(</span><span style=\"color: maroon\">sourcePeriod</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">targetPeriod</span><span style=\"color: navy\">)</span> <i>&quot;Copy period&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;copy period&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>periodToPeriod<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">sourcePeriod</span>, <b>target</b> <span style=\"color: maroon\">targetPeriod</span><span style=\"color: navy\"> : </span>Period<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  sourcePeriod.start<b> as </b><span style=\"color: maroon\">start</span><span style=\"color: navy\"><b> -&gt; </b></span>targetPeriod.start = <span style=\"color: maroon\">start</span> <i>&quot;set period start&quot;</i><span style=\"color: navy\">;</span>\r\n  sourcePeriod.end<b> as </b><span style=\"color: maroon\">end</span><span style=\"color: navy\"><b> -&gt; </b></span>targetPeriod.end = <span style=\"color: maroon\">end</span> <i>&quot;set period end&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>contactPointToContactPoint<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">sourceContact</span>, <b>target</b> <span style=\"color: maroon\">targetContact</span><span style=\"color: navy\"> : </span>ContactPoint<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  sourceContact.system<b> as </b><span style=\"color: maroon\">system</span><span style=\"color: navy\"><b> -&gt; </b></span>targetContact.system = <span style=\"color: maroon\">system</span> <i>&quot;Copy system&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceContact.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>targetContact.value = <span style=\"color: maroon\">value</span> <i>&quot;Copy value&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceContact.use<b> as </b><span style=\"color: maroon\">use</span><span style=\"color: navy\"><b> -&gt; </b></span>targetContact.use = <span style=\"color: maroon\">use</span> <i>&quot;Copy use&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceContact.rank<b> as </b><span style=\"color: maroon\">rank</span><span style=\"color: navy\"><b> -&gt; </b></span>targetContact.rank = <span style=\"color: maroon\">rank</span> <i>&quot;Copy rank&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">// </span><span style=\"color: green\">Copy the period using the previously defined group function</span>\r\n  sourceContact.period<b> as </b><span style=\"color: maroon\">sourcePeriod</span><span style=\"color: navy\"><b> -&gt; </b></span>targetContact.period<b> as </b><span style=\"color: maroon\">targetPeriod</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    sourcePeriod<span style=\"color: navy\"><b> -&gt; </b></span><span style=\"color: maroon\">sourcePeriod</span><b> then </b>periodToPeriod<span style=\"color: navy\">(</span><span style=\"color: maroon\">sourcePeriod</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">targetPeriod</span><span style=\"color: navy\">)</span> <i>&quot;Copy period&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;copy period&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapCodingtoCodeableConcept<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">coding</span><span style=\"color: navy\"> : </span>Coding, <b>target</b> <span style=\"color: maroon\">codeableConcept</span><span style=\"color: navy\"> : </span>CodeableConcept<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  coding<span style=\"color: navy\"><b> -&gt; </b></span>codeableConcept.coding = <span style=\"color: maroon\">coding</span> <i>&quot;set coding&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span></pre></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper",
+  "version" : "0.2.1",
+  "name" : "MetaDataTypesHelper",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "group" : [{
+    "name" : "addressToAddress",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "sourceAddress",
+      "mode" : "source"
+    },
+    {
+      "name" : "targetAddress",
+      "type" : "Address",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "Copy use",
+      "source" : [{
+        "context" : "sourceAddress",
+        "element" : "use",
+        "variable" : "use"
+      }],
+      "target" : [{
+        "context" : "targetAddress",
+        "contextType" : "variable",
+        "element" : "use",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "use"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy type",
+      "source" : [{
+        "context" : "sourceAddress",
+        "element" : "type",
+        "variable" : "type"
+      }],
+      "target" : [{
+        "context" : "targetAddress",
+        "contextType" : "variable",
+        "element" : "type",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "type"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy text",
+      "source" : [{
+        "context" : "sourceAddress",
+        "element" : "text",
+        "variable" : "text"
+      }],
+      "target" : [{
+        "context" : "targetAddress",
+        "contextType" : "variable",
+        "element" : "text",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "text"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy line",
+      "source" : [{
+        "context" : "sourceAddress",
+        "element" : "line",
+        "variable" : "line"
+      }],
+      "target" : [{
+        "context" : "targetAddress",
+        "contextType" : "variable",
+        "element" : "line",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "line"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy city",
+      "source" : [{
+        "context" : "sourceAddress",
+        "element" : "city",
+        "variable" : "city"
+      }],
+      "target" : [{
+        "context" : "targetAddress",
+        "contextType" : "variable",
+        "element" : "city",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "city"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy district",
+      "source" : [{
+        "context" : "sourceAddress",
+        "element" : "district",
+        "variable" : "district"
+      }],
+      "target" : [{
+        "context" : "targetAddress",
+        "contextType" : "variable",
+        "element" : "district",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "district"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy state",
+      "source" : [{
+        "context" : "sourceAddress",
+        "element" : "state",
+        "variable" : "state"
+      }],
+      "target" : [{
+        "context" : "targetAddress",
+        "contextType" : "variable",
+        "element" : "state",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "state"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy postalCode",
+      "source" : [{
+        "context" : "sourceAddress",
+        "element" : "postalCode",
+        "variable" : "postalCode"
+      }],
+      "target" : [{
+        "context" : "targetAddress",
+        "contextType" : "variable",
+        "element" : "postalCode",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "postalCode"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy country",
+      "source" : [{
+        "context" : "sourceAddress",
+        "element" : "country",
+        "variable" : "country"
+      }],
+      "target" : [{
+        "context" : "targetAddress",
+        "contextType" : "variable",
+        "element" : "country",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "country"
+        }]
+      }]
+    },
+    {
+      "name" : "copy period",
+      "source" : [{
+        "context" : "sourceAddress",
+        "element" : "period",
+        "variable" : "sourcePeriod"
+      }],
+      "target" : [{
+        "context" : "targetAddress",
+        "contextType" : "variable",
+        "element" : "period",
+        "variable" : "targetPeriod"
+      }],
+      "rule" : [{
+        "name" : "Copy period",
+        "source" : [{
+          "context" : "sourcePeriod"
+        }],
+        "target" : [{
+          "contextType" : "variable",
+          "transform" : "copy",
+          "parameter" : [{
+            "valueId" : "sourcePeriod"
+          }]
+        }],
+        "dependent" : [{
+          "name" : "periodToPeriod",
+          "variable" : ["sourcePeriod",
+          "targetPeriod"]
+        }]
+      }]
+    }]
+  },
+  {
+    "name" : "humanNameToHumanName",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "sourceName",
+      "mode" : "source"
+    },
+    {
+      "name" : "targetName",
+      "type" : "HumanName",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "Copy use",
+      "source" : [{
+        "context" : "sourceName",
+        "element" : "use",
+        "variable" : "use"
+      }],
+      "target" : [{
+        "context" : "targetName",
+        "contextType" : "variable",
+        "element" : "use",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "use"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy text",
+      "source" : [{
+        "context" : "sourceName",
+        "element" : "text",
+        "variable" : "text"
+      }],
+      "target" : [{
+        "context" : "targetName",
+        "contextType" : "variable",
+        "element" : "text",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "text"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy family",
+      "source" : [{
+        "context" : "sourceName",
+        "element" : "family",
+        "variable" : "family"
+      }],
+      "target" : [{
+        "context" : "targetName",
+        "contextType" : "variable",
+        "element" : "family",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "family"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy given",
+      "source" : [{
+        "context" : "sourceName",
+        "element" : "given",
+        "variable" : "given"
+      }],
+      "target" : [{
+        "context" : "targetName",
+        "contextType" : "variable",
+        "element" : "given",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "given"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy prefix",
+      "source" : [{
+        "context" : "sourceName",
+        "element" : "prefix",
+        "variable" : "prefix"
+      }],
+      "target" : [{
+        "context" : "targetName",
+        "contextType" : "variable",
+        "element" : "prefix",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "prefix"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy suffix",
+      "source" : [{
+        "context" : "sourceName",
+        "element" : "suffix",
+        "variable" : "suffix"
+      }],
+      "target" : [{
+        "context" : "targetName",
+        "contextType" : "variable",
+        "element" : "suffix",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "suffix"
+        }]
+      }]
+    },
+    {
+      "name" : "copy period",
+      "source" : [{
+        "context" : "sourceName",
+        "element" : "period",
+        "variable" : "sourcePeriod"
+      }],
+      "target" : [{
+        "context" : "targetName",
+        "contextType" : "variable",
+        "element" : "period",
+        "variable" : "targetPeriod"
+      }],
+      "rule" : [{
+        "name" : "Copy period",
+        "source" : [{
+          "context" : "sourcePeriod"
+        }],
+        "target" : [{
+          "contextType" : "variable",
+          "transform" : "copy",
+          "parameter" : [{
+            "valueId" : "sourcePeriod"
+          }]
+        }],
+        "dependent" : [{
+          "name" : "periodToPeriod",
+          "variable" : ["sourcePeriod",
+          "targetPeriod"]
+        }]
+      }]
+    }]
+  },
+  {
+    "name" : "periodToPeriod",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "sourcePeriod",
+      "mode" : "source"
+    },
+    {
+      "name" : "targetPeriod",
+      "type" : "Period",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "set period start",
+      "source" : [{
+        "context" : "sourcePeriod",
+        "element" : "start",
+        "variable" : "start"
+      }],
+      "target" : [{
+        "context" : "targetPeriod",
+        "contextType" : "variable",
+        "element" : "start",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "start"
+        }]
+      }]
+    },
+    {
+      "name" : "set period end",
+      "source" : [{
+        "context" : "sourcePeriod",
+        "element" : "end",
+        "variable" : "end"
+      }],
+      "target" : [{
+        "context" : "targetPeriod",
+        "contextType" : "variable",
+        "element" : "end",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "end"
+        }]
+      }]
+    }]
+  },
+  {
+    "name" : "contactPointToContactPoint",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "sourceContact",
+      "mode" : "source"
+    },
+    {
+      "name" : "targetContact",
+      "type" : "ContactPoint",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "Copy system",
+      "source" : [{
+        "context" : "sourceContact",
+        "element" : "system",
+        "variable" : "system"
+      }],
+      "target" : [{
+        "context" : "targetContact",
+        "contextType" : "variable",
+        "element" : "system",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "system"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy value",
+      "source" : [{
+        "context" : "sourceContact",
+        "element" : "value",
+        "variable" : "value"
+      }],
+      "target" : [{
+        "context" : "targetContact",
+        "contextType" : "variable",
+        "element" : "value",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "value"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy use",
+      "source" : [{
+        "context" : "sourceContact",
+        "element" : "use",
+        "variable" : "use"
+      }],
+      "target" : [{
+        "context" : "targetContact",
+        "contextType" : "variable",
+        "element" : "use",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "use"
+        }]
+      }]
+    },
+    {
+      "name" : "Copy rank",
+      "source" : [{
+        "context" : "sourceContact",
+        "element" : "rank",
+        "variable" : "rank"
+      }],
+      "target" : [{
+        "context" : "targetContact",
+        "contextType" : "variable",
+        "element" : "rank",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "rank"
+        }]
+      }]
+    },
+    {
+      "name" : "copy period",
+      "source" : [{
+        "context" : "sourceContact",
+        "element" : "period",
+        "variable" : "sourcePeriod"
+      }],
+      "target" : [{
+        "context" : "targetContact",
+        "contextType" : "variable",
+        "element" : "period",
+        "variable" : "targetPeriod"
+      }],
+      "rule" : [{
+        "name" : "Copy period",
+        "source" : [{
+          "context" : "sourcePeriod"
+        }],
+        "target" : [{
+          "contextType" : "variable",
+          "transform" : "copy",
+          "parameter" : [{
+            "valueId" : "sourcePeriod"
+          }]
+        }],
+        "dependent" : [{
+          "name" : "periodToPeriod",
+          "variable" : ["sourcePeriod",
+          "targetPeriod"]
+        }]
+      }]
+    }]
+  },
+  {
+    "name" : "mapCodingtoCodeableConcept",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "coding",
+      "type" : "Coding",
+      "mode" : "source"
+    },
+    {
+      "name" : "codeableConcept",
+      "type" : "CodeableConcept",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "set coding",
+      "source" : [{
+        "context" : "coding"
+      }],
+      "target" : [{
+        "context" : "codeableConcept",
+        "contextType" : "variable",
+        "element" : "coding",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "coding"
+        }]
+      }]
+    }]
+  }]
+}

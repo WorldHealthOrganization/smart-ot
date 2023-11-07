@@ -1,0 +1,50 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/CodeSystem/WaterCharacteristicsCs> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "WaterCharacteristicsCs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/WaterCharacteristics</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td></tr><tr><td style=\"white-space:nowrap\">Clear<a name=\"WaterCharacteristicsCs-Clear\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Filtered<a name=\"WaterCharacteristicsCs-Filtered\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Treated<a name=\"WaterCharacteristicsCs-Treated\"> </a></td></tr></table></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/WaterCharacteristics"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "WaterCharacteristicsCs"] ; # 
+  fhir:title [ fhir:v "Water Characteristics"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-11-07T05:59:29+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Water Characteristics"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "3"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "Clear" ] ;
+     fhir:display [ fhir:v "Clear" ]
+  ] [
+     fhir:code [ fhir:v "Filtered" ] ;
+     fhir:display [ fhir:v "Filtered" ]
+  ] [
+     fhir:code [ fhir:v "Treated" ] ;
+     fhir:display [ fhir:v "Treated" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

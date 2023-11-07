@@ -1,0 +1,135 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "example-document-bundle-case-report-1",
+  "type" : "document",
+  "timestamp" : "2015-02-07T13:28:17.239+02:00",
+  "entry" : [{
+    "fullUrl" : "urn:uuid:0cb16a1d-b96d-42b9-af23-bc95c6e08f6c",
+    "resource" : {
+      "resourceType" : "Composition",
+      "id" : "0cb16a1d-b96d-42b9-af23-bc95c6e08f6c",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Composition</b><a name=\"0cb16a1d-b96d-42b9-af23-bc95c6e08f6c\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Composition &quot;0cb16a1d-b96d-42b9-af23-bc95c6e08f6c&quot; </p></div><p><b>status</b>: final</p><p><b>type</b>: Public health Case report <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://loinc.org/\">LOINC</a>#55751-2)</span></p><p><b>encounter</b>: <a href=\"#Encounter_a4a33af4-a396-468c-b2c4-f06c0c53edb6\">See above (Encounter/a4a33af4-a396-468c-b2c4-f06c0c53edb6)</a></p><p><b>date</b>: 2023-08-09</p><p><b>author</b>: </p><ul><li><a href=\"#Practitioner_26b9f4bb-c524-47a2-b029-13b19b6da4ca\">See above (Practitioner/26b9f4bb-c524-47a2-b029-13b19b6da4ca)</a></li><li><a href=\"#Organization_183bbc73-776b-456a-a8c7-1e3faae38531\">See above (Organization/183bbc73-776b-456a-a8c7-1e3faae38531)</a></li></ul><p><b>title</b>: PAHO Measles Case Investigation Form</p></div>"
+      },
+      "status" : "final",
+      "type" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "55751-2",
+          "display" : "Public health Case report"
+        }]
+      },
+      "subject" : {
+        "reference" : "Patient/2214d3c9-d939-4048-824d-9bf0c4d2907a"
+      },
+      "encounter" : {
+        "reference" : "Encounter/a4a33af4-a396-468c-b2c4-f06c0c53edb6"
+      },
+      "date" : "2023-08-09",
+      "author" : [{
+        "reference" : "Practitioner/26b9f4bb-c524-47a2-b029-13b19b6da4ca"
+      },
+      {
+        "reference" : "Organization/183bbc73-776b-456a-a8c7-1e3faae38531"
+      }],
+      "title" : "PAHO Measles Case Investigation Form"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:2214d3c9-d939-4048-824d-9bf0c4d2907a",
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "2214d3c9-d939-4048-824d-9bf0c4d2907a",
+      "text" : {
+        "status" : "extensions",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Patient</b><a name=\"2214d3c9-d939-4048-824d-9bf0c4d2907a\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Patient &quot;2214d3c9-d939-4048-824d-9bf0c4d2907a&quot; </p></div><p><b>Landmark</b>: Next the spot</p><p><b>Guardian</b>: Mother Doe </p><p><b>Occupation</b>: Busy</p><p><b>WorkAddress</b>: Workaddress</p><p><b>name</b>: John Doe </p><p><b>telecom</b>: ph: 234phone</p><p><b>birthDate</b>: 2014-08-07</p><p><b>address</b>: Avenue</p></div>"
+      },
+      "extension" : [{
+        "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Landmark",
+        "valueString" : "Next the spot"
+      },
+      {
+        "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Guardian",
+        "valueHumanName" : {
+          "family" : "Mother Doe"
+        }
+      },
+      {
+        "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Occupation",
+        "valueString" : "Busy"
+      },
+      {
+        "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/WorkAddress",
+        "valueAddress" : {
+          "text" : "Workaddress"
+        }
+      }],
+      "name" : [{
+        "family" : "John Doe"
+      }],
+      "telecom" : [{
+        "system" : "phone",
+        "value" : "234phone"
+      }],
+      "birthDate" : "2014-08-07",
+      "address" : [{
+        "text" : "Avenue"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:26b9f4bb-c524-47a2-b029-13b19b6da4ca",
+    "resource" : {
+      "resourceType" : "Practitioner",
+      "id" : "26b9f4bb-c524-47a2-b029-13b19b6da4ca",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Practitioner</b><a name=\"26b9f4bb-c524-47a2-b029-13b19b6da4ca\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Practitioner &quot;26b9f4bb-c524-47a2-b029-13b19b6da4ca&quot; </p></div><p><b>name</b>: reporter</p></div>"
+      },
+      "name" : [{
+        "text" : "reporter"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:183bbc73-776b-456a-a8c7-1e3faae38531",
+    "resource" : {
+      "resourceType" : "Organization",
+      "id" : "183bbc73-776b-456a-a8c7-1e3faae38531",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Organization</b><a name=\"183bbc73-776b-456a-a8c7-1e3faae38531\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Organization &quot;183bbc73-776b-456a-a8c7-1e3faae38531&quot; </p></div><p><b>name</b>: hospital</p><blockquote><p><b>contact</b></p><p><b>telecom</b>: ph: 123-phone</p></blockquote><blockquote><p><b>contact</b></p><p><b>address</b>: City State Utopia </p></blockquote></div>"
+      },
+      "name" : "hospital",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "phone",
+          "value" : "123-phone"
+        }]
+      },
+      {
+        "address" : {
+          "city" : "City",
+          "district" : "Locality",
+          "state" : "State",
+          "country" : "Utopia"
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:a4a33af4-a396-468c-b2c4-f06c0c53edb6",
+    "resource" : {
+      "resourceType" : "Encounter",
+      "id" : "a4a33af4-a396-468c-b2c4-f06c0c53edb6",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Encounter</b><a name=\"a4a33af4-a396-468c-b2c4-f06c0c53edb6\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Encounter &quot;a4a33af4-a396-468c-b2c4-f06c0c53edb6&quot; </p></div><p><b>period</b>: 2023-08-09 --&gt; (ongoing)</p></div>"
+      },
+      "period" : {
+        "start" : "2023-08-09"
+      }
+    }
+  }]
+}

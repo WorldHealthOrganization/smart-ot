@@ -1,0 +1,47 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "CaseStatusCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/CaseStatus</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td></tr><tr><td style=\"white-space:nowrap\">Confirmed<a name=\"CaseStatusCs-Confirmed\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Probable<a name=\"CaseStatusCs-Probable\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Suspect<a name=\"CaseStatusCs-Suspect\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Other<a name=\"CaseStatusCs-Other\"> </a></td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/CaseStatus",
+  "version" : "0.2.1",
+  "name" : "CaseStatusCs",
+  "title" : "Case Status",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Case Status",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 4,
+  "concept" : [{
+    "code" : "Confirmed",
+    "display" : "Confirmed"
+  },
+  {
+    "code" : "Probable",
+    "display" : "Probable"
+  },
+  {
+    "code" : "Suspect",
+    "display" : "Suspect"
+  },
+  {
+    "code" : "Other",
+    "display" : "Other"
+  }]
+}

@@ -1,0 +1,1603 @@
+{
+  "resourceType" : "StructureMap",
+  "id" : "AFROMRCIFQuestionnaireToLogicalModel",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre class=\"fml\">\r\n<b>map</b><span style=\"color: navy\"> &quot;</span>http://worldhealthorganization.github.io/smart-ot/StructureMap/AFROMRCIFQuestionnaireToLogicalModel<span style=\"color: navy\">&quot; = &quot;</span>AFROMRCIFQuestionnaireToLogicalModel<span style=\"color: navy\">&quot;\r\n\r\n</span><b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"http://hl7.org/fhir/R4/questionnaireresponse.html\" title=\"QuestionnaireResponse\">http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse</a><span style=\"color: navy\">&quot; </span><b>alias </b>QuestionnaireResponse <b>as </b><b>source</b>\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureDefinition-AFROMRCIF.html\" title=\"Surveillance &amp; Outbreak Toolkit - AFRO MRCIF\">http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIF</a><span style=\"color: navy\">&quot; </span><b>alias </b>MeaslesLogicalModel <b>as </b><b>target</b>\r\n\r\n<b>group </b>MRCIFQuestionnaireToLogicalModel<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qr</span><span style=\"color: navy\"> : </span>QuestionnaireResponse, <b>target</b> <span style=\"color: maroon\">measlesLm</span><span style=\"color: navy\"> : </span>AFROMRCIF<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qr.item<b> as </b><span style=\"color: maroon\">item</span><b> where </b>linkId.value in ('investigationForm')<span style=\"color: navy\"><b> -&gt; </b></span><span style=\"color: maroon\">measlesLm</span><b> as </b><span style=\"color: maroon\">measlesLm</span><b> then </b>mapInvestigationForm<span style=\"color: navy\">(</span><span style=\"color: maroon\">item</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">measlesLm</span><span style=\"color: navy\">)</span> <i>&quot;set Investigation form&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapInvestigationForm<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">investigationForm</span>, <b>target</b> <span style=\"color: maroon\">measlesLm</span><span style=\"color: navy\"> : </span>AFROMRCIF<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  investigationForm.item<b> as </b><span style=\"color: maroon\">qrReportingSource</span><b> where </b>linkId.value in ('reportingSource')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.ReportingSource<b> as </b><span style=\"color: maroon\">lmReportingSource</span><b> then </b>mapReportingSource<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrReportingSource</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmReportingSource</span><span style=\"color: navy\">)</span> <i>&quot;set Reporting Source&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrDemographics</span><b> where </b>linkId.value in ('demographics')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.Demographics<b> as </b><span style=\"color: maroon\">lmDemographics</span><b> then </b>mapDemographics<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrDemographics</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmDemographics</span><span style=\"color: navy\">)</span> <i>&quot;set Demographics&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrVaccinationStatus</span><b> where </b>linkId.value in ('vaccinationStatus')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.VaccinationStatus<b> as </b><span style=\"color: maroon\">lmVaccinationStatus</span><b> then </b>mapVaccinationStatus<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrVaccinationStatus</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmVaccinationStatus</span><span style=\"color: navy\">)</span> <i>&quot;set Vaccination Status&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrClinical</span><b> where </b>linkId.value in ('clinical')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.Clinical<b> as </b><span style=\"color: maroon\">lmClinical</span><b> then </b>mapClinical<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrClinical</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmClinical</span><span style=\"color: navy\">)</span> <i>&quot;set Clinical&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrLaboratoryResults</span><b> where </b>linkId.value in ('laboratoryResults')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.LaboratoryResults<b> as </b><span style=\"color: maroon\">lmLaboratoryResults</span><b> then </b>mapLaboratoryResults<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrLaboratoryResults</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmLaboratoryResults</span><span style=\"color: navy\">)</span> <i>&quot;set Laboratory Results&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrCaseInvestigation</span><b> where </b>linkId.value in ('qrCaseInvestigation')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.qrCaseInvestigation<b> as </b><span style=\"color: maroon\">lmCaseInvestigation</span><b> then </b>mapCaseInvestigation<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrCaseInvestigation</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmCaseInvestigation</span><span style=\"color: navy\">)</span> <i>&quot;set Contact Tracing&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrClassification</span><b> where </b>linkId.value in ('classification')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.Classification<b> as </b><span style=\"color: maroon\">lmClassification</span><b> then </b>mapClassification<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrClassification</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmClassification</span><span style=\"color: navy\">)</span> <i>&quot;set Classification&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapReportingSource<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrReportingSource</span>, <b>target</b> <span style=\"color: maroon\">lmReportingSource</span><span style=\"color: navy\"> : </span>SOTMeaslesReportingSource<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrReportingSource.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">caseId</span><b> where </b>item.linkId = 'caseID'<b> then</b><span style=\"color: navy\"> {\r\n</span>      caseId.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.UniqueId = <span style=\"color: maroon\">value</span> <i>&quot;set01&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    qrReportingSource.item<b> as </b><span style=\"color: maroon\">qrReportingInstitution</span><b> where </b>linkId.value in ('reportingInstitution')<span style=\"color: navy\"><b> -&gt; </b></span><span style=\"color: maroon\">lmReportingSource</span><b> as </b><span style=\"color: maroon\">lmReportingSource</span><b> then </b>mapReportingInstitution<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrReportingInstitution</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmReportingSource</span><span style=\"color: navy\">)</span> <i>&quot;set reporting institution&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">dateReportedNational</span><b> where </b>item.linkId = 'DateReportedNational'<b> then</b><span style=\"color: navy\"> {\r\n</span>      dateReportedNational.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.DateReportedNational = <span style=\"color: maroon\">value</span> <i>&quot;set date reported national&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set date reported national&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set reporting source&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapReportingInstitution<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrReportingInstitution</span>, <b>target</b> <span style=\"color: maroon\">lmReportingSource</span><span style=\"color: navy\"> : </span>SOTMeaslesReportingSource<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrReportingInstitution.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">reportingFacility</span><b> where </b>item.linkId = 'reportingFacility'<b> then</b><span style=\"color: navy\"> {\r\n</span>      reportingFacility.value<b> as </b><span style=\"color: maroon\">healthFacilityName</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.HealthServiceName = <span style=\"color: maroon\">healthFacilityName</span> <i>&quot;set health facility name&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set health facility name&quot;</i><span style=\"color: navy\">;</span>\r\n    qrReportingInstitution<span style=\"color: navy\"><b> -&gt; </b></span><b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Address'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">lmAddress</span><b> then</b><span style=\"color: navy\"> {\r\n</span>      item.answer first<b> as </b><span style=\"color: maroon\">country</span><b> where </b>item.linkId = 'country'<b> then</b><span style=\"color: navy\"> {\r\n</span>        country.value<b> as </b><span style=\"color: maroon\">countryValue</span><span style=\"color: navy\"><b> -&gt; </b></span>lmAddress.country = <span style=\"color: maroon\">countryValue</span> <i>&quot;set country&quot;</i><span style=\"color: navy\">;</span>\r\n      <span style=\"color: navy\">}</span> <i>&quot;set country&quot;</i><span style=\"color: navy\">;</span>\r\n      item.answer first<b> as </b><span style=\"color: maroon\">municipality</span><b> where </b>item.linkId = 'municipality'<b> then</b><span style=\"color: navy\"> {\r\n</span>        municipality.value<b> as </b><span style=\"color: maroon\">cityValue</span><span style=\"color: navy\"><b> -&gt; </b></span>lmAddress.city = <span style=\"color: maroon\">cityValue</span> <i>&quot;set city&quot;</i><span style=\"color: navy\">;</span>\r\n      <span style=\"color: navy\">}</span> <i>&quot;set city  &quot;</i><span style=\"color: navy\">;</span>\r\n      item.answer first<b> as </b><span style=\"color: maroon\">state</span><b> where </b>item.linkId = 'state'<b> then</b><span style=\"color: navy\"> {\r\n</span>        state.value<b> as </b><span style=\"color: maroon\">stateValue</span><span style=\"color: navy\"><b> -&gt; </b></span>lmAddress.state = <span style=\"color: maroon\">stateValue</span> <i>&quot;set state&quot;</i><span style=\"color: navy\">;</span>\r\n      <span style=\"color: navy\">}</span> <i>&quot;set state&quot;</i><span style=\"color: navy\">;</span>\r\n      item.answer first<b> as </b><span style=\"color: maroon\">locality</span><b> where </b>item.linkId = 'locality'<b> then</b><span style=\"color: navy\"> {\r\n</span>        locality.value<b> as </b><span style=\"color: maroon\">localityValue</span><span style=\"color: navy\"><b> -&gt; </b></span>lmAddress.line = <span style=\"color: maroon\">localityValue</span> <i>&quot;set locality&quot;</i><span style=\"color: navy\">;</span>\r\n      <span style=\"color: navy\">}</span> <i>&quot;set locality&quot;</i><span style=\"color: navy\">;</span>\r\n      qrReportingInstitution<span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.PlaceOfReporting = <span style=\"color: maroon\">lmAddress</span> <i>&quot;assign address&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set address&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set reporting institution&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapDemographics<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrDemographics</span>, <b>target</b> <span style=\"color: maroon\">lmDemographics</span><span style=\"color: navy\"> : </span>SOTMeaslesDemographic<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrDemographics.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">name</span><b> where </b>item.linkId = 'name'<b> then</b><span style=\"color: navy\"> {\r\n</span>      name.value<b> as </b><span style=\"color: maroon\">nameValue</span><span style=\"color: navy\"><b> -&gt; </b></span> <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'HumanName'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">lmName</span><span style=\"color: navy\">, </span> lmName.family = <span style=\"color: maroon\">nameValue</span><span style=\"color: navy\">, </span> lmDemographics.Name = <span style=\"color: maroon\">lmName</span> <i>&quot;set name&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set name&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">// </span><span style=\"color: green\">adapt address to be separate mappings</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">address</span><b> where </b>item.linkId = 'address'<b> then</b><span style=\"color: navy\"> {\r\n</span>      address.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span> <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Address'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">lmAddress</span><span style=\"color: navy\">, </span> lmAddress.text = <span style=\"color: maroon\">value</span><span style=\"color: navy\">, </span> lmDemographics.PlaceOfResidence = <span style=\"color: maroon\">lmAddress</span> <i>&quot;set address&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set address&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">location</span><b> where </b>item.linkId = 'localityType'<b> then</b><span style=\"color: navy\"> {\r\n</span>      location.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmDemographics.LocalityType = <span style=\"color: maroon\">value</span> <i>&quot;set Locality Type&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set Locality Type&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">sex</span><b> where </b>item.linkId = 'sex'<b> then</b><span style=\"color: navy\"> {\r\n</span>      sex.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmDemographics.Sex = <span style=\"color: maroon\">value</span> <i>&quot;set sex&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set sex&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">DoB</span><b> where </b>item.linkId = 'DoB'<b> then</b><span style=\"color: navy\"> {\r\n</span>      DoB.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmDemographics.DateOfBirth = <span style=\"color: maroon\">value</span> <i>&quot;set DoB&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set DoB&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">ageOnset</span><b> where </b>item.linkId = 'ageOnset'<b> then</b><span style=\"color: navy\"> {\r\n</span>      ageOnset.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span> <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Quantity'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">lmAgeOnset</span><span style=\"color: navy\">, </span> lmAgeOnset.value = <span style=\"color: maroon\">value</span><span style=\"color: navy\">, </span> lmDemographics.Age = <span style=\"color: maroon\">lmAgeOnset</span> <i>&quot;set ageOnset&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set ageOnset&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set demographics&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapVaccinationStatus<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrVaccinationStatus</span>, <b>target</b> <span style=\"color: maroon\">lmVaccinationStatus</span><span style=\"color: navy\"> : </span>SOTMeaslesVaccinationStatus<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrVaccinationStatus.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">lastDoseDate</span><b> where </b>item.linkId = 'lastDoseDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      lastDoseDate.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmVaccinationStatus.LastDoseDate = <span style=\"color: maroon\">value</span> <i>&quot;set Last Dose Date&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set last dose date&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">noOfDoses</span><b> where </b>item.linkId = 'noOfDoses'<b> then</b><span style=\"color: navy\"> {\r\n</span>      noOfDoses.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmVaccinationStatus.NumberOfDoses = <span style=\"color: maroon\">value</span> <i>&quot;set number of doses&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">vaccineType</span><b> where </b>item.linkId = 'vaccineType'<b> then</b><span style=\"color: navy\"> {\r\n</span>      vaccineType.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmVaccinationStatus.VaccineType = <span style=\"color: maroon\">value</span> <i>&quot;set vaccine type&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapClinical<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrClinical</span>, <b>target</b> <span style=\"color: maroon\">lmClinical</span><span style=\"color: navy\"> : </span>SOTMeaslesClinical<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrClinical.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">fever</span><b> where </b>item.linkId = 'fever'<b> then</b><span style=\"color: navy\"> {\r\n</span>      fever.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Fever = <span style=\"color: maroon\">value</span> <i>&quot;set Fever&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">rash</span><b> where </b>item.linkId = 'rash'<b> then</b><span style=\"color: navy\"> {\r\n</span>      rash.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Rash = <span style=\"color: maroon\">value</span> <i>&quot;set Rash&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">cough</span><b> where </b>item.linkId = 'cough'<b> then</b><span style=\"color: navy\"> {\r\n</span>      cough.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Cough = <span style=\"color: maroon\">value</span> <i>&quot;set Cough&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">conjunctivitis</span><b> where </b>item.linkId = 'conjunctivitis'<b> then</b><span style=\"color: navy\"> {\r\n</span>      conjunctivitis.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Conjunctivitis = <span style=\"color: maroon\">value</span> <i>&quot;set Conjunctivitis&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">coryza</span><b> where </b>item.linkId = 'coryza'<b> then</b><span style=\"color: navy\"> {\r\n</span>      coryza.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Coryza = <span style=\"color: maroon\">value</span> <i>&quot;set Coryza&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">lymphadenopathy</span><b> where </b>item.linkId = 'lymphadenopathy'<b> then</b><span style=\"color: navy\"> {\r\n</span>      lymphadenopathy.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Lymphadenopathy = <span style=\"color: maroon\">value</span> <i>&quot;set Lymphadenopathy&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">jointPain</span><b> where </b>item.linkId = 'jointPain'<b> then</b><span style=\"color: navy\"> {\r\n</span>      jointPain.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.JointPain = <span style=\"color: maroon\">value</span> <i>&quot;set Arthralgia&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">admitted</span><b> where </b>item.linkId = 'admitted'<b> then</b><span style=\"color: navy\"> {\r\n</span>      admitted.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.HistoryOfHospitalization = <span style=\"color: maroon\">value</span> <i>&quot;set Hospitalized&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">admittedHCFName</span><b> where </b>item.linkId = 'admittedHCFName'<b> then</b><span style=\"color: navy\"> {\r\n</span>      admittedHCFName.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.HospitalName = <span style=\"color: maroon\">value</span> <i>&quot;set Hospital Name&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">outcome</span><b> where </b>item.linkId = 'outcome'<b> then</b><span style=\"color: navy\"> {\r\n</span>      outcome.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Outcome = <span style=\"color: maroon\">value</span> <i>&quot;set Outcome&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'travelledOutside'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.travelledOutside = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'infectionSetting'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.specifyInfectionSetting = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set clinical&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapLaboratoryResults<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrLaboratoryResults</span>, <b>target</b> <span style=\"color: maroon\">lmLaboratoryResults</span><span style=\"color: navy\"> : </span>LaboratoryResultsLogicalModel<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrLaboratoryResults.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'sampleType'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.SampleType = <span style=\"color: maroon\">value</span> <i>&quot;set SampleType&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'collectionDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.SpecimenCollectionDate = <span style=\"color: maroon\">value</span> <i>&quot;set SpecimenCollectionDate&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'labName'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.LabName = <span style=\"color: maroon\">value</span> <i>&quot;set Shipment Date&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'specimenSentDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.SpecimenSentDate = <span style=\"color: maroon\">value</span> <i>&quot;set SpecimenSentDate&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'specimenReceivedDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.SpecimenRecdDate = <span style=\"color: maroon\">value</span> <i>&quot;set SpecimenRecdDate&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'testPerformed'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.TypeOfTest = <span style=\"color: maroon\">value</span> <i>&quot;set TypeOfTest&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'result'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.Results = <span style=\"color: maroon\">value</span> <i>&quot;set Results&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'specifyVirus'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.ViralGenotype = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set labs&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapCaseInvestigation<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrCaseInvestigation</span>, <b>target</b> <span style=\"color: maroon\">lmCaseInvestigation</span><span style=\"color: navy\"> : </span>SOTMeaslesCaseInvestigation<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrCaseInvestigation.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">dateOfConsultation</span><b> where </b>item.linkId = 'DateOfConsultation'<b> then</b><span style=\"color: navy\"> {\r\n</span>      dateOfConsultation.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.DateOfConsultation = <span style=\"color: maroon\">value</span> <i>&quot;set date of consultation&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set date of consultation&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">dateReportedLocal</span><b> where </b>item.linkId = 'dateReported'<b> then</b><span style=\"color: navy\"> {\r\n</span>      dateReportedLocal.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.DateReportedLocal = <span style=\"color: maroon\">value</span> <i>&quot;set date reported local&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set date reported local&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">rashOnsetDate</span><b> where </b>item.linkId = 'rashOnsetDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      rashOnsetDate.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.RashOnsetDate = <span style=\"color: maroon\">value</span> <i>&quot;set Rash Onset Date&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set contact tracing&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapClassification<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrClassification</span>, <b>target</b> <span style=\"color: maroon\">lmClassification</span><span style=\"color: navy\"> : </span>ClassificationLogicalModel<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrClassification.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'finalClassification'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClassification.FinalClassification = <span style=\"color: maroon\">value</span> <i>&quot;set finalClassification&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">reportedBy</span><b> where </b>item.linkId = 'reportedBy'<b> then</b><span style=\"color: navy\"> {\r\n</span>      reportedBy.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClassification.ReportedBy = <span style=\"color: maroon\">value</span> <i>&quot;set case ID&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set case ID&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set classification&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span></pre></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/StructureMap/AFROMRCIFQuestionnaireToLogicalModel",
+  "version" : "0.2.1",
+  "name" : "AFROMRCIFQuestionnaireToLogicalModel",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "structure" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse",
+    "mode" : "source",
+    "alias" : "QuestionnaireResponse"
+  },
+  {
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIF",
+    "mode" : "target",
+    "alias" : "MeaslesLogicalModel"
+  }],
+  "group" : [{
+    "name" : "MRCIFQuestionnaireToLogicalModel",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "qr",
+      "type" : "QuestionnaireResponse",
+      "mode" : "source"
+    },
+    {
+      "name" : "measlesLm",
+      "type" : "AFROMRCIF",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "set Investigation form",
+      "source" : [{
+        "context" : "qr",
+        "element" : "item",
+        "variable" : "item",
+        "condition" : "linkId.value in ('investigationForm')"
+      }],
+      "target" : [{
+        "contextType" : "variable",
+        "variable" : "measlesLm",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "measlesLm"
+        }]
+      }],
+      "dependent" : [{
+        "name" : "mapInvestigationForm",
+        "variable" : ["item",
+        "measlesLm"]
+      }]
+    }]
+  },
+  {
+    "name" : "mapInvestigationForm",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "investigationForm",
+      "mode" : "source"
+    },
+    {
+      "name" : "measlesLm",
+      "type" : "AFROMRCIF",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "set Reporting Source",
+      "source" : [{
+        "context" : "investigationForm",
+        "element" : "item",
+        "variable" : "qrReportingSource",
+        "condition" : "linkId.value in ('reportingSource')"
+      }],
+      "target" : [{
+        "context" : "measlesLm",
+        "contextType" : "variable",
+        "element" : "ReportingSource",
+        "variable" : "lmReportingSource"
+      }],
+      "dependent" : [{
+        "name" : "mapReportingSource",
+        "variable" : ["qrReportingSource",
+        "lmReportingSource"]
+      }]
+    },
+    {
+      "name" : "set Demographics",
+      "source" : [{
+        "context" : "investigationForm",
+        "element" : "item",
+        "variable" : "qrDemographics",
+        "condition" : "linkId.value in ('demographics')"
+      }],
+      "target" : [{
+        "context" : "measlesLm",
+        "contextType" : "variable",
+        "element" : "Demographics",
+        "variable" : "lmDemographics"
+      }],
+      "dependent" : [{
+        "name" : "mapDemographics",
+        "variable" : ["qrDemographics",
+        "lmDemographics"]
+      }]
+    },
+    {
+      "name" : "set Vaccination Status",
+      "source" : [{
+        "context" : "investigationForm",
+        "element" : "item",
+        "variable" : "qrVaccinationStatus",
+        "condition" : "linkId.value in ('vaccinationStatus')"
+      }],
+      "target" : [{
+        "context" : "measlesLm",
+        "contextType" : "variable",
+        "element" : "VaccinationStatus",
+        "variable" : "lmVaccinationStatus"
+      }],
+      "dependent" : [{
+        "name" : "mapVaccinationStatus",
+        "variable" : ["qrVaccinationStatus",
+        "lmVaccinationStatus"]
+      }]
+    },
+    {
+      "name" : "set Clinical",
+      "source" : [{
+        "context" : "investigationForm",
+        "element" : "item",
+        "variable" : "qrClinical",
+        "condition" : "linkId.value in ('clinical')"
+      }],
+      "target" : [{
+        "context" : "measlesLm",
+        "contextType" : "variable",
+        "element" : "Clinical",
+        "variable" : "lmClinical"
+      }],
+      "dependent" : [{
+        "name" : "mapClinical",
+        "variable" : ["qrClinical",
+        "lmClinical"]
+      }]
+    },
+    {
+      "name" : "set Laboratory Results",
+      "source" : [{
+        "context" : "investigationForm",
+        "element" : "item",
+        "variable" : "qrLaboratoryResults",
+        "condition" : "linkId.value in ('laboratoryResults')"
+      }],
+      "target" : [{
+        "context" : "measlesLm",
+        "contextType" : "variable",
+        "element" : "LaboratoryResults",
+        "variable" : "lmLaboratoryResults"
+      }],
+      "dependent" : [{
+        "name" : "mapLaboratoryResults",
+        "variable" : ["qrLaboratoryResults",
+        "lmLaboratoryResults"]
+      }]
+    },
+    {
+      "name" : "set Contact Tracing",
+      "source" : [{
+        "context" : "investigationForm",
+        "element" : "item",
+        "variable" : "qrCaseInvestigation",
+        "condition" : "linkId.value in ('qrCaseInvestigation')"
+      }],
+      "target" : [{
+        "context" : "measlesLm",
+        "contextType" : "variable",
+        "element" : "qrCaseInvestigation",
+        "variable" : "lmCaseInvestigation"
+      }],
+      "dependent" : [{
+        "name" : "mapCaseInvestigation",
+        "variable" : ["qrCaseInvestigation",
+        "lmCaseInvestigation"]
+      }]
+    },
+    {
+      "name" : "set Classification",
+      "source" : [{
+        "context" : "investigationForm",
+        "element" : "item",
+        "variable" : "qrClassification",
+        "condition" : "linkId.value in ('classification')"
+      }],
+      "target" : [{
+        "context" : "measlesLm",
+        "contextType" : "variable",
+        "element" : "Classification",
+        "variable" : "lmClassification"
+      }],
+      "dependent" : [{
+        "name" : "mapClassification",
+        "variable" : ["qrClassification",
+        "lmClassification"]
+      }]
+    }]
+  },
+  {
+    "name" : "mapReportingSource",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "qrReportingSource",
+      "mode" : "source"
+    },
+    {
+      "name" : "lmReportingSource",
+      "type" : "SOTMeaslesReportingSource",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "set reporting source",
+      "source" : [{
+        "context" : "qrReportingSource",
+        "element" : "item",
+        "variable" : "item"
+      }],
+      "rule" : [{
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "caseId",
+          "condition" : "item.linkId = 'caseID'"
+        }],
+        "rule" : [{
+          "name" : "set01",
+          "source" : [{
+            "context" : "caseId",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmReportingSource",
+            "contextType" : "variable",
+            "element" : "UniqueId",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set reporting institution",
+        "source" : [{
+          "context" : "qrReportingSource",
+          "element" : "item",
+          "variable" : "qrReportingInstitution",
+          "condition" : "linkId.value in ('reportingInstitution')"
+        }],
+        "target" : [{
+          "contextType" : "variable",
+          "variable" : "lmReportingSource",
+          "transform" : "copy",
+          "parameter" : [{
+            "valueId" : "lmReportingSource"
+          }]
+        }],
+        "dependent" : [{
+          "name" : "mapReportingInstitution",
+          "variable" : ["qrReportingInstitution",
+          "lmReportingSource"]
+        }]
+      },
+      {
+        "name" : "set date reported national",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "dateReportedNational",
+          "condition" : "item.linkId = 'DateReportedNational'"
+        }],
+        "rule" : [{
+          "name" : "set date reported national",
+          "source" : [{
+            "context" : "dateReportedNational",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmReportingSource",
+            "contextType" : "variable",
+            "element" : "DateReportedNational",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      }]
+    }]
+  },
+  {
+    "name" : "mapReportingInstitution",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "qrReportingInstitution",
+      "mode" : "source"
+    },
+    {
+      "name" : "lmReportingSource",
+      "type" : "SOTMeaslesReportingSource",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "set reporting institution",
+      "source" : [{
+        "context" : "qrReportingInstitution",
+        "element" : "item",
+        "variable" : "item"
+      }],
+      "rule" : [{
+        "name" : "set health facility name",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "reportingFacility",
+          "condition" : "item.linkId = 'reportingFacility'"
+        }],
+        "rule" : [{
+          "name" : "set health facility name",
+          "source" : [{
+            "context" : "reportingFacility",
+            "element" : "value",
+            "variable" : "healthFacilityName"
+          }],
+          "target" : [{
+            "context" : "lmReportingSource",
+            "contextType" : "variable",
+            "element" : "HealthServiceName",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "healthFacilityName"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set address",
+        "source" : [{
+          "context" : "qrReportingInstitution"
+        }],
+        "target" : [{
+          "contextType" : "variable",
+          "variable" : "lmAddress",
+          "transform" : "create",
+          "parameter" : [{
+            "valueString" : "Address"
+          }]
+        }],
+        "rule" : [{
+          "name" : "set country",
+          "source" : [{
+            "context" : "item",
+            "element" : "answer",
+            "listMode" : "first",
+            "variable" : "country",
+            "condition" : "item.linkId = 'country'"
+          }],
+          "rule" : [{
+            "name" : "set country",
+            "source" : [{
+              "context" : "country",
+              "element" : "value",
+              "variable" : "countryValue"
+            }],
+            "target" : [{
+              "context" : "lmAddress",
+              "contextType" : "variable",
+              "element" : "country",
+              "transform" : "copy",
+              "parameter" : [{
+                "valueId" : "countryValue"
+              }]
+            }]
+          }]
+        },
+        {
+          "name" : "set city  ",
+          "source" : [{
+            "context" : "item",
+            "element" : "answer",
+            "listMode" : "first",
+            "variable" : "municipality",
+            "condition" : "item.linkId = 'municipality'"
+          }],
+          "rule" : [{
+            "name" : "set city",
+            "source" : [{
+              "context" : "municipality",
+              "element" : "value",
+              "variable" : "cityValue"
+            }],
+            "target" : [{
+              "context" : "lmAddress",
+              "contextType" : "variable",
+              "element" : "city",
+              "transform" : "copy",
+              "parameter" : [{
+                "valueId" : "cityValue"
+              }]
+            }]
+          }]
+        },
+        {
+          "name" : "set state",
+          "source" : [{
+            "context" : "item",
+            "element" : "answer",
+            "listMode" : "first",
+            "variable" : "state",
+            "condition" : "item.linkId = 'state'"
+          }],
+          "rule" : [{
+            "name" : "set state",
+            "source" : [{
+              "context" : "state",
+              "element" : "value",
+              "variable" : "stateValue"
+            }],
+            "target" : [{
+              "context" : "lmAddress",
+              "contextType" : "variable",
+              "element" : "state",
+              "transform" : "copy",
+              "parameter" : [{
+                "valueId" : "stateValue"
+              }]
+            }]
+          }]
+        },
+        {
+          "name" : "set locality",
+          "source" : [{
+            "context" : "item",
+            "element" : "answer",
+            "listMode" : "first",
+            "variable" : "locality",
+            "condition" : "item.linkId = 'locality'"
+          }],
+          "rule" : [{
+            "name" : "set locality",
+            "source" : [{
+              "context" : "locality",
+              "element" : "value",
+              "variable" : "localityValue"
+            }],
+            "target" : [{
+              "context" : "lmAddress",
+              "contextType" : "variable",
+              "element" : "line",
+              "transform" : "copy",
+              "parameter" : [{
+                "valueId" : "localityValue"
+              }]
+            }]
+          }]
+        },
+        {
+          "name" : "assign address",
+          "source" : [{
+            "context" : "qrReportingInstitution"
+          }],
+          "target" : [{
+            "context" : "lmReportingSource",
+            "contextType" : "variable",
+            "element" : "PlaceOfReporting",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "lmAddress"
+            }]
+          }]
+        }]
+      }]
+    }]
+  },
+  {
+    "name" : "mapDemographics",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "qrDemographics",
+      "mode" : "source"
+    },
+    {
+      "name" : "lmDemographics",
+      "type" : "SOTMeaslesDemographic",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "set demographics",
+      "source" : [{
+        "context" : "qrDemographics",
+        "element" : "item",
+        "variable" : "item"
+      }],
+      "rule" : [{
+        "name" : "set name",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "name",
+          "condition" : "item.linkId = 'name'"
+        }],
+        "rule" : [{
+          "name" : "set name",
+          "source" : [{
+            "context" : "name",
+            "element" : "value",
+            "variable" : "nameValue"
+          }],
+          "target" : [{
+            "contextType" : "variable",
+            "variable" : "lmName",
+            "transform" : "create",
+            "parameter" : [{
+              "valueString" : "HumanName"
+            }]
+          },
+          {
+            "context" : "lmName",
+            "contextType" : "variable",
+            "element" : "family",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "nameValue"
+            }]
+          },
+          {
+            "context" : "lmDemographics",
+            "contextType" : "variable",
+            "element" : "Name",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "lmName"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set address",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "address",
+          "condition" : "item.linkId = 'address'"
+        }],
+        "rule" : [{
+          "name" : "set address",
+          "source" : [{
+            "context" : "address",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "contextType" : "variable",
+            "variable" : "lmAddress",
+            "transform" : "create",
+            "parameter" : [{
+              "valueString" : "Address"
+            }]
+          },
+          {
+            "context" : "lmAddress",
+            "contextType" : "variable",
+            "element" : "text",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          },
+          {
+            "context" : "lmDemographics",
+            "contextType" : "variable",
+            "element" : "PlaceOfResidence",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "lmAddress"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set Locality Type",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "location",
+          "condition" : "item.linkId = 'localityType'"
+        }],
+        "rule" : [{
+          "name" : "set Locality Type",
+          "source" : [{
+            "context" : "location",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmDemographics",
+            "contextType" : "variable",
+            "element" : "LocalityType",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set sex",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "sex",
+          "condition" : "item.linkId = 'sex'"
+        }],
+        "rule" : [{
+          "name" : "set sex",
+          "source" : [{
+            "context" : "sex",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmDemographics",
+            "contextType" : "variable",
+            "element" : "Sex",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set DoB",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "DoB",
+          "condition" : "item.linkId = 'DoB'"
+        }],
+        "rule" : [{
+          "name" : "set DoB",
+          "source" : [{
+            "context" : "DoB",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmDemographics",
+            "contextType" : "variable",
+            "element" : "DateOfBirth",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set ageOnset",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "ageOnset",
+          "condition" : "item.linkId = 'ageOnset'"
+        }],
+        "rule" : [{
+          "name" : "set ageOnset",
+          "source" : [{
+            "context" : "ageOnset",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "contextType" : "variable",
+            "variable" : "lmAgeOnset",
+            "transform" : "create",
+            "parameter" : [{
+              "valueString" : "Quantity"
+            }]
+          },
+          {
+            "context" : "lmAgeOnset",
+            "contextType" : "variable",
+            "element" : "value",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          },
+          {
+            "context" : "lmDemographics",
+            "contextType" : "variable",
+            "element" : "Age",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "lmAgeOnset"
+            }]
+          }]
+        }]
+      }]
+    }]
+  },
+  {
+    "name" : "mapVaccinationStatus",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "qrVaccinationStatus",
+      "mode" : "source"
+    },
+    {
+      "name" : "lmVaccinationStatus",
+      "type" : "SOTMeaslesVaccinationStatus",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "set",
+      "source" : [{
+        "context" : "qrVaccinationStatus",
+        "element" : "item",
+        "variable" : "item"
+      }],
+      "rule" : [{
+        "name" : "set last dose date",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "lastDoseDate",
+          "condition" : "item.linkId = 'lastDoseDate'"
+        }],
+        "rule" : [{
+          "name" : "set Last Dose Date",
+          "source" : [{
+            "context" : "lastDoseDate",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmVaccinationStatus",
+            "contextType" : "variable",
+            "element" : "LastDoseDate",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "noOfDoses",
+          "condition" : "item.linkId = 'noOfDoses'"
+        }],
+        "rule" : [{
+          "name" : "set number of doses",
+          "source" : [{
+            "context" : "noOfDoses",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmVaccinationStatus",
+            "contextType" : "variable",
+            "element" : "NumberOfDoses",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "vaccineType",
+          "condition" : "item.linkId = 'vaccineType'"
+        }],
+        "rule" : [{
+          "name" : "set vaccine type",
+          "source" : [{
+            "context" : "vaccineType",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmVaccinationStatus",
+            "contextType" : "variable",
+            "element" : "VaccineType",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      }]
+    }]
+  },
+  {
+    "name" : "mapClinical",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "qrClinical",
+      "mode" : "source"
+    },
+    {
+      "name" : "lmClinical",
+      "type" : "SOTMeaslesClinical",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "set clinical",
+      "source" : [{
+        "context" : "qrClinical",
+        "element" : "item",
+        "variable" : "item"
+      }],
+      "rule" : [{
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "fever",
+          "condition" : "item.linkId = 'fever'"
+        }],
+        "rule" : [{
+          "name" : "set Fever",
+          "source" : [{
+            "context" : "fever",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "Fever",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "rash",
+          "condition" : "item.linkId = 'rash'"
+        }],
+        "rule" : [{
+          "name" : "set Rash",
+          "source" : [{
+            "context" : "rash",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "Rash",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "cough",
+          "condition" : "item.linkId = 'cough'"
+        }],
+        "rule" : [{
+          "name" : "set Cough",
+          "source" : [{
+            "context" : "cough",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "Cough",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "conjunctivitis",
+          "condition" : "item.linkId = 'conjunctivitis'"
+        }],
+        "rule" : [{
+          "name" : "set Conjunctivitis",
+          "source" : [{
+            "context" : "conjunctivitis",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "Conjunctivitis",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "coryza",
+          "condition" : "item.linkId = 'coryza'"
+        }],
+        "rule" : [{
+          "name" : "set Coryza",
+          "source" : [{
+            "context" : "coryza",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "Coryza",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "lymphadenopathy",
+          "condition" : "item.linkId = 'lymphadenopathy'"
+        }],
+        "rule" : [{
+          "name" : "set Lymphadenopathy",
+          "source" : [{
+            "context" : "lymphadenopathy",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "Lymphadenopathy",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "jointPain",
+          "condition" : "item.linkId = 'jointPain'"
+        }],
+        "rule" : [{
+          "name" : "set Arthralgia",
+          "source" : [{
+            "context" : "jointPain",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "JointPain",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "admitted",
+          "condition" : "item.linkId = 'admitted'"
+        }],
+        "rule" : [{
+          "name" : "set Hospitalized",
+          "source" : [{
+            "context" : "admitted",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "HistoryOfHospitalization",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "admittedHCFName",
+          "condition" : "item.linkId = 'admittedHCFName'"
+        }],
+        "rule" : [{
+          "name" : "set Hospital Name",
+          "source" : [{
+            "context" : "admittedHCFName",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "HospitalName",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "outcome",
+          "condition" : "item.linkId = 'outcome'"
+        }],
+        "rule" : [{
+          "name" : "set Outcome",
+          "source" : [{
+            "context" : "outcome",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "Outcome",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "answer",
+          "condition" : "item.linkId = 'travelledOutside'"
+        }],
+        "rule" : [{
+          "name" : "set specify virus",
+          "source" : [{
+            "context" : "answer",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "travelledOutside",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "answer",
+          "condition" : "item.linkId = 'infectionSetting'"
+        }],
+        "rule" : [{
+          "name" : "set specify virus",
+          "source" : [{
+            "context" : "answer",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "specifyInfectionSetting",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      }]
+    }]
+  },
+  {
+    "name" : "mapLaboratoryResults",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "qrLaboratoryResults",
+      "mode" : "source"
+    },
+    {
+      "name" : "lmLaboratoryResults",
+      "type" : "LaboratoryResultsLogicalModel",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "set labs",
+      "source" : [{
+        "context" : "qrLaboratoryResults",
+        "element" : "item",
+        "variable" : "item"
+      }],
+      "rule" : [{
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "answer",
+          "condition" : "item.linkId = 'sampleType'"
+        }],
+        "rule" : [{
+          "name" : "set SampleType",
+          "source" : [{
+            "context" : "answer",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmLaboratoryResults",
+            "contextType" : "variable",
+            "element" : "SampleType",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "answer",
+          "condition" : "item.linkId = 'collectionDate'"
+        }],
+        "rule" : [{
+          "name" : "set SpecimenCollectionDate",
+          "source" : [{
+            "context" : "answer",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmLaboratoryResults",
+            "contextType" : "variable",
+            "element" : "SpecimenCollectionDate",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "answer",
+          "condition" : "item.linkId = 'labName'"
+        }],
+        "rule" : [{
+          "name" : "set Shipment Date",
+          "source" : [{
+            "context" : "answer",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmLaboratoryResults",
+            "contextType" : "variable",
+            "element" : "LabName",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "answer",
+          "condition" : "item.linkId = 'specimenSentDate'"
+        }],
+        "rule" : [{
+          "name" : "set SpecimenSentDate",
+          "source" : [{
+            "context" : "answer",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmLaboratoryResults",
+            "contextType" : "variable",
+            "element" : "SpecimenSentDate",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "answer",
+          "condition" : "item.linkId = 'specimenReceivedDate'"
+        }],
+        "rule" : [{
+          "name" : "set SpecimenRecdDate",
+          "source" : [{
+            "context" : "answer",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmLaboratoryResults",
+            "contextType" : "variable",
+            "element" : "SpecimenRecdDate",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "answer",
+          "condition" : "item.linkId = 'testPerformed'"
+        }],
+        "rule" : [{
+          "name" : "set TypeOfTest",
+          "source" : [{
+            "context" : "answer",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmLaboratoryResults",
+            "contextType" : "variable",
+            "element" : "TypeOfTest",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "answer",
+          "condition" : "item.linkId = 'result'"
+        }],
+        "rule" : [{
+          "name" : "set Results",
+          "source" : [{
+            "context" : "answer",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmLaboratoryResults",
+            "contextType" : "variable",
+            "element" : "Results",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "answer",
+          "condition" : "item.linkId = 'specifyVirus'"
+        }],
+        "rule" : [{
+          "name" : "set specify virus",
+          "source" : [{
+            "context" : "answer",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmLaboratoryResults",
+            "contextType" : "variable",
+            "element" : "ViralGenotype",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      }]
+    }]
+  },
+  {
+    "name" : "mapCaseInvestigation",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "qrCaseInvestigation",
+      "mode" : "source"
+    },
+    {
+      "name" : "lmCaseInvestigation",
+      "type" : "SOTMeaslesCaseInvestigation",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "set contact tracing",
+      "source" : [{
+        "context" : "qrCaseInvestigation",
+        "element" : "item",
+        "variable" : "item"
+      }],
+      "rule" : [{
+        "name" : "set date of consultation",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "dateOfConsultation",
+          "condition" : "item.linkId = 'DateOfConsultation'"
+        }],
+        "rule" : [{
+          "name" : "set date of consultation",
+          "source" : [{
+            "context" : "dateOfConsultation",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmReportingSource",
+            "contextType" : "variable",
+            "element" : "DateOfConsultation",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set date reported local",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "dateReportedLocal",
+          "condition" : "item.linkId = 'dateReported'"
+        }],
+        "rule" : [{
+          "name" : "set date reported local",
+          "source" : [{
+            "context" : "dateReportedLocal",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmReportingSource",
+            "contextType" : "variable",
+            "element" : "DateReportedLocal",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "rashOnsetDate",
+          "condition" : "item.linkId = 'rashOnsetDate'"
+        }],
+        "rule" : [{
+          "name" : "set Rash Onset Date",
+          "source" : [{
+            "context" : "rashOnsetDate",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClinical",
+            "contextType" : "variable",
+            "element" : "RashOnsetDate",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      }]
+    }]
+  },
+  {
+    "name" : "mapClassification",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "qrClassification",
+      "mode" : "source"
+    },
+    {
+      "name" : "lmClassification",
+      "type" : "ClassificationLogicalModel",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "set classification",
+      "source" : [{
+        "context" : "qrClassification",
+        "element" : "item",
+        "variable" : "item"
+      }],
+      "rule" : [{
+        "name" : "set",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "answer",
+          "condition" : "item.linkId = 'finalClassification'"
+        }],
+        "rule" : [{
+          "name" : "set finalClassification",
+          "source" : [{
+            "context" : "answer",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClassification",
+            "contextType" : "variable",
+            "element" : "FinalClassification",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      },
+      {
+        "name" : "set case ID",
+        "source" : [{
+          "context" : "item",
+          "element" : "answer",
+          "listMode" : "first",
+          "variable" : "reportedBy",
+          "condition" : "item.linkId = 'reportedBy'"
+        }],
+        "rule" : [{
+          "name" : "set case ID",
+          "source" : [{
+            "context" : "reportedBy",
+            "element" : "value",
+            "variable" : "value"
+          }],
+          "target" : [{
+            "context" : "lmClassification",
+            "contextType" : "variable",
+            "element" : "ReportedBy",
+            "transform" : "copy",
+            "parameter" : [{
+              "valueId" : "value"
+            }]
+          }]
+        }]
+      }]
+    }]
+  }]
+}

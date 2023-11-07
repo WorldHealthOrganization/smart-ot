@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="CaseStatusCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/CaseStatus</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td></tr><tr><td style="white-space:nowrap">Confirmed<a name="CaseStatusCs-Confirmed"> </a></td></tr><tr><td style="white-space:nowrap">Probable<a name="CaseStatusCs-Probable"> </a></td></tr><tr><td style="white-space:nowrap">Suspect<a name="CaseStatusCs-Suspect"> </a></td></tr><tr><td style="white-space:nowrap">Other<a name="CaseStatusCs-Other"> </a></td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/CaseStatus"/>
+  <version value="0.2.1"/>
+  <name value="CaseStatusCs"/>
+  <title value="Case Status"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Case Status"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="4"/>
+  <concept>
+    <code value="Confirmed"/>
+    <display value="Confirmed"/>
+  </concept>
+  <concept>
+    <code value="Probable"/>
+    <display value="Probable"/>
+  </concept>
+  <concept>
+    <code value="Suspect"/>
+    <display value="Suspect"/>
+  </concept>
+  <concept>
+    <code value="Other"/>
+    <display value="Other"/>
+  </concept>
+</CodeSystem>

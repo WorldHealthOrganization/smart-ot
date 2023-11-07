@@ -1,0 +1,51 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "RashTypeCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/RashType</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td></tr><tr><td style=\"white-space:nowrap\">Haemorrhagic<a name=\"RashTypeCs-Haemorrhagic\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Erythematous<a name=\"RashTypeCs-Erythematous\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Vesicular-pustular<a name=\"RashTypeCs-Vesicular-pustular\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Petechial-purpuric<a name=\"RashTypeCs-Petechial-purpuric\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Other<a name=\"RashTypeCs-Other\"> </a></td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/RashType",
+  "version" : "0.2.1",
+  "name" : "RashTypeCs",
+  "title" : "Rash Type",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Rash Type",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 5,
+  "concept" : [{
+    "code" : "Haemorrhagic",
+    "display" : "Haemorrhagic"
+  },
+  {
+    "code" : "Erythematous",
+    "display" : "Erythematous"
+  },
+  {
+    "code" : "Vesicular-pustular",
+    "display" : "Vesicular-pustular"
+  },
+  {
+    "code" : "Petechial-purpuric",
+    "display" : "Petechial-purpuric"
+  },
+  {
+    "code" : "Other",
+    "display" : "Other"
+  }]
+}

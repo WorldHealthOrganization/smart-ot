@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="ContactTypeCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/ContactType</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">CloseContact<a name="ContactTypeCs-CloseContact"> </a></td><td>Close contact (within 1 metre)</td></tr><tr><td style="white-space:nowrap">FluidContact<a name="ContactTypeCs-FluidContact"> </a></td><td>Handled person's bodily fluids/excreta</td></tr><tr><td style="white-space:nowrap">SharedHousehold<a name="ContactTypeCs-SharedHousehold"> </a></td><td>Shared same household</td></tr><tr><td style="white-space:nowrap">SharedRoom<a name="ContactTypeCs-SharedRoom"> </a></td><td>Admitted to the same health facility room</td></tr><tr><td style="white-space:nowrap">SharedFacility<a name="ContactTypeCs-SharedFacility"> </a></td><td>Admitted to same health facility (but different room)</td></tr><tr><td style="white-space:nowrap">Visited<a name="ContactTypeCs-Visited"> </a></td><td>visited the same health facility (including traditional)</td></tr><tr><td style="white-space:nowrap">Other<a name="ContactTypeCs-Other"> </a></td><td>Other</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/ContactType"/>
+  <version value="0.2.1"/>
+  <name value="ContactTypeCs"/>
+  <title value="Contact Type"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Contact Type"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="7"/>
+  <concept>
+    <code value="CloseContact"/>
+    <display value="Close contact (within 1 metre)"/>
+  </concept>
+  <concept>
+    <code value="FluidContact"/>
+    <display value="Handled person's bodily fluids/excreta"/>
+  </concept>
+  <concept>
+    <code value="SharedHousehold"/>
+    <display value="Shared same household"/>
+  </concept>
+  <concept>
+    <code value="SharedRoom"/>
+    <display value="Admitted to the same health facility room"/>
+  </concept>
+  <concept>
+    <code value="SharedFacility"/>
+    <display value="Admitted to same health facility (but different room)"/>
+  </concept>
+  <concept>
+    <code value="Visited"/>
+    <display value="visited the same health facility (including traditional)"/>
+  </concept>
+  <concept>
+    <code value="Other"/>
+    <display value="Other"/>
+  </concept>
+</CodeSystem>

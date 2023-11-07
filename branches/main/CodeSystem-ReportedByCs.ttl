@@ -1,0 +1,56 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/CodeSystem/ReportedByCs> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "ReportedByCs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/ReportedBy</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">MobileTeam<a name=\"ReportedByCs-MobileTeam\"> </a></td><td>Mobile team</td></tr><tr><td style=\"white-space:nowrap\">HealthCentre<a name=\"ReportedByCs-HealthCentre\"> </a></td><td>Health Cantre/post</td></tr><tr><td style=\"white-space:nowrap\">Hospital<a name=\"ReportedByCs-Hospital\"> </a></td><td>Hospital</td></tr><tr><td style=\"white-space:nowrap\">Other<a name=\"ReportedByCs-Other\"> </a></td><td>Other</td></tr><tr><td style=\"white-space:nowrap\">Unknown<a name=\"ReportedByCs-Unknown\"> </a></td><td>Unknown</td></tr></table></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/ReportedBy"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "ReportedByCs"] ; # 
+  fhir:title [ fhir:v "Reported By"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-11-07T05:59:29+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Reported By"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "5"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "MobileTeam" ] ;
+     fhir:display [ fhir:v "Mobile team" ]
+  ] [
+     fhir:code [ fhir:v "HealthCentre" ] ;
+     fhir:display [ fhir:v "Health Cantre/post" ]
+  ] [
+     fhir:code [ fhir:v "Hospital" ] ;
+     fhir:display [ fhir:v "Hospital" ]
+  ] [
+     fhir:code [ fhir:v "Other" ] ;
+     fhir:display [ fhir:v "Other" ]
+  ] [
+     fhir:code [ fhir:v "Unknown" ] ;
+     fhir:display [ fhir:v "Unknown" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

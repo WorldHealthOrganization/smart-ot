@@ -1,0 +1,55 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "AnimalExposureLocationCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/ExposureLocation</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">Home<a name=\"AnimalExposureLocationCs-Home\"> </a></td><td>Home</td></tr><tr><td style=\"white-space:nowrap\">Neighbourhood<a name=\"AnimalExposureLocationCs-Neighbourhood\"> </a></td><td>Neighbourhood</td></tr><tr><td style=\"white-space:nowrap\">Market<a name=\"AnimalExposureLocationCs-Market\"> </a></td><td>Market</td></tr><tr><td style=\"white-space:nowrap\">Agricultural<a name=\"AnimalExposureLocationCs-Agricultural\"> </a></td><td>Agriculturail fair/ zoo</td></tr><tr><td style=\"white-space:nowrap\">Farm<a name=\"AnimalExposureLocationCs-Farm\"> </a></td><td>Farm</td></tr><tr><td style=\"white-space:nowrap\">Other<a name=\"AnimalExposureLocationCs-Other\"> </a></td><td>Other</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/ExposureLocation",
+  "version" : "0.2.1",
+  "name" : "AnimalExposureLocationCs",
+  "title" : "Exposure Location",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Exposure Location",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 6,
+  "concept" : [{
+    "code" : "Home",
+    "display" : "Home"
+  },
+  {
+    "code" : "Neighbourhood",
+    "display" : "Neighbourhood"
+  },
+  {
+    "code" : "Market",
+    "display" : "Market"
+  },
+  {
+    "code" : "Agricultural",
+    "display" : "Agriculturail fair/ zoo"
+  },
+  {
+    "code" : "Farm",
+    "display" : "Farm"
+  },
+  {
+    "code" : "Other",
+    "display" : "Other"
+  }]
+}

@@ -1,0 +1,87 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "SpecimenCollectedCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/SpecimenCollected</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">NasalSwab<a name=\"SpecimenCollectedCs-NasalSwab\"> </a></td><td>Nasal swab</td></tr><tr><td style=\"white-space:nowrap\">ThroatSwab<a name=\"SpecimenCollectedCs-ThroatSwab\"> </a></td><td>Throat swab</td></tr><tr><td style=\"white-space:nowrap\">NasopharyngealSwab<a name=\"SpecimenCollectedCs-NasopharyngealSwab\"> </a></td><td>Nasopharyngeal swab</td></tr><tr><td style=\"white-space:nowrap\">NasalWash<a name=\"SpecimenCollectedCs-NasalWash\"> </a></td><td>Nasal wash</td></tr><tr><td style=\"white-space:nowrap\">Sputum<a name=\"SpecimenCollectedCs-Sputum\"> </a></td><td>Sputum</td></tr><tr><td style=\"white-space:nowrap\">NasopharyngealSspirate<a name=\"SpecimenCollectedCs-NasopharyngealSspirate\"> </a></td><td>Nasopharyngeal aspirate</td></tr><tr><td style=\"white-space:nowrap\">TrachealAspirate<a name=\"SpecimenCollectedCs-TrachealAspirate\"> </a></td><td>Tracheal aspirate</td></tr><tr><td style=\"white-space:nowrap\">BronchoalveolarLavage<a name=\"SpecimenCollectedCs-BronchoalveolarLavage\"> </a></td><td>Bronchoalveolar lavage</td></tr><tr><td style=\"white-space:nowrap\">TissueBiopsy<a name=\"SpecimenCollectedCs-TissueBiopsy\"> </a></td><td>Tissue biopsy</td></tr><tr><td style=\"white-space:nowrap\">SerumFirst<a name=\"SpecimenCollectedCs-SerumFirst\"> </a></td><td>Serum (first sample)</td></tr><tr><td style=\"white-space:nowrap\">SerumSecond<a name=\"SpecimenCollectedCs-SerumSecond\"> </a></td><td>Serum (second sample)</td></tr><tr><td style=\"white-space:nowrap\">WholeBlood<a name=\"SpecimenCollectedCs-WholeBlood\"> </a></td><td>Whole blood</td></tr><tr><td style=\"white-space:nowrap\">Urine<a name=\"SpecimenCollectedCs-Urine\"> </a></td><td>Urine</td></tr><tr><td style=\"white-space:nowrap\">Other<a name=\"SpecimenCollectedCs-Other\"> </a></td><td>Other</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/SpecimenCollected",
+  "version" : "0.2.1",
+  "name" : "SpecimenCollectedCs",
+  "title" : "Specimen Collected",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Specimen Collected",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 14,
+  "concept" : [{
+    "code" : "NasalSwab",
+    "display" : "Nasal swab"
+  },
+  {
+    "code" : "ThroatSwab",
+    "display" : "Throat swab"
+  },
+  {
+    "code" : "NasopharyngealSwab",
+    "display" : "Nasopharyngeal swab"
+  },
+  {
+    "code" : "NasalWash",
+    "display" : "Nasal wash"
+  },
+  {
+    "code" : "Sputum",
+    "display" : "Sputum"
+  },
+  {
+    "code" : "NasopharyngealSspirate",
+    "display" : "Nasopharyngeal aspirate"
+  },
+  {
+    "code" : "TrachealAspirate",
+    "display" : "Tracheal aspirate"
+  },
+  {
+    "code" : "BronchoalveolarLavage",
+    "display" : "Bronchoalveolar lavage"
+  },
+  {
+    "code" : "TissueBiopsy",
+    "display" : "Tissue biopsy"
+  },
+  {
+    "code" : "SerumFirst",
+    "display" : "Serum (first sample)"
+  },
+  {
+    "code" : "SerumSecond",
+    "display" : "Serum (second sample)"
+  },
+  {
+    "code" : "WholeBlood",
+    "display" : "Whole blood"
+  },
+  {
+    "code" : "Urine",
+    "display" : "Urine"
+  },
+  {
+    "code" : "Other",
+    "display" : "Other"
+  }]
+}

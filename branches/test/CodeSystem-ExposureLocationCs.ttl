@@ -1,0 +1,56 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/CodeSystem/ExposureLocationCs> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "ExposureLocationCs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/ExposureLocation</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">Home<a name=\"ExposureLocationCs-Home\"> </a></td><td>Home</td></tr><tr><td style=\"white-space:nowrap\">Hospital<a name=\"ExposureLocationCs-Hospital\"> </a></td><td>Hospital</td></tr><tr><td style=\"white-space:nowrap\">Workplace<a name=\"ExposureLocationCs-Workplace\"> </a></td><td>Workplace</td></tr><tr><td style=\"white-space:nowrap\">TourGroup<a name=\"ExposureLocationCs-TourGroup\"> </a></td><td>Tour Group</td></tr><tr><td style=\"white-space:nowrap\">Other<a name=\"ExposureLocationCs-Other\"> </a></td><td>Other</td></tr></table></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/ExposureLocation"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "ExposureLocationCs"] ; # 
+  fhir:title [ fhir:v "Exposure Location"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-10-25T07:26:32+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Exposure Location"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "5"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "Home" ] ;
+     fhir:display [ fhir:v "Home" ]
+  ] [
+     fhir:code [ fhir:v "Hospital" ] ;
+     fhir:display [ fhir:v "Hospital" ]
+  ] [
+     fhir:code [ fhir:v "Workplace" ] ;
+     fhir:display [ fhir:v "Workplace" ]
+  ] [
+     fhir:code [ fhir:v "TourGroup" ] ;
+     fhir:display [ fhir:v "Tour Group" ]
+  ] [
+     fhir:code [ fhir:v "Other" ] ;
+     fhir:display [ fhir:v "Other" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

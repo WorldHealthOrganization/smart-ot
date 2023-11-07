@@ -1,0 +1,538 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper> a fhir:StructureMap ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "MetaDataTypesHelper"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre class=\"fml\">\r\n<b>map</b><span style=\"color: navy\"> &quot;</span>http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper<span style=\"color: navy\">&quot; = &quot;</span>MetaDataTypesHelper<span style=\"color: navy\">&quot;\r\n\r\n</span><b>group </b>addressToAddress<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">sourceAddress</span>, <b>target</b> <span style=\"color: maroon\">targetAddress</span><span style=\"color: navy\"> : </span>Address<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  sourceAddress.use<b> as </b><span style=\"color: maroon\">use</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.use = <span style=\"color: maroon\">use</span> <i>&quot;Copy use&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.type<b> as </b><span style=\"color: maroon\">type</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.type = <span style=\"color: maroon\">type</span> <i>&quot;Copy type&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.text<b> as </b><span style=\"color: maroon\">text</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.text = <span style=\"color: maroon\">text</span> <i>&quot;Copy text&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.line<b> as </b><span style=\"color: maroon\">line</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.line = <span style=\"color: maroon\">line</span> <i>&quot;Copy line&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.city<b> as </b><span style=\"color: maroon\">city</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.city = <span style=\"color: maroon\">city</span> <i>&quot;Copy city&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.district<b> as </b><span style=\"color: maroon\">district</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.district = <span style=\"color: maroon\">district</span> <i>&quot;Copy district&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.state<b> as </b><span style=\"color: maroon\">state</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.state = <span style=\"color: maroon\">state</span> <i>&quot;Copy state&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.postalCode<b> as </b><span style=\"color: maroon\">postalCode</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.postalCode = <span style=\"color: maroon\">postalCode</span> <i>&quot;Copy postalCode&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceAddress.country<b> as </b><span style=\"color: maroon\">country</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.country = <span style=\"color: maroon\">country</span> <i>&quot;Copy country&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">// </span><span style=\"color: green\">Copy the period using the previously defined group function</span>\r\n  sourceAddress.period<b> as </b><span style=\"color: maroon\">sourcePeriod</span><span style=\"color: navy\"><b> -&gt; </b></span>targetAddress.period<b> as </b><span style=\"color: maroon\">targetPeriod</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    sourcePeriod<span style=\"color: navy\"><b> -&gt; </b></span><span style=\"color: maroon\">sourcePeriod</span><b> then </b>periodToPeriod<span style=\"color: navy\">(</span><span style=\"color: maroon\">sourcePeriod</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">targetPeriod</span><span style=\"color: navy\">)</span> <i>&quot;Copy period&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;copy period&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>humanNameToHumanName<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">sourceName</span>, <b>target</b> <span style=\"color: maroon\">targetName</span><span style=\"color: navy\"> : </span>HumanName<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  sourceName.use<b> as </b><span style=\"color: maroon\">use</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.use = <span style=\"color: maroon\">use</span> <i>&quot;Copy use&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceName.text<b> as </b><span style=\"color: maroon\">text</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.text = <span style=\"color: maroon\">text</span> <i>&quot;Copy text&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceName.family<b> as </b><span style=\"color: maroon\">family</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.family = <span style=\"color: maroon\">family</span> <i>&quot;Copy family&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceName.given<b> as </b><span style=\"color: maroon\">given</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.given = <span style=\"color: maroon\">given</span> <i>&quot;Copy given&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceName.prefix<b> as </b><span style=\"color: maroon\">prefix</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.prefix = <span style=\"color: maroon\">prefix</span> <i>&quot;Copy prefix&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceName.suffix<b> as </b><span style=\"color: maroon\">suffix</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.suffix = <span style=\"color: maroon\">suffix</span> <i>&quot;Copy suffix&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">// </span><span style=\"color: green\">Copy the period using the previously defined group function</span>\r\n  sourceName.period<b> as </b><span style=\"color: maroon\">sourcePeriod</span><span style=\"color: navy\"><b> -&gt; </b></span>targetName.period<b> as </b><span style=\"color: maroon\">targetPeriod</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    sourcePeriod<span style=\"color: navy\"><b> -&gt; </b></span><span style=\"color: maroon\">sourcePeriod</span><b> then </b>periodToPeriod<span style=\"color: navy\">(</span><span style=\"color: maroon\">sourcePeriod</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">targetPeriod</span><span style=\"color: navy\">)</span> <i>&quot;Copy period&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;copy period&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>periodToPeriod<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">sourcePeriod</span>, <b>target</b> <span style=\"color: maroon\">targetPeriod</span><span style=\"color: navy\"> : </span>Period<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  sourcePeriod.start<b> as </b><span style=\"color: maroon\">start</span><span style=\"color: navy\"><b> -&gt; </b></span>targetPeriod.start = <span style=\"color: maroon\">start</span> <i>&quot;set period start&quot;</i><span style=\"color: navy\">;</span>\r\n  sourcePeriod.end<b> as </b><span style=\"color: maroon\">end</span><span style=\"color: navy\"><b> -&gt; </b></span>targetPeriod.end = <span style=\"color: maroon\">end</span> <i>&quot;set period end&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>contactPointToContactPoint<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">sourceContact</span>, <b>target</b> <span style=\"color: maroon\">targetContact</span><span style=\"color: navy\"> : </span>ContactPoint<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  sourceContact.system<b> as </b><span style=\"color: maroon\">system</span><span style=\"color: navy\"><b> -&gt; </b></span>targetContact.system = <span style=\"color: maroon\">system</span> <i>&quot;Copy system&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceContact.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>targetContact.value = <span style=\"color: maroon\">value</span> <i>&quot;Copy value&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceContact.use<b> as </b><span style=\"color: maroon\">use</span><span style=\"color: navy\"><b> -&gt; </b></span>targetContact.use = <span style=\"color: maroon\">use</span> <i>&quot;Copy use&quot;</i><span style=\"color: navy\">;</span>\r\n  sourceContact.rank<b> as </b><span style=\"color: maroon\">rank</span><span style=\"color: navy\"><b> -&gt; </b></span>targetContact.rank = <span style=\"color: maroon\">rank</span> <i>&quot;Copy rank&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">// </span><span style=\"color: green\">Copy the period using the previously defined group function</span>\r\n  sourceContact.period<b> as </b><span style=\"color: maroon\">sourcePeriod</span><span style=\"color: navy\"><b> -&gt; </b></span>targetContact.period<b> as </b><span style=\"color: maroon\">targetPeriod</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    sourcePeriod<span style=\"color: navy\"><b> -&gt; </b></span><span style=\"color: maroon\">sourcePeriod</span><b> then </b>periodToPeriod<span style=\"color: navy\">(</span><span style=\"color: maroon\">sourcePeriod</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">targetPeriod</span><span style=\"color: navy\">)</span> <i>&quot;Copy period&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;copy period&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapCodingtoCodeableConcept<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">coding</span><span style=\"color: navy\"> : </span>Coding, <b>target</b> <span style=\"color: maroon\">codeableConcept</span><span style=\"color: navy\"> : </span>CodeableConcept<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  coding<span style=\"color: navy\"><b> -&gt; </b></span>codeableConcept.coding = <span style=\"color: maroon\">coding</span> <i>&quot;set coding&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span></pre></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "MetaDataTypesHelper"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-11-07T05:59:29+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:group ( [
+     fhir:name [ fhir:v "addressToAddress" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "sourceAddress" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "targetAddress" ] ;
+       fhir:type [ fhir:v "Address" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "Copy use" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceAddress" ] ;
+         fhir:element [ fhir:v "use" ] ;
+         fhir:variable [ fhir:v "use" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetAddress" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "use" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "use" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy type" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceAddress" ] ;
+         fhir:element [ fhir:v "type" ] ;
+         fhir:variable [ fhir:v "type" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetAddress" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "type" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "type" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy text" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceAddress" ] ;
+         fhir:element [ fhir:v "text" ] ;
+         fhir:variable [ fhir:v "text" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetAddress" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "text" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "text" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy line" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceAddress" ] ;
+         fhir:element [ fhir:v "line" ] ;
+         fhir:variable [ fhir:v "line" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetAddress" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "line" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "line" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy city" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceAddress" ] ;
+         fhir:element [ fhir:v "city" ] ;
+         fhir:variable [ fhir:v "city" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetAddress" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "city" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "city" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy district" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceAddress" ] ;
+         fhir:element [ fhir:v "district" ] ;
+         fhir:variable [ fhir:v "district" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetAddress" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "district" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "district" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy state" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceAddress" ] ;
+         fhir:element [ fhir:v "state" ] ;
+         fhir:variable [ fhir:v "state" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetAddress" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "state" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "state" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy postalCode" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceAddress" ] ;
+         fhir:element [ fhir:v "postalCode" ] ;
+         fhir:variable [ fhir:v "postalCode" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetAddress" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "postalCode" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "postalCode" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy country" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceAddress" ] ;
+         fhir:element [ fhir:v "country" ] ;
+         fhir:variable [ fhir:v "country" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetAddress" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "country" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "country" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "copy period" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceAddress" ] ;
+         fhir:element [ fhir:v "period" ] ;
+         fhir:variable [ fhir:v "sourcePeriod" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetAddress" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "period" ] ;
+         fhir:variable [ fhir:v "targetPeriod" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "Copy period" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "sourcePeriod" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "sourcePeriod" ]
+           ] )
+         ] ) ;
+         fhir:dependent ( [
+           fhir:name [ fhir:v "periodToPeriod" ] ;
+           fhir:variable ( [ fhir:v "sourcePeriod" ] [ fhir:v "targetPeriod" ] )
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "humanNameToHumanName" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "sourceName" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "targetName" ] ;
+       fhir:type [ fhir:v "HumanName" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "Copy use" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceName" ] ;
+         fhir:element [ fhir:v "use" ] ;
+         fhir:variable [ fhir:v "use" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetName" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "use" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "use" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy text" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceName" ] ;
+         fhir:element [ fhir:v "text" ] ;
+         fhir:variable [ fhir:v "text" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetName" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "text" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "text" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy family" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceName" ] ;
+         fhir:element [ fhir:v "family" ] ;
+         fhir:variable [ fhir:v "family" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetName" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "family" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "family" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy given" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceName" ] ;
+         fhir:element [ fhir:v "given" ] ;
+         fhir:variable [ fhir:v "given" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetName" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "given" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "given" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy prefix" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceName" ] ;
+         fhir:element [ fhir:v "prefix" ] ;
+         fhir:variable [ fhir:v "prefix" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetName" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "prefix" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "prefix" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy suffix" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceName" ] ;
+         fhir:element [ fhir:v "suffix" ] ;
+         fhir:variable [ fhir:v "suffix" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetName" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "suffix" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "suffix" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "copy period" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceName" ] ;
+         fhir:element [ fhir:v "period" ] ;
+         fhir:variable [ fhir:v "sourcePeriod" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetName" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "period" ] ;
+         fhir:variable [ fhir:v "targetPeriod" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "Copy period" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "sourcePeriod" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "sourcePeriod" ]
+           ] )
+         ] ) ;
+         fhir:dependent ( [
+           fhir:name [ fhir:v "periodToPeriod" ] ;
+           fhir:variable ( [ fhir:v "sourcePeriod" ] [ fhir:v "targetPeriod" ] )
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "periodToPeriod" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "sourcePeriod" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "targetPeriod" ] ;
+       fhir:type [ fhir:v "Period" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set period start" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourcePeriod" ] ;
+         fhir:element [ fhir:v "start" ] ;
+         fhir:variable [ fhir:v "start" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetPeriod" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "start" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "start" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "set period end" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourcePeriod" ] ;
+         fhir:element [ fhir:v "end" ] ;
+         fhir:variable [ fhir:v "end" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetPeriod" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "end" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "end" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "contactPointToContactPoint" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "sourceContact" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "targetContact" ] ;
+       fhir:type [ fhir:v "ContactPoint" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "Copy system" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceContact" ] ;
+         fhir:element [ fhir:v "system" ] ;
+         fhir:variable [ fhir:v "system" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetContact" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "system" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "system" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy value" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceContact" ] ;
+         fhir:element [ fhir:v "value" ] ;
+         fhir:variable [ fhir:v "value" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetContact" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "value" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "value" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy use" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceContact" ] ;
+         fhir:element [ fhir:v "use" ] ;
+         fhir:variable [ fhir:v "use" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetContact" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "use" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "use" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "Copy rank" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceContact" ] ;
+         fhir:element [ fhir:v "rank" ] ;
+         fhir:variable [ fhir:v "rank" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetContact" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "rank" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "rank" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "copy period" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "sourceContact" ] ;
+         fhir:element [ fhir:v "period" ] ;
+         fhir:variable [ fhir:v "sourcePeriod" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "targetContact" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "period" ] ;
+         fhir:variable [ fhir:v "targetPeriod" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "Copy period" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "sourcePeriod" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "sourcePeriod" ]
+           ] )
+         ] ) ;
+         fhir:dependent ( [
+           fhir:name [ fhir:v "periodToPeriod" ] ;
+           fhir:variable ( [ fhir:v "sourcePeriod" ] [ fhir:v "targetPeriod" ] )
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "mapCodingtoCodeableConcept" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "coding" ] ;
+       fhir:type [ fhir:v "Coding" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "codeableConcept" ] ;
+       fhir:type [ fhir:v "CodeableConcept" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set coding" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "coding" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "codeableConcept" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "coding" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "coding" ]
+         ] )
+       ] )
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

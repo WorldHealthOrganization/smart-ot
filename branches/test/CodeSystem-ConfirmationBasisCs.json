@@ -1,0 +1,43 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "ConfirmationBasisCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/ConfirmationBasis</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">1<a name=\"ConfirmationBasisCs-1\"> </a></td><td>Laboratory</td></tr><tr><td style=\"white-space:nowrap\">2<a name=\"ConfirmationBasisCs-2\"> </a></td><td>Epidemiological Link</td></tr><tr><td style=\"white-space:nowrap\">3<a name=\"ConfirmationBasisCs-3\"> </a></td><td>Clinical</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/ConfirmationBasis",
+  "version" : "0.2.1",
+  "name" : "ConfirmationBasisCs",
+  "title" : "Confirmation Basis",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Confirmation Basis",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 3,
+  "concept" : [{
+    "code" : "1",
+    "display" : "Laboratory"
+  },
+  {
+    "code" : "2",
+    "display" : "Epidemiological Link"
+  },
+  {
+    "code" : "3",
+    "display" : "Clinical"
+  }]
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="DiscardingBasisCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/DiscardingBasis</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">1<a name="DiscardingBasisCs-1"> </a></td><td>Measles/Rubella IgM-neg</td></tr><tr><td style="white-space:nowrap">2<a name="DiscardingBasisCs-2"> </a></td><td>Vaccine Reaction</td></tr><tr><td style="white-space:nowrap">3<a name="DiscardingBasisCs-3"> </a></td><td>Dengue</td></tr><tr><td style="white-space:nowrap">4<a name="DiscardingBasisCs-4"> </a></td><td>Parvovirus B19</td></tr><tr><td style="white-space:nowrap">5<a name="DiscardingBasisCs-5"> </a></td><td>Herpes 6</td></tr><tr><td style="white-space:nowrap">6<a name="DiscardingBasisCs-6"> </a></td><td>Allergic Reaction</td></tr><tr><td style="white-space:nowrap">88<a name="DiscardingBasisCs-88"> </a></td><td>Other Diagnosis</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/DiscardingBasis"/>
+  <version value="0.2.1"/>
+  <name value="DiscardingBasisCs"/>
+  <title value="Discarding Basis"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Discarding Basis"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="7"/>
+  <concept>
+    <code value="1"/>
+    <display value="Measles/Rubella IgM-neg"/>
+  </concept>
+  <concept>
+    <code value="2"/>
+    <display value="Vaccine Reaction"/>
+  </concept>
+  <concept>
+    <code value="3"/>
+    <display value="Dengue"/>
+  </concept>
+  <concept>
+    <code value="4"/>
+    <display value="Parvovirus B19"/>
+  </concept>
+  <concept>
+    <code value="5"/>
+    <display value="Herpes 6"/>
+  </concept>
+  <concept>
+    <code value="6"/>
+    <display value="Allergic Reaction"/>
+  </concept>
+  <concept>
+    <code value="88"/>
+    <display value="Other Diagnosis"/>
+  </concept>
+</CodeSystem>

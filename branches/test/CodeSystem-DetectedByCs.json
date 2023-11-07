@@ -1,0 +1,63 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "DetectedByCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/DetectedBy</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">1<a name=\"DetectedByCs-1\"> </a></td><td>Spontaneous Consultation</td></tr><tr><td style=\"white-space:nowrap\">2<a name=\"DetectedByCs-2\"> </a></td><td>Laboratory</td></tr><tr><td style=\"white-space:nowrap\">3<a name=\"DetectedByCs-3\"> </a></td><td>Institutional Search</td></tr><tr><td style=\"white-space:nowrap\">4<a name=\"DetectedByCs-4\"> </a></td><td>Community Case Search</td></tr><tr><td style=\"white-space:nowrap\">5<a name=\"DetectedByCs-5\"> </a></td><td>Contact Investigation</td></tr><tr><td style=\"white-space:nowrap\">6<a name=\"DetectedByCs-6\"> </a></td><td>Community Report</td></tr><tr><td style=\"white-space:nowrap\">88<a name=\"DetectedByCs-88\"> </a></td><td>Other</td></tr><tr><td style=\"white-space:nowrap\">99<a name=\"DetectedByCs-99\"> </a></td><td>Unknown</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/DetectedBy",
+  "version" : "0.2.1",
+  "name" : "DetectedByCs",
+  "title" : "Detected By Code System",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Detected By Code System",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 8,
+  "concept" : [{
+    "code" : "1",
+    "display" : "Spontaneous Consultation"
+  },
+  {
+    "code" : "2",
+    "display" : "Laboratory"
+  },
+  {
+    "code" : "3",
+    "display" : "Institutional Search"
+  },
+  {
+    "code" : "4",
+    "display" : "Community Case Search"
+  },
+  {
+    "code" : "5",
+    "display" : "Contact Investigation"
+  },
+  {
+    "code" : "6",
+    "display" : "Community Report"
+  },
+  {
+    "code" : "88",
+    "display" : "Other"
+  },
+  {
+    "code" : "99",
+    "display" : "Unknown"
+  }]
+}

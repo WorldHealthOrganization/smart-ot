@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="RashTypeCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/RashType</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td></tr><tr><td style="white-space:nowrap">Haemorrhagic<a name="RashTypeCs-Haemorrhagic"> </a></td></tr><tr><td style="white-space:nowrap">Erythematous<a name="RashTypeCs-Erythematous"> </a></td></tr><tr><td style="white-space:nowrap">Vesicular-pustular<a name="RashTypeCs-Vesicular-pustular"> </a></td></tr><tr><td style="white-space:nowrap">Petechial-purpuric<a name="RashTypeCs-Petechial-purpuric"> </a></td></tr><tr><td style="white-space:nowrap">Other<a name="RashTypeCs-Other"> </a></td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/RashType"/>
+  <version value="0.2.1"/>
+  <name value="RashTypeCs"/>
+  <title value="Rash Type"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Rash Type"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="5"/>
+  <concept>
+    <code value="Haemorrhagic"/>
+    <display value="Haemorrhagic"/>
+  </concept>
+  <concept>
+    <code value="Erythematous"/>
+    <display value="Erythematous"/>
+  </concept>
+  <concept>
+    <code value="Vesicular-pustular"/>
+    <display value="Vesicular-pustular"/>
+  </concept>
+  <concept>
+    <code value="Petechial-purpuric"/>
+    <display value="Petechial-purpuric"/>
+  </concept>
+  <concept>
+    <code value="Other"/>
+    <display value="Other"/>
+  </concept>
+</CodeSystem>

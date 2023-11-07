@@ -1,0 +1,29 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "SourceOfInformation",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set includes codes based on the following rules:</p><ul/></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/SourceOfInformation",
+  "version" : "0.2.1",
+  "name" : "SourceOfInformation",
+  "title" : "SOT Measles Source Of Information Type",
+  "status" : "draft",
+  "date" : "2023-11-07T05:59:29+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "SOT Measles Source Of Information Type",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }]
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="SampleTypeCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/SampleType</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">1<a name="SampleTypeCs-1"> </a></td><td>Serum</td></tr><tr><td style="white-space:nowrap">2<a name="SampleTypeCs-2"> </a></td><td>Nasopharyngeal aspirate/swab</td></tr><tr><td style="white-space:nowrap">3<a name="SampleTypeCs-3"> </a></td><td>Throat swab</td></tr><tr><td style="white-space:nowrap">4<a name="SampleTypeCs-4"> </a></td><td>Urine</td></tr><tr><td style="white-space:nowrap">5<a name="SampleTypeCs-5"> </a></td><td>Cerebrospinal Fluid</td></tr><tr><td style="white-space:nowrap">88<a name="SampleTypeCs-88"> </a></td><td>Other</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/SampleType"/>
+  <version value="0.2.1"/>
+  <name value="SampleTypeCs"/>
+  <title value="Sample Type Code System"/>
+  <status value="draft"/>
+  <date value="2023-11-07T05:59:29+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Sample Type Code System"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="6"/>
+  <concept>
+    <code value="1"/>
+    <display value="Serum"/>
+  </concept>
+  <concept>
+    <code value="2"/>
+    <display value="Nasopharyngeal aspirate/swab"/>
+  </concept>
+  <concept>
+    <code value="3"/>
+    <display value="Throat swab"/>
+  </concept>
+  <concept>
+    <code value="4"/>
+    <display value="Urine"/>
+  </concept>
+  <concept>
+    <code value="5"/>
+    <display value="Cerebrospinal Fluid"/>
+  </concept>
+  <concept>
+    <code value="88"/>
+    <display value="Other"/>
+  </concept>
+</CodeSystem>

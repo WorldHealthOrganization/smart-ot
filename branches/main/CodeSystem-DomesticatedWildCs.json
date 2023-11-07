@@ -1,0 +1,43 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "DomesticatedWildCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/DomesticatedWild</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td></tr><tr><td style=\"white-space:nowrap\">Domestic<a name=\"DomesticatedWildCs-Domestic\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Wild<a name=\"DomesticatedWildCs-Wild\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Pest<a name=\"DomesticatedWildCs-Pest\"> </a></td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/DomesticatedWild",
+  "version" : "0.2.1",
+  "name" : "DomesticatedWildCs",
+  "title" : "Domesticated or Wild",
+  "status" : "draft",
+  "date" : "2023-11-07T05:59:29+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Domesticated or Wild",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 3,
+  "concept" : [{
+    "code" : "Domestic",
+    "display" : "Domestic"
+  },
+  {
+    "code" : "Wild",
+    "display" : "Wild"
+  },
+  {
+    "code" : "Pest",
+    "display" : "Pest"
+  }]
+}

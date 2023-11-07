@@ -1,0 +1,1038 @@
+[
+  {
+    "id" : "AnimalContactLocationCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/AnimalContactLocation",
+    "version" : "0.2.1",
+    "name" : "AnimalContactLocationCs"
+  },
+  {
+    "id" : "AnimalContactTypeCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/AnimalContactType",
+    "version" : "0.2.1",
+    "name" : "AnimalContactTypeCs"
+  },
+  {
+    "id" : "CaseStatusCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/CaseStatus",
+    "version" : "0.2.1",
+    "name" : "CaseStatusCs"
+  },
+  {
+    "id" : "AFROMRCIF",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/CodeSystem/AFROMRCIF",
+    "version" : "0.2.1",
+    "name" : "AFROMRCIF"
+  },
+  {
+    "id" : "AntigenCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/CodeSystem/AntigenCs",
+    "version" : "0.2.1",
+    "name" : "AntigenCs"
+  },
+  {
+    "id" : "PAHO-MRCIF",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/CodeSystem/PAHO-MRCIF",
+    "version" : "0.2.1",
+    "name" : "PAHO_MRCIF"
+  },
+  {
+    "id" : "ConfirmationBasisCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ConfirmationBasis",
+    "version" : "0.2.1",
+    "name" : "ConfirmationBasisCs"
+  },
+  {
+    "id" : "ContactTypeCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ContactType",
+    "version" : "0.2.1",
+    "name" : "ContactTypeCs"
+  },
+  {
+    "id" : "DetectedByCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/DetectedBy",
+    "version" : "0.2.1",
+    "name" : "DetectedByCs"
+  },
+  {
+    "id" : "DiscardingBasisCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/DiscardingBasis",
+    "version" : "0.2.1",
+    "name" : "DiscardingBasisCs"
+  },
+  {
+    "id" : "DomesticatedWildCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/DomesticatedWild",
+    "version" : "0.2.1",
+    "name" : "DomesticatedWildCs"
+  },
+  {
+    "id" : "AnimalExposureLocationCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ExposureLocation",
+    "version" : "0.2.1",
+    "name" : "AnimalExposureLocationCs"
+  },
+  {
+    "id" : "ExposureLocationCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ExposureLocation",
+    "version" : "0.2.1",
+    "name" : "ExposureLocationCs"
+  },
+  {
+    "id" : "FinalClassificationCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/FinalClassification",
+    "version" : "0.2.1",
+    "name" : "FinalClassificationCs"
+  },
+  {
+    "id" : "fhir.worldhealthorganization.smart-ot",
+    "type" : "ImplementationGuide",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ImplementationGuide/fhir.worldhealthorganization.smart-ot",
+    "version" : "0.2.1",
+    "name" : "smartot"
+  },
+  {
+    "id" : "InfectionSettingCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/InfectionSetting",
+    "version" : "0.2.1",
+    "name" : "InfectionSettingCs"
+  },
+  {
+    "id" : "InitDiagCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/InitDiag",
+    "version" : "0.2.1",
+    "name" : "InitDiagCs"
+  },
+  {
+    "id" : "LocTypeCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/LocType",
+    "version" : "0.2.1",
+    "name" : "LocTypeCs"
+  },
+  {
+    "id" : "LocalCasesPresentCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent",
+    "version" : "0.2.1",
+    "name" : "LocalCasesPresentCs"
+  },
+  {
+    "id" : "LocalizationOfSkinDisorderCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/LocalizationOfSkinDisorder",
+    "version" : "0.2.1",
+    "name" : "LocalizationOfSkinDisorderCs"
+  },
+  {
+    "id" : "NoOfDosesCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/NoOfDoses",
+    "version" : "0.2.1",
+    "name" : "NoOfDosesCs"
+  },
+  {
+    "id" : "PathogenTestedCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/PathogenTested",
+    "version" : "0.2.1",
+    "name" : "PathogenTestedCs"
+  },
+  {
+    "id" : "PatientOutcomeCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/PatientOutcome",
+    "version" : "0.2.1",
+    "name" : "PatientOutcomeCs"
+  },
+  {
+    "id" : "PlaceOfCareCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/PlaceOfCare",
+    "version" : "0.2.1",
+    "name" : "PlaceOfCareCs"
+  },
+  {
+    "id" : "ProvTypeCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ProvType",
+    "version" : "0.2.1",
+    "name" : "ProvTypeCs"
+  },
+  {
+    "id" : "Questionnaire-SOTGenericRespiratoryDiseaseCIF",
+    "type" : "Questionnaire",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/Questionnaire/Questionnaire-SOTGenericRespiratoryDiseaseCIF",
+    "version" : "0.2.1",
+    "name" : "Questionnaire-SOTGenericRespiratoryDiseaseCIF"
+  },
+  {
+    "id" : "Questionnaire-SOTMeasles",
+    "type" : "Questionnaire",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/Questionnaire/Questionnaire-SOTMeasles",
+    "version" : "0.2.1",
+    "name" : "Questionnaire-SOTMeasles"
+  },
+  {
+    "id" : "Questionnaire-SOTT0CaseInvestigationForm",
+    "type" : "Questionnaire",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/Questionnaire/Questionnaire-SOTT0CaseInvestigationForm",
+    "version" : "0.2.1",
+    "name" : "Questionnaire-SOTT0CaseInvestigationForm"
+  },
+  {
+    "id" : "SOTMeasles-AFRO-MRCIF",
+    "type" : "Questionnaire",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/Questionnaire/SOTMeasles-AFRO-MRCIF",
+    "version" : "0.2.1",
+    "name" : "SOTMeasles-AFRO-MRCIF"
+  },
+  {
+    "id" : "RashTypeCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/RashType",
+    "version" : "0.2.1",
+    "name" : "RashTypeCs"
+  },
+  {
+    "id" : "ReportedByCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ReportedBy",
+    "version" : "0.2.1",
+    "name" : "ReportedByCs"
+  },
+  {
+    "id" : "ResultCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/Result",
+    "version" : "0.2.1",
+    "name" : "ResultCs"
+  },
+  {
+    "id" : "ResultsCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/Results",
+    "version" : "0.2.1",
+    "name" : "ResultsCs"
+  },
+  {
+    "id" : "RouteOfAdministrationCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/RouteOfAdministration",
+    "version" : "0.2.1",
+    "name" : "RouteOfAdministrationCs"
+  },
+  {
+    "id" : "SampleTypeCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/SampleType",
+    "version" : "0.2.1",
+    "name" : "SampleTypeCs"
+  },
+  {
+    "id" : "SourceOfInfectionCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/SourceOfInfection",
+    "version" : "0.2.1",
+    "name" : "SourceOfInfectionCs"
+  },
+  {
+    "id" : "SourceOfInformationCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/SourceOfInformation",
+    "version" : "0.2.1",
+    "name" : "SourceOfInformationCs"
+  },
+  {
+    "id" : "SpecimenCollectedCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/SpecimenCollected",
+    "version" : "0.2.1",
+    "name" : "SpecimenCollectedCs"
+  },
+  {
+    "id" : "SpecimenNumberCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/SpecimenNumber",
+    "version" : "0.2.1",
+    "name" : "SpecimenNumberCs"
+  },
+  {
+    "id" : "AFROMRCIF",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIF",
+    "version" : "0.2.1",
+    "name" : "AFROMRCIF"
+  },
+  {
+    "id" : "AFROMRCIFCaseInvestigation",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFCaseInvestigation",
+    "version" : "0.2.1",
+    "name" : "AFROMRCIFCaseInvestigation"
+  },
+  {
+    "id" : "AFROMRCIFClassification",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFClassification",
+    "version" : "0.2.1",
+    "name" : "AFROMRCIFClassification"
+  },
+  {
+    "id" : "AFROMRCIFClinical",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFClinical",
+    "version" : "0.2.1",
+    "name" : "AFROMRCIFClinical"
+  },
+  {
+    "id" : "AFROMRCIFDemographic",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFDemographic",
+    "version" : "0.2.1",
+    "name" : "AFROMRCIFDemographic"
+  },
+  {
+    "id" : "AFROMRCIFLaboratoryResults",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFLaboratoryResults",
+    "version" : "0.2.1",
+    "name" : "AFROMRCIFLaboratoryResults"
+  },
+  {
+    "id" : "AFROMRCIFReportingSource",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFReportingSource",
+    "version" : "0.2.1",
+    "name" : "AFROMRCIFReportingSource"
+  },
+  {
+    "id" : "AFROMRCIFVaccinationStatus",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFVaccinationStatus",
+    "version" : "0.2.1",
+    "name" : "AFROMRCIFVaccinationStatus"
+  },
+  {
+    "id" : "Guardian",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Guardian",
+    "version" : "0.2.1",
+    "name" : "Guardian"
+  },
+  {
+    "id" : "Landmark",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Landmark",
+    "version" : "0.2.1",
+    "name" : "Landmark"
+  },
+  {
+    "id" : "MeaslesCIFComposition",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesCIFComposition",
+    "version" : "0.2.1",
+    "name" : "MeaslesCIFComposition"
+  },
+  {
+    "id" : "MeaslesEncounter",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesEncounter",
+    "version" : "0.2.1",
+    "name" : "MeaslesEncounter"
+  },
+  {
+    "id" : "MeaslesOrganization",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesOrganization",
+    "version" : "0.2.1",
+    "name" : "MeaslesOrganization"
+  },
+  {
+    "id" : "MeaslesPatient",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesPatient",
+    "version" : "0.2.1",
+    "name" : "MeaslesPatient"
+  },
+  {
+    "id" : "Occupation",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Occupation",
+    "version" : "0.2.1",
+    "name" : "Occupation"
+  },
+  {
+    "id" : "ProviderType",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/ProviderType",
+    "version" : "0.2.1",
+    "name" : "ProviderType"
+  },
+  {
+    "id" : "SOTMeasles",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles",
+    "version" : "0.2.1",
+    "name" : "SOTMeasles"
+  },
+  {
+    "id" : "SOTMeaslesClassification",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesClassification",
+    "version" : "0.2.1",
+    "name" : "SOTMeaslesClassification"
+  },
+  {
+    "id" : "SOTMeaslesClinical",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesClinical",
+    "version" : "0.2.1",
+    "name" : "SOTMeaslesClinical"
+  },
+  {
+    "id" : "SOTMeaslesContactTracing",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesContactTracing",
+    "version" : "0.2.1",
+    "name" : "SOTMeaslesContactTracing"
+  },
+  {
+    "id" : "SOTMeaslesDemographic",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesDemographic",
+    "version" : "0.2.1",
+    "name" : "SOTMeaslesDemographic"
+  },
+  {
+    "id" : "SOTMeaslesEpiData",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesEpiData",
+    "version" : "0.2.1",
+    "name" : "SOTMeaslesEpiData"
+  },
+  {
+    "id" : "SOTMeaslesLaboratoryResults",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesLaboratoryResults",
+    "version" : "0.2.1",
+    "name" : "SOTMeaslesLaboratoryResults"
+  },
+  {
+    "id" : "SOTMeaslesReportingSource",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesReportingSource",
+    "version" : "0.2.1",
+    "name" : "SOTMeaslesReportingSource"
+  },
+  {
+    "id" : "SOTMeaslesTravelDetails",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesTravelDetails",
+    "version" : "0.2.1",
+    "name" : "SOTMeaslesTravelDetails"
+  },
+  {
+    "id" : "SOTMeaslesVaccinationStatus",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesVaccinationStatus",
+    "version" : "0.2.1",
+    "name" : "SOTMeaslesVaccinationStatus"
+  },
+  {
+    "id" : "SOTT1",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1",
+    "version" : "0.2.1",
+    "name" : "SOTT1"
+  },
+  {
+    "id" : "SOTT1CaseInfo",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1CaseInfo",
+    "version" : "0.2.1",
+    "name" : "SOTT1CaseInfo"
+  },
+  {
+    "id" : "SOTT1Clinical",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1Clinical",
+    "version" : "0.2.1",
+    "name" : "SOTT1Clinical"
+  },
+  {
+    "id" : "SOTT1ClinicalCardiology",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalCardiology",
+    "version" : "0.2.1",
+    "name" : "SOTT1ClinicalCardiology"
+  },
+  {
+    "id" : "SOTT1ClinicalComorbidity",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalComorbidity",
+    "version" : "0.2.1",
+    "name" : "SOTT1ClinicalComorbidity"
+  },
+  {
+    "id" : "SOTT1ClinicalCutaneous",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalCutaneous",
+    "version" : "0.2.1",
+    "name" : "SOTT1ClinicalCutaneous"
+  },
+  {
+    "id" : "SOTT1ClinicalENT",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalENT",
+    "version" : "0.2.1",
+    "name" : "SOTT1ClinicalENT"
+  },
+  {
+    "id" : "SOTT1ClinicalGastroIntestinal",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalGastroIntestinal",
+    "version" : "0.2.1",
+    "name" : "SOTT1ClinicalGastroIntestinal"
+  },
+  {
+    "id" : "SOTT1ClinicalNeurology",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalNeurology",
+    "version" : "0.2.1",
+    "name" : "SOTT1ClinicalNeurology"
+  },
+  {
+    "id" : "SOTT1ClinicalRespiratory",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalRespiratory",
+    "version" : "0.2.1",
+    "name" : "SOTT1ClinicalRespiratory"
+  },
+  {
+    "id" : "SOTT1ClinicalTreatmentInfo",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalTreatmentInfo",
+    "version" : "0.2.1",
+    "name" : "SOTT1ClinicalTreatmentInfo"
+  },
+  {
+    "id" : "SOTT1ClinicalTreatments",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalTreatments",
+    "version" : "0.2.1",
+    "name" : "SOTT1ClinicalTreatments"
+  },
+  {
+    "id" : "SOTT1ClinicalVaccination",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalVaccination",
+    "version" : "0.2.1",
+    "name" : "SOTT1ClinicalVaccination"
+  },
+  {
+    "id" : "SOTT1Conclusion",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1Conclusion",
+    "version" : "0.2.1",
+    "name" : "SOTT1Conclusion"
+  },
+  {
+    "id" : "SOTT1Exposure",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1Exposure",
+    "version" : "0.2.1",
+    "name" : "SOTT1Exposure"
+  },
+  {
+    "id" : "SOTT1ExposureAnimal",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureAnimal",
+    "version" : "0.2.1",
+    "name" : "SOTT1ExposureAnimal"
+  },
+  {
+    "id" : "SOTT1ExposureChemical",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureChemical",
+    "version" : "0.2.1",
+    "name" : "SOTT1ExposureChemical"
+  },
+  {
+    "id" : "SOTT1ExposureContacts",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureContacts",
+    "version" : "0.2.1",
+    "name" : "SOTT1ExposureContacts"
+  },
+  {
+    "id" : "SOTT1ExposureFoodDetails",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureFoodDetails",
+    "version" : "0.2.1",
+    "name" : "SOTT1ExposureFoodDetails"
+  },
+  {
+    "id" : "SOTT1ExposureInsect",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureInsect",
+    "version" : "0.2.1",
+    "name" : "SOTT1ExposureInsect"
+  },
+  {
+    "id" : "SOTT1ExposureMassGathering",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureMassGathering",
+    "version" : "0.2.1",
+    "name" : "SOTT1ExposureMassGathering"
+  },
+  {
+    "id" : "SOTT1ExposureNosocomial",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureNosocomial",
+    "version" : "0.2.1",
+    "name" : "SOTT1ExposureNosocomial"
+  },
+  {
+    "id" : "SOTT1ExposurePersonalAssumption",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposurePersonalAssumption",
+    "version" : "0.2.1",
+    "name" : "SOTT1ExposurePersonalAssumption"
+  },
+  {
+    "id" : "SOTT1ExposureTravelHistory",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureTravelHistory",
+    "version" : "0.2.1",
+    "name" : "SOTT1ExposureTravelHistory"
+  },
+  {
+    "id" : "SOTT1ExposureWaterDetails",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureWaterDetails",
+    "version" : "0.2.1",
+    "name" : "SOTT1ExposureWaterDetails"
+  },
+  {
+    "id" : "SOTT1ExposureWaterFood",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureWaterFood",
+    "version" : "0.2.1",
+    "name" : "SOTT1ExposureWaterFood"
+  },
+  {
+    "id" : "SOTT1Laboratory",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1Laboratory",
+    "version" : "0.2.1",
+    "name" : "SOTT1Laboratory"
+  },
+  {
+    "id" : "SOTT1NotificationInterview",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1NotificationInterview",
+    "version" : "0.2.1",
+    "name" : "SOTT1NotificationInterview"
+  },
+  {
+    "id" : "SOTT1ClinicalUrogynecology",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1Urogynecology",
+    "version" : "0.2.1",
+    "name" : "SOTT1ClinicalUrogynecology"
+  },
+  {
+    "id" : "WorkAddress",
+    "type" : "StructureDefinition",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/WorkAddress",
+    "version" : "0.2.1",
+    "name" : "WorkAddress"
+  },
+  {
+    "id" : "AFROMRCIFLogicalModelToResources",
+    "type" : "StructureMap",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureMap/AFROMRCIFLogicalModelToResources",
+    "version" : "0.2.1",
+    "name" : "AFROMRCIFLogicalModelToResources"
+  },
+  {
+    "id" : "AFROMRCIFQuestionnaireToLogicalModel",
+    "type" : "StructureMap",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureMap/AFROMRCIFQuestionnaireToLogicalModel",
+    "version" : "0.2.1",
+    "name" : "AFROMRCIFQuestionnaireToLogicalModel"
+  },
+  {
+    "id" : "AFROMRCIFQuestionnaireToResources",
+    "type" : "StructureMap",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureMap/AFROMRCIFQuestionnaireToResources",
+    "version" : "0.2.1",
+    "name" : "AFROMRCIFQuestionnaireToResources"
+  },
+  {
+    "id" : "MeaslesLogicalModelToResources",
+    "type" : "StructureMap",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesLogicalModelToResources",
+    "version" : "0.2.1",
+    "name" : "MeaslesLogicalModelToResources"
+  },
+  {
+    "id" : "MeaslesQuestionnaireToLogicalModel",
+    "type" : "StructureMap",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel",
+    "version" : "0.2.1",
+    "name" : "MeaslesQuestionnaireToLogicalModel"
+  },
+  {
+    "id" : "MeaslesQuestionnaireToResources",
+    "type" : "StructureMap",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToResources",
+    "version" : "0.2.1",
+    "name" : "MeaslesQuestionnaireToResources"
+  },
+  {
+    "id" : "MetaDataTypesHelper",
+    "type" : "StructureMap",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper",
+    "version" : "0.2.1",
+    "name" : "MetaDataTypesHelper"
+  },
+  {
+    "id" : "TestPerformedCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/TestPerformed",
+    "version" : "0.2.1",
+    "name" : "TestPerformedCs"
+  },
+  {
+    "id" : "TestTypeCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/TestType",
+    "version" : "0.2.1",
+    "name" : "TestTypeCs"
+  },
+  {
+    "id" : "VaccineInfoSourceCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/VaccineInfoSource",
+    "version" : "0.2.1",
+    "name" : "VaccineInfoSourceCs"
+  },
+  {
+    "id" : "VaccineTypeCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/VaccineType",
+    "version" : "0.2.1",
+    "name" : "VaccineTypeCs"
+  },
+  {
+    "id" : "AnimalContactLocation",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalContactLocation",
+    "version" : "0.2.1",
+    "name" : "AnimalContactLocation"
+  },
+  {
+    "id" : "AnimalContactType",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalContactType",
+    "version" : "0.2.1",
+    "name" : "AnimalContactType"
+  },
+  {
+    "id" : "AnimalExposureLocation",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalExposureLocation",
+    "version" : "0.2.1",
+    "name" : "AnimalExposureLocation"
+  },
+  {
+    "id" : "Antigen",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/Antigen",
+    "version" : "0.2.1",
+    "name" : "Antigen"
+  },
+  {
+    "id" : "BiologicalSex",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/BiologicalSex",
+    "version" : "0.2.1",
+    "name" : "BiologicalSex"
+  },
+  {
+    "id" : "CaseStatus",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/CaseStatus",
+    "version" : "0.2.1",
+    "name" : "CaseStatus"
+  },
+  {
+    "id" : "ConfirmationBasis",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/ConfirmationBasis",
+    "version" : "0.2.1",
+    "name" : "ConfirmationBasis"
+  },
+  {
+    "id" : "ContactType",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/ContactType",
+    "version" : "0.2.1",
+    "name" : "ContactType"
+  },
+  {
+    "id" : "DetectedBy",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/DetectedBy",
+    "version" : "0.2.1",
+    "name" : "DetectedBy"
+  },
+  {
+    "id" : "DiscardingBasis",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/DiscardingBasis",
+    "version" : "0.2.1",
+    "name" : "DiscardingBasis"
+  },
+  {
+    "id" : "DomesticatedWild",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/DomesticatedWild",
+    "version" : "0.2.1",
+    "name" : "DomesticatedWild"
+  },
+  {
+    "id" : "ExposureLocation",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/ExposureLocation",
+    "version" : "0.2.1",
+    "name" : "ExposureLocation"
+  },
+  {
+    "id" : "FinalClassification",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/FinalClassification",
+    "version" : "0.2.1",
+    "name" : "FinalClassification"
+  },
+  {
+    "id" : "InfectionSetting",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/InfectionSetting",
+    "version" : "0.2.1",
+    "name" : "InfectionSetting"
+  },
+  {
+    "id" : "InitDiag",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/InitDiag",
+    "version" : "0.2.1",
+    "name" : "InitDiag"
+  },
+  {
+    "id" : "LocType",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/LocType",
+    "version" : "0.2.1",
+    "name" : "LocType"
+  },
+  {
+    "id" : "LocalCasesPresent",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/LocalCasesPresent",
+    "version" : "0.2.1",
+    "name" : "LocalCasesPresent"
+  },
+  {
+    "id" : "LocalizationOfSkinDisorder",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/LocalizationOfSkinDisorder",
+    "version" : "0.2.1",
+    "name" : "LocalizationOfSkinDisorder"
+  },
+  {
+    "id" : "NoOfDoses",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/NoOfDoses",
+    "version" : "0.2.1",
+    "name" : "NoOfDoses"
+  },
+  {
+    "id" : "PathogenTested",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/PathogenTested",
+    "version" : "0.2.1",
+    "name" : "PathogenTested"
+  },
+  {
+    "id" : "PatientOutcome",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/PatientOutcome",
+    "version" : "0.2.1",
+    "name" : "PatientOutcome"
+  },
+  {
+    "id" : "PlaceOfCare",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/PlaceOfCare",
+    "version" : "0.2.1",
+    "name" : "PlaceOfCare"
+  },
+  {
+    "id" : "ProvType",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/ProvType",
+    "version" : "0.2.1",
+    "name" : "ProvType"
+  },
+  {
+    "id" : "RashType",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/RashType",
+    "version" : "0.2.1",
+    "name" : "RashType"
+  },
+  {
+    "id" : "ReportedBy",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/ReportedBy",
+    "version" : "0.2.1",
+    "name" : "ReportedBy"
+  },
+  {
+    "id" : "Result",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/Result",
+    "version" : "0.2.1",
+    "name" : "Result"
+  },
+  {
+    "id" : "Results",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/Results",
+    "version" : "0.2.1",
+    "name" : "Results"
+  },
+  {
+    "id" : "RouteOfAdministration",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/RouteOfAdministration",
+    "version" : "0.2.1",
+    "name" : "RouteOfAdministration"
+  },
+  {
+    "id" : "SampleType",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/SampleType",
+    "version" : "0.2.1",
+    "name" : "SampleType"
+  },
+  {
+    "id" : "SourceOfInfection",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/SourceOfInfection",
+    "version" : "0.2.1",
+    "name" : "SourceOfInfection"
+  },
+  {
+    "id" : "SourceOfInformation",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/SourceOfInformation",
+    "version" : "0.2.1",
+    "name" : "SourceOfInformation"
+  },
+  {
+    "id" : "SpecimenCollected",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/SpecimenCollected",
+    "version" : "0.2.1",
+    "name" : "SpecimenCollected"
+  },
+  {
+    "id" : "SpecimenNumber",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/SpecimenNumber",
+    "version" : "0.2.1",
+    "name" : "SpecimenNumber"
+  },
+  {
+    "id" : "TestPerformed",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/TestPerformed",
+    "version" : "0.2.1",
+    "name" : "TestPerformed"
+  },
+  {
+    "id" : "TestType",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/TestType",
+    "version" : "0.2.1",
+    "name" : "TestType"
+  },
+  {
+    "id" : "VaccineInfoSource",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/VaccineInfoSource",
+    "version" : "0.2.1",
+    "name" : "VaccineInfoSource"
+  },
+  {
+    "id" : "VaccineType",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/VaccineType",
+    "version" : "0.2.1",
+    "name" : "VaccineType"
+  },
+  {
+    "id" : "WaterCharacteristics",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/WaterCharacteristics",
+    "version" : "0.2.1",
+    "name" : "WaterCharacteristics"
+  },
+  {
+    "id" : "YesNo",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo",
+    "version" : "0.2.1",
+    "name" : "YesNo"
+  },
+  {
+    "id" : "YesNoUnknown",
+    "type" : "ValueSet",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown",
+    "version" : "0.2.1",
+    "name" : "YesNoUnknown"
+  },
+  {
+    "id" : "WaterCharacteristicsCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/WaterCharacteristics",
+    "version" : "0.2.1",
+    "name" : "WaterCharacteristicsCs"
+  },
+  {
+    "id" : "YesNoUnknownCs",
+    "type" : "CodeSystem",
+    "url" : "http://worldhealthorganization.github.io/smart-ot/YesNoUnknown",
+    "version" : "0.2.1",
+    "name" : "YesNoUnknownCs"
+  }
+]

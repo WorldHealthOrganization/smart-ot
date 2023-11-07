@@ -1,0 +1,13 @@
+{
+  "url" : "http://worldhealthorganization.github.io/smart-ot/ImplementationGuide/fhir.worldhealthorganization.smart-ot",
+  "name" : "smartot",
+  "package-id" : "fhir.worldhealthorganization.smart-ot",
+  "ig-ver" : "0.2.1",
+  "date" : "Wed, 25 Oct, 2023 07:26:32 +0000",
+  "errs" : 1680,
+  "warnings" : 634,
+  "hints" : 87,
+  "version" : "4.0.1",
+  "tool" : "5.0.0 (3)",
+  "maxMemory" : 2087311680
+}

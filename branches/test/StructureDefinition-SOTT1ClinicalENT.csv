@@ -1,0 +1,40 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: RIM Mapping"
+"SOTT1ClinicalENT","SOTT1ClinicalENT","","","",0,*,"","","","null {[]} {[]}
+","Surveillance & Outbreak Toolkit T1 Clinical - ENT","Base definition for all elements that are defined inside a resource - but not those in a data type.","","","","","","","","","",,,,,"",,,,"BackboneElement",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","n/a"
+"SOTT1ClinicalENT.id","SOTT1ClinicalENT.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"","","n/a"
+"SOTT1ClinicalENT.extension","SOTT1ClinicalENT.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","n/a"
+"SOTT1ClinicalENT.modifierExtension","SOTT1ClinicalENT.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","N/A"
+"SOTT1ClinicalENT.entDisorders","SOTT1ClinicalENT.entDisorders","","","",0,1,"","","","code {[]} {[]}
+","Observed Ear/nose/throat disorders","Observed Ear/nose/throat disorders","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1ClinicalENT.entDisorders",0,1,"",""
+"SOTT1ClinicalENT.conjunctivitis","SOTT1ClinicalENT.conjunctivitis","","","",0,1,"","","","code {[]} {[]}
+","Conjunctivitis:","Conjunctivitis, inflammation (swelling, redness) of the conjunctiva.","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1ClinicalENT.conjunctivitis",0,1,"",""
+"SOTT1ClinicalENT.conjunctivitisInjection","SOTT1ClinicalENT.conjunctivitisInjection","","","",0,1,"","","","code {[]} {[]}
+","Conjunctival injection","Bleeding/haemorrhage into the eyes (conjunctival injections).","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1ClinicalENT.conjunctivitisInjection",0,1,"",""
+"SOTT1ClinicalENT.runnyNose","SOTT1ClinicalENT.runnyNose","","","",0,1,"","","","code {[]} {[]}
+","Runny nose","Rhinorrhoea","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1ClinicalENT.runnyNose",0,1,"",""
+"SOTT1ClinicalENT.earPain","SOTT1ClinicalENT.earPain","","","",0,1,"","","","code {[]} {[]}
+","Ear pain","Ear pain","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1ClinicalENT.earPain",0,1,"",""
+"SOTT1ClinicalENT.voiceHoarseness","SOTT1ClinicalENT.voiceHoarseness","","","",0,1,"","","","code {[]} {[]}
+","Hoarseness of voice","Hoarseness of voice","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1ClinicalENT.voiceHoarseness",0,1,"",""
+"SOTT1ClinicalENT.difficultySwallowing","SOTT1ClinicalENT.difficultySwallowing","","","",0,1,"","","","code {[]} {[]}
+","Difficulty swallowing:","Difficulty swallowing (dysphagia/odynophagia), difficulty or pain in the passage of solids or liquids from the mouth to the stomach.","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1ClinicalENT.difficultySwallowing",0,1,"",""
+"SOTT1ClinicalENT.soreThroat","SOTT1ClinicalENT.soreThroat","","","",0,1,"","","","code {[]} {[]}
+","Sore throat","Increase volume of the neck due to swollen glands","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ClinicalENT.soreThroat",0,1,"",""
+"SOTT1ClinicalENT.oralUlceration","SOTT1ClinicalENT.oralUlceration","","","",0,1,"","","","code {[]} {[]}
+","Oral ulcerations","Ulcers of the throat with or without pus and/or membrane","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1ClinicalENT.oralUlceration",0,1,"",""
+"SOTT1ClinicalENT.hypersalivation","SOTT1ClinicalENT.hypersalivation","","","",0,1,"","","","code {[]} {[]}
+","Hypersalivation","Hypersalivation","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1ClinicalENT.hypersalivation",0,1,"",""
+"SOTT1ClinicalENT.otherENTSigns","SOTT1ClinicalENT.otherENTSigns","","","",0,1,"","","","string {[]} {[]}
+","Other ENT signs","Describe other ENT signs","","","","","","","","","",,,,,"",,,,"SOTT1ClinicalENT.otherENTSigns",0,1,"",""

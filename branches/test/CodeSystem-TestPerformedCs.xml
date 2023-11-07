@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="TestPerformedCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/TestPerformed</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">1<a name="TestPerformedCs-1"> </a></td><td>IgM EIA/Indirect</td></tr><tr><td style="white-space:nowrap">2<a name="TestPerformedCs-2"> </a></td><td>IgM EIA/Capture</td></tr><tr><td style="white-space:nowrap">3<a name="TestPerformedCs-3"> </a></td><td>Virus Isolation</td></tr><tr><td style="white-space:nowrap">4<a name="TestPerformedCs-4"> </a></td><td>PCR</td></tr><tr><td style="white-space:nowrap">5<a name="TestPerformedCs-5"> </a></td><td>IgM IF</td></tr><tr><td style="white-space:nowrap">6<a name="TestPerformedCs-6"> </a></td><td>IgG EIA/Capture</td></tr><tr><td style="white-space:nowrap">7<a name="TestPerformedCs-7"> </a></td><td>IgG IF</td></tr><tr><td style="white-space:nowrap">8<a name="TestPerformedCs-8"> </a></td><td>HI</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/TestPerformed"/>
+  <version value="0.2.1"/>
+  <name value="TestPerformedCs"/>
+  <title value="Test Performed Code System"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Test Performed Code System"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="8"/>
+  <concept>
+    <code value="1"/>
+    <display value="IgM EIA/Indirect"/>
+  </concept>
+  <concept>
+    <code value="2"/>
+    <display value="IgM EIA/Capture"/>
+  </concept>
+  <concept>
+    <code value="3"/>
+    <display value="Virus Isolation"/>
+  </concept>
+  <concept>
+    <code value="4"/>
+    <display value="PCR"/>
+  </concept>
+  <concept>
+    <code value="5"/>
+    <display value="IgM IF"/>
+  </concept>
+  <concept>
+    <code value="6"/>
+    <display value="IgG EIA/Capture"/>
+  </concept>
+  <concept>
+    <code value="7"/>
+    <display value="IgG IF"/>
+  </concept>
+  <concept>
+    <code value="8"/>
+    <display value="HI"/>
+  </concept>
+</CodeSystem>

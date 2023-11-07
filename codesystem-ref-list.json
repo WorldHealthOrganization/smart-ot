@@ -1,0 +1,432 @@
+{
+  "codeSystems" : [
+    {
+      "url" : "http://hl7.org/fhir/administrative-gender",
+      "version" : "4.0.1",
+      "status" : "active",
+      "name" : "AdministrativeGender",
+      "title" : "AdministrativeGender",
+      "description" : "The gender of a person used for administrative purposes.",
+      "oids" : ["2.16.840.1.113883.4.642.4.2"],
+      "uses" : {
+      },
+      "ValueSet-Questionnaire-SOTT0CaseInvestigationForm_BiologicalSex.html" : "SOT Biological Sex",
+      "ValueSet-BiologicalSex.html" : "SOT Biological Sex",
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_BiologicalSex.html" : "SOT Biological Sex"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v2-0532",
+      "version" : "2.1.0",
+      "status" : "active",
+      "name" : "ExpandedYesNoIndicator",
+      "title" : "expandedYes-NoIndicator",
+      "description" : "HL7-defined code system of concepts used to specify an expansion on the original Yes/No indicator table by including \"flavors of null\".  It is intended to be applied to fields where the response is not limited to \"yes\" or \"no\".  Used in numerous locations in HL7 Version 2.x messaging.",
+      "oids" : ["2.16.840.1.113883.18.347"],
+      "uses" : {
+      },
+      "ValueSet-YesNo.html" : "SOT Yes No",
+      "ValueSet-Questionnaire-SOTT0CaseInvestigationForm_YesNo.html" : "SOT Yes No"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/AnimalContactLocation",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AnimalContactLocationCs",
+      "title" : "Animal Contact Location",
+      "description" : "Animal Contact Location",
+      "uses" : {
+      },
+      "ValueSet-AnimalContactLocation.html" : "Animal Contact Location",
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_AnimalContactLocation.html" : "Animal Contact Location"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/AnimalContactType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AnimalContactTypeCs",
+      "title" : "Animal Contact Type",
+      "description" : "Animal Contact Type",
+      "uses" : {
+      },
+      "ValueSet-AnimalContactType.html" : "Animal Contact Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/CaseStatus",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "CaseStatusCs",
+      "title" : "Case Status",
+      "description" : "Case Status",
+      "uses" : {
+      },
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_CaseStatus.html" : "Case Status",
+      "ValueSet-CaseStatus.html" : "Case Status"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/CodeSystem/AntigenCs",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AntigenCs",
+      "title" : "Antigen Code System",
+      "description" : "Antigen Code System",
+      "uses" : {
+      },
+      "ValueSet-Questionnaire-SOTMeasles_Antigen.html" : " Antigen",
+      "ValueSet-Antigen.html" : " Antigen"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ConfirmationBasis",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ConfirmationBasisCs",
+      "title" : "Confirmation Basis",
+      "description" : "Confirmation Basis",
+      "uses" : {
+      },
+      "ValueSet-ConfirmationBasis.html" : " ConfirmationBasis"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ContactType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ContactTypeCs",
+      "title" : "Contact Type",
+      "description" : "Contact Type",
+      "uses" : {
+      },
+      "ValueSet-ContactType.html" : "Contact Type",
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_ContactType.html" : "Contact Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/DetectedBy",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "DetectedByCs",
+      "title" : "Detected By Code System",
+      "description" : "Detected By Code System",
+      "uses" : {
+      },
+      "ValueSet-DetectedBy.html" : "SOT Measles Detected By"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/DiscardingBasis",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "DiscardingBasisCs",
+      "title" : "Discarding Basis",
+      "description" : "Discarding Basis",
+      "uses" : {
+      },
+      "ValueSet-DiscardingBasis.html" : " DiscardingBasis"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/DomesticatedWild",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "DomesticatedWildCs",
+      "title" : "Domesticated or Wild",
+      "description" : "Domesticated or Wild",
+      "uses" : {
+      },
+      "ValueSet-DomesticatedWild.html" : "Domesticated or Wild"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ExposureLocation",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ExposureLocationCs",
+      "title" : "Exposure Location",
+      "description" : "Exposure Location",
+      "uses" : {
+      },
+      "ValueSet-ExposureLocation.html" : " Exposure Location",
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_ExposureLocation.html" : " Exposure Location",
+      "ValueSet-AnimalExposureLocation.html" : "Animal Exposure Location",
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_AnimalExposureLocation.html" : "Animal Exposure Location"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/FinalClassification",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "FinalClassificationCs",
+      "title" : "Final Classification",
+      "description" : "Final Classification",
+      "uses" : {
+      },
+      "ValueSet-FinalClassification.html" : " FinalClassification"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/InfectionSetting",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "InfectionSettingCs",
+      "title" : "InfectionSetting",
+      "description" : "InfectionSetting",
+      "uses" : {
+      },
+      "ValueSet-InfectionSetting.html" : " InfectionSetting"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/LocType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "LocTypeCs",
+      "title" : "Locality Type Code System",
+      "description" : "Locality Type Code System",
+      "uses" : {
+      },
+      "ValueSet-LocType.html" : "SOT Measles Locality Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "LocalCasesPresentCs",
+      "title" : "LocalCasesPresent",
+      "description" : "LocalCasesPresent",
+      "uses" : {
+      },
+      "ValueSet-LocalCasesPresent.html" : " LocalCasesPresent"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/LocalizationOfSkinDisorder",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "LocalizationOfSkinDisorderCs",
+      "title" : "Localization of Skin Disorder",
+      "description" : "Localization of Skin Disorder",
+      "uses" : {
+      },
+      "ValueSet-LocalizationOfSkinDisorder.html" : "Localization of Skin Disorder"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/NoOfDoses",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "NoOfDosesCs",
+      "title" : "Number of Doses",
+      "description" : "Number of Doses",
+      "uses" : {
+      },
+      "ValueSet-NoOfDoses.html" : "SOT Measles No Of Doses"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/PathogenTested",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PathogenTestedCs",
+      "title" : "Pathogen Tested",
+      "description" : "Pathogen Tested",
+      "uses" : {
+      },
+      "ValueSet-PathogenTested.html" : "Pathogen  Tested"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/PatientOutcome",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PatientOutcomeCs",
+      "title" : "Patient Clinical Course Outcome",
+      "description" : "Patient Clinical Course Outcome",
+      "uses" : {
+      },
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_PatientOutcome.html" : "Patient Clinical Course Outcome",
+      "ValueSet-Questionnaire-SOTT0CaseInvestigationForm_PatientOutcome.html" : "Patient Clinical Course Outcome",
+      "ValueSet-PatientOutcome.html" : "Patient Clinical Course Outcome"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/PlaceOfCare",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PlaceOfCareCs",
+      "title" : "Place Of Care",
+      "description" : "Place Of Care",
+      "uses" : {
+      },
+      "ValueSet-PlaceOfCare.html" : "Place Of Care"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ProvType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ProvTypeCs",
+      "title" : "Type of Provider Code System",
+      "description" : "Type of Provider Code System",
+      "uses" : {
+      },
+      "ValueSet-ProvType.html" : "SOT Measles Provider Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/RashType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "RashTypeCs",
+      "title" : "Rash Type",
+      "description" : "Rash Type",
+      "uses" : {
+      },
+      "ValueSet-RashType.html" : "Rash Type",
+      "ValueSet-Questionnaire-SOTMeasles_RashType.html" : "Rash Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ReportedBy",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ReportedByCs",
+      "title" : "Reported By",
+      "description" : "Reported By",
+      "uses" : {
+      },
+      "ValueSet-ReportedBy.html" : "Reported By"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/Result",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ResultCs",
+      "title" : "Result Code System",
+      "description" : "Result Code System",
+      "uses" : {
+      },
+      "ValueSet-SOTMeasles-AFRO-MRCIF_Result.html" : " Result",
+      "ValueSet-Result.html" : " Result",
+      "ValueSet-Questionnaire-SOTMeasles_Result.html" : " Result"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/Results",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ResultsCs",
+      "title" : "Results",
+      "description" : "Results",
+      "uses" : {
+      },
+      "ValueSet-Results.html" : "Results"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/RouteOfAdministration",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "RouteOfAdministrationCs",
+      "title" : "Route Of Administration",
+      "description" : "Route Of Administration",
+      "uses" : {
+      },
+      "ValueSet-RouteOfAdministration.html" : "Route Of Administration"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SampleType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SampleTypeCs",
+      "title" : "Sample Type Code System",
+      "description" : "Sample Type Code System",
+      "uses" : {
+      },
+      "ValueSet-SampleType.html" : " Sample Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SourceOfInfection",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SourceOfInfectionCs",
+      "title" : "Source Of Infection",
+      "description" : "Source Of Infection",
+      "uses" : {
+      },
+      "ValueSet-SourceOfInfection.html" : " SourceOfInfection"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SpecimenCollected",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SpecimenCollectedCs",
+      "title" : "Specimen Collected",
+      "description" : "Specimen Collected",
+      "uses" : {
+      },
+      "ValueSet-SpecimenCollected.html" : "Specimen Collected"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SpecimenNumber",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SpecimenNumberCs",
+      "title" : "Specimen Number Code System",
+      "description" : "Specimen Number Code System",
+      "uses" : {
+      },
+      "ValueSet-SpecimenNumber.html" : " Specimen Number"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/TestPerformed",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "TestPerformedCs",
+      "title" : "Test Performed Code System",
+      "description" : "Test Performed Code System",
+      "uses" : {
+      },
+      "ValueSet-TestPerformed.html" : " Test Performed"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/TestType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "TestTypeCs",
+      "title" : "Test Type",
+      "description" : "Test Type",
+      "uses" : {
+      },
+      "ValueSet-TestType.html" : "AFRO MRCIF Test Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/VaccineInfoSource",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "VaccineInfoSourceCs",
+      "title" : "Vaccine Info Source",
+      "description" : "Vaccine Info Source",
+      "uses" : {
+      },
+      "ValueSet-VaccineInfoSource.html" : "Vaccine Info Source"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/VaccineType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "VaccineTypeCs",
+      "title" : "Vaccine Type",
+      "description" : "Vaccine Type",
+      "uses" : {
+      },
+      "ValueSet-VaccineType.html" : "SOT Measles Vaccine Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/WaterCharacteristics",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "WaterCharacteristicsCs",
+      "title" : "Water Characteristics",
+      "description" : "Water Characteristics",
+      "uses" : {
+      },
+      "ValueSet-WaterCharacteristics.html" : "Water Characteristics"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/YesNoUnknown",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "YesNoUnknownCs",
+      "title" : "Yes No Unknown",
+      "description" : "Yes No Unknown",
+      "uses" : {
+      },
+      "ValueSet-YesNoUnknown.html" : "Yes No Unknown",
+      "ValueSet-Questionnaire-SOTMeasles_YesNoUnknown.html" : "Yes No Unknown",
+      "ValueSet-SOTMeasles-AFRO-MRCIF_YesNoUnknown.html" : "Yes No Unknown",
+      "ValueSet-Questionnaire-SOTT0CaseInvestigationForm_YesNoUnknown.html" : "Yes No Unknown",
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_YesNoUnknown.html" : "Yes No Unknown"
+    }
+  ]
+}

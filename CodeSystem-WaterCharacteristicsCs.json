@@ -1,0 +1,43 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "WaterCharacteristicsCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/WaterCharacteristics</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td></tr><tr><td style=\"white-space:nowrap\">Clear<a name=\"WaterCharacteristicsCs-Clear\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Filtered<a name=\"WaterCharacteristicsCs-Filtered\"> </a></td></tr><tr><td style=\"white-space:nowrap\">Treated<a name=\"WaterCharacteristicsCs-Treated\"> </a></td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/WaterCharacteristics",
+  "version" : "0.2.1",
+  "name" : "WaterCharacteristicsCs",
+  "title" : "Water Characteristics",
+  "status" : "draft",
+  "date" : "2023-11-07T05:59:29+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Water Characteristics",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 3,
+  "concept" : [{
+    "code" : "Clear",
+    "display" : "Clear"
+  },
+  {
+    "code" : "Filtered",
+    "display" : "Filtered"
+  },
+  {
+    "code" : "Treated",
+    "display" : "Treated"
+  }]
+}

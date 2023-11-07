@@ -1,0 +1,56 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/CodeSystem/PatientOutcomeCs> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "PatientOutcomeCs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/PatientOutcome</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">Sick<a name=\"PatientOutcomeCs-Sick\"> </a></td><td>Still sick</td></tr><tr><td style=\"white-space:nowrap\">Cured<a name=\"PatientOutcomeCs-Cured\"> </a></td><td>Cured</td></tr><tr><td style=\"white-space:nowrap\">Sequelae<a name=\"PatientOutcomeCs-Sequelae\"> </a></td><td>Sequelae</td></tr><tr><td style=\"white-space:nowrap\">Defaulter<a name=\"PatientOutcomeCs-Defaulter\"> </a></td><td>Defaulter</td></tr><tr><td style=\"white-space:nowrap\">Death<a name=\"PatientOutcomeCs-Death\"> </a></td><td>Death</td></tr></table></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/PatientOutcome"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "PatientOutcomeCs"] ; # 
+  fhir:title [ fhir:v "Patient Clinical Course Outcome"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-10-25T07:26:32+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Patient Clinical Course Outcome"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "5"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "Sick" ] ;
+     fhir:display [ fhir:v "Still sick" ]
+  ] [
+     fhir:code [ fhir:v "Cured" ] ;
+     fhir:display [ fhir:v "Cured" ]
+  ] [
+     fhir:code [ fhir:v "Sequelae" ] ;
+     fhir:display [ fhir:v "Sequelae" ]
+  ] [
+     fhir:code [ fhir:v "Defaulter" ] ;
+     fhir:display [ fhir:v "Defaulter" ]
+  ] [
+     fhir:code [ fhir:v "Death" ] ;
+     fhir:display [ fhir:v "Death" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

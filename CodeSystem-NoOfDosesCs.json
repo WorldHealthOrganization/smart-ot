@@ -1,0 +1,51 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "NoOfDosesCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/NoOfDoses</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">0<a name=\"NoOfDosesCs-0\"> </a></td><td>Zero dose</td></tr><tr><td style=\"white-space:nowrap\">1<a name=\"NoOfDosesCs-1\"> </a></td><td>One dose</td></tr><tr><td style=\"white-space:nowrap\">2<a name=\"NoOfDosesCs-2\"> </a></td><td>Two dose</td></tr><tr><td style=\"white-space:nowrap\">3<a name=\"NoOfDosesCs-3\"> </a></td><td>Three dose</td></tr><tr><td style=\"white-space:nowrap\">99<a name=\"NoOfDosesCs-99\"> </a></td><td>Unknown</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/NoOfDoses",
+  "version" : "0.2.1",
+  "name" : "NoOfDosesCs",
+  "title" : "Number of Doses",
+  "status" : "draft",
+  "date" : "2023-11-07T05:59:29+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Number of Doses",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 5,
+  "concept" : [{
+    "code" : "0",
+    "display" : "Zero dose"
+  },
+  {
+    "code" : "1",
+    "display" : "One dose"
+  },
+  {
+    "code" : "2",
+    "display" : "Two dose"
+  },
+  {
+    "code" : "3",
+    "display" : "Three dose"
+  },
+  {
+    "code" : "99",
+    "display" : "Unknown"
+  }]
+}

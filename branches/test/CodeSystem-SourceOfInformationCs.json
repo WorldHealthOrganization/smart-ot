@@ -1,0 +1,43 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "SourceOfInformationCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/SourceOfInformation</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">1<a name=\"SourceOfInformationCs-1\"> </a></td><td>Vaccination card</td></tr><tr><td style=\"white-space:nowrap\">2<a name=\"SourceOfInformationCs-2\"> </a></td><td>Health service record</td></tr><tr><td style=\"white-space:nowrap\">3<a name=\"SourceOfInformationCs-3\"> </a></td><td>Verbal</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/SourceOfInformation",
+  "version" : "0.2.1",
+  "name" : "SourceOfInformationCs",
+  "title" : "Source Of Information",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Source Of Information",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 3,
+  "concept" : [{
+    "code" : "1",
+    "display" : "Vaccination card"
+  },
+  {
+    "code" : "2",
+    "display" : "Health service record"
+  },
+  {
+    "code" : "3",
+    "display" : "Verbal"
+  }]
+}

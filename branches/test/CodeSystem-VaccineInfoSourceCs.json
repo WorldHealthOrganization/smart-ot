@@ -1,0 +1,43 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "VaccineInfoSourceCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/VaccineInfoSource</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">VaccinationCard<a name=\"VaccineInfoSourceCs-VaccinationCard\"> </a></td><td>Vaccination Card</td></tr><tr><td style=\"white-space:nowrap\">HealthServices<a name=\"VaccineInfoSourceCs-HealthServices\"> </a></td><td>Health Services</td></tr><tr><td style=\"white-space:nowrap\">ParentsOrOtherAdult<a name=\"VaccineInfoSourceCs-ParentsOrOtherAdult\"> </a></td><td>Parents or another adult</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/VaccineInfoSource",
+  "version" : "0.2.1",
+  "name" : "VaccineInfoSourceCs",
+  "title" : "Vaccine Info Source",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Vaccine Info Source",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 3,
+  "concept" : [{
+    "code" : "VaccinationCard",
+    "display" : "Vaccination Card"
+  },
+  {
+    "code" : "HealthServices",
+    "display" : "Health Services"
+  },
+  {
+    "code" : "ParentsOrOtherAdult",
+    "display" : "Parents or another adult"
+  }]
+}

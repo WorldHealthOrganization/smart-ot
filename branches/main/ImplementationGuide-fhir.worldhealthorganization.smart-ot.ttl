@@ -1,0 +1,2547 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/ImplementationGuide/fhir.worldhealthorganization.smart-ot> a fhir:ImplementationGuide ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "fhir.worldhealthorganization.smart-ot"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>smartot</h2><p>The official URL for this implementation guide is: </p><pre>http://worldhealthorganization.github.io/smart-ot/ImplementationGuide/fhir.worldhealthorganization.smart-ot</pre><div><p>WHO SMART Guideline: Surveillance and Outbreak Toolkit</p>\n</div></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/ImplementationGuide/fhir.worldhealthorganization.smart-ot"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "smartot"] ; # 
+  fhir:title [ fhir:v "WHO SMART Guideline: Surveillance and Outbreak Toolkit"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-04-25"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "WHO SMART Guideline: Surveillance and Outbreak Toolkit"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:packageId [ fhir:v "fhir.worldhealthorganization.smart-ot"] ; # 
+  fhir:license [ fhir:v "CC0-1.0"] ; # 
+  fhir:fhirVersion ( [ fhir:v "4.0.1"] ) ; # 
+  fhir:dependsOn ( [
+     fhir:id [ fhir:v "hl7tx" ] ;
+     fhir:extension ( [
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment"^^xsd:anyURI ] ;
+       fhir:value [ fhir:v "Automatically added as a dependency - all IGs depend on HL7 Terminology" ]
+     ] ) ;
+     fhir:uri [
+       fhir:v "http://terminology.hl7.org/ImplementationGuide/hl7.terminology"^^xsd:anyURI ;
+       fhir:link <http://terminology.hl7.org/ImplementationGuide/hl7.terminology>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.terminology.r4" ] ;
+     fhir:version [ fhir:v "5.3.0" ]
+  ] [
+     fhir:id [ fhir:v "hl7ext" ] ;
+     fhir:extension ( [
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment"^^xsd:anyURI ] ;
+       fhir:value [ fhir:v "Automatically added as a dependency - all IGs depend on the HL7 Extension Pack" ]
+     ] ) ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"^^xsd:anyURI ;
+       fhir:link <http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.uv.extensions.r4" ] ;
+     fhir:version [ fhir:v "1.0.0" ]
+  ] [
+     fhir:id [ fhir:v "hl7_fhir_uv_sdc" ] ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/uv/sdc/ImplementationGuide/hl7.fhir.uv.sdc"^^xsd:anyURI ;
+       fhir:link <http://hl7.org/fhir/uv/sdc/ImplementationGuide/hl7.fhir.uv.sdc>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.uv.sdc" ] ;
+     fhir:version [ fhir:v "3.0.0" ]
+  ] ) ; # 
+  fhir:definition [
+     fhir:extension ( [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "copyrightyear" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "2021+" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "releaselabel" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CI Build" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "autoload-resources" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-liquid" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "template/liquid" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-liquid" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "input/liquid" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-qa" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "temp/qa" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-temp" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "temp/pages" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-output" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "output" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-suppressed-warnings" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "input/ignoreWarnings.txt" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-history" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "http://worldhealthorganization.github.io/smart-ot/history.html" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "template-html" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "template-page.html" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "template-md" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "template-page-md.html" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-contact" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-context" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-copyright" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-jurisdiction" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-license" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-publisher" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-version" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-wg" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "active-tables" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "fmm-definition" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "http://hl7.org/fhir/versions.html#maturity" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "propagate-status" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "excludelogbinaryformat" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "tabbed-snapshots" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency"^^xsd:anyURI ] ;
+       fhir:value [ fhir:v "hl7.fhir.uv.tools#current" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "copyrightyear" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "2021+" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "releaselabel" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CI Build" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "autoload-resources" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-liquid" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "template/liquid" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-liquid" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "input/liquid" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-qa" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "temp/qa" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-temp" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "temp/pages" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-output" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "output" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-suppressed-warnings" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "input/ignoreWarnings.txt" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "path-history" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "http://worldhealthorganization.github.io/smart-ot/history.html" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "template-html" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "template-page.html" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "template-md" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "template-page-md.html" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-contact" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-context" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-copyright" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-jurisdiction" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-license" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-publisher" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-version" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "apply-wg" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "active-tables" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "fmm-definition" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "http://hl7.org/fhir/versions.html#maturity" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "propagate-status" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "excludelogbinaryformat" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "tabbed-snapshots" ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "true" ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] ) ;
+     fhir:resource ( [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/Antigen> ;
+         fhir:reference [ fhir:v "ValueSet/Antigen" ]
+       ] ;
+       fhir:name [ fhir:v " Antigen" ] ;
+       fhir:description [ fhir:v " Antigen" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/ConfirmationBasis> ;
+         fhir:reference [ fhir:v "ValueSet/ConfirmationBasis" ]
+       ] ;
+       fhir:name [ fhir:v " ConfirmationBasis" ] ;
+       fhir:description [ fhir:v " ConfirmationBasis" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/DiscardingBasis> ;
+         fhir:reference [ fhir:v "ValueSet/DiscardingBasis" ]
+       ] ;
+       fhir:name [ fhir:v " DiscardingBasis" ] ;
+       fhir:description [ fhir:v " DiscardingBasis" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/ExposureLocation> ;
+         fhir:reference [ fhir:v "ValueSet/ExposureLocation" ]
+       ] ;
+       fhir:name [ fhir:v " Exposure Location" ] ;
+       fhir:description [ fhir:v " Exposure Location" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/FinalClassification> ;
+         fhir:reference [ fhir:v "ValueSet/FinalClassification" ]
+       ] ;
+       fhir:name [ fhir:v " FinalClassification" ] ;
+       fhir:description [ fhir:v " FinalClassification" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/InfectionSetting> ;
+         fhir:reference [ fhir:v "ValueSet/InfectionSetting" ]
+       ] ;
+       fhir:name [ fhir:v " InfectionSetting" ] ;
+       fhir:description [ fhir:v " InfectionSetting" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/LocalCasesPresent> ;
+         fhir:reference [ fhir:v "ValueSet/LocalCasesPresent" ]
+       ] ;
+       fhir:name [ fhir:v " LocalCasesPresent" ] ;
+       fhir:description [ fhir:v " LocalCasesPresent" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/Result> ;
+         fhir:reference [ fhir:v "ValueSet/Result" ]
+       ] ;
+       fhir:name [ fhir:v " Result" ] ;
+       fhir:description [ fhir:v " Result" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/SampleType> ;
+         fhir:reference [ fhir:v "ValueSet/SampleType" ]
+       ] ;
+       fhir:name [ fhir:v " Sample Type" ] ;
+       fhir:description [ fhir:v " Sample Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/SourceOfInfection> ;
+         fhir:reference [ fhir:v "ValueSet/SourceOfInfection" ]
+       ] ;
+       fhir:name [ fhir:v " SourceOfInfection" ] ;
+       fhir:description [ fhir:v " SourceOfInfection" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/SpecimenNumber> ;
+         fhir:reference [ fhir:v "ValueSet/SpecimenNumber" ]
+       ] ;
+       fhir:name [ fhir:v " Specimen Number" ] ;
+       fhir:description [ fhir:v " Specimen Number" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/TestPerformed> ;
+         fhir:reference [ fhir:v "ValueSet/TestPerformed" ]
+       ] ;
+       fhir:name [ fhir:v " Test Performed" ] ;
+       fhir:description [ fhir:v " Test Performed" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "Questionnaire" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/Questionnaire/SOTMeasles-AFRO-MRCIF> ;
+         fhir:reference [ fhir:v "Questionnaire/SOTMeasles-AFRO-MRCIF" ]
+       ] ;
+       fhir:name [ fhir:v "AFRO MEASLES/ RUBELLA SUSPECTED CASE REPORTING FORM" ] ;
+       fhir:description [ fhir:v "AFRO MEASLES/ RUBELLA SUSPECTED CASE REPORTING FORM" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/AFROMRCIF> ;
+         fhir:reference [ fhir:v "CodeSystem/AFROMRCIF" ]
+       ] ;
+       fhir:name [ fhir:v "AFRO MRCIF CodeSystem for Data Elements" ] ;
+       fhir:description [ fhir:v "CodeSystem for PAHO MRCIF Data Elements" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/TestType> ;
+         fhir:reference [ fhir:v "ValueSet/TestType" ]
+       ] ;
+       fhir:name [ fhir:v "AFRO MRCIF Test Type" ] ;
+       fhir:description [ fhir:v "AFRO MRCIF Test Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalContactLocation> ;
+         fhir:reference [ fhir:v "ValueSet/AnimalContactLocation" ]
+       ] ;
+       fhir:name [ fhir:v "Animal Contact Location" ] ;
+       fhir:description [ fhir:v "Animal Contact Location" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/AnimalContactLocationCs> ;
+         fhir:reference [ fhir:v "CodeSystem/AnimalContactLocationCs" ]
+       ] ;
+       fhir:name [ fhir:v "Animal Contact Location" ] ;
+       fhir:description [ fhir:v "Animal Contact Location" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalContactType> ;
+         fhir:reference [ fhir:v "ValueSet/AnimalContactType" ]
+       ] ;
+       fhir:name [ fhir:v "Animal Contact Type" ] ;
+       fhir:description [ fhir:v "Animal Contact Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/AnimalContactTypeCs> ;
+         fhir:reference [ fhir:v "CodeSystem/AnimalContactTypeCs" ]
+       ] ;
+       fhir:name [ fhir:v "Animal Contact Type" ] ;
+       fhir:description [ fhir:v "Animal Contact Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/AnimalExposureLocation> ;
+         fhir:reference [ fhir:v "ValueSet/AnimalExposureLocation" ]
+       ] ;
+       fhir:name [ fhir:v "Animal Exposure Location" ] ;
+       fhir:description [ fhir:v "Animal Exposure Location" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/AntigenCs> ;
+         fhir:reference [ fhir:v "CodeSystem/AntigenCs" ]
+       ] ;
+       fhir:name [ fhir:v "Antigen Code System" ] ;
+       fhir:description [ fhir:v "Antigen Code System" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/CaseStatus> ;
+         fhir:reference [ fhir:v "ValueSet/CaseStatus" ]
+       ] ;
+       fhir:name [ fhir:v "Case Status" ] ;
+       fhir:description [ fhir:v "Case Status" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/CaseStatusCs> ;
+         fhir:reference [ fhir:v "CodeSystem/CaseStatusCs" ]
+       ] ;
+       fhir:name [ fhir:v "Case Status" ] ;
+       fhir:description [ fhir:v "Case Status" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/ConfirmationBasisCs> ;
+         fhir:reference [ fhir:v "CodeSystem/ConfirmationBasisCs" ]
+       ] ;
+       fhir:name [ fhir:v "Confirmation Basis" ] ;
+       fhir:description [ fhir:v "Confirmation Basis" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/ContactType> ;
+         fhir:reference [ fhir:v "ValueSet/ContactType" ]
+       ] ;
+       fhir:name [ fhir:v "Contact Type" ] ;
+       fhir:description [ fhir:v "Contact Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/ContactTypeCs> ;
+         fhir:reference [ fhir:v "CodeSystem/ContactTypeCs" ]
+       ] ;
+       fhir:name [ fhir:v "Contact Type" ] ;
+       fhir:description [ fhir:v "Contact Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/DetectedByCs> ;
+         fhir:reference [ fhir:v "CodeSystem/DetectedByCs" ]
+       ] ;
+       fhir:name [ fhir:v "Detected By Code System" ] ;
+       fhir:description [ fhir:v "Detected By Code System" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/DiscardingBasisCs> ;
+         fhir:reference [ fhir:v "CodeSystem/DiscardingBasisCs" ]
+       ] ;
+       fhir:name [ fhir:v "Discarding Basis" ] ;
+       fhir:description [ fhir:v "Discarding Basis" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/DomesticatedWild> ;
+         fhir:reference [ fhir:v "ValueSet/DomesticatedWild" ]
+       ] ;
+       fhir:name [ fhir:v "Domesticated or Wild" ] ;
+       fhir:description [ fhir:v "Domesticated or Wild" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/DomesticatedWildCs> ;
+         fhir:reference [ fhir:v "CodeSystem/DomesticatedWildCs" ]
+       ] ;
+       fhir:name [ fhir:v "Domesticated or Wild" ] ;
+       fhir:description [ fhir:v "Domesticated or Wild" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "Bundle" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/Bundle/example-document-bundle-case-report-1> ;
+         fhir:reference [ fhir:v "Bundle/example-document-bundle-case-report-1" ]
+       ] ;
+       fhir:name [ fhir:v "example-document-bundle-case-report-1" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/AnimalExposureLocationCs> ;
+         fhir:reference [ fhir:v "CodeSystem/AnimalExposureLocationCs" ]
+       ] ;
+       fhir:name [ fhir:v "Exposure Location" ] ;
+       fhir:description [ fhir:v "Exposure Location" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/ExposureLocationCs> ;
+         fhir:reference [ fhir:v "CodeSystem/ExposureLocationCs" ]
+       ] ;
+       fhir:name [ fhir:v "Exposure Location" ] ;
+       fhir:description [ fhir:v "Exposure Location" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/FinalClassificationCs> ;
+         fhir:reference [ fhir:v "CodeSystem/FinalClassificationCs" ]
+       ] ;
+       fhir:name [ fhir:v "Final Classification" ] ;
+       fhir:description [ fhir:v "Final Classification" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "Questionnaire" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/Questionnaire/Questionnaire-SOTGenericRespiratoryDiseaseCIF> ;
+         fhir:reference [ fhir:v "Questionnaire/Questionnaire-SOTGenericRespiratoryDiseaseCIF" ]
+       ] ;
+       fhir:name [ fhir:v "Generic Respiratory Disease Case Investigation Form" ] ;
+       fhir:description [ fhir:v "Generic Respiratory Disease Case Investigation Form" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:extension" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Guardian> ;
+         fhir:reference [ fhir:v "StructureDefinition/Guardian" ]
+       ] ;
+       fhir:name [ fhir:v "Guardian" ] ;
+       fhir:description [ fhir:v "Name of mother/Guardian" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/InfectionSettingCs> ;
+         fhir:reference [ fhir:v "CodeSystem/InfectionSettingCs" ]
+       ] ;
+       fhir:name [ fhir:v "InfectionSetting" ] ;
+       fhir:description [ fhir:v "InfectionSetting" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/InitDiagCs> ;
+         fhir:reference [ fhir:v "CodeSystem/InitDiagCs" ]
+       ] ;
+       fhir:name [ fhir:v "Initial Diagnosis Code System" ] ;
+       fhir:description [ fhir:v "Initial Diagnosis Code System" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:extension" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Landmark> ;
+         fhir:reference [ fhir:v "StructureDefinition/Landmark" ]
+       ] ;
+       fhir:name [ fhir:v "Landmark" ] ;
+       fhir:description [ fhir:v "A landmark to locate the house" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/LocalCasesPresentCs> ;
+         fhir:reference [ fhir:v "CodeSystem/LocalCasesPresentCs" ]
+       ] ;
+       fhir:name [ fhir:v "LocalCasesPresent" ] ;
+       fhir:description [ fhir:v "LocalCasesPresent" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/LocTypeCs> ;
+         fhir:reference [ fhir:v "CodeSystem/LocTypeCs" ]
+       ] ;
+       fhir:name [ fhir:v "Locality Type Code System" ] ;
+       fhir:description [ fhir:v "Locality Type Code System" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/LocalizationOfSkinDisorder> ;
+         fhir:reference [ fhir:v "ValueSet/LocalizationOfSkinDisorder" ]
+       ] ;
+       fhir:name [ fhir:v "Localization of Skin Disorder" ] ;
+       fhir:description [ fhir:v "Localization of Skin Disorder" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/LocalizationOfSkinDisorderCs> ;
+         fhir:reference [ fhir:v "CodeSystem/LocalizationOfSkinDisorderCs" ]
+       ] ;
+       fhir:name [ fhir:v "Localization of Skin Disorder" ] ;
+       fhir:description [ fhir:v "Localization of Skin Disorder" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:resource" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesCIFComposition> ;
+         fhir:reference [ fhir:v "StructureDefinition/MeaslesCIFComposition" ]
+       ] ;
+       fhir:name [ fhir:v "Measles Case Investigation Form Composition" ] ;
+       fhir:description [ fhir:v "Measles Case Investigation Form Composition" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "Questionnaire" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/Questionnaire/Questionnaire-SOTMeasles> ;
+         fhir:reference [ fhir:v "Questionnaire/Questionnaire-SOTMeasles" ]
+       ] ;
+       fhir:name [ fhir:v "Measles Case Investigation Questionnaire" ] ;
+       fhir:description [ fhir:v "Measles Case Investigation Questionnaire" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:resource" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesEncounter> ;
+         fhir:reference [ fhir:v "StructureDefinition/MeaslesEncounter" ]
+       ] ;
+       fhir:name [ fhir:v "Measles Encounter" ] ;
+       fhir:description [ fhir:v "Abstraction for a Measles Encounter. There should be a Measles Encounter associated \nto each public health authortiy (PHA)" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:resource" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesOrganization> ;
+         fhir:reference [ fhir:v "StructureDefinition/MeaslesOrganization" ]
+       ] ;
+       fhir:name [ fhir:v "Measles Organization" ] ;
+       fhir:description [ fhir:v "Abstraction for a Measles Organization. There should be a Measles Organization associated \nto each public health authortiy (PHA)" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:resource" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/MeaslesPatient> ;
+         fhir:reference [ fhir:v "StructureDefinition/MeaslesPatient" ]
+       ] ;
+       fhir:name [ fhir:v "Measles Patient" ] ;
+       fhir:description [ fhir:v "Measles Patient" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/NoOfDosesCs> ;
+         fhir:reference [ fhir:v "CodeSystem/NoOfDosesCs" ]
+       ] ;
+       fhir:name [ fhir:v "Number of Doses" ] ;
+       fhir:description [ fhir:v "Number of Doses" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:extension" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Occupation> ;
+         fhir:reference [ fhir:v "StructureDefinition/Occupation" ]
+       ] ;
+       fhir:name [ fhir:v "Occupation" ] ;
+       fhir:description [ fhir:v "Occupation" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/PAHO-MRCIF> ;
+         fhir:reference [ fhir:v "CodeSystem/PAHO-MRCIF" ]
+       ] ;
+       fhir:name [ fhir:v "PAHO MRCIF CodeSystem for Data Elements" ] ;
+       fhir:description [ fhir:v "CodeSystem for PAHO MRCIF Data Elements" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/PathogenTested> ;
+         fhir:reference [ fhir:v "ValueSet/PathogenTested" ]
+       ] ;
+       fhir:name [ fhir:v "Pathogen  Tested" ] ;
+       fhir:description [ fhir:v "Pathogen  Tested" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/PathogenTestedCs> ;
+         fhir:reference [ fhir:v "CodeSystem/PathogenTestedCs" ]
+       ] ;
+       fhir:name [ fhir:v "Pathogen Tested" ] ;
+       fhir:description [ fhir:v "Pathogen Tested" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/PatientOutcome> ;
+         fhir:reference [ fhir:v "ValueSet/PatientOutcome" ]
+       ] ;
+       fhir:name [ fhir:v "Patient Clinical Course Outcome" ] ;
+       fhir:description [ fhir:v "Patient Clinical Course Outcome" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/PatientOutcomeCs> ;
+         fhir:reference [ fhir:v "CodeSystem/PatientOutcomeCs" ]
+       ] ;
+       fhir:name [ fhir:v "Patient Clinical Course Outcome" ] ;
+       fhir:description [ fhir:v "Patient Clinical Course Outcome" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/PlaceOfCare> ;
+         fhir:reference [ fhir:v "ValueSet/PlaceOfCare" ]
+       ] ;
+       fhir:name [ fhir:v "Place Of Care" ] ;
+       fhir:description [ fhir:v "Place Of Care" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/PlaceOfCareCs> ;
+         fhir:reference [ fhir:v "CodeSystem/PlaceOfCareCs" ]
+       ] ;
+       fhir:name [ fhir:v "Place Of Care" ] ;
+       fhir:description [ fhir:v "Place Of Care" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:extension" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/ProviderType> ;
+         fhir:reference [ fhir:v "StructureDefinition/ProviderType" ]
+       ] ;
+       fhir:name [ fhir:v "ProviderType" ] ;
+       fhir:description [ fhir:v "Type Of Provider Reporting" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/RashType> ;
+         fhir:reference [ fhir:v "ValueSet/RashType" ]
+       ] ;
+       fhir:name [ fhir:v "Rash Type" ] ;
+       fhir:description [ fhir:v "Rash Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/RashTypeCs> ;
+         fhir:reference [ fhir:v "CodeSystem/RashTypeCs" ]
+       ] ;
+       fhir:name [ fhir:v "Rash Type" ] ;
+       fhir:description [ fhir:v "Rash Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/ReportedBy> ;
+         fhir:reference [ fhir:v "ValueSet/ReportedBy" ]
+       ] ;
+       fhir:name [ fhir:v "Reported By" ] ;
+       fhir:description [ fhir:v "Reported By" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/ReportedByCs> ;
+         fhir:reference [ fhir:v "CodeSystem/ReportedByCs" ]
+       ] ;
+       fhir:name [ fhir:v "Reported By" ] ;
+       fhir:description [ fhir:v "Reported By" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "QuestionnaireResponse" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/QuestionnaireResponse/Response1> ;
+         fhir:reference [ fhir:v "QuestionnaireResponse/Response1" ]
+       ] ;
+       fhir:name [ fhir:v "Response1" ] ;
+       fhir:example [ fhir:v "true"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/ResultCs> ;
+         fhir:reference [ fhir:v "CodeSystem/ResultCs" ]
+       ] ;
+       fhir:name [ fhir:v "Result Code System" ] ;
+       fhir:description [ fhir:v "Result Code System" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/Results> ;
+         fhir:reference [ fhir:v "ValueSet/Results" ]
+       ] ;
+       fhir:name [ fhir:v "Results" ] ;
+       fhir:description [ fhir:v "Results" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/ResultsCs> ;
+         fhir:reference [ fhir:v "CodeSystem/ResultsCs" ]
+       ] ;
+       fhir:name [ fhir:v "Results" ] ;
+       fhir:description [ fhir:v "Results" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/RouteOfAdministration> ;
+         fhir:reference [ fhir:v "ValueSet/RouteOfAdministration" ]
+       ] ;
+       fhir:name [ fhir:v "Route Of Administration" ] ;
+       fhir:description [ fhir:v "Route Of Administration" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/RouteOfAdministrationCs> ;
+         fhir:reference [ fhir:v "CodeSystem/RouteOfAdministrationCs" ]
+       ] ;
+       fhir:name [ fhir:v "Route Of Administration" ] ;
+       fhir:description [ fhir:v "Route Of Administration" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/SampleTypeCs> ;
+         fhir:reference [ fhir:v "CodeSystem/SampleTypeCs" ]
+       ] ;
+       fhir:name [ fhir:v "Sample Type Code System" ] ;
+       fhir:description [ fhir:v "Sample Type Code System" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/BiologicalSex> ;
+         fhir:reference [ fhir:v "ValueSet/BiologicalSex" ]
+       ] ;
+       fhir:name [ fhir:v "SOT Biological Sex" ] ;
+       fhir:description [ fhir:v "Biological Sex" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/DetectedBy> ;
+         fhir:reference [ fhir:v "ValueSet/DetectedBy" ]
+       ] ;
+       fhir:name [ fhir:v "SOT Measles Detected By" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/InitDiag> ;
+         fhir:reference [ fhir:v "ValueSet/InitDiag" ]
+       ] ;
+       fhir:name [ fhir:v "SOT Measles Initial Diagnosis" ] ;
+       fhir:description [ fhir:v "SOT Measles Initial Diagnosis" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/LocType> ;
+         fhir:reference [ fhir:v "ValueSet/LocType" ]
+       ] ;
+       fhir:name [ fhir:v "SOT Measles Locality Type" ] ;
+       fhir:description [ fhir:v "SOT Measles Locality Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/NoOfDoses> ;
+         fhir:reference [ fhir:v "ValueSet/NoOfDoses" ]
+       ] ;
+       fhir:name [ fhir:v "SOT Measles No Of Doses" ] ;
+       fhir:description [ fhir:v "SOT Measles No Of Doses" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/ProvType> ;
+         fhir:reference [ fhir:v "ValueSet/ProvType" ]
+       ] ;
+       fhir:name [ fhir:v "SOT Measles Provider Type" ] ;
+       fhir:description [ fhir:v "SOT Measles Provider Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/SourceOfInformation> ;
+         fhir:reference [ fhir:v "ValueSet/SourceOfInformation" ]
+       ] ;
+       fhir:name [ fhir:v "SOT Measles Source Of Information Type" ] ;
+       fhir:description [ fhir:v "SOT Measles Source Of Information Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/VaccineType> ;
+         fhir:reference [ fhir:v "ValueSet/VaccineType" ]
+       ] ;
+       fhir:name [ fhir:v "SOT Measles Vaccine Type" ] ;
+       fhir:description [ fhir:v "SOT Measles Vaccine Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo> ;
+         fhir:reference [ fhir:v "ValueSet/YesNo" ]
+       ] ;
+       fhir:name [ fhir:v "SOT Yes No" ] ;
+       fhir:description [ fhir:v "Yes No" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/SourceOfInfectionCs> ;
+         fhir:reference [ fhir:v "CodeSystem/SourceOfInfectionCs" ]
+       ] ;
+       fhir:name [ fhir:v "Source Of Infection" ] ;
+       fhir:description [ fhir:v "Source Of Infection" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/SourceOfInformationCs> ;
+         fhir:reference [ fhir:v "CodeSystem/SourceOfInformationCs" ]
+       ] ;
+       fhir:name [ fhir:v "Source Of Information" ] ;
+       fhir:description [ fhir:v "Source Of Information" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/SpecimenCollected> ;
+         fhir:reference [ fhir:v "ValueSet/SpecimenCollected" ]
+       ] ;
+       fhir:name [ fhir:v "Specimen Collected" ] ;
+       fhir:description [ fhir:v "Specimen Collected" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/SpecimenCollectedCs> ;
+         fhir:reference [ fhir:v "CodeSystem/SpecimenCollectedCs" ]
+       ] ;
+       fhir:name [ fhir:v "Specimen Collected" ] ;
+       fhir:description [ fhir:v "Specimen Collected" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/SpecimenNumberCs> ;
+         fhir:reference [ fhir:v "CodeSystem/SpecimenNumberCs" ]
+       ] ;
+       fhir:name [ fhir:v "Specimen Number Code System" ] ;
+       fhir:description [ fhir:v "Specimen Number Code System" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIF> ;
+         fhir:reference [ fhir:v "StructureDefinition/AFROMRCIF" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit - AFRO MRCIF" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTMeasles" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFClassification> ;
+         fhir:reference [ fhir:v "StructureDefinition/AFROMRCIFClassification" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Classification" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesClassification> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTMeaslesClassification" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Classification" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFClinical> ;
+         fhir:reference [ fhir:v "StructureDefinition/AFROMRCIFClinical" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Clinical" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesClinical> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTMeaslesClinical" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Clinical" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFCaseInvestigation> ;
+         fhir:reference [ fhir:v "StructureDefinition/AFROMRCIFCaseInvestigation" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Contact Tracing" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesContactTracing> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTMeaslesContactTracing" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Contact Tracing" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFDemographic> ;
+         fhir:reference [ fhir:v "StructureDefinition/AFROMRCIFDemographic" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Demographics" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesDemographic> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTMeaslesDemographic" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Demographics" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesEpiData> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTMeaslesEpiData" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Epidemiological Data" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFLaboratoryResults> ;
+         fhir:reference [ fhir:v "StructureDefinition/AFROMRCIFLaboratoryResults" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Laboratory Resultss" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesLaboratoryResults> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTMeaslesLaboratoryResults" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Laboratory Resultss" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFReportingSource> ;
+         fhir:reference [ fhir:v "StructureDefinition/AFROMRCIFReportingSource" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Reporting Source" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesReportingSource> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTMeaslesReportingSource" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Reporting Source" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesTravelDetails> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTMeaslesTravelDetails" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- TravelDetails" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/AFROMRCIFVaccinationStatus> ;
+         fhir:reference [ fhir:v "StructureDefinition/AFROMRCIFVaccinationStatus" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Vaccination Statuss" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeaslesVaccinationStatus> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTMeaslesVaccinationStatus" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit Measles- Vaccination Statuss" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1CaseInfo> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1CaseInfo" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1  Case Information" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1Conclusion> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1Conclusion" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1  Conclusion" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1Exposure> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1Exposure" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1  Exposure" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureAnimal> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ExposureAnimal" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1  Exposure - Animal" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureChemical> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ExposureChemical" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1  Exposure - Chemical" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureFoodDetails> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ExposureFoodDetails" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1  Exposure - Food Details" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureInsect> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ExposureInsect" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1  Exposure - Insect" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureNosocomial> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ExposureNosocomial" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1  Exposure - Nosocomial" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposurePersonalAssumption> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ExposurePersonalAssumption" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1  Exposure - Personal Assumption" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureTravelHistory> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ExposureTravelHistory" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1  Exposure - Travel History" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureWaterFood> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ExposureWaterFood" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1  Exposure - Water and Food" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureWaterDetails> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ExposureWaterDetails" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1  Exposure - Water Details" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1Laboratory> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1Laboratory" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 - Laboratory" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1NotificationInterview> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1NotificationInterview" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 - Notification Interview" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1Clinical> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1Clinical" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Clinical" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalCardiology> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ClinicalCardiology" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Clinical - Cardiology" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalComorbidity> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ClinicalComorbidity" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Clinical - Comorbidity" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalCutaneous> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ClinicalCutaneous" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Clinical - Cutaneous" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalENT> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ClinicalENT" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Clinical - ENT" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalGastroIntestinal> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ClinicalGastroIntestinal" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Clinical - Gastro-intestinal" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalNeurology> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ClinicalNeurology" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Clinical - Neurology" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalRespiratory> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ClinicalRespiratory" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Clinical - Respiratory" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalTreatmentInfo> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ClinicalTreatmentInfo" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Clinical - Treatment Info" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalTreatments> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ClinicalTreatments" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Clinical - Treatments" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalUrogynecology> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ClinicalUrogynecology" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Clinical - Urogynecology" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ClinicalVaccination> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ClinicalVaccination" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Clinical - Vaccination" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureContacts> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ExposureContacts" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Exposure - Contacts" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:logical:abstract" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureMassGathering> ;
+         fhir:reference [ fhir:v "StructureDefinition/SOTT1ExposureMassGathering" ]
+       ] ;
+       fhir:name [ fhir:v "Surveillance & Outbreak Toolkit T1 Exposure - Mass Gathering" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "Questionnaire" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/Questionnaire/Questionnaire-SOTT0CaseInvestigationForm> ;
+         fhir:reference [ fhir:v "Questionnaire/Questionnaire-SOTT0CaseInvestigationForm" ]
+       ] ;
+       fhir:name [ fhir:v "T0 Case Investigation Questionnaire" ] ;
+       fhir:description [ fhir:v "T0 Case Investigation Questionnaire" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/TestPerformedCs> ;
+         fhir:reference [ fhir:v "CodeSystem/TestPerformedCs" ]
+       ] ;
+       fhir:name [ fhir:v "Test Performed Code System" ] ;
+       fhir:description [ fhir:v "Test Performed Code System" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/TestTypeCs> ;
+         fhir:reference [ fhir:v "CodeSystem/TestTypeCs" ]
+       ] ;
+       fhir:name [ fhir:v "Test Type" ] ;
+       fhir:description [ fhir:v "Test Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/ProvTypeCs> ;
+         fhir:reference [ fhir:v "CodeSystem/ProvTypeCs" ]
+       ] ;
+       fhir:name [ fhir:v "Type of Provider Code System" ] ;
+       fhir:description [ fhir:v "Type of Provider Code System" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/VaccineInfoSource> ;
+         fhir:reference [ fhir:v "ValueSet/VaccineInfoSource" ]
+       ] ;
+       fhir:name [ fhir:v "Vaccine Info Source" ] ;
+       fhir:description [ fhir:v "Vaccine Info Source" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/VaccineInfoSourceCs> ;
+         fhir:reference [ fhir:v "CodeSystem/VaccineInfoSourceCs" ]
+       ] ;
+       fhir:name [ fhir:v "Vaccine Info Source" ] ;
+       fhir:description [ fhir:v "Vaccine Info Source" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/VaccineTypeCs> ;
+         fhir:reference [ fhir:v "CodeSystem/VaccineTypeCs" ]
+       ] ;
+       fhir:name [ fhir:v "Vaccine Type" ] ;
+       fhir:description [ fhir:v "Vaccine Type" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/WaterCharacteristics> ;
+         fhir:reference [ fhir:v "ValueSet/WaterCharacteristics" ]
+       ] ;
+       fhir:name [ fhir:v "Water Characteristics" ] ;
+       fhir:description [ fhir:v "Water Characteristics" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/WaterCharacteristicsCs> ;
+         fhir:reference [ fhir:v "CodeSystem/WaterCharacteristicsCs" ]
+       ] ;
+       fhir:name [ fhir:v "Water Characteristics" ] ;
+       fhir:description [ fhir:v "Water Characteristics" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:extension" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/WorkAddress> ;
+         fhir:reference [ fhir:v "StructureDefinition/WorkAddress" ]
+       ] ;
+       fhir:name [ fhir:v "WorkAddress" ] ;
+       fhir:description [ fhir:v "Work or school address" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown> ;
+         fhir:reference [ fhir:v "ValueSet/YesNoUnknown" ]
+       ] ;
+       fhir:name [ fhir:v "Yes No Unknown" ] ;
+       fhir:description [ fhir:v "Yes No Unknown" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/CodeSystem/YesNoUnknownCs> ;
+         fhir:reference [ fhir:v "CodeSystem/YesNoUnknownCs" ]
+       ] ;
+       fhir:name [ fhir:v "Yes No Unknown" ] ;
+       fhir:description [ fhir:v "Yes No Unknown" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureMap" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureMap/AFROMRCIFLogicalModelToResources> ;
+         fhir:reference [ fhir:v "StructureMap/AFROMRCIFLogicalModelToResources" ]
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureMap" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureMap/AFROMRCIFQuestionnaireToLogicalModel> ;
+         fhir:reference [ fhir:v "StructureMap/AFROMRCIFQuestionnaireToLogicalModel" ]
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureMap" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureMap/AFROMRCIFQuestionnaireToResources> ;
+         fhir:reference [ fhir:v "StructureMap/AFROMRCIFQuestionnaireToResources" ]
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureMap" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesLogicalModelToResources> ;
+         fhir:reference [ fhir:v "StructureMap/MeaslesLogicalModelToResources" ]
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureMap" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel> ;
+         fhir:reference [ fhir:v "StructureMap/MeaslesQuestionnaireToLogicalModel" ]
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureMap" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToResources> ;
+         fhir:reference [ fhir:v "StructureMap/MeaslesQuestionnaireToResources" ]
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureMap" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper> ;
+         fhir:reference [ fhir:v "StructureMap/MetaDataTypesHelper" ]
+       ]
+     ] ) ;
+     fhir:page [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "toc.html"^^xsd:anyURI ]
+       ] ) ;
+       fhir:name [ fhir:v "toc.html"^^xsd:anyURI ] ;
+       fhir:title [ fhir:v "Table of Contents" ] ;
+       fhir:generation [ fhir:v "html" ] ;
+       fhir:page ( [
+         fhir:extension ( [
+           fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+           fhir:value [ fhir:v "index.html"^^xsd:anyURI ]
+         ] ) ;
+         fhir:name [ fhir:v "index.html"^^xsd:anyURI ] ;
+         fhir:title [ fhir:v "Summary" ] ;
+         fhir:generation [ fhir:v "html" ] ;
+         fhir:page ( [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "changes.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "changes.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Changes" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "dependencies.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "dependencies.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Dependencies" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "references.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "references.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "References" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "adapting.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "adapting.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Adapting Guidelines for Country use" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "license.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "license.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "License" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "concepts.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "concepts.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Concepts" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "personas.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "personas.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Generic Personas" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "usecases.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "usecases.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "User Scenarios" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "business_process.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "business_process.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Business Processes" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "dictionary.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "dictionary.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Data Dictionary" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "decision_support.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "decision_support.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Decision-support logic" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "indicators.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "indicators.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Indicator and Performance Metrics" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "requirements.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "requirements.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Functional Requirements" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "non-functional-requirements.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "non-functional-requirements.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Non-functional Requirements" ] ;
+           fhir:generation [ fhir:v "markdown" ]
+         ] )
+       ] [
+         fhir:extension ( [
+           fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+           fhir:value [ fhir:v "data_exchange.html"^^xsd:anyURI ]
+         ] ) ;
+         fhir:name [ fhir:v "data_exchange.html"^^xsd:anyURI ] ;
+         fhir:title [ fhir:v "Data Exchange" ] ;
+         fhir:generation [ fhir:v "html" ] ;
+         fhir:page ( [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "data-models-and-exchange.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "data-models-and-exchange.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Data Models and Exchange" ] ;
+           fhir:generation [ fhir:v "markdown" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "system-actors.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "system-actors.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "System Actors" ] ;
+           fhir:generation [ fhir:v "markdown" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "sequence-diagrams.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "sequence-diagrams.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Sequence Diagrams" ] ;
+           fhir:generation [ fhir:v "markdown" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "transactions.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "transactions.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Transactions" ] ;
+           fhir:generation [ fhir:v "markdown" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "indicators-measures.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "indicators-measures.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Indicators and Measures" ] ;
+           fhir:generation [ fhir:v "markdown" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "workflows.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "workflows.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Workflows" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "profiles.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "profiles.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Content profiles" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "codings.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "codings.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Codings" ] ;
+           fhir:generation [ fhir:v "markdown" ]
+         ] )
+       ] [
+         fhir:extension ( [
+           fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+           fhir:value [ fhir:v "deployment.html"^^xsd:anyURI ]
+         ] ) ;
+         fhir:name [ fhir:v "deployment.html"^^xsd:anyURI ] ;
+         fhir:title [ fhir:v "Deployment" ] ;
+         fhir:generation [ fhir:v "html" ] ;
+         fhir:page ( [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "security_privacy.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "security_privacy.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Security and Privacy Considerations" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "testing.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "testing.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Testing" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "reference-implementations.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "reference-implementations.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Reference Implementations" ] ;
+           fhir:generation [ fhir:v "markdown" ]
+         ] [
+           fhir:extension ( [
+             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+             fhir:value [ fhir:v "downloads.html"^^xsd:anyURI ]
+           ] ) ;
+           fhir:name [ fhir:v "downloads.html"^^xsd:anyURI ] ;
+           fhir:title [ fhir:v "Downloads" ] ;
+           fhir:generation [ fhir:v "html" ]
+         ] )
+       ] [
+         fhir:extension ( [
+           fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+           fhir:value [ fhir:v "artifacts.html"^^xsd:anyURI ]
+         ] ) ;
+         fhir:name [ fhir:v "artifacts.html"^^xsd:anyURI ] ;
+         fhir:title [ fhir:v "Artifact Index" ] ;
+         fhir:generation [ fhir:v "html" ]
+       ] )
+     ] ;
+     fhir:parameter ( [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/capabilities" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/examples" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/extensions" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/models" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/operations" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/profiles" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/resources" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/vocabulary" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/maps" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/testing" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/history" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "fsh-generated/resources" ]
+     ] [
+       fhir:code [ fhir:v "path-pages" ] ;
+       fhir:value [ fhir:v "template/config" ]
+     ] [
+       fhir:code [ fhir:v "path-pages" ] ;
+       fhir:value [ fhir:v "input/images" ]
+     ] [
+       fhir:code [ fhir:v "path-tx-cache" ] ;
+       fhir:value [ fhir:v "input-cache/txcache" ]
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

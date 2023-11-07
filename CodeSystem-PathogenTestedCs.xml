@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="PathogenTestedCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/PathogenTested</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">InfluenzaA/B<a name="PathogenTestedCs-InfluenzaA.47B"> </a></td><td>Influenza A/B</td></tr><tr><td style="white-space:nowrap">InfluenzaSubtyping<a name="PathogenTestedCs-InfluenzaSubtyping"> </a></td><td>Influenza subtyping</td></tr><tr><td style="white-space:nowrap">MERSCV<a name="PathogenTestedCs-MERSCV"> </a></td><td>MERS-CV</td></tr><tr><td style="white-space:nowrap">SARS<a name="PathogenTestedCs-SARS"> </a></td><td>SARS</td></tr><tr><td style="white-space:nowrap">Rsv<a name="PathogenTestedCs-Rsv"> </a></td><td>Rsv</td></tr><tr><td style="white-space:nowrap">HumanMetapneumovirus<a name="PathogenTestedCs-HumanMetapneumovirus"> </a></td><td>Human metapneumovirus</td></tr><tr><td style="white-space:nowrap">Parainfluenza123<a name="PathogenTestedCs-Parainfluenza123"> </a></td><td>Parainfluenza (1,2,3)</td></tr><tr><td style="white-space:nowrap">Adenovirus<a name="PathogenTestedCs-Adenovirus"> </a></td><td>Adenovirus</td></tr><tr><td style="white-space:nowrap">Rhinvoirus<a name="PathogenTestedCs-Rhinvoirus"> </a></td><td>Rhinvoirus</td></tr><tr><td style="white-space:nowrap">Enterovirus<a name="PathogenTestedCs-Enterovirus"> </a></td><td>Enterovirus</td></tr><tr><td style="white-space:nowrap">Coronavirus<a name="PathogenTestedCs-Coronavirus"> </a></td><td>Coronavirus</td></tr><tr><td style="white-space:nowrap">ChlamydiaPneumonia<a name="PathogenTestedCs-ChlamydiaPneumonia"> </a></td><td>Chlamydia pneumonia</td></tr><tr><td style="white-space:nowrap">MycoplasmaPneumonia<a name="PathogenTestedCs-MycoplasmaPneumonia"> </a></td><td>Mycoplasma pneumonia</td></tr><tr><td style="white-space:nowrap">Legionella<a name="PathogenTestedCs-Legionella"> </a></td><td>Legionella</td></tr><tr><td style="white-space:nowrap">StreptococcusPneumonia<a name="PathogenTestedCs-StreptococcusPneumonia"> </a></td><td>Streptococcus pneumonia</td></tr><tr><td style="white-space:nowrap">Other<a name="PathogenTestedCs-Other"> </a></td><td>Other</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/PathogenTested"/>
+  <version value="0.2.1"/>
+  <name value="PathogenTestedCs"/>
+  <title value="Pathogen Tested"/>
+  <status value="draft"/>
+  <date value="2023-11-07T05:59:29+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Pathogen Tested"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="16"/>
+  <concept>
+    <code value="InfluenzaA/B"/>
+    <display value="Influenza A/B"/>
+  </concept>
+  <concept>
+    <code value="InfluenzaSubtyping"/>
+    <display value="Influenza subtyping"/>
+  </concept>
+  <concept>
+    <code value="MERSCV"/>
+    <display value="MERS-CV"/>
+  </concept>
+  <concept>
+    <code value="SARS"/>
+    <display value="SARS"/>
+  </concept>
+  <concept>
+    <code value="Rsv"/>
+    <display value="Rsv"/>
+  </concept>
+  <concept>
+    <code value="HumanMetapneumovirus"/>
+    <display value="Human metapneumovirus"/>
+  </concept>
+  <concept>
+    <code value="Parainfluenza123"/>
+    <display value="Parainfluenza (1,2,3)"/>
+  </concept>
+  <concept>
+    <code value="Adenovirus"/>
+    <display value="Adenovirus"/>
+  </concept>
+  <concept>
+    <code value="Rhinvoirus"/>
+    <display value="Rhinvoirus"/>
+  </concept>
+  <concept>
+    <code value="Enterovirus"/>
+    <display value="Enterovirus"/>
+  </concept>
+  <concept>
+    <code value="Coronavirus"/>
+    <display value="Coronavirus"/>
+  </concept>
+  <concept>
+    <code value="ChlamydiaPneumonia"/>
+    <display value="Chlamydia pneumonia"/>
+  </concept>
+  <concept>
+    <code value="MycoplasmaPneumonia"/>
+    <display value="Mycoplasma pneumonia"/>
+  </concept>
+  <concept>
+    <code value="Legionella"/>
+    <display value="Legionella"/>
+  </concept>
+  <concept>
+    <code value="StreptococcusPneumonia"/>
+    <display value="Streptococcus pneumonia"/>
+  </concept>
+  <concept>
+    <code value="Other"/>
+    <display value="Other"/>
+  </concept>
+</CodeSystem>

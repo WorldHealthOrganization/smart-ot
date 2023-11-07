@@ -1,0 +1,43 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "ResultsCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/Results</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">Positive<a name=\"ResultsCs-Positive\"> </a></td><td>Positive</td></tr><tr><td style=\"white-space:nowrap\">Negative<a name=\"ResultsCs-Negative\"> </a></td><td>Negative</td></tr><tr><td style=\"white-space:nowrap\">PendingUnknown<a name=\"ResultsCs-PendingUnknown\"> </a></td><td>Still pending/ Unknown</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/Results",
+  "version" : "0.2.1",
+  "name" : "ResultsCs",
+  "title" : "Results",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Results",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 3,
+  "concept" : [{
+    "code" : "Positive",
+    "display" : "Positive"
+  },
+  {
+    "code" : "Negative",
+    "display" : "Negative"
+  },
+  {
+    "code" : "PendingUnknown",
+    "display" : "Still pending/ Unknown"
+  }]
+}

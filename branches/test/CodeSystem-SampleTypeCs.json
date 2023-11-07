@@ -1,0 +1,55 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "SampleTypeCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/SampleType</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">1<a name=\"SampleTypeCs-1\"> </a></td><td>Serum</td></tr><tr><td style=\"white-space:nowrap\">2<a name=\"SampleTypeCs-2\"> </a></td><td>Nasopharyngeal aspirate/swab</td></tr><tr><td style=\"white-space:nowrap\">3<a name=\"SampleTypeCs-3\"> </a></td><td>Throat swab</td></tr><tr><td style=\"white-space:nowrap\">4<a name=\"SampleTypeCs-4\"> </a></td><td>Urine</td></tr><tr><td style=\"white-space:nowrap\">5<a name=\"SampleTypeCs-5\"> </a></td><td>Cerebrospinal Fluid</td></tr><tr><td style=\"white-space:nowrap\">88<a name=\"SampleTypeCs-88\"> </a></td><td>Other</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/SampleType",
+  "version" : "0.2.1",
+  "name" : "SampleTypeCs",
+  "title" : "Sample Type Code System",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Sample Type Code System",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 6,
+  "concept" : [{
+    "code" : "1",
+    "display" : "Serum"
+  },
+  {
+    "code" : "2",
+    "display" : "Nasopharyngeal aspirate/swab"
+  },
+  {
+    "code" : "3",
+    "display" : "Throat swab"
+  },
+  {
+    "code" : "4",
+    "display" : "Urine"
+  },
+  {
+    "code" : "5",
+    "display" : "Cerebrospinal Fluid"
+  },
+  {
+    "code" : "88",
+    "display" : "Other"
+  }]
+}

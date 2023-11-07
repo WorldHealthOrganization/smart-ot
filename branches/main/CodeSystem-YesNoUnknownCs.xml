@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="YesNoUnknownCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/YesNoUnknown</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td></tr><tr><td style="white-space:nowrap">Yes<a name="YesNoUnknownCs-Yes"> </a></td></tr><tr><td style="white-space:nowrap">No<a name="YesNoUnknownCs-No"> </a></td></tr><tr><td style="white-space:nowrap">Unknown<a name="YesNoUnknownCs-Unknown"> </a></td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/YesNoUnknown"/>
+  <version value="0.2.1"/>
+  <name value="YesNoUnknownCs"/>
+  <title value="Yes No Unknown"/>
+  <status value="draft"/>
+  <date value="2023-11-07T05:59:29+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Yes No Unknown"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="3"/>
+  <concept>
+    <code value="Yes"/>
+    <display value="Yes"/>
+  </concept>
+  <concept>
+    <code value="No"/>
+    <display value="No"/>
+  </concept>
+  <concept>
+    <code value="Unknown"/>
+    <display value="Unknown"/>
+  </concept>
+</CodeSystem>

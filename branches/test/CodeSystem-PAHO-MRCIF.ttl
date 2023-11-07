@@ -1,0 +1,328 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/CodeSystem/PAHO-MRCIF> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "PAHO-MRCIF"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This case-insensitive code system <code>http://worldhealthorganization.github.io/smart-ot/CodeSystem/PAHO-MRCIF</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">DE1<a name=\"PAHO-MRCIF-DE1\"> </a></td><td>Initial diagnosis</td></tr><tr><td style=\"white-space:nowrap\">DE8<a name=\"PAHO-MRCIF-DE8\"> </a></td><td>Case ID</td></tr><tr><td style=\"white-space:nowrap\">DE9<a name=\"PAHO-MRCIF-DE9\"> </a></td><td>Reporting facility</td></tr><tr><td style=\"white-space:nowrap\">DE10<a name=\"PAHO-MRCIF-DE10\"> </a></td><td>Telephone</td></tr><tr><td style=\"white-space:nowrap\">DE11<a name=\"PAHO-MRCIF-DE11\"> </a></td><td>Country</td></tr><tr><td style=\"white-space:nowrap\">DE12<a name=\"PAHO-MRCIF-DE12\"> </a></td><td>Municipality</td></tr><tr><td style=\"white-space:nowrap\">DE13<a name=\"PAHO-MRCIF-DE13\"> </a></td><td>State</td></tr><tr><td style=\"white-space:nowrap\">DE14<a name=\"PAHO-MRCIF-DE14\"> </a></td><td>Locality</td></tr><tr><td style=\"white-space:nowrap\">DE15<a name=\"PAHO-MRCIF-DE15\"> </a></td><td>Reported by</td></tr><tr><td style=\"white-space:nowrap\">DE16<a name=\"PAHO-MRCIF-DE16\"> </a></td><td>Date of consultation</td></tr><tr><td style=\"white-space:nowrap\">DE17<a name=\"PAHO-MRCIF-DE17\"> </a></td><td>Date of home visit</td></tr><tr><td style=\"white-space:nowrap\">DE18<a name=\"PAHO-MRCIF-DE18\"> </a></td><td>Date reported local</td></tr><tr><td style=\"white-space:nowrap\">DE19<a name=\"PAHO-MRCIF-DE19\"> </a></td><td>Date reported national</td></tr><tr><td style=\"white-space:nowrap\">DE20<a name=\"PAHO-MRCIF-DE20\"> </a></td><td>Detected by</td></tr><tr><td style=\"white-space:nowrap\">DE29<a name=\"PAHO-MRCIF-DE29\"> </a></td><td>Type of provider reporting</td></tr><tr><td style=\"white-space:nowrap\">DE33<a name=\"PAHO-MRCIF-DE33\"> </a></td><td>Specify</td></tr><tr><td style=\"white-space:nowrap\">DE34<a name=\"PAHO-MRCIF-DE34\"> </a></td><td>Name</td></tr><tr><td style=\"white-space:nowrap\">DE35<a name=\"PAHO-MRCIF-DE35\"> </a></td><td>Guardian</td></tr><tr><td style=\"white-space:nowrap\">DE36<a name=\"PAHO-MRCIF-DE36\"> </a></td><td>Address</td></tr><tr><td style=\"white-space:nowrap\">DE37<a name=\"PAHO-MRCIF-DE37\"> </a></td><td>Telephone</td></tr><tr><td style=\"white-space:nowrap\">DE38<a name=\"PAHO-MRCIF-DE38\"> </a></td><td>Landmark</td></tr><tr><td style=\"white-space:nowrap\">DE39<a name=\"PAHO-MRCIF-DE39\"> </a></td><td>Occupation</td></tr><tr><td style=\"white-space:nowrap\">DE40<a name=\"PAHO-MRCIF-DE40\"> </a></td><td>Locality type</td></tr><tr><td style=\"white-space:nowrap\">DE44<a name=\"PAHO-MRCIF-DE44\"> </a></td><td>Work address</td></tr><tr><td style=\"white-space:nowrap\">DE45<a name=\"PAHO-MRCIF-DE45\"> </a></td><td>Sex</td></tr><tr><td style=\"white-space:nowrap\">DE48<a name=\"PAHO-MRCIF-DE48\"> </a></td><td>Date of birth</td></tr><tr><td style=\"white-space:nowrap\">DE49<a name=\"PAHO-MRCIF-DE49\"> </a></td><td>Age onset</td></tr><tr><td style=\"white-space:nowrap\">DE50<a name=\"PAHO-MRCIF-DE50\"> </a></td><td>Vaccine type</td></tr><tr><td style=\"white-space:nowrap\">DE55<a name=\"PAHO-MRCIF-DE55\"> </a></td><td>No of doses</td></tr><tr><td style=\"white-space:nowrap\">DE61<a name=\"PAHO-MRCIF-DE61\"> </a></td><td>Last dose date</td></tr><tr><td style=\"white-space:nowrap\">DE62<a name=\"PAHO-MRCIF-DE62\"> </a></td><td>Source of information</td></tr><tr><td style=\"white-space:nowrap\">DE66<a name=\"PAHO-MRCIF-DE66\"> </a></td><td>Fever</td></tr><tr><td style=\"white-space:nowrap\">DE70<a name=\"PAHO-MRCIF-DE70\"> </a></td><td>Temperature</td></tr><tr><td style=\"white-space:nowrap\">DE71<a name=\"PAHO-MRCIF-DE71\"> </a></td><td>Date of fever onset</td></tr><tr><td style=\"white-space:nowrap\">DE72<a name=\"PAHO-MRCIF-DE72\"> </a></td><td>Rash</td></tr><tr><td style=\"white-space:nowrap\">DE76<a name=\"PAHO-MRCIF-DE76\"> </a></td><td>Rash duration</td></tr><tr><td style=\"white-space:nowrap\">DE77<a name=\"PAHO-MRCIF-DE77\"> </a></td><td>Rash onset date</td></tr><tr><td style=\"white-space:nowrap\">DE78<a name=\"PAHO-MRCIF-DE78\"> </a></td><td>Rash type</td></tr><tr><td style=\"white-space:nowrap\">DE84<a name=\"PAHO-MRCIF-DE84\"> </a></td><td>Cough</td></tr><tr><td style=\"white-space:nowrap\">DE88<a name=\"PAHO-MRCIF-DE88\"> </a></td><td>Conjunctivitis</td></tr><tr><td style=\"white-space:nowrap\">DE92<a name=\"PAHO-MRCIF-DE92\"> </a></td><td>Coryza</td></tr><tr><td style=\"white-space:nowrap\">DE96<a name=\"PAHO-MRCIF-DE96\"> </a></td><td>Koplik spots</td></tr><tr><td style=\"white-space:nowrap\">DE100<a name=\"PAHO-MRCIF-DE100\"> </a></td><td>Lymphadenopathy</td></tr><tr><td style=\"white-space:nowrap\">DE104<a name=\"PAHO-MRCIF-DE104\"> </a></td><td>Jointpain</td></tr><tr><td style=\"white-space:nowrap\">DE108<a name=\"PAHO-MRCIF-DE108\"> </a></td><td>Pregnancy</td></tr><tr><td style=\"white-space:nowrap\">DE112<a name=\"PAHO-MRCIF-DE112\"> </a></td><td>Months pregnant</td></tr><tr><td style=\"white-space:nowrap\">DE113<a name=\"PAHO-MRCIF-DE113\"> </a></td><td>Place of birth</td></tr><tr><td style=\"white-space:nowrap\">DE114<a name=\"PAHO-MRCIF-DE114\"> </a></td><td>Admitted</td></tr><tr><td style=\"white-space:nowrap\">DE118<a name=\"PAHO-MRCIF-DE118\"> </a></td><td>Admitted HCF name</td></tr><tr><td style=\"white-space:nowrap\">DE119<a name=\"PAHO-MRCIF-DE119\"> </a></td><td>Admission date</td></tr><tr><td style=\"white-space:nowrap\">DE120<a name=\"PAHO-MRCIF-DE120\"> </a></td><td>Hospital record number</td></tr><tr><td style=\"white-space:nowrap\">DE121<a name=\"PAHO-MRCIF-DE121\"> </a></td><td>Outcome</td></tr><tr><td style=\"white-space:nowrap\">DE127<a name=\"PAHO-MRCIF-DE127\"> </a></td><td>Outcome date</td></tr><tr><td style=\"white-space:nowrap\">DE128<a name=\"PAHO-MRCIF-DE128\"> </a></td><td>Primary cause of death</td></tr><tr><td style=\"white-space:nowrap\">DE129<a name=\"PAHO-MRCIF-DE129\"> </a></td><td>Disease additional info</td></tr><tr><td style=\"white-space:nowrap\">DE130<a name=\"PAHO-MRCIF-DE130\"> </a></td><td>Specimen number</td></tr><tr><td style=\"white-space:nowrap\">DE134<a name=\"PAHO-MRCIF-DE134\"> </a></td><td>Sample type</td></tr><tr><td style=\"white-space:nowrap\">DE141<a name=\"PAHO-MRCIF-DE141\"> </a></td><td>Collection date</td></tr><tr><td style=\"white-space:nowrap\">DE142<a name=\"PAHO-MRCIF-DE142\"> </a></td><td>Lab name</td></tr><tr><td style=\"white-space:nowrap\">DE143<a name=\"PAHO-MRCIF-DE143\"> </a></td><td>Specimen sent date</td></tr><tr><td style=\"white-space:nowrap\">DE144<a name=\"PAHO-MRCIF-DE144\"> </a></td><td>Specimen received date</td></tr><tr><td style=\"white-space:nowrap\">DE145<a name=\"PAHO-MRCIF-DE145\"> </a></td><td>Sample id</td></tr><tr><td style=\"white-space:nowrap\">DE146<a name=\"PAHO-MRCIF-DE146\"> </a></td><td>Test performed</td></tr><tr><td style=\"white-space:nowrap\">DE155<a name=\"PAHO-MRCIF-DE155\"> </a></td><td>Antigen</td></tr><tr><td style=\"white-space:nowrap\">DE163<a name=\"PAHO-MRCIF-DE163\"> </a></td><td>Result</td></tr><tr><td style=\"white-space:nowrap\">DE167<a name=\"PAHO-MRCIF-DE167\"> </a></td><td>Result date</td></tr><tr><td style=\"white-space:nowrap\">DE168<a name=\"PAHO-MRCIF-DE168\"> </a></td><td>Specify virus</td></tr><tr><td style=\"white-space:nowrap\">DE169<a name=\"PAHO-MRCIF-DE169\"> </a></td><td>Case search conducted</td></tr><tr><td style=\"white-space:nowrap\">DE173<a name=\"PAHO-MRCIF-DE173\"> </a></td><td>No of suspect cases</td></tr><tr><td style=\"white-space:nowrap\">DE174<a name=\"PAHO-MRCIF-DE174\"> </a></td><td>Pregnant contact</td></tr><tr><td style=\"white-space:nowrap\">DE178<a name=\"PAHO-MRCIF-DE178\"> </a></td><td>Pregnant contact names</td></tr><tr><td style=\"white-space:nowrap\">DE179<a name=\"PAHO-MRCIF-DE179\"> </a></td><td>Local cases present</td></tr><tr><td style=\"white-space:nowrap\">DE185<a name=\"PAHO-MRCIF-DE185\"> </a></td><td>Travelled outside</td></tr><tr><td style=\"white-space:nowrap\">DE189<a name=\"PAHO-MRCIF-DE189\"> </a></td><td>Place of travel</td></tr><tr><td style=\"white-space:nowrap\">DE190<a name=\"PAHO-MRCIF-DE190\"> </a></td><td>Arrival date</td></tr><tr><td style=\"white-space:nowrap\">DE191<a name=\"PAHO-MRCIF-DE191\"> </a></td><td>Departure date</td></tr><tr><td style=\"white-space:nowrap\">DE192<a name=\"PAHO-MRCIF-DE192\"> </a></td><td>Infection setting</td></tr><tr><td style=\"white-space:nowrap\">DE198<a name=\"PAHO-MRCIF-DE198\"> </a></td><td>Specify infection setting</td></tr><tr><td style=\"white-space:nowrap\">DE199<a name=\"PAHO-MRCIF-DE199\"> </a></td><td>Ring vaccination</td></tr><tr><td style=\"white-space:nowrap\">DE203<a name=\"PAHO-MRCIF-DE203\"> </a></td><td>Date started</td></tr><tr><td style=\"white-space:nowrap\">DE204<a name=\"PAHO-MRCIF-DE204\"> </a></td><td>Date ended</td></tr><tr><td style=\"white-space:nowrap\">DE205<a name=\"PAHO-MRCIF-DE205\"> </a></td><td>No of doses ring vaccination</td></tr><tr><td style=\"white-space:nowrap\">DE206<a name=\"PAHO-MRCIF-DE206\"> </a></td><td>Rapid coverage monitoring</td></tr><tr><td style=\"white-space:nowrap\">DE210<a name=\"PAHO-MRCIF-DE210\"> </a></td><td>Percent vaccinated</td></tr><tr><td style=\"white-space:nowrap\">DE211<a name=\"PAHO-MRCIF-DE211\"> </a></td><td>Contact tracing done</td></tr><tr><td style=\"white-space:nowrap\">DE215<a name=\"PAHO-MRCIF-DE215\"> </a></td><td>Last follow up</td></tr><tr><td style=\"white-space:nowrap\">DE216<a name=\"PAHO-MRCIF-DE216\"> </a></td><td>Final classification</td></tr><tr><td style=\"white-space:nowrap\">DE220<a name=\"PAHO-MRCIF-DE220\"> </a></td><td>Confirmation basis</td></tr><tr><td style=\"white-space:nowrap\">DE224<a name=\"PAHO-MRCIF-DE224\"> </a></td><td>Country importation</td></tr><tr><td style=\"white-space:nowrap\">DE225<a name=\"PAHO-MRCIF-DE225\"> </a></td><td>Discarding basis</td></tr><tr><td style=\"white-space:nowrap\">DE233<a name=\"PAHO-MRCIF-DE233\"> </a></td><td>Source of infection</td></tr><tr><td style=\"white-space:nowrap\">DE238<a name=\"PAHO-MRCIF-DE238\"> </a></td><td>Contact</td></tr><tr><td style=\"white-space:nowrap\">DE242<a name=\"PAHO-MRCIF-DE242\"> </a></td><td>Contact case no</td></tr><tr><td style=\"white-space:nowrap\">DE243<a name=\"PAHO-MRCIF-DE243\"> </a></td><td>Classified by</td></tr><tr><td style=\"white-space:nowrap\">DE244<a name=\"PAHO-MRCIF-DE244\"> </a></td><td>Classification date</td></tr></table></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/CodeSystem/PAHO-MRCIF"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "PAHO_MRCIF"] ; # 
+  fhir:title [ fhir:v "PAHO MRCIF CodeSystem for Data Elements"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v "false"^^xsd:boolean] ; # 
+  fhir:date [ fhir:v "2023-10-25T07:26:32+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "CodeSystem for PAHO MRCIF Data Elements"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:caseSensitive [ fhir:v "false"^^xsd:boolean] ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "95"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "DE1" ] ;
+     fhir:display [ fhir:v "Initial diagnosis" ]
+  ] [
+     fhir:code [ fhir:v "DE8" ] ;
+     fhir:display [ fhir:v "Case ID" ]
+  ] [
+     fhir:code [ fhir:v "DE9" ] ;
+     fhir:display [ fhir:v "Reporting facility" ]
+  ] [
+     fhir:code [ fhir:v "DE10" ] ;
+     fhir:display [ fhir:v "Telephone" ]
+  ] [
+     fhir:code [ fhir:v "DE11" ] ;
+     fhir:display [ fhir:v "Country" ]
+  ] [
+     fhir:code [ fhir:v "DE12" ] ;
+     fhir:display [ fhir:v "Municipality" ]
+  ] [
+     fhir:code [ fhir:v "DE13" ] ;
+     fhir:display [ fhir:v "State" ]
+  ] [
+     fhir:code [ fhir:v "DE14" ] ;
+     fhir:display [ fhir:v "Locality" ]
+  ] [
+     fhir:code [ fhir:v "DE15" ] ;
+     fhir:display [ fhir:v "Reported by" ]
+  ] [
+     fhir:code [ fhir:v "DE16" ] ;
+     fhir:display [ fhir:v "Date of consultation" ]
+  ] [
+     fhir:code [ fhir:v "DE17" ] ;
+     fhir:display [ fhir:v "Date of home visit" ]
+  ] [
+     fhir:code [ fhir:v "DE18" ] ;
+     fhir:display [ fhir:v "Date reported local" ]
+  ] [
+     fhir:code [ fhir:v "DE19" ] ;
+     fhir:display [ fhir:v "Date reported national" ]
+  ] [
+     fhir:code [ fhir:v "DE20" ] ;
+     fhir:display [ fhir:v "Detected by" ]
+  ] [
+     fhir:code [ fhir:v "DE29" ] ;
+     fhir:display [ fhir:v "Type of provider reporting" ]
+  ] [
+     fhir:code [ fhir:v "DE33" ] ;
+     fhir:display [ fhir:v "Specify" ]
+  ] [
+     fhir:code [ fhir:v "DE34" ] ;
+     fhir:display [ fhir:v "Name" ]
+  ] [
+     fhir:code [ fhir:v "DE35" ] ;
+     fhir:display [ fhir:v "Guardian" ]
+  ] [
+     fhir:code [ fhir:v "DE36" ] ;
+     fhir:display [ fhir:v "Address" ]
+  ] [
+     fhir:code [ fhir:v "DE37" ] ;
+     fhir:display [ fhir:v "Telephone" ]
+  ] [
+     fhir:code [ fhir:v "DE38" ] ;
+     fhir:display [ fhir:v "Landmark" ]
+  ] [
+     fhir:code [ fhir:v "DE39" ] ;
+     fhir:display [ fhir:v "Occupation" ]
+  ] [
+     fhir:code [ fhir:v "DE40" ] ;
+     fhir:display [ fhir:v "Locality type" ]
+  ] [
+     fhir:code [ fhir:v "DE44" ] ;
+     fhir:display [ fhir:v "Work address" ]
+  ] [
+     fhir:code [ fhir:v "DE45" ] ;
+     fhir:display [ fhir:v "Sex" ]
+  ] [
+     fhir:code [ fhir:v "DE48" ] ;
+     fhir:display [ fhir:v "Date of birth" ]
+  ] [
+     fhir:code [ fhir:v "DE49" ] ;
+     fhir:display [ fhir:v "Age onset" ]
+  ] [
+     fhir:code [ fhir:v "DE50" ] ;
+     fhir:display [ fhir:v "Vaccine type" ]
+  ] [
+     fhir:code [ fhir:v "DE55" ] ;
+     fhir:display [ fhir:v "No of doses" ]
+  ] [
+     fhir:code [ fhir:v "DE61" ] ;
+     fhir:display [ fhir:v "Last dose date" ]
+  ] [
+     fhir:code [ fhir:v "DE62" ] ;
+     fhir:display [ fhir:v "Source of information" ]
+  ] [
+     fhir:code [ fhir:v "DE66" ] ;
+     fhir:display [ fhir:v "Fever" ]
+  ] [
+     fhir:code [ fhir:v "DE70" ] ;
+     fhir:display [ fhir:v "Temperature" ]
+  ] [
+     fhir:code [ fhir:v "DE71" ] ;
+     fhir:display [ fhir:v "Date of fever onset" ]
+  ] [
+     fhir:code [ fhir:v "DE72" ] ;
+     fhir:display [ fhir:v "Rash" ]
+  ] [
+     fhir:code [ fhir:v "DE76" ] ;
+     fhir:display [ fhir:v "Rash duration" ]
+  ] [
+     fhir:code [ fhir:v "DE77" ] ;
+     fhir:display [ fhir:v "Rash onset date" ]
+  ] [
+     fhir:code [ fhir:v "DE78" ] ;
+     fhir:display [ fhir:v "Rash type" ]
+  ] [
+     fhir:code [ fhir:v "DE84" ] ;
+     fhir:display [ fhir:v "Cough" ]
+  ] [
+     fhir:code [ fhir:v "DE88" ] ;
+     fhir:display [ fhir:v "Conjunctivitis" ]
+  ] [
+     fhir:code [ fhir:v "DE92" ] ;
+     fhir:display [ fhir:v "Coryza" ]
+  ] [
+     fhir:code [ fhir:v "DE96" ] ;
+     fhir:display [ fhir:v "Koplik spots" ]
+  ] [
+     fhir:code [ fhir:v "DE100" ] ;
+     fhir:display [ fhir:v "Lymphadenopathy" ]
+  ] [
+     fhir:code [ fhir:v "DE104" ] ;
+     fhir:display [ fhir:v "Jointpain" ]
+  ] [
+     fhir:code [ fhir:v "DE108" ] ;
+     fhir:display [ fhir:v "Pregnancy" ]
+  ] [
+     fhir:code [ fhir:v "DE112" ] ;
+     fhir:display [ fhir:v "Months pregnant" ]
+  ] [
+     fhir:code [ fhir:v "DE113" ] ;
+     fhir:display [ fhir:v "Place of birth" ]
+  ] [
+     fhir:code [ fhir:v "DE114" ] ;
+     fhir:display [ fhir:v "Admitted" ]
+  ] [
+     fhir:code [ fhir:v "DE118" ] ;
+     fhir:display [ fhir:v "Admitted HCF name" ]
+  ] [
+     fhir:code [ fhir:v "DE119" ] ;
+     fhir:display [ fhir:v "Admission date" ]
+  ] [
+     fhir:code [ fhir:v "DE120" ] ;
+     fhir:display [ fhir:v "Hospital record number" ]
+  ] [
+     fhir:code [ fhir:v "DE121" ] ;
+     fhir:display [ fhir:v "Outcome" ]
+  ] [
+     fhir:code [ fhir:v "DE127" ] ;
+     fhir:display [ fhir:v "Outcome date" ]
+  ] [
+     fhir:code [ fhir:v "DE128" ] ;
+     fhir:display [ fhir:v "Primary cause of death" ]
+  ] [
+     fhir:code [ fhir:v "DE129" ] ;
+     fhir:display [ fhir:v "Disease additional info" ]
+  ] [
+     fhir:code [ fhir:v "DE130" ] ;
+     fhir:display [ fhir:v "Specimen number" ]
+  ] [
+     fhir:code [ fhir:v "DE134" ] ;
+     fhir:display [ fhir:v "Sample type" ]
+  ] [
+     fhir:code [ fhir:v "DE141" ] ;
+     fhir:display [ fhir:v "Collection date" ]
+  ] [
+     fhir:code [ fhir:v "DE142" ] ;
+     fhir:display [ fhir:v "Lab name" ]
+  ] [
+     fhir:code [ fhir:v "DE143" ] ;
+     fhir:display [ fhir:v "Specimen sent date" ]
+  ] [
+     fhir:code [ fhir:v "DE144" ] ;
+     fhir:display [ fhir:v "Specimen received date" ]
+  ] [
+     fhir:code [ fhir:v "DE145" ] ;
+     fhir:display [ fhir:v "Sample id" ]
+  ] [
+     fhir:code [ fhir:v "DE146" ] ;
+     fhir:display [ fhir:v "Test performed" ]
+  ] [
+     fhir:code [ fhir:v "DE155" ] ;
+     fhir:display [ fhir:v "Antigen" ]
+  ] [
+     fhir:code [ fhir:v "DE163" ] ;
+     fhir:display [ fhir:v "Result" ]
+  ] [
+     fhir:code [ fhir:v "DE167" ] ;
+     fhir:display [ fhir:v "Result date" ]
+  ] [
+     fhir:code [ fhir:v "DE168" ] ;
+     fhir:display [ fhir:v "Specify virus" ]
+  ] [
+     fhir:code [ fhir:v "DE169" ] ;
+     fhir:display [ fhir:v "Case search conducted" ]
+  ] [
+     fhir:code [ fhir:v "DE173" ] ;
+     fhir:display [ fhir:v "No of suspect cases" ]
+  ] [
+     fhir:code [ fhir:v "DE174" ] ;
+     fhir:display [ fhir:v "Pregnant contact" ]
+  ] [
+     fhir:code [ fhir:v "DE178" ] ;
+     fhir:display [ fhir:v "Pregnant contact names" ]
+  ] [
+     fhir:code [ fhir:v "DE179" ] ;
+     fhir:display [ fhir:v "Local cases present" ]
+  ] [
+     fhir:code [ fhir:v "DE185" ] ;
+     fhir:display [ fhir:v "Travelled outside" ]
+  ] [
+     fhir:code [ fhir:v "DE189" ] ;
+     fhir:display [ fhir:v "Place of travel" ]
+  ] [
+     fhir:code [ fhir:v "DE190" ] ;
+     fhir:display [ fhir:v "Arrival date" ]
+  ] [
+     fhir:code [ fhir:v "DE191" ] ;
+     fhir:display [ fhir:v "Departure date" ]
+  ] [
+     fhir:code [ fhir:v "DE192" ] ;
+     fhir:display [ fhir:v "Infection setting" ]
+  ] [
+     fhir:code [ fhir:v "DE198" ] ;
+     fhir:display [ fhir:v "Specify infection setting" ]
+  ] [
+     fhir:code [ fhir:v "DE199" ] ;
+     fhir:display [ fhir:v "Ring vaccination" ]
+  ] [
+     fhir:code [ fhir:v "DE203" ] ;
+     fhir:display [ fhir:v "Date started" ]
+  ] [
+     fhir:code [ fhir:v "DE204" ] ;
+     fhir:display [ fhir:v "Date ended" ]
+  ] [
+     fhir:code [ fhir:v "DE205" ] ;
+     fhir:display [ fhir:v "No of doses ring vaccination" ]
+  ] [
+     fhir:code [ fhir:v "DE206" ] ;
+     fhir:display [ fhir:v "Rapid coverage monitoring" ]
+  ] [
+     fhir:code [ fhir:v "DE210" ] ;
+     fhir:display [ fhir:v "Percent vaccinated" ]
+  ] [
+     fhir:code [ fhir:v "DE211" ] ;
+     fhir:display [ fhir:v "Contact tracing done" ]
+  ] [
+     fhir:code [ fhir:v "DE215" ] ;
+     fhir:display [ fhir:v "Last follow up" ]
+  ] [
+     fhir:code [ fhir:v "DE216" ] ;
+     fhir:display [ fhir:v "Final classification" ]
+  ] [
+     fhir:code [ fhir:v "DE220" ] ;
+     fhir:display [ fhir:v "Confirmation basis" ]
+  ] [
+     fhir:code [ fhir:v "DE224" ] ;
+     fhir:display [ fhir:v "Country importation" ]
+  ] [
+     fhir:code [ fhir:v "DE225" ] ;
+     fhir:display [ fhir:v "Discarding basis" ]
+  ] [
+     fhir:code [ fhir:v "DE233" ] ;
+     fhir:display [ fhir:v "Source of infection" ]
+  ] [
+     fhir:code [ fhir:v "DE238" ] ;
+     fhir:display [ fhir:v "Contact" ]
+  ] [
+     fhir:code [ fhir:v "DE242" ] ;
+     fhir:display [ fhir:v "Contact case no" ]
+  ] [
+     fhir:code [ fhir:v "DE243" ] ;
+     fhir:display [ fhir:v "Classified by" ]
+  ] [
+     fhir:code [ fhir:v "DE244" ] ;
+     fhir:display [ fhir:v "Classification date" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

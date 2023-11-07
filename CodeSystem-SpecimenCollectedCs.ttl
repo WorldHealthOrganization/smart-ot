@@ -1,0 +1,83 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/CodeSystem/SpecimenCollectedCs> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "SpecimenCollectedCs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/SpecimenCollected</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">NasalSwab<a name=\"SpecimenCollectedCs-NasalSwab\"> </a></td><td>Nasal swab</td></tr><tr><td style=\"white-space:nowrap\">ThroatSwab<a name=\"SpecimenCollectedCs-ThroatSwab\"> </a></td><td>Throat swab</td></tr><tr><td style=\"white-space:nowrap\">NasopharyngealSwab<a name=\"SpecimenCollectedCs-NasopharyngealSwab\"> </a></td><td>Nasopharyngeal swab</td></tr><tr><td style=\"white-space:nowrap\">NasalWash<a name=\"SpecimenCollectedCs-NasalWash\"> </a></td><td>Nasal wash</td></tr><tr><td style=\"white-space:nowrap\">Sputum<a name=\"SpecimenCollectedCs-Sputum\"> </a></td><td>Sputum</td></tr><tr><td style=\"white-space:nowrap\">NasopharyngealSspirate<a name=\"SpecimenCollectedCs-NasopharyngealSspirate\"> </a></td><td>Nasopharyngeal aspirate</td></tr><tr><td style=\"white-space:nowrap\">TrachealAspirate<a name=\"SpecimenCollectedCs-TrachealAspirate\"> </a></td><td>Tracheal aspirate</td></tr><tr><td style=\"white-space:nowrap\">BronchoalveolarLavage<a name=\"SpecimenCollectedCs-BronchoalveolarLavage\"> </a></td><td>Bronchoalveolar lavage</td></tr><tr><td style=\"white-space:nowrap\">TissueBiopsy<a name=\"SpecimenCollectedCs-TissueBiopsy\"> </a></td><td>Tissue biopsy</td></tr><tr><td style=\"white-space:nowrap\">SerumFirst<a name=\"SpecimenCollectedCs-SerumFirst\"> </a></td><td>Serum (first sample)</td></tr><tr><td style=\"white-space:nowrap\">SerumSecond<a name=\"SpecimenCollectedCs-SerumSecond\"> </a></td><td>Serum (second sample)</td></tr><tr><td style=\"white-space:nowrap\">WholeBlood<a name=\"SpecimenCollectedCs-WholeBlood\"> </a></td><td>Whole blood</td></tr><tr><td style=\"white-space:nowrap\">Urine<a name=\"SpecimenCollectedCs-Urine\"> </a></td><td>Urine</td></tr><tr><td style=\"white-space:nowrap\">Other<a name=\"SpecimenCollectedCs-Other\"> </a></td><td>Other</td></tr></table></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/SpecimenCollected"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "SpecimenCollectedCs"] ; # 
+  fhir:title [ fhir:v "Specimen Collected"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-11-07T05:59:29+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Specimen Collected"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "14"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "NasalSwab" ] ;
+     fhir:display [ fhir:v "Nasal swab" ]
+  ] [
+     fhir:code [ fhir:v "ThroatSwab" ] ;
+     fhir:display [ fhir:v "Throat swab" ]
+  ] [
+     fhir:code [ fhir:v "NasopharyngealSwab" ] ;
+     fhir:display [ fhir:v "Nasopharyngeal swab" ]
+  ] [
+     fhir:code [ fhir:v "NasalWash" ] ;
+     fhir:display [ fhir:v "Nasal wash" ]
+  ] [
+     fhir:code [ fhir:v "Sputum" ] ;
+     fhir:display [ fhir:v "Sputum" ]
+  ] [
+     fhir:code [ fhir:v "NasopharyngealSspirate" ] ;
+     fhir:display [ fhir:v "Nasopharyngeal aspirate" ]
+  ] [
+     fhir:code [ fhir:v "TrachealAspirate" ] ;
+     fhir:display [ fhir:v "Tracheal aspirate" ]
+  ] [
+     fhir:code [ fhir:v "BronchoalveolarLavage" ] ;
+     fhir:display [ fhir:v "Bronchoalveolar lavage" ]
+  ] [
+     fhir:code [ fhir:v "TissueBiopsy" ] ;
+     fhir:display [ fhir:v "Tissue biopsy" ]
+  ] [
+     fhir:code [ fhir:v "SerumFirst" ] ;
+     fhir:display [ fhir:v "Serum (first sample)" ]
+  ] [
+     fhir:code [ fhir:v "SerumSecond" ] ;
+     fhir:display [ fhir:v "Serum (second sample)" ]
+  ] [
+     fhir:code [ fhir:v "WholeBlood" ] ;
+     fhir:display [ fhir:v "Whole blood" ]
+  ] [
+     fhir:code [ fhir:v "Urine" ] ;
+     fhir:display [ fhir:v "Urine" ]
+  ] [
+     fhir:code [ fhir:v "Other" ] ;
+     fhir:display [ fhir:v "Other" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="PatientOutcomeCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/PatientOutcome</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">Sick<a name="PatientOutcomeCs-Sick"> </a></td><td>Still sick</td></tr><tr><td style="white-space:nowrap">Cured<a name="PatientOutcomeCs-Cured"> </a></td><td>Cured</td></tr><tr><td style="white-space:nowrap">Sequelae<a name="PatientOutcomeCs-Sequelae"> </a></td><td>Sequelae</td></tr><tr><td style="white-space:nowrap">Defaulter<a name="PatientOutcomeCs-Defaulter"> </a></td><td>Defaulter</td></tr><tr><td style="white-space:nowrap">Death<a name="PatientOutcomeCs-Death"> </a></td><td>Death</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/PatientOutcome"/>
+  <version value="0.2.1"/>
+  <name value="PatientOutcomeCs"/>
+  <title value="Patient Clinical Course Outcome"/>
+  <status value="draft"/>
+  <date value="2023-11-07T05:59:29+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Patient Clinical Course Outcome"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="5"/>
+  <concept>
+    <code value="Sick"/>
+    <display value="Still sick"/>
+  </concept>
+  <concept>
+    <code value="Cured"/>
+    <display value="Cured"/>
+  </concept>
+  <concept>
+    <code value="Sequelae"/>
+    <display value="Sequelae"/>
+  </concept>
+  <concept>
+    <code value="Defaulter"/>
+    <display value="Defaulter"/>
+  </concept>
+  <concept>
+    <code value="Death"/>
+    <display value="Death"/>
+  </concept>
+</CodeSystem>

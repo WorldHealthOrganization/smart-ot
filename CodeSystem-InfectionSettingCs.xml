@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="InfectionSettingCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/InfectionSetting</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">1<a name="InfectionSettingCs-1"> </a></td><td>Household contact</td></tr><tr><td style="white-space:nowrap">2<a name="InfectionSettingCs-2"> </a></td><td>Community</td></tr><tr><td style="white-space:nowrap">3<a name="InfectionSettingCs-3"> </a></td><td>Health Center</td></tr><tr><td style="white-space:nowrap">99<a name="InfectionSettingCs-99"> </a></td><td>Unknown</td></tr><tr><td style="white-space:nowrap">88<a name="InfectionSettingCs-88"> </a></td><td>Others</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/InfectionSetting"/>
+  <version value="0.2.1"/>
+  <name value="InfectionSettingCs"/>
+  <title value="InfectionSetting"/>
+  <status value="draft"/>
+  <date value="2023-11-07T05:59:29+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="InfectionSetting"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="5"/>
+  <concept>
+    <code value="1"/>
+    <display value="Household contact"/>
+  </concept>
+  <concept>
+    <code value="2"/>
+    <display value="Community"/>
+  </concept>
+  <concept>
+    <code value="3"/>
+    <display value="Health Center"/>
+  </concept>
+  <concept>
+    <code value="99"/>
+    <display value="Unknown"/>
+  </concept>
+  <concept>
+    <code value="88"/>
+    <display value="Others"/>
+  </concept>
+</CodeSystem>

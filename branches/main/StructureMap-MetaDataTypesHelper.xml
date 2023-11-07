@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureMap xmlns="http://hl7.org/fhir">
+  <id value="MetaDataTypesHelper"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><pre class="fml">
+<b>map</b><span style="color: navy"> &quot;</span>http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper<span style="color: navy">&quot; = &quot;</span>MetaDataTypesHelper<span style="color: navy">&quot;
+
+</span><b>group </b>addressToAddress<span style="color: navy">(</span><b>source</b> <span style="color: maroon">sourceAddress</span>, <b>target</b> <span style="color: maroon">targetAddress</span><span style="color: navy"> : </span>Address<span style="color: navy">)</span><span style="color: navy"> {
+</span>  sourceAddress.use<b> as </b><span style="color: maroon">use</span><span style="color: navy"><b> -&gt; </b></span>targetAddress.use = <span style="color: maroon">use</span> <i>&quot;Copy use&quot;</i><span style="color: navy">;</span>
+  sourceAddress.type<b> as </b><span style="color: maroon">type</span><span style="color: navy"><b> -&gt; </b></span>targetAddress.type = <span style="color: maroon">type</span> <i>&quot;Copy type&quot;</i><span style="color: navy">;</span>
+  sourceAddress.text<b> as </b><span style="color: maroon">text</span><span style="color: navy"><b> -&gt; </b></span>targetAddress.text = <span style="color: maroon">text</span> <i>&quot;Copy text&quot;</i><span style="color: navy">;</span>
+  sourceAddress.line<b> as </b><span style="color: maroon">line</span><span style="color: navy"><b> -&gt; </b></span>targetAddress.line = <span style="color: maroon">line</span> <i>&quot;Copy line&quot;</i><span style="color: navy">;</span>
+  sourceAddress.city<b> as </b><span style="color: maroon">city</span><span style="color: navy"><b> -&gt; </b></span>targetAddress.city = <span style="color: maroon">city</span> <i>&quot;Copy city&quot;</i><span style="color: navy">;</span>
+  sourceAddress.district<b> as </b><span style="color: maroon">district</span><span style="color: navy"><b> -&gt; </b></span>targetAddress.district = <span style="color: maroon">district</span> <i>&quot;Copy district&quot;</i><span style="color: navy">;</span>
+  sourceAddress.state<b> as </b><span style="color: maroon">state</span><span style="color: navy"><b> -&gt; </b></span>targetAddress.state = <span style="color: maroon">state</span> <i>&quot;Copy state&quot;</i><span style="color: navy">;</span>
+  sourceAddress.postalCode<b> as </b><span style="color: maroon">postalCode</span><span style="color: navy"><b> -&gt; </b></span>targetAddress.postalCode = <span style="color: maroon">postalCode</span> <i>&quot;Copy postalCode&quot;</i><span style="color: navy">;</span>
+  sourceAddress.country<b> as </b><span style="color: maroon">country</span><span style="color: navy"><b> -&gt; </b></span>targetAddress.country = <span style="color: maroon">country</span> <i>&quot;Copy country&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">// </span><span style="color: green">Copy the period using the previously defined group function</span>
+  sourceAddress.period<b> as </b><span style="color: maroon">sourcePeriod</span><span style="color: navy"><b> -&gt; </b></span>targetAddress.period<b> as </b><span style="color: maroon">targetPeriod</span><b> then</b><span style="color: navy"> {
+</span>    sourcePeriod<span style="color: navy"><b> -&gt; </b></span><span style="color: maroon">sourcePeriod</span><b> then </b>periodToPeriod<span style="color: navy">(</span><span style="color: maroon">sourcePeriod</span><span style="color: navy">, </span><span style="color: maroon">targetPeriod</span><span style="color: navy">)</span> <i>&quot;Copy period&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;copy period&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>humanNameToHumanName<span style="color: navy">(</span><b>source</b> <span style="color: maroon">sourceName</span>, <b>target</b> <span style="color: maroon">targetName</span><span style="color: navy"> : </span>HumanName<span style="color: navy">)</span><span style="color: navy"> {
+</span>  sourceName.use<b> as </b><span style="color: maroon">use</span><span style="color: navy"><b> -&gt; </b></span>targetName.use = <span style="color: maroon">use</span> <i>&quot;Copy use&quot;</i><span style="color: navy">;</span>
+  sourceName.text<b> as </b><span style="color: maroon">text</span><span style="color: navy"><b> -&gt; </b></span>targetName.text = <span style="color: maroon">text</span> <i>&quot;Copy text&quot;</i><span style="color: navy">;</span>
+  sourceName.family<b> as </b><span style="color: maroon">family</span><span style="color: navy"><b> -&gt; </b></span>targetName.family = <span style="color: maroon">family</span> <i>&quot;Copy family&quot;</i><span style="color: navy">;</span>
+  sourceName.given<b> as </b><span style="color: maroon">given</span><span style="color: navy"><b> -&gt; </b></span>targetName.given = <span style="color: maroon">given</span> <i>&quot;Copy given&quot;</i><span style="color: navy">;</span>
+  sourceName.prefix<b> as </b><span style="color: maroon">prefix</span><span style="color: navy"><b> -&gt; </b></span>targetName.prefix = <span style="color: maroon">prefix</span> <i>&quot;Copy prefix&quot;</i><span style="color: navy">;</span>
+  sourceName.suffix<b> as </b><span style="color: maroon">suffix</span><span style="color: navy"><b> -&gt; </b></span>targetName.suffix = <span style="color: maroon">suffix</span> <i>&quot;Copy suffix&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">// </span><span style="color: green">Copy the period using the previously defined group function</span>
+  sourceName.period<b> as </b><span style="color: maroon">sourcePeriod</span><span style="color: navy"><b> -&gt; </b></span>targetName.period<b> as </b><span style="color: maroon">targetPeriod</span><b> then</b><span style="color: navy"> {
+</span>    sourcePeriod<span style="color: navy"><b> -&gt; </b></span><span style="color: maroon">sourcePeriod</span><b> then </b>periodToPeriod<span style="color: navy">(</span><span style="color: maroon">sourcePeriod</span><span style="color: navy">, </span><span style="color: maroon">targetPeriod</span><span style="color: navy">)</span> <i>&quot;Copy period&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;copy period&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>periodToPeriod<span style="color: navy">(</span><b>source</b> <span style="color: maroon">sourcePeriod</span>, <b>target</b> <span style="color: maroon">targetPeriod</span><span style="color: navy"> : </span>Period<span style="color: navy">)</span><span style="color: navy"> {
+</span>  sourcePeriod.start<b> as </b><span style="color: maroon">start</span><span style="color: navy"><b> -&gt; </b></span>targetPeriod.start = <span style="color: maroon">start</span> <i>&quot;set period start&quot;</i><span style="color: navy">;</span>
+  sourcePeriod.end<b> as </b><span style="color: maroon">end</span><span style="color: navy"><b> -&gt; </b></span>targetPeriod.end = <span style="color: maroon">end</span> <i>&quot;set period end&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>contactPointToContactPoint<span style="color: navy">(</span><b>source</b> <span style="color: maroon">sourceContact</span>, <b>target</b> <span style="color: maroon">targetContact</span><span style="color: navy"> : </span>ContactPoint<span style="color: navy">)</span><span style="color: navy"> {
+</span>  sourceContact.system<b> as </b><span style="color: maroon">system</span><span style="color: navy"><b> -&gt; </b></span>targetContact.system = <span style="color: maroon">system</span> <i>&quot;Copy system&quot;</i><span style="color: navy">;</span>
+  sourceContact.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>targetContact.value = <span style="color: maroon">value</span> <i>&quot;Copy value&quot;</i><span style="color: navy">;</span>
+  sourceContact.use<b> as </b><span style="color: maroon">use</span><span style="color: navy"><b> -&gt; </b></span>targetContact.use = <span style="color: maroon">use</span> <i>&quot;Copy use&quot;</i><span style="color: navy">;</span>
+  sourceContact.rank<b> as </b><span style="color: maroon">rank</span><span style="color: navy"><b> -&gt; </b></span>targetContact.rank = <span style="color: maroon">rank</span> <i>&quot;Copy rank&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">// </span><span style="color: green">Copy the period using the previously defined group function</span>
+  sourceContact.period<b> as </b><span style="color: maroon">sourcePeriod</span><span style="color: navy"><b> -&gt; </b></span>targetContact.period<b> as </b><span style="color: maroon">targetPeriod</span><b> then</b><span style="color: navy"> {
+</span>    sourcePeriod<span style="color: navy"><b> -&gt; </b></span><span style="color: maroon">sourcePeriod</span><b> then </b>periodToPeriod<span style="color: navy">(</span><span style="color: maroon">sourcePeriod</span><span style="color: navy">, </span><span style="color: maroon">targetPeriod</span><span style="color: navy">)</span> <i>&quot;Copy period&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;copy period&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>mapCodingtoCodeableConcept<span style="color: navy">(</span><b>source</b> <span style="color: maroon">coding</span><span style="color: navy"> : </span>Coding, <b>target</b> <span style="color: maroon">codeableConcept</span><span style="color: navy"> : </span>CodeableConcept<span style="color: navy">)</span><span style="color: navy"> {
+</span>  coding<span style="color: navy"><b> -&gt; </b></span>codeableConcept.coding = <span style="color: maroon">coding</span> <i>&quot;set coding&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span></pre></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/StructureMap/MetaDataTypesHelper"/>
+  <version value="0.2.1"/>
+  <name value="MetaDataTypesHelper"/>
+  <status value="draft"/>
+  <date value="2023-11-07T05:59:29+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <group>
+    <name value="addressToAddress"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="sourceAddress"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="targetAddress"/>
+      <type value="Address"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="Copy use"/>
+      <source>
+        <context value="sourceAddress"/>
+        <element value="use"/>
+        <variable value="use"/>
+      </source>
+      <target>
+        <context value="targetAddress"/>
+        <contextType value="variable"/>
+        <element value="use"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="use"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy type"/>
+      <source>
+        <context value="sourceAddress"/>
+        <element value="type"/>
+        <variable value="type"/>
+      </source>
+      <target>
+        <context value="targetAddress"/>
+        <contextType value="variable"/>
+        <element value="type"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="type"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy text"/>
+      <source>
+        <context value="sourceAddress"/>
+        <element value="text"/>
+        <variable value="text"/>
+      </source>
+      <target>
+        <context value="targetAddress"/>
+        <contextType value="variable"/>
+        <element value="text"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="text"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy line"/>
+      <source>
+        <context value="sourceAddress"/>
+        <element value="line"/>
+        <variable value="line"/>
+      </source>
+      <target>
+        <context value="targetAddress"/>
+        <contextType value="variable"/>
+        <element value="line"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="line"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy city"/>
+      <source>
+        <context value="sourceAddress"/>
+        <element value="city"/>
+        <variable value="city"/>
+      </source>
+      <target>
+        <context value="targetAddress"/>
+        <contextType value="variable"/>
+        <element value="city"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="city"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy district"/>
+      <source>
+        <context value="sourceAddress"/>
+        <element value="district"/>
+        <variable value="district"/>
+      </source>
+      <target>
+        <context value="targetAddress"/>
+        <contextType value="variable"/>
+        <element value="district"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="district"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy state"/>
+      <source>
+        <context value="sourceAddress"/>
+        <element value="state"/>
+        <variable value="state"/>
+      </source>
+      <target>
+        <context value="targetAddress"/>
+        <contextType value="variable"/>
+        <element value="state"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="state"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy postalCode"/>
+      <source>
+        <context value="sourceAddress"/>
+        <element value="postalCode"/>
+        <variable value="postalCode"/>
+      </source>
+      <target>
+        <context value="targetAddress"/>
+        <contextType value="variable"/>
+        <element value="postalCode"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="postalCode"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy country"/>
+      <source>
+        <context value="sourceAddress"/>
+        <element value="country"/>
+        <variable value="country"/>
+      </source>
+      <target>
+        <context value="targetAddress"/>
+        <contextType value="variable"/>
+        <element value="country"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="country"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="copy period"/>
+      <source>
+        <context value="sourceAddress"/>
+        <element value="period"/>
+        <variable value="sourcePeriod"/>
+      </source>
+      <target>
+        <context value="targetAddress"/>
+        <contextType value="variable"/>
+        <element value="period"/>
+        <variable value="targetPeriod"/>
+      </target>
+      <rule>
+        <name value="Copy period"/>
+        <source>
+          <context value="sourcePeriod"/>
+        </source>
+        <target>
+          <contextType value="variable"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="sourcePeriod"/>
+          </parameter>
+        </target>
+        <dependent>
+          <name value="periodToPeriod"/>
+          <variable value="sourcePeriod"/>
+          <variable value="targetPeriod"/>
+        </dependent>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="humanNameToHumanName"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="sourceName"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="targetName"/>
+      <type value="HumanName"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="Copy use"/>
+      <source>
+        <context value="sourceName"/>
+        <element value="use"/>
+        <variable value="use"/>
+      </source>
+      <target>
+        <context value="targetName"/>
+        <contextType value="variable"/>
+        <element value="use"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="use"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy text"/>
+      <source>
+        <context value="sourceName"/>
+        <element value="text"/>
+        <variable value="text"/>
+      </source>
+      <target>
+        <context value="targetName"/>
+        <contextType value="variable"/>
+        <element value="text"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="text"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy family"/>
+      <source>
+        <context value="sourceName"/>
+        <element value="family"/>
+        <variable value="family"/>
+      </source>
+      <target>
+        <context value="targetName"/>
+        <contextType value="variable"/>
+        <element value="family"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="family"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy given"/>
+      <source>
+        <context value="sourceName"/>
+        <element value="given"/>
+        <variable value="given"/>
+      </source>
+      <target>
+        <context value="targetName"/>
+        <contextType value="variable"/>
+        <element value="given"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="given"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy prefix"/>
+      <source>
+        <context value="sourceName"/>
+        <element value="prefix"/>
+        <variable value="prefix"/>
+      </source>
+      <target>
+        <context value="targetName"/>
+        <contextType value="variable"/>
+        <element value="prefix"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="prefix"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy suffix"/>
+      <source>
+        <context value="sourceName"/>
+        <element value="suffix"/>
+        <variable value="suffix"/>
+      </source>
+      <target>
+        <context value="targetName"/>
+        <contextType value="variable"/>
+        <element value="suffix"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="suffix"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="copy period"/>
+      <source>
+        <context value="sourceName"/>
+        <element value="period"/>
+        <variable value="sourcePeriod"/>
+      </source>
+      <target>
+        <context value="targetName"/>
+        <contextType value="variable"/>
+        <element value="period"/>
+        <variable value="targetPeriod"/>
+      </target>
+      <rule>
+        <name value="Copy period"/>
+        <source>
+          <context value="sourcePeriod"/>
+        </source>
+        <target>
+          <contextType value="variable"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="sourcePeriod"/>
+          </parameter>
+        </target>
+        <dependent>
+          <name value="periodToPeriod"/>
+          <variable value="sourcePeriod"/>
+          <variable value="targetPeriod"/>
+        </dependent>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="periodToPeriod"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="sourcePeriod"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="targetPeriod"/>
+      <type value="Period"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set period start"/>
+      <source>
+        <context value="sourcePeriod"/>
+        <element value="start"/>
+        <variable value="start"/>
+      </source>
+      <target>
+        <context value="targetPeriod"/>
+        <contextType value="variable"/>
+        <element value="start"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="start"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="set period end"/>
+      <source>
+        <context value="sourcePeriod"/>
+        <element value="end"/>
+        <variable value="end"/>
+      </source>
+      <target>
+        <context value="targetPeriod"/>
+        <contextType value="variable"/>
+        <element value="end"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="end"/>
+        </parameter>
+      </target>
+    </rule>
+  </group>
+  <group>
+    <name value="contactPointToContactPoint"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="sourceContact"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="targetContact"/>
+      <type value="ContactPoint"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="Copy system"/>
+      <source>
+        <context value="sourceContact"/>
+        <element value="system"/>
+        <variable value="system"/>
+      </source>
+      <target>
+        <context value="targetContact"/>
+        <contextType value="variable"/>
+        <element value="system"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="system"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy value"/>
+      <source>
+        <context value="sourceContact"/>
+        <element value="value"/>
+        <variable value="value"/>
+      </source>
+      <target>
+        <context value="targetContact"/>
+        <contextType value="variable"/>
+        <element value="value"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="value"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy use"/>
+      <source>
+        <context value="sourceContact"/>
+        <element value="use"/>
+        <variable value="use"/>
+      </source>
+      <target>
+        <context value="targetContact"/>
+        <contextType value="variable"/>
+        <element value="use"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="use"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="Copy rank"/>
+      <source>
+        <context value="sourceContact"/>
+        <element value="rank"/>
+        <variable value="rank"/>
+      </source>
+      <target>
+        <context value="targetContact"/>
+        <contextType value="variable"/>
+        <element value="rank"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="rank"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="copy period"/>
+      <source>
+        <context value="sourceContact"/>
+        <element value="period"/>
+        <variable value="sourcePeriod"/>
+      </source>
+      <target>
+        <context value="targetContact"/>
+        <contextType value="variable"/>
+        <element value="period"/>
+        <variable value="targetPeriod"/>
+      </target>
+      <rule>
+        <name value="Copy period"/>
+        <source>
+          <context value="sourcePeriod"/>
+        </source>
+        <target>
+          <contextType value="variable"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="sourcePeriod"/>
+          </parameter>
+        </target>
+        <dependent>
+          <name value="periodToPeriod"/>
+          <variable value="sourcePeriod"/>
+          <variable value="targetPeriod"/>
+        </dependent>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="mapCodingtoCodeableConcept"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="coding"/>
+      <type value="Coding"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="codeableConcept"/>
+      <type value="CodeableConcept"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set coding"/>
+      <source>
+        <context value="coding"/>
+      </source>
+      <target>
+        <context value="codeableConcept"/>
+        <contextType value="variable"/>
+        <element value="coding"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="coding"/>
+        </parameter>
+      </target>
+    </rule>
+  </group>
+</StructureMap>

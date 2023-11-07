@@ -1,0 +1,3548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureMap xmlns="http://hl7.org/fhir">
+  <id value="MeaslesQuestionnaireToLogicalModel"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><pre class="fml">
+<b>map</b><span style="color: navy"> &quot;</span>http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel<span style="color: navy">&quot; = &quot;</span>MeaslesQuestionnaireToLogicalModel<span style="color: navy">&quot;
+
+</span><b>uses</b><span style="color: navy"> &quot;</span><a href="http://hl7.org/fhir/R4/questionnaireresponse.html" title="QuestionnaireResponse">http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse</a><span style="color: navy">&quot; </span><b>alias </b>QuestionnaireResponse <b>as </b><b>source</b>
+<b>uses</b><span style="color: navy"> &quot;</span><a href="StructureDefinition-SOTMeasles.html" title="Surveillance &amp; Outbreak Toolkit Measles">http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles</a><span style="color: navy">&quot; </span><b>alias </b>MeaslesLogicalModel <b>as </b><b>target</b>
+
+<b>group </b>MeaslesQuestionnaireToLogicalModel<span style="color: navy">(</span><b>source</b> <span style="color: maroon">qr</span><span style="color: navy"> : </span>QuestionnaireResponse, <b>target</b> <span style="color: maroon">measlesLm</span><span style="color: navy"> : </span>SOTMeasles<span style="color: navy">)</span><span style="color: navy"> {
+</span>  qr.item<b> as </b><span style="color: maroon">item</span><b> where </b>linkId.value in ('investigationForm')<span style="color: navy"><b> -&gt; </b></span><span style="color: maroon">measlesLm</span><b> as </b><span style="color: maroon">measlesLm</span><b> then </b>mapInvestigationForm<span style="color: navy">(</span><span style="color: maroon">item</span><span style="color: navy">, </span><span style="color: maroon">measlesLm</span><span style="color: navy">)</span> <i>&quot;set Investigation form&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>mapInvestigationForm<span style="color: navy">(</span><b>source</b> <span style="color: maroon">investigationForm</span>, <b>target</b> <span style="color: maroon">measlesLm</span><span style="color: navy"> : </span>SOTMeasles<span style="color: navy">)</span><span style="color: navy"> {
+</span>  investigationForm.item<b> as </b><span style="color: maroon">qrReportingSource</span><b> where </b>linkId.value in ('reportingSource')<span style="color: navy"><b> -&gt; </b></span>measlesLm.ReportingSource<b> as </b><span style="color: maroon">lmReportingSource</span><b> then </b>mapReportingSource<span style="color: navy">(</span><span style="color: maroon">qrReportingSource</span><span style="color: navy">, </span><span style="color: maroon">lmReportingSource</span><span style="color: navy">)</span> <i>&quot;set Reporting Source&quot;</i><span style="color: navy">;</span>
+  investigationForm.item<b> as </b><span style="color: maroon">qrDemographics</span><b> where </b>linkId.value in ('demographics')<span style="color: navy"><b> -&gt; </b></span>measlesLm.Demographics<b> as </b><span style="color: maroon">lmDemographics</span><b> then </b>mapDemographics<span style="color: navy">(</span><span style="color: maroon">qrDemographics</span><span style="color: navy">, </span><span style="color: maroon">lmDemographics</span><span style="color: navy">)</span> <i>&quot;set Demographics&quot;</i><span style="color: navy">;</span>
+  investigationForm.item<b> as </b><span style="color: maroon">qrVaccinationStatus</span><b> where </b>linkId.value in ('vaccinationStatus')<span style="color: navy"><b> -&gt; </b></span>measlesLm.VaccinationStatus<b> as </b><span style="color: maroon">lmVaccinationStatus</span><b> then </b>mapVaccinationStatus<span style="color: navy">(</span><span style="color: maroon">qrVaccinationStatus</span><span style="color: navy">, </span><span style="color: maroon">lmVaccinationStatus</span><span style="color: navy">)</span> <i>&quot;set Vaccination Status&quot;</i><span style="color: navy">;</span>
+  investigationForm.item<b> as </b><span style="color: maroon">qrClinical</span><b> where </b>linkId.value in ('clinical')<span style="color: navy"><b> -&gt; </b></span>measlesLm.Clinical<b> as </b><span style="color: maroon">lmClinical</span><b> then </b>mapClinical<span style="color: navy">(</span><span style="color: maroon">qrClinical</span><span style="color: navy">, </span><span style="color: maroon">lmClinical</span><span style="color: navy">)</span> <i>&quot;set Clinical&quot;</i><span style="color: navy">;</span>
+  investigationForm.item<b> as </b><span style="color: maroon">qrLaboratoryResults</span><b> where </b>linkId.value in ('laboratoryResults')<span style="color: navy"><b> -&gt; </b></span>measlesLm.LaboratoryResults<b> as </b><span style="color: maroon">lmLaboratoryResults</span><b> then </b>mapLaboratoryResults<span style="color: navy">(</span><span style="color: maroon">qrLaboratoryResults</span><span style="color: navy">, </span><span style="color: maroon">lmLaboratoryResults</span><span style="color: navy">)</span> <i>&quot;set Laboratory Results&quot;</i><span style="color: navy">;</span>
+  investigationForm.item<b> as </b><span style="color: maroon">qrContactTracing</span><b> where </b>linkId.value in ('contactTracing')<span style="color: navy"><b> -&gt; </b></span>measlesLm.ContactTracing<b> as </b><span style="color: maroon">lmContactTracing</span><b> then </b>mapContactTracing<span style="color: navy">(</span><span style="color: maroon">qrContactTracing</span><span style="color: navy">, </span><span style="color: maroon">lmContactTracing</span><span style="color: navy">)</span> <i>&quot;set Contact Tracing&quot;</i><span style="color: navy">;</span>
+  investigationForm.item<b> as </b><span style="color: maroon">qrEpiData</span><b> where </b>linkId.value in ('epiData')<span style="color: navy"><b> -&gt; </b></span>measlesLm.EpiData<b> as </b><span style="color: maroon">lmEpiData</span><b> then </b>mapEpiData<span style="color: navy">(</span><span style="color: maroon">qrEpiData</span><span style="color: navy">, </span><span style="color: maroon">lmEpiData</span><span style="color: navy">)</span> <i>&quot;set Epi Data&quot;</i><span style="color: navy">;</span>
+  investigationForm.item<b> as </b><span style="color: maroon">qrClassification</span><b> where </b>linkId.value in ('classification')<span style="color: navy"><b> -&gt; </b></span>measlesLm.Classification<b> as </b><span style="color: maroon">lmClassification</span><b> then </b>mapClassification<span style="color: navy">(</span><span style="color: maroon">qrClassification</span><span style="color: navy">, </span><span style="color: maroon">lmClassification</span><span style="color: navy">)</span> <i>&quot;set Classification&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>mapReportingSource<span style="color: navy">(</span><b>source</b> <span style="color: maroon">qrReportingSource</span>, <b>target</b> <span style="color: maroon">lmReportingSource</span><span style="color: navy"> : </span>SOTMeaslesReportingSource<span style="color: navy">)</span><span style="color: navy"> {
+</span>  qrReportingSource.item<b> as </b><span style="color: maroon">item</span><b> then</b><span style="color: navy"> {
+</span>    item.answer first<b> as </b><span style="color: maroon">initialDiagnosis</span><b> where </b>item.linkId = 'initialDiagnosis'<b> then</b><span style="color: navy"> {
+</span>      initialDiagnosis.value<b> as </b><span style="color: maroon">coding</span><span style="color: navy"><b> -&gt; </b></span>lmReportingSource.InitialDiagnosis = <span style="color: maroon">coding</span> <i>&quot;set Initial Diagnosis&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set initial diag&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">reportedBy</span><b> where </b>item.linkId = 'reportedBy'<b> then</b><span style="color: navy"> {
+</span>      reportedBy.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmReportingSource.ReportedBy = <span style="color: maroon">value</span> <i>&quot;set case ID&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set case ID&quot;</i><span style="color: navy">;</span>
+    qrReportingSource.item<b> as </b><span style="color: maroon">qrReportingInstitution</span><b> where </b>linkId.value in ('reportingInstitution')<span style="color: navy"><b> -&gt; </b></span><span style="color: maroon">lmReportingSource</span><b> as </b><span style="color: maroon">lmReportingSource</span><b> then </b>mapReportingInstitution<span style="color: navy">(</span><span style="color: maroon">qrReportingInstitution</span><span style="color: navy">, </span><span style="color: maroon">lmReportingSource</span><span style="color: navy">)</span> <i>&quot;set reporting institution&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">dateOfConsultation</span><b> where </b>item.linkId = 'DateOfConsultation'<b> then</b><span style="color: navy"> {
+</span>      dateOfConsultation.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmReportingSource.DateOfConsultation = <span style="color: maroon">value</span> <i>&quot;set date of consultation&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set date of consultation&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">dateOfHomeVisit</span><b> where </b>item.linkId = 'DateOfHomeVisit'<b> then</b><span style="color: navy"> {
+</span>      dateOfHomeVisit.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmReportingSource.DateOfHomeVisit = <span style="color: maroon">value</span> <i>&quot;set date of home visit&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set date of home visit&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">dateReportedLocal</span><b> where </b>item.linkId = 'dateReported'<b> then</b><span style="color: navy"> {
+</span>      dateReportedLocal.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmReportingSource.DateReportedLocal = <span style="color: maroon">value</span> <i>&quot;set date reported local&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set date reported local&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">dateReportedNational</span><b> where </b>item.linkId = 'DateReportedNational'<b> then</b><span style="color: navy"> {
+</span>      dateReportedNational.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmReportingSource.DateReportedNational = <span style="color: maroon">value</span> <i>&quot;set date reported national&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set date reported national&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">providerType</span><b> where </b>item.linkId = 'TypeOfProviderReporting'<b> then</b><span style="color: navy"> {
+</span>      providerType.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmReportingSource.TypeOfProviderReporting = <span style="color: maroon">value</span> <i>&quot;set provider type&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set provider type&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">detectedBy</span><b> where </b>item.linkId = 'DetectedBy'<b> then</b><span style="color: navy"> {
+</span>      detectedBy.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmReportingSource.DetectedBy = <span style="color: maroon">value</span> <i>&quot;set detected by&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set detected by&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;set reporting source&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>mapReportingInstitution<span style="color: navy">(</span><b>source</b> <span style="color: maroon">qrReportingInstitution</span>, <b>target</b> <span style="color: maroon">lmReportingSource</span><span style="color: navy"> : </span>SOTMeaslesReportingSource<span style="color: navy">)</span><span style="color: navy"> {
+</span>  qrReportingInstitution.item<b> as </b><span style="color: maroon">item</span><b> then</b><span style="color: navy"> {
+</span>    item.answer first<b> as </b><span style="color: maroon">reportingFacility</span><b> where </b>item.linkId = 'reportingFacility'<b> then</b><span style="color: navy"> {
+</span>      reportingFacility.value<b> as </b><span style="color: maroon">healthFacilityName</span><span style="color: navy"><b> -&gt; </b></span>lmReportingSource.HealthServiceName = <span style="color: maroon">healthFacilityName</span> <i>&quot;set health facility name&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set health facility name&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">telephone</span><b> where </b>item.linkId = 'telephone'<b> then</b><span style="color: navy"> {
+</span>      telephone.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span> <b>create</b><span style="color: navy">(</span><span style="color: blue">'ContactPoint'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">lmTelephone</span><span style="color: navy">, </span> lmTelephone.value = <span style="color: maroon">value</span><span style="color: navy">, </span> lmReportingSource.HealthServiceTelephone = <span style="color: maroon">lmTelephone</span> <i>&quot;set telephone&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set telephone&quot;</i><span style="color: navy">;</span>
+    qrReportingInstitution<span style="color: navy"><b> -&gt; </b></span><b>create</b><span style="color: navy">(</span><span style="color: blue">'Address'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">lmAddress</span><b> then</b><span style="color: navy"> {
+</span>      item.answer first<b> as </b><span style="color: maroon">country</span><b> where </b>item.linkId = 'country'<b> then</b><span style="color: navy"> {
+</span>        country.value<b> as </b><span style="color: maroon">countryValue</span><span style="color: navy"><b> -&gt; </b></span>lmAddress.country = <span style="color: maroon">countryValue</span> <i>&quot;set country&quot;</i><span style="color: navy">;</span>
+      <span style="color: navy">}</span> <i>&quot;set country&quot;</i><span style="color: navy">;</span>
+      item.answer first<b> as </b><span style="color: maroon">municipality</span><b> where </b>item.linkId = 'municipality'<b> then</b><span style="color: navy"> {
+</span>        municipality.value<b> as </b><span style="color: maroon">cityValue</span><span style="color: navy"><b> -&gt; </b></span>lmAddress.city = <span style="color: maroon">cityValue</span> <i>&quot;set city&quot;</i><span style="color: navy">;</span>
+      <span style="color: navy">}</span> <i>&quot;set city  &quot;</i><span style="color: navy">;</span>
+      item.answer first<b> as </b><span style="color: maroon">state</span><b> where </b>item.linkId = 'state'<b> then</b><span style="color: navy"> {
+</span>        state.value<b> as </b><span style="color: maroon">stateValue</span><span style="color: navy"><b> -&gt; </b></span>lmAddress.state = <span style="color: maroon">stateValue</span> <i>&quot;set state&quot;</i><span style="color: navy">;</span>
+      <span style="color: navy">}</span> <i>&quot;set state&quot;</i><span style="color: navy">;</span>
+      item.answer first<b> as </b><span style="color: maroon">locality</span><b> where </b>item.linkId = 'locality'<b> then</b><span style="color: navy"> {
+</span>        locality.value<b> as </b><span style="color: maroon">localityValue</span><span style="color: navy"><b> -&gt; </b></span>lmAddress.line = <span style="color: maroon">localityValue</span> <i>&quot;set locality&quot;</i><span style="color: navy">;</span>
+      <span style="color: navy">}</span> <i>&quot;set locality&quot;</i><span style="color: navy">;</span>
+      qrReportingInstitution<span style="color: navy"><b> -&gt; </b></span>lmReportingSource.PlaceOfReporting = <span style="color: maroon">lmAddress</span> <i>&quot;assign address&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set address&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;set reporting institution&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>mapDemographics<span style="color: navy">(</span><b>source</b> <span style="color: maroon">qrDemographics</span>, <b>target</b> <span style="color: maroon">lmDemographics</span><span style="color: navy"> : </span>SOTMeaslesDemographic<span style="color: navy">)</span><span style="color: navy"> {
+</span>  qrDemographics.item<b> as </b><span style="color: maroon">item</span><b> then</b><span style="color: navy"> {
+</span>    item.answer first<b> as </b><span style="color: maroon">name</span><b> where </b>item.linkId = 'name'<b> then</b><span style="color: navy"> {
+</span>      name.value<b> as </b><span style="color: maroon">nameValue</span><span style="color: navy"><b> -&gt; </b></span> <b>create</b><span style="color: navy">(</span><span style="color: blue">'HumanName'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">lmName</span><span style="color: navy">, </span> lmName.family = <span style="color: maroon">nameValue</span><span style="color: navy">, </span> lmDemographics.Name = <span style="color: maroon">lmName</span> <i>&quot;set name&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set name&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">guardian</span><b> where </b>item.linkId = 'guardian'<b> then</b><span style="color: navy"> {
+</span>      guardian.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span> <b>create</b><span style="color: navy">(</span><span style="color: blue">'HumanName'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">lmGuardian</span><span style="color: navy">, </span> lmGuardian.family = <span style="color: maroon">value</span><span style="color: navy">, </span> lmDemographics.Guardian = <span style="color: maroon">lmGuardian</span> <i>&quot;set guardian&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set guardian&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">address</span><b> where </b>item.linkId = 'address'<b> then</b><span style="color: navy"> {
+</span>      address.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span> <b>create</b><span style="color: navy">(</span><span style="color: blue">'Address'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">lmAddress</span><span style="color: navy">, </span> lmAddress.text = <span style="color: maroon">value</span><span style="color: navy">, </span> lmDemographics.PlaceOfResidence = <span style="color: maroon">lmAddress</span> <i>&quot;set address&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set address&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">telephone</span><b> where </b>item.linkId = 'telephone'<b> then</b><span style="color: navy"> {
+</span>      telephone.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span> <b>create</b><span style="color: navy">(</span><span style="color: blue">'ContactPoint'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">lmTelephone</span><span style="color: navy">, </span> lmTelephone.value = <span style="color: maroon">value</span><span style="color: navy">, </span> lmDemographics.Telephone = <span style="color: maroon">lmTelephone</span> <i>&quot;set telephone&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set telephone&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">landmark</span><b> where </b>item.linkId = 'landmark'<b> then</b><span style="color: navy"> {
+</span>      landmark.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmDemographics.Landmark = <span style="color: maroon">value</span> <i>&quot;set landmark&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set landmark&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">occupation</span><b> where </b>item.linkId = 'occupation'<b> then</b><span style="color: navy"> {
+</span>      occupation.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmDemographics.Occupation = <span style="color: maroon">value</span> <i>&quot;set occupation&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set occupation&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">location</span><b> where </b>item.linkId = 'location living in'<b> then</b><span style="color: navy"> {
+</span>      location.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>locationlmDemographics.LocalityType = <span style="color: maroon">value</span> <i>&quot;set Locality Type&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set Locality Type&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">workAddress</span><b> where </b>item.linkId = 'workAddress'<b> then</b><span style="color: navy"> {
+</span>      workAddress.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span> <b>create</b><span style="color: navy">(</span><span style="color: blue">'Address'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">lmAddress</span><span style="color: navy">, </span> lmAddress.text = <span style="color: maroon">value</span><span style="color: navy">, </span> lmDemographics.WorkAddress = <span style="color: maroon">lmAddress</span> <i>&quot;set workAddress&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set workAddress&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">sex</span><b> where </b>item.linkId = 'sex'<b> then</b><span style="color: navy"> {
+</span>      sex.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmDemographics.Sex = <span style="color: maroon">value</span> <i>&quot;set sex&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set sex&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">DoB</span><b> where </b>item.linkId = 'DoB'<b> then</b><span style="color: navy"> {
+</span>      DoB.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmDemographics.DateOfBirth = <span style="color: maroon">value</span> <i>&quot;set DoB&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set DoB&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">ageOnset</span><b> where </b>item.linkId = 'ageOnset'<b> then</b><span style="color: navy"> {
+</span>      ageOnset.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span> <b>create</b><span style="color: navy">(</span><span style="color: blue">'Quantity'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">lmAgeOnset</span><span style="color: navy">, </span> lmAgeOnset.value = <span style="color: maroon">value</span><span style="color: navy">, </span> lmDemographics.Age = <span style="color: maroon">lmAgeOnset</span> <i>&quot;set ageOnset&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set ageOnset&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;set demographics&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>mapVaccinationStatus<span style="color: navy">(</span><b>source</b> <span style="color: maroon">qrVaccinationStatus</span>, <b>target</b> <span style="color: maroon">lmVaccinationStatus</span><span style="color: navy"> : </span>SOTMeaslesVaccinationStatus<span style="color: navy">)</span><span style="color: navy"> {
+</span>  qrVaccinationStatus.item<b> as </b><span style="color: maroon">item</span><b> then</b><span style="color: navy"> {
+</span>    item.answer first<b> as </b><span style="color: maroon">lastDoseDate</span><b> where </b>item.linkId = 'lastDoseDate'<b> then</b><span style="color: navy"> {
+</span>      lastDoseDate.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmVaccinationStatus.LastDoseDate = <span style="color: maroon">value</span> <i>&quot;set Last Dose Date&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set last dose date&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">sourceOfInformation</span><b> where </b>item.linkId = 'sourceOfInformation'<b> then</b><span style="color: navy"> {
+</span>      sourceOfInformation.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmVaccinationStatus.Source = <span style="color: maroon">value</span> <i>&quot;set Source of Vaccination Information&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">noOfDoses</span><b> where </b>item.linkId = 'noOfDoses'<b> then</b><span style="color: navy"> {
+</span>      noOfDoses.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmVaccinationStatus.NumberOfDoses = <span style="color: maroon">value</span> <i>&quot;set number of doses&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">vaccineType</span><b> where </b>item.linkId = 'vaccineType'<b> then</b><span style="color: navy"> {
+</span>      vaccineType.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmVaccinationStatus.VaccineType = <span style="color: maroon">value</span> <i>&quot;set vaccine type&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>mapClinical<span style="color: navy">(</span><b>source</b> <span style="color: maroon">qrClinical</span>, <b>target</b> <span style="color: maroon">lmClinical</span><span style="color: navy"> : </span>SOTMeaslesClinical<span style="color: navy">)</span><span style="color: navy"> {
+</span>  qrClinical.item<b> as </b><span style="color: maroon">item</span><b> then</b><span style="color: navy"> {
+</span>    item.answer first<b> as </b><span style="color: maroon">fever</span><b> where </b>item.linkId = 'fever'<b> then</b><span style="color: navy"> {
+</span>      fever.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.Fever = <span style="color: maroon">value</span> <i>&quot;set Fever&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">temperature</span><b> where </b>item.linkId = 'temperature'<b> then</b><span style="color: navy"> {
+</span>      temperature.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span> lmClinical.Temperature<b> as </b><span style="color: maroon">temp</span><span style="color: navy">, </span> temp.value = <span style="color: maroon">value</span> <i>&quot;set Temperature&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">dateOfFeverOnset</span><b> where </b>item.linkId = 'dateOfFeverOnset'<b> then</b><span style="color: navy"> {
+</span>      dateOfFeverOnset.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.FeverOnsetDate = <span style="color: maroon">value</span> <i>&quot;set Date of Fever Onset&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">rash</span><b> where </b>item.linkId = 'rash'<b> then</b><span style="color: navy"> {
+</span>      rash.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.Rash = <span style="color: maroon">value</span> <i>&quot;set Rash&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">rashType</span><b> where </b>item.linkId = 'rashType'<b> then</b><span style="color: navy"> {
+</span>      rashType.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.TypeOfRash = <span style="color: maroon">value</span> <i>&quot;set Rash Type&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">rashDuration</span><b> where </b>item.linkId = 'rashDuration'<b> then</b><span style="color: navy"> {
+</span>      rashDuration.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.DurationOfRash = <span style="color: maroon">value</span> <i>&quot;set Rash Duration&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">rashOnsetDate</span><b> where </b>item.linkId = 'rashOnsetDate'<b> then</b><span style="color: navy"> {
+</span>      rashOnsetDate.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.RashOnsetDate = <span style="color: maroon">value</span> <i>&quot;set Rash Onset Date&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">cough</span><b> where </b>item.linkId = 'cough'<b> then</b><span style="color: navy"> {
+</span>      cough.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.Cough = <span style="color: maroon">value</span> <i>&quot;set Cough&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">conjunctivitis</span><b> where </b>item.linkId = 'conjunctivitis'<b> then</b><span style="color: navy"> {
+</span>      conjunctivitis.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.Conjunctivitis = <span style="color: maroon">value</span> <i>&quot;set Conjunctivitis&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">coryza</span><b> where </b>item.linkId = 'coryza'<b> then</b><span style="color: navy"> {
+</span>      coryza.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.Coryza = <span style="color: maroon">value</span> <i>&quot;set Coryza&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">koplikSpots</span><b> where </b>item.linkId = 'koplikSpots'<b> then</b><span style="color: navy"> {
+</span>      koplikSpots.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.KoplikSpots = <span style="color: maroon">value</span> <i>&quot;set Koplik Spots&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">lymphadenopathy</span><b> where </b>item.linkId = 'lymphadenopathy'<b> then</b><span style="color: navy"> {
+</span>      lymphadenopathy.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.Lymphadenopathy = <span style="color: maroon">value</span> <i>&quot;set Lymphadenopathy&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">jointPain</span><b> where </b>item.linkId = 'jointPain'<b> then</b><span style="color: navy"> {
+</span>      jointPain.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.JointPain = <span style="color: maroon">value</span> <i>&quot;set Arthralgia&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">pregnancy</span><b> where </b>item.linkId = 'pregnancy'<b> then</b><span style="color: navy"> {
+</span>      pregnancy.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.PregnancyStatus = <span style="color: maroon">value</span> <i>&quot;set Pregnant&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">monthsPregnant</span><b> where </b>item.linkId = 'monthsPregnant'<b> then</b><span style="color: navy"> {
+</span>      monthsPregnant.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span> lmClinical.GestationWeeks<b> as </b><span style="color: maroon">weeks</span><span style="color: navy">, </span> weeks.value = <span style="color: maroon">value</span> <i>&quot;set Pregnancy Weeks&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">placeOfBirth</span><b> where </b>item.linkId = 'placeOfBirth'<b> then</b><span style="color: navy"> {
+</span>      placeOfBirth.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.IntentedBirthPlacce = <span style="color: maroon">value</span> <i>&quot;set Place of Birth&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">admitted</span><b> where </b>item.linkId = 'admitted'<b> then</b><span style="color: navy"> {
+</span>      admitted.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.HistoryOfHospitalization = <span style="color: maroon">value</span> <i>&quot;set Hospitalized&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">admittedHCFName</span><b> where </b>item.linkId = 'admittedHCFName'<b> then</b><span style="color: navy"> {
+</span>      admittedHCFName.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.HospitalName = <span style="color: maroon">value</span> <i>&quot;set Hospital Name&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">admissionDate</span><b> where </b>item.linkId = 'admissionDate'<b> then</b><span style="color: navy"> {
+</span>      admissionDate.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.DateOfAdmission = <span style="color: maroon">value</span> <i>&quot;set Admission Date&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">hospitalRecordNumber</span><b> where </b>item.linkId = 'hospitalRecordNumber'<b> then</b><span style="color: navy"> {
+</span>      hospitalRecordNumber.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.HospitalRecordNumber = <span style="color: maroon">value</span> <i>&quot;set Hospital Record Number&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">outcome</span><b> where </b>item.linkId = 'outcome'<b> then</b><span style="color: navy"> {
+</span>      outcome.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.Outcome = <span style="color: maroon">value</span> <i>&quot;set Outcome&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">deathCause</span><b> where </b>item.linkId = 'primaryCauseOfDeath'<b> then</b><span style="color: navy"> {
+</span>      deathCause.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.primaryCauseOfDeath = <span style="color: maroon">value</span> <i>&quot;set cause&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">outcomeDate</span><b> where </b>item.linkId = 'outcomeDate'<b> then</b><span style="color: navy"> {
+</span>      outcomeDate.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.DateOfDeath = <span style="color: maroon">value</span> <i>&quot;set death date&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">diseaseAdditionalInfo</span><b> where </b>item.linkId = 'diseaseAdditionalInfo'<b> then</b><span style="color: navy"> {
+</span>      diseaseAdditionalInfo.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClinical.Comments = <span style="color: maroon">value</span> <i>&quot;set Comments&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;set clinical&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>mapLaboratoryResults<span style="color: navy">(</span><b>source</b> <span style="color: maroon">qrLaboratoryResults</span>, <b>target</b> <span style="color: maroon">lmLaboratoryResults</span><span style="color: navy"> : </span>LaboratoryResultsLogicalModel<span style="color: navy">)</span><span style="color: navy"> {
+</span>  qrLaboratoryResults.item<b> as </b><span style="color: maroon">item</span><b> then</b><span style="color: navy"> {
+</span>    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'specimenNumber'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmLaboratoryResults.SpecimenNumber = <span style="color: maroon">value</span> <i>&quot;set SpecimenNumber&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'sampleType'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmLaboratoryResults.SampleType = <span style="color: maroon">value</span> <i>&quot;set SampleType&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'collectionDate'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmLaboratoryResults.SpecimenCollectionDate = <span style="color: maroon">value</span> <i>&quot;set SpecimenCollectionDate&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'labName'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmLaboratoryResults.LabName = <span style="color: maroon">value</span> <i>&quot;set Shipment Date&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'specimenSentDate'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmLaboratoryResults.SpecimenSentDate = <span style="color: maroon">value</span> <i>&quot;set SpecimenSentDate&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'specimenReceivedDate'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmLaboratoryResults.SpecimenRecdDate = <span style="color: maroon">value</span> <i>&quot;set SpecimenRecdDate&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'sampleId'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmLaboratoryResults.SampleId = <span style="color: maroon">value</span> <i>&quot;set SampleId&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'testPerformed'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmLaboratoryResults.TypeOfTest = <span style="color: maroon">value</span> <i>&quot;set TypeOfTest&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'antigen'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmLaboratoryResults.Antigen = <span style="color: maroon">value</span> <i>&quot;set Antigen&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'result'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmLaboratoryResults.Results = <span style="color: maroon">value</span> <i>&quot;set Results&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'resultDate'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmLaboratoryResults.LabResultsDate = <span style="color: maroon">value</span> <i>&quot;set LabResultsDate  &quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'specifyVirus'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmLaboratoryResults.ViralGenotype = <span style="color: maroon">value</span> <i>&quot;set specify virus&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;set labs&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>mapTravelDetails<span style="color: navy">(</span><b>source</b> <span style="color: maroon">qrTravelDetails</span>, <b>target</b> <span style="color: maroon">lmContactTracing</span><span style="color: navy"> : </span>SOTMeaslesContactTracing<span style="color: navy">)</span><span style="color: navy"> {
+</span>  qrTravelDetails.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'placeOfTravel'<b> then</b><span style="color: navy"> {
+</span>    answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmTravelDetails.placeOfTravel = <span style="color: maroon">value</span> <i>&quot;set specify virus&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+  qrTravelDetails.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'arrivalDate'<b> then</b><span style="color: navy"> {
+</span>    answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmTravelDetails.arrivalDate = <span style="color: maroon">value</span> <i>&quot;set specify virus&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+  qrTravelDetails.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'departureDate'<b> then</b><span style="color: navy"> {
+</span>    answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmTravelDetails.departureDate = <span style="color: maroon">value</span> <i>&quot;set specify virus&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>mapContactTracing<span style="color: navy">(</span><b>source</b> <span style="color: maroon">qrContactTracing</span>, <b>target</b> <span style="color: maroon">lmContactTracing</span><span style="color: navy"> : </span>SOTMeaslesContactTracing<span style="color: navy">)</span><span style="color: navy"> {
+</span>  qrContactTracing.item<b> as </b><span style="color: maroon">item</span><b> then</b><span style="color: navy"> {
+</span>    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'caseSearchConducted'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmContactTracing.caseSearchConducted = <span style="color: maroon">value</span> <i>&quot;set specify virus&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'noOfsuspectCases'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmContactTracing.noOfsuspectCases = <span style="color: maroon">value</span> <i>&quot;set specify virus&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'pregnantContact'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmContactTracing.pregnantContact = <span style="color: maroon">value</span> <i>&quot;set specify virus&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'pregnantContactNames'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmContactTracing.pregnantContactNames = <span style="color: maroon">value</span> <i>&quot;set specify virus&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'localCasesPresent'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmContactTracing.localCasesPresent = <span style="color: maroon">value</span> <i>&quot;set specify virus&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'travelledOutside'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmContactTracing.travelledOutside = <span style="color: maroon">value</span> <i>&quot;set specify virus&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">qrTravelDetails</span><b> where </b>item.linkId = 'travelDetails'<span style="color: navy"><b> -&gt; </b></span><b>create</b><span style="color: navy">(</span><span style="color: blue">'http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureTravelHistory'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">tgtTravelDetails</span><b> then</b><span style="color: navy"> {
+</span>      qrTravelDetails<span style="color: navy"><b> -&gt; </b></span><span style="color: maroon">qrTravelDetails</span><b> then </b>mapTravelDetails<span style="color: navy">(</span><span style="color: maroon">qrTravelDetails</span><span style="color: navy">, </span><span style="color: maroon">tgtTravelDetails</span><span style="color: navy">)</span> <i>&quot;d&quot;</i><span style="color: navy">;</span>
+      qrTravelDetails<span style="color: navy"><b> -&gt; </b></span>lmContactTracing.travelDetails = <span style="color: maroon">tgtTravelDetails</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'infectionSetting'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmContactTracing.infectionSetting = <span style="color: maroon">value</span> <i>&quot;set specify virus&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'specifyInfectionSetting'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmContactTracing.specifyInfectionSetting = <span style="color: maroon">value</span> <i>&quot;set specify virus&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;set contact tracing&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>mapEpiData<span style="color: navy">(</span><b>source</b> <span style="color: maroon">qrEpiData</span>, <b>target</b> <span style="color: maroon">lmEpiData</span><span style="color: navy"> : </span>EpiDataLogicalModel<span style="color: navy">)</span><span style="color: navy"> {
+</span>  qrEpiData.item<b> as </b><span style="color: maroon">item</span><b> then</b><span style="color: navy"> {
+</span>    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'ringVaccination'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmEpiData.ringVaccination = <span style="color: maroon">value</span> <i>&quot;set finalClassification&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'dateStarted'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmEpiData.dateStarted = <span style="color: maroon">value</span> <i>&quot;set finalClassification&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'dateEnded'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmEpiData.dateEnded = <span style="color: maroon">value</span> <i>&quot;set finalClassification&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'noOfDosesRingVaccination'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmEpiData.noOfDosesRingVaccination = <span style="color: maroon">value</span> <i>&quot;set finalClassification&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'rapidCoverageMonitioring'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmEpiData.rapidCoverageMonitioring = <span style="color: maroon">value</span> <i>&quot;set finalClassification&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'percentVaccinated'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmEpiData.percentVaccinated = <span style="color: maroon">value</span> <i>&quot;set finalClassification&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'contactTracingDone'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmEpiData.contactTracingDone = <span style="color: maroon">value</span> <i>&quot;set finalClassification&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'lastFollowUp'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmEpiData.lastFollowUp = <span style="color: maroon">value</span> <i>&quot;set finalClassification&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;set epi data&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span><b>group </b>mapClassification<span style="color: navy">(</span><b>source</b> <span style="color: maroon">qrClassification</span>, <b>target</b> <span style="color: maroon">lmClassification</span><span style="color: navy"> : </span>ClassificationLogicalModel<span style="color: navy">)</span><span style="color: navy"> {
+</span>  qrClassification.item<b> as </b><span style="color: maroon">item</span><b> then</b><span style="color: navy"> {
+</span>    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'finalClassification'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClassification.FinalClassification = <span style="color: maroon">value</span> <i>&quot;set finalClassification&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'confirmationBasis'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClassification.ConfirmationBasis = <span style="color: maroon">value</span> <i>&quot;set confirmationBasis&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'source'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClassification.Source = <span style="color: maroon">value</span> <i>&quot;set source&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'countryImportation'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClassification.CountryImportation = <span style="color: maroon">value</span> <i>&quot;set countryImportation&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'discardingBasis'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClassification.DiscardingBasis = <span style="color: maroon">value</span> <i>&quot;set discardingBasis&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'contact'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClassification.Contact = <span style="color: maroon">value</span> <i>&quot;set contact&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'contactCaseNo'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClassification.ContactCaseNo = <span style="color: maroon">value</span> <i>&quot;set contactCaseNo&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'classifiedBy'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClassification.ClassifiedBy = <span style="color: maroon">value</span> <i>&quot;set classifiedBy&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+    item.answer first<b> as </b><span style="color: maroon">answer</span><b> where </b>item.linkId = 'classificationDate'<b> then</b><span style="color: navy"> {
+</span>      answer.value<b> as </b><span style="color: maroon">value</span><span style="color: navy"><b> -&gt; </b></span>lmClassification.ClassificationDate = <span style="color: maroon">value</span> <i>&quot;set classificationDate&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;set&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;set classification&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span></pre></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel"/>
+  <version value="0.2.1"/>
+  <name value="MeaslesQuestionnaireToLogicalModel"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <structure>
+    <url value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
+    <mode value="source"/>
+    <alias value="QuestionnaireResponse"/>
+  </structure>
+  <structure>
+    <url value="http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles"/>
+    <mode value="target"/>
+    <alias value="MeaslesLogicalModel"/>
+  </structure>
+  <group>
+    <name value="MeaslesQuestionnaireToLogicalModel"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qr"/>
+      <type value="QuestionnaireResponse"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="measlesLm"/>
+      <type value="SOTMeasles"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set Investigation form"/>
+      <source>
+        <context value="qr"/>
+        <element value="item"/>
+        <variable value="item"/>
+        <condition value="linkId.value in ('investigationForm')"/>
+      </source>
+      <target>
+        <contextType value="variable"/>
+        <variable value="measlesLm"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="measlesLm"/>
+        </parameter>
+      </target>
+      <dependent>
+        <name value="mapInvestigationForm"/>
+        <variable value="item"/>
+        <variable value="measlesLm"/>
+      </dependent>
+    </rule>
+  </group>
+  <group>
+    <name value="mapInvestigationForm"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="investigationForm"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="measlesLm"/>
+      <type value="SOTMeasles"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set Reporting Source"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrReportingSource"/>
+        <condition value="linkId.value in ('reportingSource')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="ReportingSource"/>
+        <variable value="lmReportingSource"/>
+      </target>
+      <dependent>
+        <name value="mapReportingSource"/>
+        <variable value="qrReportingSource"/>
+        <variable value="lmReportingSource"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Demographics"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrDemographics"/>
+        <condition value="linkId.value in ('demographics')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="Demographics"/>
+        <variable value="lmDemographics"/>
+      </target>
+      <dependent>
+        <name value="mapDemographics"/>
+        <variable value="qrDemographics"/>
+        <variable value="lmDemographics"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Vaccination Status"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrVaccinationStatus"/>
+        <condition value="linkId.value in ('vaccinationStatus')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="VaccinationStatus"/>
+        <variable value="lmVaccinationStatus"/>
+      </target>
+      <dependent>
+        <name value="mapVaccinationStatus"/>
+        <variable value="qrVaccinationStatus"/>
+        <variable value="lmVaccinationStatus"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Clinical"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrClinical"/>
+        <condition value="linkId.value in ('clinical')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="Clinical"/>
+        <variable value="lmClinical"/>
+      </target>
+      <dependent>
+        <name value="mapClinical"/>
+        <variable value="qrClinical"/>
+        <variable value="lmClinical"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Laboratory Results"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrLaboratoryResults"/>
+        <condition value="linkId.value in ('laboratoryResults')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="LaboratoryResults"/>
+        <variable value="lmLaboratoryResults"/>
+      </target>
+      <dependent>
+        <name value="mapLaboratoryResults"/>
+        <variable value="qrLaboratoryResults"/>
+        <variable value="lmLaboratoryResults"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Contact Tracing"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrContactTracing"/>
+        <condition value="linkId.value in ('contactTracing')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="ContactTracing"/>
+        <variable value="lmContactTracing"/>
+      </target>
+      <dependent>
+        <name value="mapContactTracing"/>
+        <variable value="qrContactTracing"/>
+        <variable value="lmContactTracing"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Epi Data"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrEpiData"/>
+        <condition value="linkId.value in ('epiData')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="EpiData"/>
+        <variable value="lmEpiData"/>
+      </target>
+      <dependent>
+        <name value="mapEpiData"/>
+        <variable value="qrEpiData"/>
+        <variable value="lmEpiData"/>
+      </dependent>
+    </rule>
+    <rule>
+      <name value="set Classification"/>
+      <source>
+        <context value="investigationForm"/>
+        <element value="item"/>
+        <variable value="qrClassification"/>
+        <condition value="linkId.value in ('classification')"/>
+      </source>
+      <target>
+        <context value="measlesLm"/>
+        <contextType value="variable"/>
+        <element value="Classification"/>
+        <variable value="lmClassification"/>
+      </target>
+      <dependent>
+        <name value="mapClassification"/>
+        <variable value="qrClassification"/>
+        <variable value="lmClassification"/>
+      </dependent>
+    </rule>
+  </group>
+  <group>
+    <name value="mapReportingSource"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrReportingSource"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmReportingSource"/>
+      <type value="SOTMeaslesReportingSource"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set reporting source"/>
+      <source>
+        <context value="qrReportingSource"/>
+        <element value="item"/>
+        <variable value="item"/>
+      </source>
+      <rule>
+        <name value="set initial diag"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="initialDiagnosis"/>
+          <condition value="item.linkId = 'initialDiagnosis'"/>
+        </source>
+        <rule>
+          <name value="set Initial Diagnosis"/>
+          <source>
+            <context value="initialDiagnosis"/>
+            <element value="value"/>
+            <variable value="coding"/>
+          </source>
+          <target>
+            <context value="lmReportingSource"/>
+            <contextType value="variable"/>
+            <element value="InitialDiagnosis"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="coding"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set case ID"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="reportedBy"/>
+          <condition value="item.linkId = 'reportedBy'"/>
+        </source>
+        <rule>
+          <name value="set case ID"/>
+          <source>
+            <context value="reportedBy"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmReportingSource"/>
+            <contextType value="variable"/>
+            <element value="ReportedBy"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set reporting institution"/>
+        <source>
+          <context value="qrReportingSource"/>
+          <element value="item"/>
+          <variable value="qrReportingInstitution"/>
+          <condition value="linkId.value in ('reportingInstitution')"/>
+        </source>
+        <target>
+          <contextType value="variable"/>
+          <variable value="lmReportingSource"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="lmReportingSource"/>
+          </parameter>
+        </target>
+        <dependent>
+          <name value="mapReportingInstitution"/>
+          <variable value="qrReportingInstitution"/>
+          <variable value="lmReportingSource"/>
+        </dependent>
+      </rule>
+      <rule>
+        <name value="set date of consultation"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="dateOfConsultation"/>
+          <condition value="item.linkId = 'DateOfConsultation'"/>
+        </source>
+        <rule>
+          <name value="set date of consultation"/>
+          <source>
+            <context value="dateOfConsultation"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmReportingSource"/>
+            <contextType value="variable"/>
+            <element value="DateOfConsultation"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set date of home visit"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="dateOfHomeVisit"/>
+          <condition value="item.linkId = 'DateOfHomeVisit'"/>
+        </source>
+        <rule>
+          <name value="set date of home visit"/>
+          <source>
+            <context value="dateOfHomeVisit"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmReportingSource"/>
+            <contextType value="variable"/>
+            <element value="DateOfHomeVisit"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set date reported local"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="dateReportedLocal"/>
+          <condition value="item.linkId = 'dateReported'"/>
+        </source>
+        <rule>
+          <name value="set date reported local"/>
+          <source>
+            <context value="dateReportedLocal"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmReportingSource"/>
+            <contextType value="variable"/>
+            <element value="DateReportedLocal"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set date reported national"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="dateReportedNational"/>
+          <condition value="item.linkId = 'DateReportedNational'"/>
+        </source>
+        <rule>
+          <name value="set date reported national"/>
+          <source>
+            <context value="dateReportedNational"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmReportingSource"/>
+            <contextType value="variable"/>
+            <element value="DateReportedNational"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set provider type"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="providerType"/>
+          <condition value="item.linkId = 'TypeOfProviderReporting'"/>
+        </source>
+        <rule>
+          <name value="set provider type"/>
+          <source>
+            <context value="providerType"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmReportingSource"/>
+            <contextType value="variable"/>
+            <element value="TypeOfProviderReporting"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set detected by"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="detectedBy"/>
+          <condition value="item.linkId = 'DetectedBy'"/>
+        </source>
+        <rule>
+          <name value="set detected by"/>
+          <source>
+            <context value="detectedBy"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmReportingSource"/>
+            <contextType value="variable"/>
+            <element value="DetectedBy"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="mapReportingInstitution"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrReportingInstitution"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmReportingSource"/>
+      <type value="SOTMeaslesReportingSource"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set reporting institution"/>
+      <source>
+        <context value="qrReportingInstitution"/>
+        <element value="item"/>
+        <variable value="item"/>
+      </source>
+      <rule>
+        <name value="set health facility name"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="reportingFacility"/>
+          <condition value="item.linkId = 'reportingFacility'"/>
+        </source>
+        <rule>
+          <name value="set health facility name"/>
+          <source>
+            <context value="reportingFacility"/>
+            <element value="value"/>
+            <variable value="healthFacilityName"/>
+          </source>
+          <target>
+            <context value="lmReportingSource"/>
+            <contextType value="variable"/>
+            <element value="HealthServiceName"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="healthFacilityName"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set telephone"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="telephone"/>
+          <condition value="item.linkId = 'telephone'"/>
+        </source>
+        <rule>
+          <name value="set telephone"/>
+          <source>
+            <context value="telephone"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <contextType value="variable"/>
+            <variable value="lmTelephone"/>
+            <transform value="create"/>
+            <parameter>
+              <valueString value="ContactPoint"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmTelephone"/>
+            <contextType value="variable"/>
+            <element value="value"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmReportingSource"/>
+            <contextType value="variable"/>
+            <element value="HealthServiceTelephone"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="lmTelephone"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set address"/>
+        <source>
+          <context value="qrReportingInstitution"/>
+        </source>
+        <target>
+          <contextType value="variable"/>
+          <variable value="lmAddress"/>
+          <transform value="create"/>
+          <parameter>
+            <valueString value="Address"/>
+          </parameter>
+        </target>
+        <rule>
+          <name value="set country"/>
+          <source>
+            <context value="item"/>
+            <element value="answer"/>
+            <listMode value="first"/>
+            <variable value="country"/>
+            <condition value="item.linkId = 'country'"/>
+          </source>
+          <rule>
+            <name value="set country"/>
+            <source>
+              <context value="country"/>
+              <element value="value"/>
+              <variable value="countryValue"/>
+            </source>
+            <target>
+              <context value="lmAddress"/>
+              <contextType value="variable"/>
+              <element value="country"/>
+              <transform value="copy"/>
+              <parameter>
+                <valueId value="countryValue"/>
+              </parameter>
+            </target>
+          </rule>
+        </rule>
+        <rule>
+          <name value="set city  "/>
+          <source>
+            <context value="item"/>
+            <element value="answer"/>
+            <listMode value="first"/>
+            <variable value="municipality"/>
+            <condition value="item.linkId = 'municipality'"/>
+          </source>
+          <rule>
+            <name value="set city"/>
+            <source>
+              <context value="municipality"/>
+              <element value="value"/>
+              <variable value="cityValue"/>
+            </source>
+            <target>
+              <context value="lmAddress"/>
+              <contextType value="variable"/>
+              <element value="city"/>
+              <transform value="copy"/>
+              <parameter>
+                <valueId value="cityValue"/>
+              </parameter>
+            </target>
+          </rule>
+        </rule>
+        <rule>
+          <name value="set state"/>
+          <source>
+            <context value="item"/>
+            <element value="answer"/>
+            <listMode value="first"/>
+            <variable value="state"/>
+            <condition value="item.linkId = 'state'"/>
+          </source>
+          <rule>
+            <name value="set state"/>
+            <source>
+              <context value="state"/>
+              <element value="value"/>
+              <variable value="stateValue"/>
+            </source>
+            <target>
+              <context value="lmAddress"/>
+              <contextType value="variable"/>
+              <element value="state"/>
+              <transform value="copy"/>
+              <parameter>
+                <valueId value="stateValue"/>
+              </parameter>
+            </target>
+          </rule>
+        </rule>
+        <rule>
+          <name value="set locality"/>
+          <source>
+            <context value="item"/>
+            <element value="answer"/>
+            <listMode value="first"/>
+            <variable value="locality"/>
+            <condition value="item.linkId = 'locality'"/>
+          </source>
+          <rule>
+            <name value="set locality"/>
+            <source>
+              <context value="locality"/>
+              <element value="value"/>
+              <variable value="localityValue"/>
+            </source>
+            <target>
+              <context value="lmAddress"/>
+              <contextType value="variable"/>
+              <element value="line"/>
+              <transform value="copy"/>
+              <parameter>
+                <valueId value="localityValue"/>
+              </parameter>
+            </target>
+          </rule>
+        </rule>
+        <rule>
+          <name value="assign address"/>
+          <source>
+            <context value="qrReportingInstitution"/>
+          </source>
+          <target>
+            <context value="lmReportingSource"/>
+            <contextType value="variable"/>
+            <element value="PlaceOfReporting"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="lmAddress"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="mapDemographics"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrDemographics"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmDemographics"/>
+      <type value="SOTMeaslesDemographic"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set demographics"/>
+      <source>
+        <context value="qrDemographics"/>
+        <element value="item"/>
+        <variable value="item"/>
+      </source>
+      <rule>
+        <name value="set name"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="name"/>
+          <condition value="item.linkId = 'name'"/>
+        </source>
+        <rule>
+          <name value="set name"/>
+          <source>
+            <context value="name"/>
+            <element value="value"/>
+            <variable value="nameValue"/>
+          </source>
+          <target>
+            <contextType value="variable"/>
+            <variable value="lmName"/>
+            <transform value="create"/>
+            <parameter>
+              <valueString value="HumanName"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmName"/>
+            <contextType value="variable"/>
+            <element value="family"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="nameValue"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmDemographics"/>
+            <contextType value="variable"/>
+            <element value="Name"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="lmName"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set guardian"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="guardian"/>
+          <condition value="item.linkId = 'guardian'"/>
+        </source>
+        <rule>
+          <name value="set guardian"/>
+          <source>
+            <context value="guardian"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <contextType value="variable"/>
+            <variable value="lmGuardian"/>
+            <transform value="create"/>
+            <parameter>
+              <valueString value="HumanName"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmGuardian"/>
+            <contextType value="variable"/>
+            <element value="family"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmDemographics"/>
+            <contextType value="variable"/>
+            <element value="Guardian"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="lmGuardian"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set address"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="address"/>
+          <condition value="item.linkId = 'address'"/>
+        </source>
+        <rule>
+          <name value="set address"/>
+          <source>
+            <context value="address"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <contextType value="variable"/>
+            <variable value="lmAddress"/>
+            <transform value="create"/>
+            <parameter>
+              <valueString value="Address"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmAddress"/>
+            <contextType value="variable"/>
+            <element value="text"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmDemographics"/>
+            <contextType value="variable"/>
+            <element value="PlaceOfResidence"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="lmAddress"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set telephone"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="telephone"/>
+          <condition value="item.linkId = 'telephone'"/>
+        </source>
+        <rule>
+          <name value="set telephone"/>
+          <source>
+            <context value="telephone"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <contextType value="variable"/>
+            <variable value="lmTelephone"/>
+            <transform value="create"/>
+            <parameter>
+              <valueString value="ContactPoint"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmTelephone"/>
+            <contextType value="variable"/>
+            <element value="value"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmDemographics"/>
+            <contextType value="variable"/>
+            <element value="Telephone"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="lmTelephone"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set landmark"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="landmark"/>
+          <condition value="item.linkId = 'landmark'"/>
+        </source>
+        <rule>
+          <name value="set landmark"/>
+          <source>
+            <context value="landmark"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmDemographics"/>
+            <contextType value="variable"/>
+            <element value="Landmark"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set occupation"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="occupation"/>
+          <condition value="item.linkId = 'occupation'"/>
+        </source>
+        <rule>
+          <name value="set occupation"/>
+          <source>
+            <context value="occupation"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmDemographics"/>
+            <contextType value="variable"/>
+            <element value="Occupation"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set Locality Type"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="location"/>
+          <condition value="item.linkId = 'location living in'"/>
+        </source>
+        <rule>
+          <name value="set Locality Type"/>
+          <source>
+            <context value="location"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="locationlmDemographics"/>
+            <contextType value="variable"/>
+            <element value="LocalityType"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set workAddress"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="workAddress"/>
+          <condition value="item.linkId = 'workAddress'"/>
+        </source>
+        <rule>
+          <name value="set workAddress"/>
+          <source>
+            <context value="workAddress"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <contextType value="variable"/>
+            <variable value="lmAddress"/>
+            <transform value="create"/>
+            <parameter>
+              <valueString value="Address"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmAddress"/>
+            <contextType value="variable"/>
+            <element value="text"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmDemographics"/>
+            <contextType value="variable"/>
+            <element value="WorkAddress"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="lmAddress"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set sex"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="sex"/>
+          <condition value="item.linkId = 'sex'"/>
+        </source>
+        <rule>
+          <name value="set sex"/>
+          <source>
+            <context value="sex"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmDemographics"/>
+            <contextType value="variable"/>
+            <element value="Sex"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set DoB"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="DoB"/>
+          <condition value="item.linkId = 'DoB'"/>
+        </source>
+        <rule>
+          <name value="set DoB"/>
+          <source>
+            <context value="DoB"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmDemographics"/>
+            <contextType value="variable"/>
+            <element value="DateOfBirth"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set ageOnset"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="ageOnset"/>
+          <condition value="item.linkId = 'ageOnset'"/>
+        </source>
+        <rule>
+          <name value="set ageOnset"/>
+          <source>
+            <context value="ageOnset"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <contextType value="variable"/>
+            <variable value="lmAgeOnset"/>
+            <transform value="create"/>
+            <parameter>
+              <valueString value="Quantity"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmAgeOnset"/>
+            <contextType value="variable"/>
+            <element value="value"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="lmDemographics"/>
+            <contextType value="variable"/>
+            <element value="Age"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="lmAgeOnset"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="mapVaccinationStatus"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrVaccinationStatus"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmVaccinationStatus"/>
+      <type value="SOTMeaslesVaccinationStatus"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set"/>
+      <source>
+        <context value="qrVaccinationStatus"/>
+        <element value="item"/>
+        <variable value="item"/>
+      </source>
+      <rule>
+        <name value="set last dose date"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="lastDoseDate"/>
+          <condition value="item.linkId = 'lastDoseDate'"/>
+        </source>
+        <rule>
+          <name value="set Last Dose Date"/>
+          <source>
+            <context value="lastDoseDate"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmVaccinationStatus"/>
+            <contextType value="variable"/>
+            <element value="LastDoseDate"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="sourceOfInformation"/>
+          <condition value="item.linkId = 'sourceOfInformation'"/>
+        </source>
+        <rule>
+          <name value="set Source of Vaccination Information"/>
+          <source>
+            <context value="sourceOfInformation"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmVaccinationStatus"/>
+            <contextType value="variable"/>
+            <element value="Source"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="noOfDoses"/>
+          <condition value="item.linkId = 'noOfDoses'"/>
+        </source>
+        <rule>
+          <name value="set number of doses"/>
+          <source>
+            <context value="noOfDoses"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmVaccinationStatus"/>
+            <contextType value="variable"/>
+            <element value="NumberOfDoses"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="vaccineType"/>
+          <condition value="item.linkId = 'vaccineType'"/>
+        </source>
+        <rule>
+          <name value="set vaccine type"/>
+          <source>
+            <context value="vaccineType"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmVaccinationStatus"/>
+            <contextType value="variable"/>
+            <element value="VaccineType"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="mapClinical"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrClinical"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmClinical"/>
+      <type value="SOTMeaslesClinical"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set clinical"/>
+      <source>
+        <context value="qrClinical"/>
+        <element value="item"/>
+        <variable value="item"/>
+      </source>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="fever"/>
+          <condition value="item.linkId = 'fever'"/>
+        </source>
+        <rule>
+          <name value="set Fever"/>
+          <source>
+            <context value="fever"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="Fever"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="temperature"/>
+          <condition value="item.linkId = 'temperature'"/>
+        </source>
+        <rule>
+          <name value="set Temperature"/>
+          <source>
+            <context value="temperature"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="Temperature"/>
+            <variable value="temp"/>
+          </target>
+          <target>
+            <context value="temp"/>
+            <contextType value="variable"/>
+            <element value="value"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="dateOfFeverOnset"/>
+          <condition value="item.linkId = 'dateOfFeverOnset'"/>
+        </source>
+        <rule>
+          <name value="set Date of Fever Onset"/>
+          <source>
+            <context value="dateOfFeverOnset"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="FeverOnsetDate"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="rash"/>
+          <condition value="item.linkId = 'rash'"/>
+        </source>
+        <rule>
+          <name value="set Rash"/>
+          <source>
+            <context value="rash"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="Rash"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="rashType"/>
+          <condition value="item.linkId = 'rashType'"/>
+        </source>
+        <rule>
+          <name value="set Rash Type"/>
+          <source>
+            <context value="rashType"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="TypeOfRash"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="rashDuration"/>
+          <condition value="item.linkId = 'rashDuration'"/>
+        </source>
+        <rule>
+          <name value="set Rash Duration"/>
+          <source>
+            <context value="rashDuration"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="DurationOfRash"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="rashOnsetDate"/>
+          <condition value="item.linkId = 'rashOnsetDate'"/>
+        </source>
+        <rule>
+          <name value="set Rash Onset Date"/>
+          <source>
+            <context value="rashOnsetDate"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="RashOnsetDate"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="cough"/>
+          <condition value="item.linkId = 'cough'"/>
+        </source>
+        <rule>
+          <name value="set Cough"/>
+          <source>
+            <context value="cough"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="Cough"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="conjunctivitis"/>
+          <condition value="item.linkId = 'conjunctivitis'"/>
+        </source>
+        <rule>
+          <name value="set Conjunctivitis"/>
+          <source>
+            <context value="conjunctivitis"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="Conjunctivitis"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="coryza"/>
+          <condition value="item.linkId = 'coryza'"/>
+        </source>
+        <rule>
+          <name value="set Coryza"/>
+          <source>
+            <context value="coryza"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="Coryza"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="koplikSpots"/>
+          <condition value="item.linkId = 'koplikSpots'"/>
+        </source>
+        <rule>
+          <name value="set Koplik Spots"/>
+          <source>
+            <context value="koplikSpots"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="KoplikSpots"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="lymphadenopathy"/>
+          <condition value="item.linkId = 'lymphadenopathy'"/>
+        </source>
+        <rule>
+          <name value="set Lymphadenopathy"/>
+          <source>
+            <context value="lymphadenopathy"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="Lymphadenopathy"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="jointPain"/>
+          <condition value="item.linkId = 'jointPain'"/>
+        </source>
+        <rule>
+          <name value="set Arthralgia"/>
+          <source>
+            <context value="jointPain"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="JointPain"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="pregnancy"/>
+          <condition value="item.linkId = 'pregnancy'"/>
+        </source>
+        <rule>
+          <name value="set Pregnant"/>
+          <source>
+            <context value="pregnancy"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="PregnancyStatus"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="monthsPregnant"/>
+          <condition value="item.linkId = 'monthsPregnant'"/>
+        </source>
+        <rule>
+          <name value="set Pregnancy Weeks"/>
+          <source>
+            <context value="monthsPregnant"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="GestationWeeks"/>
+            <variable value="weeks"/>
+          </target>
+          <target>
+            <context value="weeks"/>
+            <contextType value="variable"/>
+            <element value="value"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="placeOfBirth"/>
+          <condition value="item.linkId = 'placeOfBirth'"/>
+        </source>
+        <rule>
+          <name value="set Place of Birth"/>
+          <source>
+            <context value="placeOfBirth"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="IntentedBirthPlacce"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="admitted"/>
+          <condition value="item.linkId = 'admitted'"/>
+        </source>
+        <rule>
+          <name value="set Hospitalized"/>
+          <source>
+            <context value="admitted"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="HistoryOfHospitalization"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="admittedHCFName"/>
+          <condition value="item.linkId = 'admittedHCFName'"/>
+        </source>
+        <rule>
+          <name value="set Hospital Name"/>
+          <source>
+            <context value="admittedHCFName"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="HospitalName"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="admissionDate"/>
+          <condition value="item.linkId = 'admissionDate'"/>
+        </source>
+        <rule>
+          <name value="set Admission Date"/>
+          <source>
+            <context value="admissionDate"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="DateOfAdmission"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="hospitalRecordNumber"/>
+          <condition value="item.linkId = 'hospitalRecordNumber'"/>
+        </source>
+        <rule>
+          <name value="set Hospital Record Number"/>
+          <source>
+            <context value="hospitalRecordNumber"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="HospitalRecordNumber"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="outcome"/>
+          <condition value="item.linkId = 'outcome'"/>
+        </source>
+        <rule>
+          <name value="set Outcome"/>
+          <source>
+            <context value="outcome"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="Outcome"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="deathCause"/>
+          <condition value="item.linkId = 'primaryCauseOfDeath'"/>
+        </source>
+        <rule>
+          <name value="set cause"/>
+          <source>
+            <context value="deathCause"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="primaryCauseOfDeath"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="outcomeDate"/>
+          <condition value="item.linkId = 'outcomeDate'"/>
+        </source>
+        <rule>
+          <name value="set death date"/>
+          <source>
+            <context value="outcomeDate"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="DateOfDeath"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="diseaseAdditionalInfo"/>
+          <condition value="item.linkId = 'diseaseAdditionalInfo'"/>
+        </source>
+        <rule>
+          <name value="set Comments"/>
+          <source>
+            <context value="diseaseAdditionalInfo"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClinical"/>
+            <contextType value="variable"/>
+            <element value="Comments"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="mapLaboratoryResults"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrLaboratoryResults"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmLaboratoryResults"/>
+      <type value="LaboratoryResultsLogicalModel"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set labs"/>
+      <source>
+        <context value="qrLaboratoryResults"/>
+        <element value="item"/>
+        <variable value="item"/>
+      </source>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'specimenNumber'"/>
+        </source>
+        <rule>
+          <name value="set SpecimenNumber"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmLaboratoryResults"/>
+            <contextType value="variable"/>
+            <element value="SpecimenNumber"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'sampleType'"/>
+        </source>
+        <rule>
+          <name value="set SampleType"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmLaboratoryResults"/>
+            <contextType value="variable"/>
+            <element value="SampleType"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'collectionDate'"/>
+        </source>
+        <rule>
+          <name value="set SpecimenCollectionDate"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmLaboratoryResults"/>
+            <contextType value="variable"/>
+            <element value="SpecimenCollectionDate"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'labName'"/>
+        </source>
+        <rule>
+          <name value="set Shipment Date"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmLaboratoryResults"/>
+            <contextType value="variable"/>
+            <element value="LabName"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'specimenSentDate'"/>
+        </source>
+        <rule>
+          <name value="set SpecimenSentDate"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmLaboratoryResults"/>
+            <contextType value="variable"/>
+            <element value="SpecimenSentDate"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'specimenReceivedDate'"/>
+        </source>
+        <rule>
+          <name value="set SpecimenRecdDate"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmLaboratoryResults"/>
+            <contextType value="variable"/>
+            <element value="SpecimenRecdDate"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'sampleId'"/>
+        </source>
+        <rule>
+          <name value="set SampleId"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmLaboratoryResults"/>
+            <contextType value="variable"/>
+            <element value="SampleId"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'testPerformed'"/>
+        </source>
+        <rule>
+          <name value="set TypeOfTest"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmLaboratoryResults"/>
+            <contextType value="variable"/>
+            <element value="TypeOfTest"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'antigen'"/>
+        </source>
+        <rule>
+          <name value="set Antigen"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmLaboratoryResults"/>
+            <contextType value="variable"/>
+            <element value="Antigen"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'result'"/>
+        </source>
+        <rule>
+          <name value="set Results"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmLaboratoryResults"/>
+            <contextType value="variable"/>
+            <element value="Results"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'resultDate'"/>
+        </source>
+        <rule>
+          <name value="set LabResultsDate  "/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmLaboratoryResults"/>
+            <contextType value="variable"/>
+            <element value="LabResultsDate"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'specifyVirus'"/>
+        </source>
+        <rule>
+          <name value="set specify virus"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmLaboratoryResults"/>
+            <contextType value="variable"/>
+            <element value="ViralGenotype"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="mapTravelDetails"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrTravelDetails"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmContactTracing"/>
+      <type value="SOTMeaslesContactTracing"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set"/>
+      <source>
+        <context value="qrTravelDetails"/>
+        <element value="answer"/>
+        <listMode value="first"/>
+        <variable value="answer"/>
+        <condition value="item.linkId = 'placeOfTravel'"/>
+      </source>
+      <rule>
+        <name value="set specify virus"/>
+        <source>
+          <context value="answer"/>
+          <element value="value"/>
+          <variable value="value"/>
+        </source>
+        <target>
+          <context value="lmTravelDetails"/>
+          <contextType value="variable"/>
+          <element value="placeOfTravel"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="value"/>
+          </parameter>
+        </target>
+      </rule>
+    </rule>
+    <rule>
+      <name value="set"/>
+      <source>
+        <context value="qrTravelDetails"/>
+        <element value="answer"/>
+        <listMode value="first"/>
+        <variable value="answer"/>
+        <condition value="item.linkId = 'arrivalDate'"/>
+      </source>
+      <rule>
+        <name value="set specify virus"/>
+        <source>
+          <context value="answer"/>
+          <element value="value"/>
+          <variable value="value"/>
+        </source>
+        <target>
+          <context value="lmTravelDetails"/>
+          <contextType value="variable"/>
+          <element value="arrivalDate"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="value"/>
+          </parameter>
+        </target>
+      </rule>
+    </rule>
+    <rule>
+      <name value="set"/>
+      <source>
+        <context value="qrTravelDetails"/>
+        <element value="answer"/>
+        <listMode value="first"/>
+        <variable value="answer"/>
+        <condition value="item.linkId = 'departureDate'"/>
+      </source>
+      <rule>
+        <name value="set specify virus"/>
+        <source>
+          <context value="answer"/>
+          <element value="value"/>
+          <variable value="value"/>
+        </source>
+        <target>
+          <context value="lmTravelDetails"/>
+          <contextType value="variable"/>
+          <element value="departureDate"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="value"/>
+          </parameter>
+        </target>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="mapContactTracing"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrContactTracing"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmContactTracing"/>
+      <type value="SOTMeaslesContactTracing"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set contact tracing"/>
+      <source>
+        <context value="qrContactTracing"/>
+        <element value="item"/>
+        <variable value="item"/>
+      </source>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'caseSearchConducted'"/>
+        </source>
+        <rule>
+          <name value="set specify virus"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmContactTracing"/>
+            <contextType value="variable"/>
+            <element value="caseSearchConducted"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'noOfsuspectCases'"/>
+        </source>
+        <rule>
+          <name value="set specify virus"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmContactTracing"/>
+            <contextType value="variable"/>
+            <element value="noOfsuspectCases"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'pregnantContact'"/>
+        </source>
+        <rule>
+          <name value="set specify virus"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmContactTracing"/>
+            <contextType value="variable"/>
+            <element value="pregnantContact"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'pregnantContactNames'"/>
+        </source>
+        <rule>
+          <name value="set specify virus"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmContactTracing"/>
+            <contextType value="variable"/>
+            <element value="pregnantContactNames"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'localCasesPresent'"/>
+        </source>
+        <rule>
+          <name value="set specify virus"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmContactTracing"/>
+            <contextType value="variable"/>
+            <element value="localCasesPresent"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'travelledOutside'"/>
+        </source>
+        <rule>
+          <name value="set specify virus"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmContactTracing"/>
+            <contextType value="variable"/>
+            <element value="travelledOutside"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="qrTravelDetails"/>
+          <condition value="item.linkId = 'travelDetails'"/>
+        </source>
+        <target>
+          <contextType value="variable"/>
+          <variable value="tgtTravelDetails"/>
+          <transform value="create"/>
+          <parameter>
+            <valueString value="http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureTravelHistory"/>
+          </parameter>
+        </target>
+        <rule>
+          <name value="d"/>
+          <source>
+            <context value="qrTravelDetails"/>
+          </source>
+          <target>
+            <contextType value="variable"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="qrTravelDetails"/>
+            </parameter>
+          </target>
+          <dependent>
+            <name value="mapTravelDetails"/>
+            <variable value="qrTravelDetails"/>
+            <variable value="tgtTravelDetails"/>
+          </dependent>
+        </rule>
+        <rule>
+          <name value="set"/>
+          <source>
+            <context value="qrTravelDetails"/>
+          </source>
+          <target>
+            <context value="lmContactTracing"/>
+            <contextType value="variable"/>
+            <element value="travelDetails"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="tgtTravelDetails"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'infectionSetting'"/>
+        </source>
+        <rule>
+          <name value="set specify virus"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmContactTracing"/>
+            <contextType value="variable"/>
+            <element value="infectionSetting"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'specifyInfectionSetting'"/>
+        </source>
+        <rule>
+          <name value="set specify virus"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmContactTracing"/>
+            <contextType value="variable"/>
+            <element value="specifyInfectionSetting"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="mapEpiData"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrEpiData"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmEpiData"/>
+      <type value="EpiDataLogicalModel"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set epi data"/>
+      <source>
+        <context value="qrEpiData"/>
+        <element value="item"/>
+        <variable value="item"/>
+      </source>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'ringVaccination'"/>
+        </source>
+        <rule>
+          <name value="set finalClassification"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmEpiData"/>
+            <contextType value="variable"/>
+            <element value="ringVaccination"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'dateStarted'"/>
+        </source>
+        <rule>
+          <name value="set finalClassification"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmEpiData"/>
+            <contextType value="variable"/>
+            <element value="dateStarted"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'dateEnded'"/>
+        </source>
+        <rule>
+          <name value="set finalClassification"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmEpiData"/>
+            <contextType value="variable"/>
+            <element value="dateEnded"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'noOfDosesRingVaccination'"/>
+        </source>
+        <rule>
+          <name value="set finalClassification"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmEpiData"/>
+            <contextType value="variable"/>
+            <element value="noOfDosesRingVaccination"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'rapidCoverageMonitioring'"/>
+        </source>
+        <rule>
+          <name value="set finalClassification"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmEpiData"/>
+            <contextType value="variable"/>
+            <element value="rapidCoverageMonitioring"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'percentVaccinated'"/>
+        </source>
+        <rule>
+          <name value="set finalClassification"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmEpiData"/>
+            <contextType value="variable"/>
+            <element value="percentVaccinated"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'contactTracingDone'"/>
+        </source>
+        <rule>
+          <name value="set finalClassification"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmEpiData"/>
+            <contextType value="variable"/>
+            <element value="contactTracingDone"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'lastFollowUp'"/>
+        </source>
+        <rule>
+          <name value="set finalClassification"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmEpiData"/>
+            <contextType value="variable"/>
+            <element value="lastFollowUp"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+    </rule>
+  </group>
+  <group>
+    <name value="mapClassification"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="qrClassification"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="lmClassification"/>
+      <type value="ClassificationLogicalModel"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="set classification"/>
+      <source>
+        <context value="qrClassification"/>
+        <element value="item"/>
+        <variable value="item"/>
+      </source>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'finalClassification'"/>
+        </source>
+        <rule>
+          <name value="set finalClassification"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClassification"/>
+            <contextType value="variable"/>
+            <element value="FinalClassification"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'confirmationBasis'"/>
+        </source>
+        <rule>
+          <name value="set confirmationBasis"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClassification"/>
+            <contextType value="variable"/>
+            <element value="ConfirmationBasis"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'source'"/>
+        </source>
+        <rule>
+          <name value="set source"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClassification"/>
+            <contextType value="variable"/>
+            <element value="Source"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'countryImportation'"/>
+        </source>
+        <rule>
+          <name value="set countryImportation"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClassification"/>
+            <contextType value="variable"/>
+            <element value="CountryImportation"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'discardingBasis'"/>
+        </source>
+        <rule>
+          <name value="set discardingBasis"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClassification"/>
+            <contextType value="variable"/>
+            <element value="DiscardingBasis"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'contact'"/>
+        </source>
+        <rule>
+          <name value="set contact"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClassification"/>
+            <contextType value="variable"/>
+            <element value="Contact"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'contactCaseNo'"/>
+        </source>
+        <rule>
+          <name value="set contactCaseNo"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClassification"/>
+            <contextType value="variable"/>
+            <element value="ContactCaseNo"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'classifiedBy'"/>
+        </source>
+        <rule>
+          <name value="set classifiedBy"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClassification"/>
+            <contextType value="variable"/>
+            <element value="ClassifiedBy"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="set"/>
+        <source>
+          <context value="item"/>
+          <element value="answer"/>
+          <listMode value="first"/>
+          <variable value="answer"/>
+          <condition value="item.linkId = 'classificationDate'"/>
+        </source>
+        <rule>
+          <name value="set classificationDate"/>
+          <source>
+            <context value="answer"/>
+            <element value="value"/>
+            <variable value="value"/>
+          </source>
+          <target>
+            <context value="lmClassification"/>
+            <contextType value="variable"/>
+            <element value="ClassificationDate"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueId value="value"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+    </rule>
+  </group>
+</StructureMap>

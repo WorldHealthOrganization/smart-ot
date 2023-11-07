@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="SourceOfInfectionCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/SourceOfInfection</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">1<a name="SourceOfInfectionCs-1"> </a></td><td>Imported</td></tr><tr><td style="white-space:nowrap">2<a name="SourceOfInfectionCs-2"> </a></td><td>Import-Related</td></tr><tr><td style="white-space:nowrap">3<a name="SourceOfInfectionCs-3"> </a></td><td>Unknown source</td></tr><tr><td style="white-space:nowrap">4<a name="SourceOfInfectionCs-4"> </a></td><td>Indegenous</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/SourceOfInfection"/>
+  <version value="0.2.1"/>
+  <name value="SourceOfInfectionCs"/>
+  <title value="Source Of Infection"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Source Of Infection"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="4"/>
+  <concept>
+    <code value="1"/>
+    <display value="Imported"/>
+  </concept>
+  <concept>
+    <code value="2"/>
+    <display value="Import-Related"/>
+  </concept>
+  <concept>
+    <code value="3"/>
+    <display value="Unknown source"/>
+  </concept>
+  <concept>
+    <code value="4"/>
+    <display value="Indegenous"/>
+  </concept>
+</CodeSystem>

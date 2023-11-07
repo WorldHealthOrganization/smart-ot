@@ -1,0 +1,38 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: RIM Mapping"
+"SOTT1ExposureChemical","SOTT1ExposureChemical","","","",0,*,"","","","null {[]} {[]}
+","Surveillance & Outbreak Toolkit T1  Exposure - Chemical","Base definition for all elements that are defined inside a resource - but not those in a data type.","","","","","","","","","",,,,,"",,,,"BackboneElement",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","n/a"
+"SOTT1ExposureChemical.id","SOTT1ExposureChemical.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"","","n/a"
+"SOTT1ExposureChemical.extension","SOTT1ExposureChemical.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","n/a"
+"SOTT1ExposureChemical.modifierExtension","SOTT1ExposureChemical.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","N/A"
+"SOTT1ExposureChemical.chemicalExposureSuspected","SOTT1ExposureChemical.chemicalExposureSuspected","","","",0,1,"","","","code {[]} {[]}
+","Chemical exposure suspected as the source of the outbreak","Does the patient suspect that chemical exposure may be the source of the outbreak","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1ExposureChemical.chemicalExposureSuspected",0,1,"",""
+"SOTT1ExposureChemical.suspectedProduct","SOTT1ExposureChemical.suspectedProduct","","","",0,1,"","","","string {[]} {[]}
+","Specify suspected product","If so, specify the chemical product","","","","","","","","","",,,,,"",,,,"SOTT1ExposureChemical.suspectedProduct",0,1,"",""
+"SOTT1ExposureChemical.exposureSource","SOTT1ExposureChemical.exposureSource","","","",0,1,"","","","string {[]} {[]}
+","Potential source of exposure","Elaborate on the possible source of the chemical product (factory, farm, etc)","","","","","","","","","",,,,,"",,,,"SOTT1ExposureChemical.exposureSource",0,1,"",""
+"SOTT1ExposureChemical.exposurePlace","SOTT1ExposureChemical.exposurePlace","","","",0,1,"","","","string {[]} {[]}
+","Place of chemical exposure","Where is this possible source","","","","","","","","","",,,,,"",,,,"SOTT1ExposureChemical.exposurePlace",0,1,"",""
+"SOTT1ExposureChemical.exposureDuration","SOTT1ExposureChemical.exposureDuration","","","",0,1,"","","","string {[]} {[]}
+","Duration of potential exposure","How long (days, years) was the exposure","","","","","","","","","",,,,,"",,,,"SOTT1ExposureChemical.exposureDuration",0,1,"",""
+"SOTT1ExposureChemical.householdMemberDetails","SOTT1ExposureChemical.householdMemberDetails","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Details of household members suspect of exposure","Details of household members suspect of exposure","","","","","","","","","",,,,,"",,,,"SOTT1ExposureChemical.householdMemberDetails",0,*,"",""
+"SOTT1ExposureChemical.relationship","SOTT1ExposureChemical.relationship","","","",0,1,"","","","string {[]} {[]}
+","Relationship with patient","Relationship with patient","","","","","","","","","",,,,,"",,,,"SOTT1ExposureChemical.relationship",0,1,"",""
+"SOTT1ExposureChemical.occupation","SOTT1ExposureChemical.occupation","","","",0,1,"","","","string {[]} {[]}
+","Occupation","Occupation","","","","","","","","","",,,,,"",,,,"SOTT1ExposureChemical.occupation",0,1,"",""
+"SOTT1ExposureChemical.placeOfWork","SOTT1ExposureChemical.placeOfWork","","","",0,1,"","","","string {[]} {[]}
+","Place of work","Place of work","","","","","","","","","",,,,,"",,,,"SOTT1ExposureChemical.placeOfWork",0,1,"",""
+"SOTT1ExposureChemical.possibleExposure","SOTT1ExposureChemical.possibleExposure","","","",0,1,"","","","string {[]} {[]}
+","Possible chemical exposure","Possible chemical exposure","","","","","","","","","",,,,,"",,,,"SOTT1ExposureChemical.possibleExposure",0,1,"",""

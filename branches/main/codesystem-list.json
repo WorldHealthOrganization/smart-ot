@@ -1,0 +1,324 @@
+{
+  "codeSystems" : [
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/AnimalContactLocation",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AnimalContactLocationCs",
+      "title" : "Animal Contact Location",
+      "description" : "Animal Contact Location"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/AnimalContactType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AnimalContactTypeCs",
+      "title" : "Animal Contact Type",
+      "description" : "Animal Contact Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/CaseStatus",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "CaseStatusCs",
+      "title" : "Case Status",
+      "description" : "Case Status"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/CodeSystem/AFROMRCIF",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AFROMRCIF",
+      "title" : "AFRO MRCIF CodeSystem for Data Elements",
+      "description" : "CodeSystem for PAHO MRCIF Data Elements"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/CodeSystem/AntigenCs",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AntigenCs",
+      "title" : "Antigen Code System",
+      "description" : "Antigen Code System"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/CodeSystem/PAHO-MRCIF",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PAHO_MRCIF",
+      "title" : "PAHO MRCIF CodeSystem for Data Elements",
+      "description" : "CodeSystem for PAHO MRCIF Data Elements"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ConfirmationBasis",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ConfirmationBasisCs",
+      "title" : "Confirmation Basis",
+      "description" : "Confirmation Basis"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ContactType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ContactTypeCs",
+      "title" : "Contact Type",
+      "description" : "Contact Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/DetectedBy",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "DetectedByCs",
+      "title" : "Detected By Code System",
+      "description" : "Detected By Code System"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/DiscardingBasis",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "DiscardingBasisCs",
+      "title" : "Discarding Basis",
+      "description" : "Discarding Basis"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/DomesticatedWild",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "DomesticatedWildCs",
+      "title" : "Domesticated or Wild",
+      "description" : "Domesticated or Wild"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ExposureLocation",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AnimalExposureLocationCs",
+      "title" : "Exposure Location",
+      "description" : "Exposure Location"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ExposureLocation",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ExposureLocationCs",
+      "title" : "Exposure Location",
+      "description" : "Exposure Location"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/FinalClassification",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "FinalClassificationCs",
+      "title" : "Final Classification",
+      "description" : "Final Classification"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/InfectionSetting",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "InfectionSettingCs",
+      "title" : "InfectionSetting",
+      "description" : "InfectionSetting"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/InitDiag",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "InitDiagCs",
+      "title" : "Initial Diagnosis Code System",
+      "description" : "Initial Diagnosis Code System"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/LocType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "LocTypeCs",
+      "title" : "Locality Type Code System",
+      "description" : "Locality Type Code System"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "LocalCasesPresentCs",
+      "title" : "LocalCasesPresent",
+      "description" : "LocalCasesPresent"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/LocalizationOfSkinDisorder",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "LocalizationOfSkinDisorderCs",
+      "title" : "Localization of Skin Disorder",
+      "description" : "Localization of Skin Disorder"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/NoOfDoses",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "NoOfDosesCs",
+      "title" : "Number of Doses",
+      "description" : "Number of Doses"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/PathogenTested",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PathogenTestedCs",
+      "title" : "Pathogen Tested",
+      "description" : "Pathogen Tested"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/PatientOutcome",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PatientOutcomeCs",
+      "title" : "Patient Clinical Course Outcome",
+      "description" : "Patient Clinical Course Outcome"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/PlaceOfCare",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PlaceOfCareCs",
+      "title" : "Place Of Care",
+      "description" : "Place Of Care"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ProvType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ProvTypeCs",
+      "title" : "Type of Provider Code System",
+      "description" : "Type of Provider Code System"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/RashType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "RashTypeCs",
+      "title" : "Rash Type",
+      "description" : "Rash Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ReportedBy",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ReportedByCs",
+      "title" : "Reported By",
+      "description" : "Reported By"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/Result",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ResultCs",
+      "title" : "Result Code System",
+      "description" : "Result Code System"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/Results",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ResultsCs",
+      "title" : "Results",
+      "description" : "Results"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/RouteOfAdministration",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "RouteOfAdministrationCs",
+      "title" : "Route Of Administration",
+      "description" : "Route Of Administration"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SampleType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SampleTypeCs",
+      "title" : "Sample Type Code System",
+      "description" : "Sample Type Code System"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SourceOfInfection",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SourceOfInfectionCs",
+      "title" : "Source Of Infection",
+      "description" : "Source Of Infection"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SourceOfInformation",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SourceOfInformationCs",
+      "title" : "Source Of Information",
+      "description" : "Source Of Information"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SpecimenCollected",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SpecimenCollectedCs",
+      "title" : "Specimen Collected",
+      "description" : "Specimen Collected"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SpecimenNumber",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SpecimenNumberCs",
+      "title" : "Specimen Number Code System",
+      "description" : "Specimen Number Code System"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/TestPerformed",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "TestPerformedCs",
+      "title" : "Test Performed Code System",
+      "description" : "Test Performed Code System"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/TestType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "TestTypeCs",
+      "title" : "Test Type",
+      "description" : "Test Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/VaccineInfoSource",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "VaccineInfoSourceCs",
+      "title" : "Vaccine Info Source",
+      "description" : "Vaccine Info Source"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/VaccineType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "VaccineTypeCs",
+      "title" : "Vaccine Type",
+      "description" : "Vaccine Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/WaterCharacteristics",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "WaterCharacteristicsCs",
+      "title" : "Water Characteristics",
+      "description" : "Water Characteristics"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/YesNoUnknown",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "YesNoUnknownCs",
+      "title" : "Yes No Unknown",
+      "description" : "Yes No Unknown"
+    }
+  ]
+}

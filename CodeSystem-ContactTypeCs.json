@@ -1,0 +1,59 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "ContactTypeCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/ContactType</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">CloseContact<a name=\"ContactTypeCs-CloseContact\"> </a></td><td>Close contact (within 1 metre)</td></tr><tr><td style=\"white-space:nowrap\">FluidContact<a name=\"ContactTypeCs-FluidContact\"> </a></td><td>Handled person's bodily fluids/excreta</td></tr><tr><td style=\"white-space:nowrap\">SharedHousehold<a name=\"ContactTypeCs-SharedHousehold\"> </a></td><td>Shared same household</td></tr><tr><td style=\"white-space:nowrap\">SharedRoom<a name=\"ContactTypeCs-SharedRoom\"> </a></td><td>Admitted to the same health facility room</td></tr><tr><td style=\"white-space:nowrap\">SharedFacility<a name=\"ContactTypeCs-SharedFacility\"> </a></td><td>Admitted to same health facility (but different room)</td></tr><tr><td style=\"white-space:nowrap\">Visited<a name=\"ContactTypeCs-Visited\"> </a></td><td>visited the same health facility (including traditional)</td></tr><tr><td style=\"white-space:nowrap\">Other<a name=\"ContactTypeCs-Other\"> </a></td><td>Other</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/ContactType",
+  "version" : "0.2.1",
+  "name" : "ContactTypeCs",
+  "title" : "Contact Type",
+  "status" : "draft",
+  "date" : "2023-11-07T05:59:29+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Contact Type",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 7,
+  "concept" : [{
+    "code" : "CloseContact",
+    "display" : "Close contact (within 1 metre)"
+  },
+  {
+    "code" : "FluidContact",
+    "display" : "Handled person's bodily fluids/excreta"
+  },
+  {
+    "code" : "SharedHousehold",
+    "display" : "Shared same household"
+  },
+  {
+    "code" : "SharedRoom",
+    "display" : "Admitted to the same health facility room"
+  },
+  {
+    "code" : "SharedFacility",
+    "display" : "Admitted to same health facility (but different room)"
+  },
+  {
+    "code" : "Visited",
+    "display" : "visited the same health facility (including traditional)"
+  },
+  {
+    "code" : "Other",
+    "display" : "Other"
+  }]
+}

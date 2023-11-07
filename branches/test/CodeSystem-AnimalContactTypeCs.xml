@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="AnimalContactTypeCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/AnimalContactType</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">Trading<a name="AnimalContactTypeCs-Trading"> </a></td><td>trading</td></tr><tr><td style="white-space:nowrap">Slaughtered<a name="AnimalContactTypeCs-Slaughtered"> </a></td><td>slaughtered/butchered</td></tr><tr><td style="white-space:nowrap">Handling<a name="AnimalContactTypeCs-Handling"> </a></td><td>Handling</td></tr><tr><td style="white-space:nowrap">Consumption<a name="AnimalContactTypeCs-Consumption"> </a></td><td>consmption of Animal Products</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/AnimalContactType"/>
+  <version value="0.2.1"/>
+  <name value="AnimalContactTypeCs"/>
+  <title value="Animal Contact Type"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Animal Contact Type"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="4"/>
+  <concept>
+    <code value="Trading"/>
+    <display value="trading"/>
+  </concept>
+  <concept>
+    <code value="Slaughtered"/>
+    <display value="slaughtered/butchered"/>
+  </concept>
+  <concept>
+    <code value="Handling"/>
+    <display value="Handling"/>
+  </concept>
+  <concept>
+    <code value="Consumption"/>
+    <display value="consmption of Animal Products"/>
+  </concept>
+</CodeSystem>

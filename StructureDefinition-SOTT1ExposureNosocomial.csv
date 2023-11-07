@@ -1,0 +1,68 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: RIM Mapping"
+"SOTT1ExposureNosocomial","SOTT1ExposureNosocomial","","","",0,*,"","","","null {[]} {[]}
+","Surveillance & Outbreak Toolkit T1  Exposure - Nosocomial","Base definition for all elements that are defined inside a resource - but not those in a data type.","","","","","","","","","",,,,,"",,,,"BackboneElement",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","n/a"
+"SOTT1ExposureNosocomial.id","SOTT1ExposureNosocomial.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"","","n/a"
+"SOTT1ExposureNosocomial.extension","SOTT1ExposureNosocomial.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","n/a"
+"SOTT1ExposureNosocomial.modifierExtension","SOTT1ExposureNosocomial.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","N/A"
+"SOTT1ExposureNosocomial.healthcareAccessed","SOTT1ExposureNosocomial.healthcareAccessed","","","",0,1,"","","","code {[]} {[]}
+","Did the patient receive health care (in the last 3 weeks)","Did the patient receive health care (in the last 3 weeks)","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ExposureNosocomial.healthcareAccessed",0,1,"",""
+"SOTT1ExposureNosocomial.dateOfCareAccess","SOTT1ExposureNosocomial.dateOfCareAccess","","","",0,1,"","","","date {[]} {[]}
+","Date of health care","When did the patient receive health care","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.dateOfCareAccess",0,1,"",""
+"SOTT1ExposureNosocomial.placeOfCare","SOTT1ExposureNosocomial.placeOfCare","","","",0,1,"","","","code {[]} {[]}
+","Where did the patient receive health care","Where did patient receive health care","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/PlaceOfCare","",,,,"SOTT1ExposureNosocomial.placeOfCare",0,1,"",""
+"SOTT1ExposureNosocomial.facilityName","SOTT1ExposureNosocomial.facilityName","","","",0,1,"","","","string {[]} {[]}
+","Name of facility where care was received","Name of facility where care was received","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.facilityName",0,1,"",""
+"SOTT1ExposureNosocomial.invasiveCare","SOTT1ExposureNosocomial.invasiveCare","","","",0,1,"","","","code {[]} {[]}
+","type of care: Invasive care (crossing the skin barrier)","Was the type of care: Invasive care (crossing the skin barrier)","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ExposureNosocomial.invasiveCare",0,1,"",""
+"SOTT1ExposureNosocomial.specifyInvasiveCare","SOTT1ExposureNosocomial.specifyInvasiveCare","","","",0,1,"","","","string {[]} {[]}
+","Specify invasive care","Specify invasive care","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.specifyInvasiveCare",0,1,"",""
+"SOTT1ExposureNosocomial.dentalCare","SOTT1ExposureNosocomial.dentalCare","","","",0,1,"","","","code {[]} {[]}
+","type of care: Dental care","was the type of care: Dental care","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ExposureNosocomial.dentalCare",0,1,"",""
+"SOTT1ExposureNosocomial.specifyDentalCare","SOTT1ExposureNosocomial.specifyDentalCare","","","",0,1,"","","","string {[]} {[]}
+","Specify dental care","Specify dental care","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.specifyDentalCare",0,1,"",""
+"SOTT1ExposureNosocomial.deliveryOrAbortion","SOTT1ExposureNosocomial.deliveryOrAbortion","","","",0,1,"","","","code {[]} {[]}
+","type of care: delivery or abortion","Was the type of care a delivery or abortion","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ExposureNosocomial.deliveryOrAbortion",0,1,"",""
+"SOTT1ExposureNosocomial.dateOfDeliveryAbortion","SOTT1ExposureNosocomial.dateOfDeliveryAbortion","","","",0,1,"","","","date {[]} {[]}
+","Date of delivery or abortion","Date of delivery or abortion","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.dateOfDeliveryAbortion",0,1,"",""
+"SOTT1ExposureNosocomial.admitted","SOTT1ExposureNosocomial.admitted","","","",0,1,"","","","code {[]} {[]}
+","Type of care: admission in a health care facility","Was the type of care an admission in health care facility","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.admitted",0,1,"",""
+"SOTT1ExposureNosocomial.dateOfAdmission","SOTT1ExposureNosocomial.dateOfAdmission","","","",0,1,"","","","date {[]} {[]}
+","Date admitted at health care facility","Date admitted at health care facility","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.dateOfAdmission",0,1,"",""
+"SOTT1ExposureNosocomial.dateOfDischarge","SOTT1ExposureNosocomial.dateOfDischarge","","","",0,1,"","","","date {[]} {[]}
+","Date of exiting health care facility","Date of exiting health care facility","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.dateOfDischarge",0,1,"",""
+"SOTT1ExposureNosocomial.bloodTransfusion","SOTT1ExposureNosocomial.bloodTransfusion","","","",0,1,"","","","code {[]} {[]}
+","type of care: blood transfusion","Was the type of care a blood transfusion","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.bloodTransfusion",0,1,"",""
+"SOTT1ExposureNosocomial.dateOfTransfusion","SOTT1ExposureNosocomial.dateOfTransfusion","","","",0,1,"","","","date {[]} {[]}
+","Date of blood transfusion","When was this blood transfusion","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.dateOfTransfusion",0,1,"",""
+"SOTT1ExposureNosocomial.healthFacilityVisit","SOTT1ExposureNosocomial.healthFacilityVisit","","","",0,1,"","","","code {[]} {[]}
+","Did the patient visit a health facility without getting health care (visit patient or any other reason)","Did the patient visit a health facility without getting health care (visit patient or any other reason)","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ExposureNosocomial.healthFacilityVisit",0,1,"",""
+"SOTT1ExposureNosocomial.dateOfVisit","SOTT1ExposureNosocomial.dateOfVisit","","","",0,1,"","","","date {[]} {[]}
+","Date of visit (without getting health care)","Date of visit (without getting health care)","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.dateOfVisit",0,1,"",""
+"SOTT1ExposureNosocomial.healthFacilityName","SOTT1ExposureNosocomial.healthFacilityName","","","",0,1,"","","","string {[]} {[]}
+","Name of health care facility","Name of health care facility","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.healthFacilityName",0,1,"",""
+"SOTT1ExposureNosocomial.FacilityAddress","SOTT1ExposureNosocomial.FacilityAddress","","","",0,1,"","","","string {[]} {[]}
+","Address of health care facility","Address of health care facility","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.FacilityAddress",0,1,"",""
+"SOTT1ExposureNosocomial.illicitDrugsInjected","SOTT1ExposureNosocomial.illicitDrugsInjected","","","",0,1,"","","","code {[]} {[]}
+","Did the patient use or inject illicit drugs","Did the patient use or inject illicit drugs recently","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ExposureNosocomial.illicitDrugsInjected",0,1,"",""
+"SOTT1ExposureNosocomial.specifyIllicitDrugs","SOTT1ExposureNosocomial.specifyIllicitDrugs","","","",0,1,"","","","string {[]} {[]}
+","Specify illicit drugs","Specify the illicit drugs used","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.specifyIllicitDrugs",0,1,"",""
+"SOTT1ExposureNosocomial.syringeContact","SOTT1ExposureNosocomial.syringeContact","","","",0,1,"","","","code {[]} {[]}
+","Did the patient come in contact with syringes of needles at his/her workplace","Did the patient come in contact with syringes of needles at his/her workplace","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ExposureNosocomial.syringeContact",0,1,"",""
+"SOTT1ExposureNosocomial.specifySyringeContact","SOTT1ExposureNosocomial.specifySyringeContact","","","",0,1,"","","","string {[]} {[]}
+","Specify this contact with syinges or needles","Specify this contact with syinges or needles","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.specifySyringeContact",0,1,"",""
+"SOTT1ExposureNosocomial.bloodDonation","SOTT1ExposureNosocomial.bloodDonation","","","",0,1,"","","","code {[]} {[]}
+","Did the patient donate blood or plasma","Did the patient donate blood or plasma","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ExposureNosocomial.bloodDonation",0,1,"",""
+"SOTT1ExposureNosocomial.noOfDonations","SOTT1ExposureNosocomial.noOfDonations","","","",0,1,"","","","Quantity {[]} {[]}
+","How many donations of blood or plasma","How many donations of blood or plasma","","","","","","","","","",,,,,"",,,,"SOTT1ExposureNosocomial.noOfDonations",0,1,"",""

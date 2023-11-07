@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="ReportedByCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/ReportedBy</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">MobileTeam<a name="ReportedByCs-MobileTeam"> </a></td><td>Mobile team</td></tr><tr><td style="white-space:nowrap">HealthCentre<a name="ReportedByCs-HealthCentre"> </a></td><td>Health Cantre/post</td></tr><tr><td style="white-space:nowrap">Hospital<a name="ReportedByCs-Hospital"> </a></td><td>Hospital</td></tr><tr><td style="white-space:nowrap">Other<a name="ReportedByCs-Other"> </a></td><td>Other</td></tr><tr><td style="white-space:nowrap">Unknown<a name="ReportedByCs-Unknown"> </a></td><td>Unknown</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/ReportedBy"/>
+  <version value="0.2.1"/>
+  <name value="ReportedByCs"/>
+  <title value="Reported By"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Reported By"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="5"/>
+  <concept>
+    <code value="MobileTeam"/>
+    <display value="Mobile team"/>
+  </concept>
+  <concept>
+    <code value="HealthCentre"/>
+    <display value="Health Cantre/post"/>
+  </concept>
+  <concept>
+    <code value="Hospital"/>
+    <display value="Hospital"/>
+  </concept>
+  <concept>
+    <code value="Other"/>
+    <display value="Other"/>
+  </concept>
+  <concept>
+    <code value="Unknown"/>
+    <display value="Unknown"/>
+  </concept>
+</CodeSystem>

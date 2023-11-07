@@ -1,0 +1,857 @@
+{
+  "codeSystems" : [
+    {
+      "url" : "http://hl7.org/fhir/administrative-gender",
+      "version" : "4.0.1",
+      "status" : "active",
+      "name" : "AdministrativeGender",
+      "title" : "AdministrativeGender",
+      "description" : "The gender of a person used for administrative purposes.",
+      "oids" : ["2.16.840.1.113883.4.642.4.2"],
+      "uses" : {
+      },
+      "ValueSet-Questionnaire-SOTT0CaseInvestigationForm_BiologicalSex.html" : "SOT Biological Sex",
+      "ValueSet-BiologicalSex.html" : "SOT Biological Sex",
+      "http://hl7.org/fhir/R4/valueset-administrative-gender.html" : "AdministrativeGender",
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_BiologicalSex.html" : "SOT Biological Sex"
+    },
+    {
+      "url" : "http://hl7.org/fhir/composition-attestation-mode",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "CompositionAttestationMode",
+      "title" : "CompositionAttestationMode",
+      "description" : "The way in which a person authenticated a composition.",
+      "oids" : ["2.16.840.1.113883.4.642.4.239"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-composition-attestation-mode.html" : "CompositionAttestationMode"
+    },
+    {
+      "url" : "http://hl7.org/fhir/composition-status",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "CompositionStatus",
+      "title" : "CompositionStatus",
+      "description" : "The workflow/clinical status of the composition.",
+      "oids" : ["2.16.840.1.113883.4.642.4.242"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-composition-status.html" : "CompositionStatus"
+    },
+    {
+      "url" : "http://hl7.org/fhir/document-relationship-type",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "DocumentRelationshipType",
+      "title" : "DocumentRelationshipType",
+      "description" : "The type of relationship between documents.",
+      "oids" : ["2.16.840.1.113883.4.642.4.245"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-document-relationship-type.html" : "DocumentRelationshipType"
+    },
+    {
+      "url" : "http://hl7.org/fhir/encounter-location-status",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "EncounterLocationStatus",
+      "title" : "EncounterLocationStatus",
+      "description" : "The status of the location.",
+      "oids" : ["2.16.840.1.113883.4.642.4.263"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-encounter-location-status.html" : "EncounterLocationStatus"
+    },
+    {
+      "url" : "http://hl7.org/fhir/encounter-status",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "EncounterStatus",
+      "title" : "EncounterStatus",
+      "description" : "Current state of the encounter.",
+      "oids" : ["2.16.840.1.113883.4.642.4.247"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-encounter-status.html" : "EncounterStatus"
+    },
+    {
+      "url" : "http://hl7.org/fhir/fhir-types",
+      "version" : "5.0.0",
+      "status" : "active",
+      "name" : "FHIRTypes",
+      "title" : "All FHIR Types",
+      "description" : "One of the types defined as part of this version of FHIR.",
+      "oids" : ["2.16.840.1.113883.4.642.4.1802"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R5/valueset-resource-types.html" : "Resource Types"
+    },
+    {
+      "url" : "http://hl7.org/fhir/identifier-use",
+      "version" : "4.0.1",
+      "status" : "active",
+      "name" : "IdentifierUse",
+      "title" : "IdentifierUse",
+      "description" : "Identifies the purpose for this identifier, if known .",
+      "oids" : ["2.16.840.1.113883.4.642.4.58"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-identifier-use.html" : "IdentifierUse"
+    },
+    {
+      "url" : "http://hl7.org/fhir/link-type",
+      "version" : "4.0.1",
+      "status" : "active",
+      "name" : "LinkType",
+      "title" : "LinkType",
+      "description" : "The type of link between this patient resource and another patient resource.",
+      "oids" : ["2.16.840.1.113883.4.642.4.424"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-link-type.html" : "LinkType"
+    },
+    {
+      "url" : "http://hl7.org/fhir/list-mode",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "ListMode",
+      "title" : "ListMode",
+      "description" : "The processing mode that applies to this list.",
+      "oids" : ["2.16.840.1.113883.4.642.4.319"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-list-mode.html" : "ListMode"
+    },
+    {
+      "url" : "http://loinc.org",
+      "version" : "3.1.0",
+      "status" : "active",
+      "name" : "LOINC",
+      "title" : "Logical Observation Identifiers, Names and Codes (LOINC)",
+      "description" : "LOINC provides a set of universal names and ID codes for identifying laboratory and clinical test results.1,2 LOINC facilitates the exchange and pooling of results, such as blood hemoglobin, serum potassium, or vital signs, for clinical care, outcomes management, and research. LOINC's universal identifiers (names and codes) can be used in the context of order and observation exchanges between information systems that use syntax standards such as HL73, CEN TC251, ISO TC215, ASTM4, and DICOM. Specifically, the identifier can be used as the coded value for an observation in any other standard that uses the observation/observation value paradigm, whether messages, documents, application programming interface (API), etc. For example, LOINC codes are used widely in the OBX segment Observation Identifier field (OBX-3) of an ORU HL7 (HL7 version 2.x or ASTM 1238-9410) message that may be sent between a Clinical Laboratory Information Management Systems (LIMS) and Electronic Health Record Systems (EHR).5, 6 In this way, LOINC codes provide universal identifiers that allow the exchange of clinical data between heterogeneous computing environments.",
+      "oids" : ["2.16.840.1.113883.6.1"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-doc-typecodes.html" : "FHIR Document Type Codes",
+      "http://hl7.org/fhir/R4/valueset-doc-section-codes.html" : "Document Section Codes",
+      "http://hl7.org/fhir/R4/valueset-document-classcodes.html" : "Document Class Value Set"
+    },
+    {
+      "url" : "http://snomed.info/sct",
+      "version" : null,
+      "status" : "active",
+      "name" : "SNOMED_CT",
+      "title" : "SNOMED CT (all versions)",
+      "description" : "SNOMED CT is the most comprehensive and precise clinical health terminology product in the world, owned and distributed around the world by The International Health Terminology Standards Development Organisation (IHTSDO).",
+      "oids" : ["2.16.840.1.113883.6.96"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-encounter-reason.html" : "Encounter Reason Codes"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/admit-source",
+      "version" : "0.1.0",
+      "status" : "draft",
+      "name" : "AdmitSource",
+      "title" : "Admit source",
+      "description" : "This value set defines a set of codes that can be used to indicate from where the patient came in.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1092"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-encounter-admit-source.html" : "Admit source"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/contactentity-type",
+      "version" : "0.5.0",
+      "status" : "draft",
+      "name" : "ContactEntityType",
+      "title" : "Contact entity type",
+      "description" : "This example value set defines a set of codes that can be used to indicate the purpose for which you would contact a contact party.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1129"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-contactentity-type.html" : "Contact entity type"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+      "version" : "0.1.1",
+      "status" : "draft",
+      "name" : "DiagnosisRole",
+      "title" : "Diagnosis Role",
+      "description" : "This value set defines a set of codes that can be used to express the role of a diagnosis on the Encounter or EpisodeOfCare record.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1054"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-diagnosis-role.html" : "DiagnosisRole"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/diet",
+      "version" : "0.1.0",
+      "status" : "draft",
+      "name" : "Diet",
+      "title" : "Diet",
+      "description" : "This value set defines a set of codes that can be used to indicate dietary preferences or restrictions a patient may have.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1091"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-encounter-diet.html" : "Diet"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+      "version" : "0.1.0",
+      "status" : "draft",
+      "name" : "DischargeDisposition",
+      "title" : "Discharge disposition",
+      "description" : "This value set defines a set of codes that can be used to where the patient left the hospital.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1093"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-encounter-discharge-disposition.html" : "Discharge disposition"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/encounter-special-arrangements",
+      "version" : "0.1.0",
+      "status" : "draft",
+      "name" : "SpecialArrangements",
+      "title" : "Special arrangements",
+      "description" : "This value set defines a set of codes that can be used to indicate the kinds of special arrangements in place for a patients visit.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1090"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-encounter-special-arrangements.html" : "Special arrangements"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/encounter-type",
+      "version" : "0.1.0",
+      "status" : "draft",
+      "name" : "EncounterType",
+      "title" : "Encounter type",
+      "description" : "This example value set defines a set of codes that can be used to indicate the type of encounter: a specific code indicating type of service provided.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1088"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-encounter-type.html" : "Encounter type"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+      "version" : "0.1.0",
+      "status" : "draft",
+      "name" : "ListEmptyReasons",
+      "title" : "List Empty Reasons",
+      "description" : "General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem or medication list) or to a workflow related list (i.e. consultation list).",
+      "oids" : ["2.16.840.1.113883.4.642.1.1106"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-list-empty-reason.html" : "List Empty Reasons"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/list-order",
+      "version" : "0.1.0",
+      "status" : "draft",
+      "name" : "ListOrderCodes",
+      "title" : "List Order Codes",
+      "description" : "Base values for the order of the items in a list resource.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1107"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-list-order.html" : "List Order Codes"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/location-physical-type",
+      "version" : "1.0.0",
+      "status" : "draft",
+      "name" : "LocationType",
+      "title" : "Location type",
+      "description" : "This example value set defines a set of codes that can be used to indicate the physical form of the Location.\r\rThis includes several 'non physical' codes which are still considered a location.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1108"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-location-physical-type.html" : "Location type"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/organization-type",
+      "version" : "0.1.0",
+      "status" : "draft",
+      "name" : "OrganizationType",
+      "title" : "Organization type",
+      "description" : "This example value set defines a set of codes that can be used to indicate a type of organization.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1128"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-organization-type.html" : "Organization type"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/participant-type",
+      "version" : "0.5.0",
+      "status" : "draft",
+      "name" : "ParticipantType",
+      "title" : "Participant type",
+      "description" : "This value set defines a set of codes that can be used to indicate how an individual participates in an encounter.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1089"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-encounter-participant-type.html" : "Participant type"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/service-type",
+      "version" : "0.1.0",
+      "status" : "draft",
+      "name" : "ServiceType",
+      "title" : "Service type",
+      "description" : "This value set defines an example set of codes of service-types.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1145"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-service-type.html" : "Service type"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v2-0092",
+      "version" : "2.1.0",
+      "status" : "active",
+      "name" : "ReAdmissionIndicator",
+      "title" : "re-admissionIndicator",
+      "description" : "Code system of concepts which are used to specify that a patient is being re admitted to a healthcare facilityin from which they were discharged, and indicates the circumstances around such re-admission.  Used in HL7 Version 2.x messagine in the PV1 segment.",
+      "oids" : ["2.16.840.1.113883.18.36"],
+      "uses" : {
+      },
+      "http://terminology.hl7.org/5.3.0/ValueSet-v2-0092.html" : "hl7VS-re-admissionIndicator"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v2-0131",
+      "version" : "2.1.0",
+      "status" : "active",
+      "name" : "ContactRole2",
+      "title" : "contactRole2",
+      "description" : "Code system of concepts which specify a relationship role that the next of kin/associated parties plays with regard to the patient. Also used in referrals, for example, it may be necessary to identify the contact representative at the clinic that sent a referral. Used in HL7 Version 2 messaging in the NK1 and CTD segments after 2.5, when it replace 2.16.840.1.113883.18.57.",
+      "oids" : ["2.16.840.1.113883.18.58"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-patient-contactrelationship.html" : "Patient Contact Relationship "
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+      "version" : "3.0.0",
+      "status" : "active",
+      "name" : "IdentifierType",
+      "title" : "identifierType",
+      "description" : "HL7-defined code system of concepts specifying type of identifier. Used in HL7 Version 2.x messaging data types CX, PLN, PPN, XCN and XON.",
+      "oids" : ["2.16.840.1.113883.18.108"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-identifier-type.html" : "IdentifierType"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v2-0532",
+      "version" : "2.1.0",
+      "status" : "active",
+      "name" : "ExpandedYesNoIndicator",
+      "title" : "expandedYes-NoIndicator",
+      "description" : "HL7-defined code system of concepts used to specify an expansion on the original Yes/No indicator table by including \"flavors of null\".  It is intended to be applied to fields where the response is not limited to \"yes\" or \"no\".  Used in numerous locations in HL7 Version 2.x messaging.",
+      "oids" : ["2.16.840.1.113883.18.347"],
+      "uses" : {
+      },
+      "ValueSet-YesNo.html" : "SOT Yes No",
+      "ValueSet-Questionnaire-SOTT0CaseInvestigationForm_YesNo.html" : "SOT Yes No"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "version" : "8.0.1",
+      "status" : "active",
+      "name" : "ActCode",
+      "title" : "ActCode",
+      "description" : "A code specifying the particular kind of Act that the Act-instance represents within its class.\r\n\r\n*Constraints:* The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.\r\n\r\nConceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.\r\n\r\nAct.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code \"potassium\" together with and Act.classCode for \"laboratory observation\" to somehow mean \"potassium laboratory observation\" and then use the same Act.code for \"potassium\" together with Act.classCode for \"medication\" to mean \"substitution of potassium\". This mutually modifying use of Act.code and Act.classCode is not permitted.",
+      "oids" : ["2.16.840.1.113883.5.4"],
+      "uses" : {
+      },
+      "http://terminology.hl7.org/5.3.0/ValueSet-v3-ActCode.html" : "v3 Code System ActCode",
+      "http://terminology.hl7.org/5.3.0/ValueSet-v3-ActEncounterCode.html" : "ActEncounterCode"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v3-ActPriority",
+      "version" : "2.1.0",
+      "status" : "active",
+      "name" : "ActPriority",
+      "title" : "ActPriority",
+      "description" : "A set of codes (e.g., for routine, emergency), specifying the urgency under which the Act happened, can happen, is happening, is intended to happen, or is requested/demanded to happen.",
+      "oids" : ["2.16.840.1.113883.5.7"],
+      "uses" : {
+      },
+      "http://terminology.hl7.org/5.3.0/ValueSet-v3-ActPriority.html" : "ActPriority"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+      "version" : "2.2.1",
+      "status" : "active",
+      "name" : "Confidentiality",
+      "title" : "Confidentiality",
+      "description" : "A set of codes specifying the security classification of acts and roles in accordance with the definition for concept domain \"Confidentiality\".",
+      "oids" : ["2.16.840.1.113883.5.25"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/v3/ConfidentialityClassification/vs.html" : "V3 Value SetConfidentialityClassification"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v3-EncounterSpecialCourtesy",
+      "version" : "2.1.0",
+      "status" : "active",
+      "name" : "EncounterSpecialCourtesy",
+      "title" : "EncounterSpecialCourtesy",
+      "description" : "**** MISSING DESCRIPTION ****",
+      "oids" : ["2.16.840.1.113883.5.40"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-encounter-special-courtesy.html" : "Special courtesy"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+      "version" : "2.1.0",
+      "status" : "active",
+      "name" : "MaritalStatus",
+      "title" : "MaritalStatus",
+      "description" : "\\* \\* \\* No description supplied \\* \\* \\*\r\n\r\n*Open Issue:* The specific meanings of these codes can vary somewhat by jurisdiction and implementation so caution should be used when determining equivalency.\r\n\r\n*Open Issue:* fixing and completion of the hierarchy and proper good definitions of all the concepts is badly needed.",
+      "oids" : ["2.16.840.1.113883.5.2"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-marital-status.html" : "MaritalStatus"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+      "version" : "2.1.0",
+      "status" : "active",
+      "name" : "NullFlavor",
+      "title" : "NullFlavor",
+      "description" : "A collection of codes specifying why a valid value is not present.",
+      "oids" : ["2.16.840.1.113883.5.1008"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-marital-status.html" : "MaritalStatus",
+      "http://hl7.org/fhir/R4/valueset-encounter-special-courtesy.html" : "Special courtesy"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+      "version" : "4.0.0",
+      "status" : "active",
+      "name" : "ParticipationType",
+      "title" : "ParticipationType",
+      "description" : "A code specifying the meaning and purpose of every Participation instance. Each of its values implies specific constraints on the Roles undertaking the participation.",
+      "oids" : ["2.16.840.1.113883.5.90"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-encounter-participant-type.html" : "Participant type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/AnimalContactLocation",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AnimalContactLocationCs",
+      "title" : "Animal Contact Location",
+      "description" : "Animal Contact Location",
+      "uses" : {
+      },
+      "ValueSet-AnimalContactLocation.html" : "Animal Contact Location",
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_AnimalContactLocation.html" : "Animal Contact Location"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/AnimalContactType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AnimalContactTypeCs",
+      "title" : "Animal Contact Type",
+      "description" : "Animal Contact Type",
+      "uses" : {
+      },
+      "ValueSet-AnimalContactType.html" : "Animal Contact Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/CaseStatus",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "CaseStatusCs",
+      "title" : "Case Status",
+      "description" : "Case Status",
+      "uses" : {
+      },
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_CaseStatus.html" : "Case Status",
+      "ValueSet-CaseStatus.html" : "Case Status"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/CodeSystem/AntigenCs",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "AntigenCs",
+      "title" : "Antigen Code System",
+      "description" : "Antigen Code System",
+      "uses" : {
+      },
+      "ValueSet-Questionnaire-SOTMeasles_Antigen.html" : " Antigen",
+      "ValueSet-Antigen.html" : " Antigen"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ConfirmationBasis",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ConfirmationBasisCs",
+      "title" : "Confirmation Basis",
+      "description" : "Confirmation Basis",
+      "uses" : {
+      },
+      "ValueSet-ConfirmationBasis.html" : " ConfirmationBasis"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ContactType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ContactTypeCs",
+      "title" : "Contact Type",
+      "description" : "Contact Type",
+      "uses" : {
+      },
+      "ValueSet-ContactType.html" : "Contact Type",
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_ContactType.html" : "Contact Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/DetectedBy",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "DetectedByCs",
+      "title" : "Detected By Code System",
+      "description" : "Detected By Code System",
+      "uses" : {
+      },
+      "ValueSet-DetectedBy.html" : "SOT Measles Detected By"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/DiscardingBasis",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "DiscardingBasisCs",
+      "title" : "Discarding Basis",
+      "description" : "Discarding Basis",
+      "uses" : {
+      },
+      "ValueSet-DiscardingBasis.html" : " DiscardingBasis"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/DomesticatedWild",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "DomesticatedWildCs",
+      "title" : "Domesticated or Wild",
+      "description" : "Domesticated or Wild",
+      "uses" : {
+      },
+      "ValueSet-DomesticatedWild.html" : "Domesticated or Wild"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ExposureLocation",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ExposureLocationCs",
+      "title" : "Exposure Location",
+      "description" : "Exposure Location",
+      "uses" : {
+      },
+      "ValueSet-ExposureLocation.html" : " Exposure Location",
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_ExposureLocation.html" : " Exposure Location",
+      "ValueSet-AnimalExposureLocation.html" : "Animal Exposure Location",
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_AnimalExposureLocation.html" : "Animal Exposure Location"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/FinalClassification",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "FinalClassificationCs",
+      "title" : "Final Classification",
+      "description" : "Final Classification",
+      "uses" : {
+      },
+      "ValueSet-FinalClassification.html" : " FinalClassification"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/InfectionSetting",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "InfectionSettingCs",
+      "title" : "InfectionSetting",
+      "description" : "InfectionSetting",
+      "uses" : {
+      },
+      "ValueSet-InfectionSetting.html" : " InfectionSetting"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/LocType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "LocTypeCs",
+      "title" : "Locality Type Code System",
+      "description" : "Locality Type Code System",
+      "uses" : {
+      },
+      "ValueSet-LocType.html" : "SOT Measles Locality Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "LocalCasesPresentCs",
+      "title" : "LocalCasesPresent",
+      "description" : "LocalCasesPresent",
+      "uses" : {
+      },
+      "ValueSet-LocalCasesPresent.html" : " LocalCasesPresent"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/LocalizationOfSkinDisorder",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "LocalizationOfSkinDisorderCs",
+      "title" : "Localization of Skin Disorder",
+      "description" : "Localization of Skin Disorder",
+      "uses" : {
+      },
+      "ValueSet-LocalizationOfSkinDisorder.html" : "Localization of Skin Disorder"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/NoOfDoses",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "NoOfDosesCs",
+      "title" : "Number of Doses",
+      "description" : "Number of Doses",
+      "uses" : {
+      },
+      "ValueSet-NoOfDoses.html" : "SOT Measles No Of Doses"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/PathogenTested",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PathogenTestedCs",
+      "title" : "Pathogen Tested",
+      "description" : "Pathogen Tested",
+      "uses" : {
+      },
+      "ValueSet-PathogenTested.html" : "Pathogen  Tested"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/PatientOutcome",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PatientOutcomeCs",
+      "title" : "Patient Clinical Course Outcome",
+      "description" : "Patient Clinical Course Outcome",
+      "uses" : {
+      },
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_PatientOutcome.html" : "Patient Clinical Course Outcome",
+      "ValueSet-Questionnaire-SOTT0CaseInvestigationForm_PatientOutcome.html" : "Patient Clinical Course Outcome",
+      "ValueSet-PatientOutcome.html" : "Patient Clinical Course Outcome"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/PlaceOfCare",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "PlaceOfCareCs",
+      "title" : "Place Of Care",
+      "description" : "Place Of Care",
+      "uses" : {
+      },
+      "ValueSet-PlaceOfCare.html" : "Place Of Care"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ProvType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ProvTypeCs",
+      "title" : "Type of Provider Code System",
+      "description" : "Type of Provider Code System",
+      "uses" : {
+      },
+      "ValueSet-ProvType.html" : "SOT Measles Provider Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/RashType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "RashTypeCs",
+      "title" : "Rash Type",
+      "description" : "Rash Type",
+      "uses" : {
+      },
+      "ValueSet-RashType.html" : "Rash Type",
+      "ValueSet-Questionnaire-SOTMeasles_RashType.html" : "Rash Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/ReportedBy",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ReportedByCs",
+      "title" : "Reported By",
+      "description" : "Reported By",
+      "uses" : {
+      },
+      "ValueSet-ReportedBy.html" : "Reported By"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/Result",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ResultCs",
+      "title" : "Result Code System",
+      "description" : "Result Code System",
+      "uses" : {
+      },
+      "ValueSet-SOTMeasles-AFRO-MRCIF_Result.html" : " Result",
+      "ValueSet-Result.html" : " Result",
+      "ValueSet-Questionnaire-SOTMeasles_Result.html" : " Result"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/Results",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "ResultsCs",
+      "title" : "Results",
+      "description" : "Results",
+      "uses" : {
+      },
+      "ValueSet-Results.html" : "Results"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/RouteOfAdministration",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "RouteOfAdministrationCs",
+      "title" : "Route Of Administration",
+      "description" : "Route Of Administration",
+      "uses" : {
+      },
+      "ValueSet-RouteOfAdministration.html" : "Route Of Administration"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SampleType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SampleTypeCs",
+      "title" : "Sample Type Code System",
+      "description" : "Sample Type Code System",
+      "uses" : {
+      },
+      "ValueSet-SampleType.html" : " Sample Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SourceOfInfection",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SourceOfInfectionCs",
+      "title" : "Source Of Infection",
+      "description" : "Source Of Infection",
+      "uses" : {
+      },
+      "ValueSet-SourceOfInfection.html" : " SourceOfInfection"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SpecimenCollected",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SpecimenCollectedCs",
+      "title" : "Specimen Collected",
+      "description" : "Specimen Collected",
+      "uses" : {
+      },
+      "ValueSet-SpecimenCollected.html" : "Specimen Collected"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/SpecimenNumber",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "SpecimenNumberCs",
+      "title" : "Specimen Number Code System",
+      "description" : "Specimen Number Code System",
+      "uses" : {
+      },
+      "ValueSet-SpecimenNumber.html" : " Specimen Number"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/TestPerformed",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "TestPerformedCs",
+      "title" : "Test Performed Code System",
+      "description" : "Test Performed Code System",
+      "uses" : {
+      },
+      "ValueSet-TestPerformed.html" : " Test Performed"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/TestType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "TestTypeCs",
+      "title" : "Test Type",
+      "description" : "Test Type",
+      "uses" : {
+      },
+      "ValueSet-TestType.html" : "AFRO MRCIF Test Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/VaccineInfoSource",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "VaccineInfoSourceCs",
+      "title" : "Vaccine Info Source",
+      "description" : "Vaccine Info Source",
+      "uses" : {
+      },
+      "ValueSet-VaccineInfoSource.html" : "Vaccine Info Source"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/VaccineType",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "VaccineTypeCs",
+      "title" : "Vaccine Type",
+      "description" : "Vaccine Type",
+      "uses" : {
+      },
+      "ValueSet-VaccineType.html" : "SOT Measles Vaccine Type"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/WaterCharacteristics",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "WaterCharacteristicsCs",
+      "title" : "Water Characteristics",
+      "description" : "Water Characteristics",
+      "uses" : {
+      },
+      "ValueSet-WaterCharacteristics.html" : "Water Characteristics"
+    },
+    {
+      "url" : "http://worldhealthorganization.github.io/smart-ot/YesNoUnknown",
+      "version" : "0.2.1",
+      "status" : "draft",
+      "name" : "YesNoUnknownCs",
+      "title" : "Yes No Unknown",
+      "description" : "Yes No Unknown",
+      "uses" : {
+      },
+      "ValueSet-YesNoUnknown.html" : "Yes No Unknown",
+      "ValueSet-Questionnaire-SOTMeasles_YesNoUnknown.html" : "Yes No Unknown",
+      "ValueSet-SOTMeasles-AFRO-MRCIF_YesNoUnknown.html" : "Yes No Unknown",
+      "ValueSet-Questionnaire-SOTT0CaseInvestigationForm_YesNoUnknown.html" : "Yes No Unknown",
+      "ValueSet-Questionnaire-SOTGenericRespiratoryDiseaseCIF_YesNoUnknown.html" : "Yes No Unknown"
+    },
+    {
+      "url" : "urn:ietf:bcp:47",
+      "version" : "2.0.1",
+      "status" : "active",
+      "name" : "Ietf3066",
+      "title" : "Tags for the Identification of Languages",
+      "description" : "Older value from OID registry.  Superceded; see recommendations in BCP-47.",
+      "oids" : ["2.16.840.1.113883.6.121"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-languages.html" : "Common Languages"
+    }
+  ]
+}

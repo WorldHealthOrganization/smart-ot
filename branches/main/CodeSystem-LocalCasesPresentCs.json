@@ -1,0 +1,51 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "LocalCasesPresentCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">1<a name=\"LocalCasesPresentCs-1\"> </a></td><td>Yes, with measles</td></tr><tr><td style=\"white-space:nowrap\">2<a name=\"LocalCasesPresentCs-2\"> </a></td><td>Yes, with rubella</td></tr><tr><td style=\"white-space:nowrap\">3<a name=\"LocalCasesPresentCs-3\"> </a></td><td>Yes, with both</td></tr><tr><td style=\"white-space:nowrap\">4<a name=\"LocalCasesPresentCs-4\"> </a></td><td>No</td></tr><tr><td style=\"white-space:nowrap\">99<a name=\"LocalCasesPresentCs-99\"> </a></td><td>Unknown</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent",
+  "version" : "0.2.1",
+  "name" : "LocalCasesPresentCs",
+  "title" : "LocalCasesPresent",
+  "status" : "draft",
+  "date" : "2023-11-07T05:59:29+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "LocalCasesPresent",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 5,
+  "concept" : [{
+    "code" : "1",
+    "display" : "Yes, with measles"
+  },
+  {
+    "code" : "2",
+    "display" : "Yes, with rubella"
+  },
+  {
+    "code" : "3",
+    "display" : "Yes, with both"
+  },
+  {
+    "code" : "4",
+    "display" : "No"
+  },
+  {
+    "code" : "99",
+    "display" : "Unknown"
+  }]
+}

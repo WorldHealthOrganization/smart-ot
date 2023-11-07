@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="VaccineInfoSourceCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/VaccineInfoSource</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">VaccinationCard<a name="VaccineInfoSourceCs-VaccinationCard"> </a></td><td>Vaccination Card</td></tr><tr><td style="white-space:nowrap">HealthServices<a name="VaccineInfoSourceCs-HealthServices"> </a></td><td>Health Services</td></tr><tr><td style="white-space:nowrap">ParentsOrOtherAdult<a name="VaccineInfoSourceCs-ParentsOrOtherAdult"> </a></td><td>Parents or another adult</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/VaccineInfoSource"/>
+  <version value="0.2.1"/>
+  <name value="VaccineInfoSourceCs"/>
+  <title value="Vaccine Info Source"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Vaccine Info Source"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="3"/>
+  <concept>
+    <code value="VaccinationCard"/>
+    <display value="Vaccination Card"/>
+  </concept>
+  <concept>
+    <code value="HealthServices"/>
+    <display value="Health Services"/>
+  </concept>
+  <concept>
+    <code value="ParentsOrOtherAdult"/>
+    <display value="Parents or another adult"/>
+  </concept>
+</CodeSystem>

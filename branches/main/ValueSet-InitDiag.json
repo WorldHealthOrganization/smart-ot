@@ -1,0 +1,72 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "InitDiag",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 6 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion based on <a href=\"CodeSystem-InitDiagCs.html\">system Initial Diagnosis Code System v0.2.1 (CodeSystem)</a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---worldhealthorganization.github.io-smart-ot-InitDiag-1\"> </a>\u00a0\u00a0<a href=\"CodeSystem-InitDiagCs.html#InitDiagCs-1\">1</a></td><td>http://worldhealthorganization.github.io/smart-ot/InitDiag</td><td>Measles</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---worldhealthorganization.github.io-smart-ot-InitDiag-2\"> </a>\u00a0\u00a0<a href=\"CodeSystem-InitDiagCs.html#InitDiagCs-2\">2</a></td><td>http://worldhealthorganization.github.io/smart-ot/InitDiag</td><td>Rubella</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---worldhealthorganization.github.io-smart-ot-InitDiag-3\"> </a>\u00a0\u00a0<a href=\"CodeSystem-InitDiagCs.html#InitDiagCs-3\">3</a></td><td>http://worldhealthorganization.github.io/smart-ot/InitDiag</td><td>Dengue</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---worldhealthorganization.github.io-smart-ot-InitDiag-4\"> </a>\u00a0\u00a0<a href=\"CodeSystem-InitDiagCs.html#InitDiagCs-4\">4</a></td><td>http://worldhealthorganization.github.io/smart-ot/InitDiag</td><td>Other Rash illness</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---worldhealthorganization.github.io-smart-ot-InitDiag-8\"> </a>\u00a0\u00a0<a href=\"CodeSystem-InitDiagCs.html#InitDiagCs-8\">8</a></td><td>http://worldhealthorganization.github.io/smart-ot/InitDiag</td><td>Other Non-Rash illness</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---worldhealthorganization.github.io-smart-ot-InitDiag-99\"> </a>\u00a0\u00a0<a href=\"CodeSystem-InitDiagCs.html#InitDiagCs-99\">99</a></td><td>http://worldhealthorganization.github.io/smart-ot/InitDiag</td><td>Unknown</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/ValueSet/InitDiag",
+  "version" : "0.2.1",
+  "name" : "InitDiag",
+  "title" : "SOT Measles Initial Diagnosis",
+  "status" : "draft",
+  "date" : "2023-11-07T05:59:29+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "SOT Measles Initial Diagnosis",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "expansion" : {
+    "identifier" : "urn:uuid:c060c134-871f-43be-b1ee-5dfface2c18f",
+    "timestamp" : "2023-05-02T20:23:35+05:30",
+    "total" : 6,
+    "parameter" : [{
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://worldhealthorganization.github.io/smart-ot/InitDiag|0.2.1"
+    }],
+    "contains" : [{
+      "system" : "http://worldhealthorganization.github.io/smart-ot/InitDiag",
+      "code" : "1",
+      "display" : "Measles"
+    },
+    {
+      "system" : "http://worldhealthorganization.github.io/smart-ot/InitDiag",
+      "code" : "2",
+      "display" : "Rubella"
+    },
+    {
+      "system" : "http://worldhealthorganization.github.io/smart-ot/InitDiag",
+      "code" : "3",
+      "display" : "Dengue"
+    },
+    {
+      "system" : "http://worldhealthorganization.github.io/smart-ot/InitDiag",
+      "code" : "4",
+      "display" : "Other Rash illness"
+    },
+    {
+      "system" : "http://worldhealthorganization.github.io/smart-ot/InitDiag",
+      "code" : "8",
+      "display" : "Other Non-Rash illness"
+    },
+    {
+      "system" : "http://worldhealthorganization.github.io/smart-ot/InitDiag",
+      "code" : "99",
+      "display" : "Unknown"
+    }]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "RouteOfAdministrationCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/RouteOfAdministration</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">IV<a name=\"RouteOfAdministrationCs-IV\"> </a></td><td>Intravenous</td></tr><tr><td style=\"white-space:nowrap\">IM<a name=\"RouteOfAdministrationCs-IM\"> </a></td><td>Intramuscular</td></tr><tr><td style=\"white-space:nowrap\">Oral<a name=\"RouteOfAdministrationCs-Oral\"> </a></td><td>Oral</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/RouteOfAdministration",
+  "version" : "0.2.1",
+  "name" : "RouteOfAdministrationCs",
+  "title" : "Route Of Administration",
+  "status" : "draft",
+  "date" : "2023-11-07T05:59:29+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Route Of Administration",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 3,
+  "concept" : [{
+    "code" : "IV",
+    "display" : "Intravenous"
+  },
+  {
+    "code" : "IM",
+    "display" : "Intramuscular"
+  },
+  {
+    "code" : "Oral",
+    "display" : "Oral"
+  }]
+}

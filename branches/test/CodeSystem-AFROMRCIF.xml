@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="AFROMRCIF"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This case-insensitive code system <code>http://worldhealthorganization.github.io/smart-ot/CodeSystem/AFROMRCIF</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">DE1<a name="AFROMRCIF-DE1"> </a></td><td>Case ID</td></tr><tr><td style="white-space:nowrap">DE2<a name="AFROMRCIF-DE2"> </a></td><td>Reporting facility</td></tr><tr><td style="white-space:nowrap">DE3<a name="AFROMRCIF-DE3"> </a></td><td>Locality</td></tr><tr><td style="white-space:nowrap">DE4<a name="AFROMRCIF-DE4"> </a></td><td>Date reported national</td></tr><tr><td style="white-space:nowrap">DE5<a name="AFROMRCIF-DE5"> </a></td><td>Name</td></tr><tr><td style="white-space:nowrap">DE6<a name="AFROMRCIF-DE6"> </a></td><td>Date of birth</td></tr><tr><td style="white-space:nowrap">DE7<a name="AFROMRCIF-DE7"> </a></td><td>Age onset</td></tr><tr><td style="white-space:nowrap">DE8<a name="AFROMRCIF-DE8"> </a></td><td>Sex</td></tr><tr><td style="white-space:nowrap">DE11<a name="AFROMRCIF-DE11"> </a></td><td>Locality</td></tr><tr><td style="white-space:nowrap">DE12<a name="AFROMRCIF-DE12"> </a></td><td>State</td></tr><tr><td style="white-space:nowrap">DE13<a name="AFROMRCIF-DE13"> </a></td><td>Municipality</td></tr><tr><td style="white-space:nowrap">DE14<a name="AFROMRCIF-DE14"> </a></td><td>Locality type</td></tr><tr><td style="white-space:nowrap">DE17<a name="AFROMRCIF-DE17"> </a></td><td>Vaccine type</td></tr><tr><td style="white-space:nowrap">DE21<a name="AFROMRCIF-DE21"> </a></td><td>No of doses</td></tr><tr><td style="white-space:nowrap">DE27<a name="AFROMRCIF-DE27"> </a></td><td>Last dose date</td></tr><tr><td style="white-space:nowrap">DE28<a name="AFROMRCIF-DE28"> </a></td><td>Date reported local</td></tr><tr><td style="white-space:nowrap">DE29<a name="AFROMRCIF-DE29"> </a></td><td>Date of consultation</td></tr><tr><td style="white-space:nowrap">DE30<a name="AFROMRCIF-DE30"> </a></td><td>Rash onset date</td></tr><tr><td style="white-space:nowrap">DE31<a name="AFROMRCIF-DE31"> </a></td><td>Fever</td></tr><tr><td style="white-space:nowrap">DE35<a name="AFROMRCIF-DE35"> </a></td><td>Rash</td></tr><tr><td style="white-space:nowrap">DE39<a name="AFROMRCIF-DE39"> </a></td><td>Cough</td></tr><tr><td style="white-space:nowrap">DE43<a name="AFROMRCIF-DE43"> </a></td><td>Conjunctivitis</td></tr><tr><td style="white-space:nowrap">DE47<a name="AFROMRCIF-DE47"> </a></td><td>Coryza</td></tr><tr><td style="white-space:nowrap">DE51<a name="AFROMRCIF-DE51"> </a></td><td>Lymphadenopathy</td></tr><tr><td style="white-space:nowrap">DE55<a name="AFROMRCIF-DE55"> </a></td><td>Jointpain</td></tr><tr><td style="white-space:nowrap">DE59<a name="AFROMRCIF-DE59"> </a></td><td>Admitted</td></tr><tr><td style="white-space:nowrap">DE63<a name="AFROMRCIF-DE63"> </a></td><td>Outcome</td></tr><tr><td style="white-space:nowrap">DE67<a name="AFROMRCIF-DE67"> </a></td><td>Travelled outside</td></tr><tr><td style="white-space:nowrap">DE71<a name="AFROMRCIF-DE71"> </a></td><td>Specify infection setting</td></tr><tr><td style="white-space:nowrap">DE72<a name="AFROMRCIF-DE72"> </a></td><td>Final classification</td></tr><tr><td style="white-space:nowrap">DE79<a name="AFROMRCIF-DE79"> </a></td><td>Reported by</td></tr><tr><td style="white-space:nowrap">DE80<a name="AFROMRCIF-DE80"> </a></td><td>Reported by signature</td></tr><tr><td style="white-space:nowrap">DE81<a name="AFROMRCIF-DE81"> </a></td><td>Date next level</td></tr><tr><td style="white-space:nowrap">DE82<a name="AFROMRCIF-DE82"> </a></td><td>Sample type</td></tr><tr><td style="white-space:nowrap">DE88<a name="AFROMRCIF-DE88"> </a></td><td>Specify specimen</td></tr><tr><td style="white-space:nowrap">DE89<a name="AFROMRCIF-DE89"> </a></td><td>Collection date</td></tr><tr><td style="white-space:nowrap">DE90<a name="AFROMRCIF-DE90"> </a></td><td>Specimen sent date</td></tr><tr><td style="white-space:nowrap">DE91<a name="AFROMRCIF-DE91"> </a></td><td>Specimen recd date</td></tr><tr><td style="white-space:nowrap">DE92<a name="AFROMRCIF-DE92"> </a></td><td>Specimen condition</td></tr><tr><td style="white-space:nowrap">DE95<a name="AFROMRCIF-DE95"> </a></td><td>Test performed</td></tr><tr><td style="white-space:nowrap">DE98<a name="AFROMRCIF-DE98"> </a></td><td>Result</td></tr><tr><td style="white-space:nowrap">DE102<a name="AFROMRCIF-DE102"> </a></td><td>Specify virus</td></tr><tr><td style="white-space:nowrap">DE103<a name="AFROMRCIF-DE103"> </a></td><td>Remarks</td></tr><tr><td style="white-space:nowrap">DE104<a name="AFROMRCIF-DE104"> </a></td><td>Lab name</td></tr><tr><td style="white-space:nowrap">DE105<a name="AFROMRCIF-DE105"> </a></td><td>Date sent epi</td></tr><tr><td style="white-space:nowrap">DE106<a name="AFROMRCIF-DE106"> </a></td><td>Date sent district</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/CodeSystem/AFROMRCIF"/>
+  <version value="0.2.1"/>
+  <name value="AFROMRCIF"/>
+  <title value="AFRO MRCIF CodeSystem for Data Elements"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="CodeSystem for PAHO MRCIF Data Elements"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <caseSensitive value="false"/>
+  <content value="complete"/>
+  <count value="46"/>
+  <concept>
+    <code value="DE1"/>
+    <display value="Case ID"/>
+  </concept>
+  <concept>
+    <code value="DE2"/>
+    <display value="Reporting facility"/>
+  </concept>
+  <concept>
+    <code value="DE3"/>
+    <display value="Locality"/>
+  </concept>
+  <concept>
+    <code value="DE4"/>
+    <display value="Date reported national"/>
+  </concept>
+  <concept>
+    <code value="DE5"/>
+    <display value="Name"/>
+  </concept>
+  <concept>
+    <code value="DE6"/>
+    <display value="Date of birth"/>
+  </concept>
+  <concept>
+    <code value="DE7"/>
+    <display value="Age onset"/>
+  </concept>
+  <concept>
+    <code value="DE8"/>
+    <display value="Sex"/>
+  </concept>
+  <concept>
+    <code value="DE11"/>
+    <display value="Locality"/>
+  </concept>
+  <concept>
+    <code value="DE12"/>
+    <display value="State"/>
+  </concept>
+  <concept>
+    <code value="DE13"/>
+    <display value="Municipality"/>
+  </concept>
+  <concept>
+    <code value="DE14"/>
+    <display value="Locality type"/>
+  </concept>
+  <concept>
+    <code value="DE17"/>
+    <display value="Vaccine type"/>
+  </concept>
+  <concept>
+    <code value="DE21"/>
+    <display value="No of doses"/>
+  </concept>
+  <concept>
+    <code value="DE27"/>
+    <display value="Last dose date"/>
+  </concept>
+  <concept>
+    <code value="DE28"/>
+    <display value="Date reported local"/>
+  </concept>
+  <concept>
+    <code value="DE29"/>
+    <display value="Date of consultation"/>
+  </concept>
+  <concept>
+    <code value="DE30"/>
+    <display value="Rash onset date"/>
+  </concept>
+  <concept>
+    <code value="DE31"/>
+    <display value="Fever"/>
+  </concept>
+  <concept>
+    <code value="DE35"/>
+    <display value="Rash"/>
+  </concept>
+  <concept>
+    <code value="DE39"/>
+    <display value="Cough"/>
+  </concept>
+  <concept>
+    <code value="DE43"/>
+    <display value="Conjunctivitis"/>
+  </concept>
+  <concept>
+    <code value="DE47"/>
+    <display value="Coryza"/>
+  </concept>
+  <concept>
+    <code value="DE51"/>
+    <display value="Lymphadenopathy"/>
+  </concept>
+  <concept>
+    <code value="DE55"/>
+    <display value="Jointpain"/>
+  </concept>
+  <concept>
+    <code value="DE59"/>
+    <display value="Admitted"/>
+  </concept>
+  <concept>
+    <code value="DE63"/>
+    <display value="Outcome"/>
+  </concept>
+  <concept>
+    <code value="DE67"/>
+    <display value="Travelled outside"/>
+  </concept>
+  <concept>
+    <code value="DE71"/>
+    <display value="Specify infection setting"/>
+  </concept>
+  <concept>
+    <code value="DE72"/>
+    <display value="Final classification"/>
+  </concept>
+  <concept>
+    <code value="DE79"/>
+    <display value="Reported by"/>
+  </concept>
+  <concept>
+    <code value="DE80"/>
+    <display value="Reported by signature"/>
+  </concept>
+  <concept>
+    <code value="DE81"/>
+    <display value="Date next level"/>
+  </concept>
+  <concept>
+    <code value="DE82"/>
+    <display value="Sample type"/>
+  </concept>
+  <concept>
+    <code value="DE88"/>
+    <display value="Specify specimen"/>
+  </concept>
+  <concept>
+    <code value="DE89"/>
+    <display value="Collection date"/>
+  </concept>
+  <concept>
+    <code value="DE90"/>
+    <display value="Specimen sent date"/>
+  </concept>
+  <concept>
+    <code value="DE91"/>
+    <display value="Specimen recd date"/>
+  </concept>
+  <concept>
+    <code value="DE92"/>
+    <display value="Specimen condition"/>
+  </concept>
+  <concept>
+    <code value="DE95"/>
+    <display value="Test performed"/>
+  </concept>
+  <concept>
+    <code value="DE98"/>
+    <display value="Result"/>
+  </concept>
+  <concept>
+    <code value="DE102"/>
+    <display value="Specify virus"/>
+  </concept>
+  <concept>
+    <code value="DE103"/>
+    <display value="Remarks"/>
+  </concept>
+  <concept>
+    <code value="DE104"/>
+    <display value="Lab name"/>
+  </concept>
+  <concept>
+    <code value="DE105"/>
+    <display value="Date sent epi"/>
+  </concept>
+  <concept>
+    <code value="DE106"/>
+    <display value="Date sent district"/>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,46 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: RIM Mapping"
+"SOTT1ClinicalComorbidity","SOTT1ClinicalComorbidity","","","",0,*,"","","","null {[]} {[]}
+","Surveillance & Outbreak Toolkit T1 Clinical - Comorbidity","Base definition for all elements that are defined inside a resource - but not those in a data type.","","","","","","","","","",,,,,"",,,,"BackboneElement",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","n/a"
+"SOTT1ClinicalComorbidity.id","SOTT1ClinicalComorbidity.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"","","n/a"
+"SOTT1ClinicalComorbidity.extension","SOTT1ClinicalComorbidity.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","n/a"
+"SOTT1ClinicalComorbidity.modifierExtension","SOTT1ClinicalComorbidity.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","N/A"
+"SOTT1ClinicalComorbidity.pregnancy","SOTT1ClinicalComorbidity.pregnancy","","","",0,1,"","","","code {[]} {[]}
+","Pregancy","Is the patient pregant?","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ClinicalComorbidity.pregnancy",0,1,"",""
+"SOTT1ClinicalComorbidity.monthsPregnant","SOTT1ClinicalComorbidity.monthsPregnant","","","",0,1,"","","","Quantity {[]} {[]}
+","Months pregnant","How many month is the case pregnant","","","","","","","","","",,,,,"",,,,"SOTT1ClinicalComorbidity.monthsPregnant",0,1,"",""
+"SOTT1ClinicalComorbidity.postPartum","SOTT1ClinicalComorbidity.postPartum","","","",0,1,"","","","code {[]} {[]}
+","Post-partum (<6 weeks)","date of delivery","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ClinicalComorbidity.postPartum",0,1,"",""
+"SOTT1ClinicalComorbidity.postPartumWeeks","SOTT1ClinicalComorbidity.postPartumWeeks","","","",0,1,"","","","Quantity {[]} {[]}
+","Weeks post-partum","How many weeks since the delivery","","","","","","","","","",,,,,"",,,,"SOTT1ClinicalComorbidity.postPartumWeeks",0,1,"",""
+"SOTT1ClinicalComorbidity.underlyingConditions","SOTT1ClinicalComorbidity.underlyingConditions","","","",0,1,"","","","code {[]} {[]}
+","Underlying conditions","Does the patient have co-morbidity existing prior to admission that are active problems","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1ClinicalComorbidity.underlyingConditions",0,1,"",""
+"SOTT1ClinicalComorbidity.chronicDisease","SOTT1ClinicalComorbidity.chronicDisease","","","",0,1,"","","","code {[]} {[]}
+","Chronic disease","Is the patient suffering from a chronic disease?","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNoUnknown","",,,,"SOTT1ClinicalComorbidity.chronicDisease",0,1,"",""
+"SOTT1ClinicalComorbidity.specifyChronicDisease","SOTT1ClinicalComorbidity.specifyChronicDisease","","","",0,1,"","","","string {[]} {[]}
+","Specify chronic disease","Is the patient suffering from a chronic disease? If yes indicate name","","","","","","","","","",,,,,"",,,,"SOTT1ClinicalComorbidity.specifyChronicDisease",0,1,"",""
+"SOTT1ClinicalComorbidity.acuteChronicDisease","SOTT1ClinicalComorbidity.acuteChronicDisease","","","",0,1,"","","","code {[]} {[]}
+","Associated acute or chronic disease, please specifiy","Is the patient suffering from an acute or chronic disease at the time of this illness?","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ClinicalComorbidity.acuteChronicDisease",0,1,"",""
+"SOTT1ClinicalComorbidity.specifyAcuteChronicDisease","SOTT1ClinicalComorbidity.specifyAcuteChronicDisease","","","",0,1,"","","","string {[]} {[]}
+","if yes, name:","Is the patient suffering from an acute or chronic disease at the time of this illness? If yes indicate name","","","","","","","","","",,,,,"",,,,"SOTT1ClinicalComorbidity.specifyAcuteChronicDisease",0,1,"",""
+"SOTT1ClinicalComorbidity.immunodeficiency","SOTT1ClinicalComorbidity.immunodeficiency","","","",0,1,"","","","code {[]} {[]}
+","Immunodeficiency","Is the patient immunodeficient (Is the patient treated with drugs that decreased immune response)?","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ClinicalComorbidity.immunodeficiency",0,1,"",""
+"SOTT1ClinicalComorbidity.specifyImmunodeficiency","SOTT1ClinicalComorbidity.specifyImmunodeficiency","","","",0,1,"","","","string {[]} {[]}
+","Specify immunodeficiency","Describe the immunodeficiency","","","","","","","","","",,,,,"",,,,"SOTT1ClinicalComorbidity.specifyImmunodeficiency",0,1,"",""
+"SOTT1ClinicalComorbidity.malnutrition","SOTT1ClinicalComorbidity.malnutrition","","","",0,1,"","","","code {[]} {[]}
+","Malnutrition","Severly underweight?","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/YesNo","",,,,"SOTT1ClinicalComorbidity.malnutrition",0,1,"",""
+"SOTT1ClinicalComorbidity.muac","SOTT1ClinicalComorbidity.muac","","","",0,1,"","","","Quantity {[]} {[]}
+","MUAC (cm):","if possible provide the MUAC score","","","","","","","","","",,,,,"",,,,"SOTT1ClinicalComorbidity.muac",0,1,"",""
+"SOTT1ClinicalComorbidity.otherConditions","SOTT1ClinicalComorbidity.otherConditions","","","",0,1,"","","","string {[]} {[]}
+","Other conditions impacting health, specify","Describe other underlaying conditions that impact the health of the patient","","","","","","","","","",,,,,"",,,,"SOTT1ClinicalComorbidity.otherConditions",0,1,"",""

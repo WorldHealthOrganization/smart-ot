@@ -1,0 +1,3062 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel> a fhir:StructureMap ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "MeaslesQuestionnaireToLogicalModel"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre class=\"fml\">\r\n<b>map</b><span style=\"color: navy\"> &quot;</span>http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel<span style=\"color: navy\">&quot; = &quot;</span>MeaslesQuestionnaireToLogicalModel<span style=\"color: navy\">&quot;\r\n\r\n</span><b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"http://hl7.org/fhir/R4/questionnaireresponse.html\" title=\"QuestionnaireResponse\">http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse</a><span style=\"color: navy\">&quot; </span><b>alias </b>QuestionnaireResponse <b>as </b><b>source</b>\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureDefinition-SOTMeasles.html\" title=\"Surveillance &amp; Outbreak Toolkit Measles\">http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles</a><span style=\"color: navy\">&quot; </span><b>alias </b>MeaslesLogicalModel <b>as </b><b>target</b>\r\n\r\n<b>group </b>MeaslesQuestionnaireToLogicalModel<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qr</span><span style=\"color: navy\"> : </span>QuestionnaireResponse, <b>target</b> <span style=\"color: maroon\">measlesLm</span><span style=\"color: navy\"> : </span>SOTMeasles<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qr.item<b> as </b><span style=\"color: maroon\">item</span><b> where </b>linkId.value in ('investigationForm')<span style=\"color: navy\"><b> -&gt; </b></span><span style=\"color: maroon\">measlesLm</span><b> as </b><span style=\"color: maroon\">measlesLm</span><b> then </b>mapInvestigationForm<span style=\"color: navy\">(</span><span style=\"color: maroon\">item</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">measlesLm</span><span style=\"color: navy\">)</span> <i>&quot;set Investigation form&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapInvestigationForm<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">investigationForm</span>, <b>target</b> <span style=\"color: maroon\">measlesLm</span><span style=\"color: navy\"> : </span>SOTMeasles<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  investigationForm.item<b> as </b><span style=\"color: maroon\">qrReportingSource</span><b> where </b>linkId.value in ('reportingSource')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.ReportingSource<b> as </b><span style=\"color: maroon\">lmReportingSource</span><b> then </b>mapReportingSource<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrReportingSource</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmReportingSource</span><span style=\"color: navy\">)</span> <i>&quot;set Reporting Source&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrDemographics</span><b> where </b>linkId.value in ('demographics')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.Demographics<b> as </b><span style=\"color: maroon\">lmDemographics</span><b> then </b>mapDemographics<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrDemographics</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmDemographics</span><span style=\"color: navy\">)</span> <i>&quot;set Demographics&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrVaccinationStatus</span><b> where </b>linkId.value in ('vaccinationStatus')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.VaccinationStatus<b> as </b><span style=\"color: maroon\">lmVaccinationStatus</span><b> then </b>mapVaccinationStatus<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrVaccinationStatus</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmVaccinationStatus</span><span style=\"color: navy\">)</span> <i>&quot;set Vaccination Status&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrClinical</span><b> where </b>linkId.value in ('clinical')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.Clinical<b> as </b><span style=\"color: maroon\">lmClinical</span><b> then </b>mapClinical<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrClinical</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmClinical</span><span style=\"color: navy\">)</span> <i>&quot;set Clinical&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrLaboratoryResults</span><b> where </b>linkId.value in ('laboratoryResults')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.LaboratoryResults<b> as </b><span style=\"color: maroon\">lmLaboratoryResults</span><b> then </b>mapLaboratoryResults<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrLaboratoryResults</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmLaboratoryResults</span><span style=\"color: navy\">)</span> <i>&quot;set Laboratory Results&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrContactTracing</span><b> where </b>linkId.value in ('contactTracing')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.ContactTracing<b> as </b><span style=\"color: maroon\">lmContactTracing</span><b> then </b>mapContactTracing<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrContactTracing</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmContactTracing</span><span style=\"color: navy\">)</span> <i>&quot;set Contact Tracing&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrEpiData</span><b> where </b>linkId.value in ('epiData')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.EpiData<b> as </b><span style=\"color: maroon\">lmEpiData</span><b> then </b>mapEpiData<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrEpiData</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmEpiData</span><span style=\"color: navy\">)</span> <i>&quot;set Epi Data&quot;</i><span style=\"color: navy\">;</span>\r\n  investigationForm.item<b> as </b><span style=\"color: maroon\">qrClassification</span><b> where </b>linkId.value in ('classification')<span style=\"color: navy\"><b> -&gt; </b></span>measlesLm.Classification<b> as </b><span style=\"color: maroon\">lmClassification</span><b> then </b>mapClassification<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrClassification</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmClassification</span><span style=\"color: navy\">)</span> <i>&quot;set Classification&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapReportingSource<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrReportingSource</span>, <b>target</b> <span style=\"color: maroon\">lmReportingSource</span><span style=\"color: navy\"> : </span>SOTMeaslesReportingSource<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrReportingSource.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">initialDiagnosis</span><b> where </b>item.linkId = 'initialDiagnosis'<b> then</b><span style=\"color: navy\"> {\r\n</span>      initialDiagnosis.value<b> as </b><span style=\"color: maroon\">coding</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.InitialDiagnosis = <span style=\"color: maroon\">coding</span> <i>&quot;set Initial Diagnosis&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set initial diag&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">reportedBy</span><b> where </b>item.linkId = 'reportedBy'<b> then</b><span style=\"color: navy\"> {\r\n</span>      reportedBy.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.ReportedBy = <span style=\"color: maroon\">value</span> <i>&quot;set case ID&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set case ID&quot;</i><span style=\"color: navy\">;</span>\r\n    qrReportingSource.item<b> as </b><span style=\"color: maroon\">qrReportingInstitution</span><b> where </b>linkId.value in ('reportingInstitution')<span style=\"color: navy\"><b> -&gt; </b></span><span style=\"color: maroon\">lmReportingSource</span><b> as </b><span style=\"color: maroon\">lmReportingSource</span><b> then </b>mapReportingInstitution<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrReportingInstitution</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">lmReportingSource</span><span style=\"color: navy\">)</span> <i>&quot;set reporting institution&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">dateOfConsultation</span><b> where </b>item.linkId = 'DateOfConsultation'<b> then</b><span style=\"color: navy\"> {\r\n</span>      dateOfConsultation.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.DateOfConsultation = <span style=\"color: maroon\">value</span> <i>&quot;set date of consultation&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set date of consultation&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">dateOfHomeVisit</span><b> where </b>item.linkId = 'DateOfHomeVisit'<b> then</b><span style=\"color: navy\"> {\r\n</span>      dateOfHomeVisit.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.DateOfHomeVisit = <span style=\"color: maroon\">value</span> <i>&quot;set date of home visit&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set date of home visit&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">dateReportedLocal</span><b> where </b>item.linkId = 'dateReported'<b> then</b><span style=\"color: navy\"> {\r\n</span>      dateReportedLocal.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.DateReportedLocal = <span style=\"color: maroon\">value</span> <i>&quot;set date reported local&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set date reported local&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">dateReportedNational</span><b> where </b>item.linkId = 'DateReportedNational'<b> then</b><span style=\"color: navy\"> {\r\n</span>      dateReportedNational.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.DateReportedNational = <span style=\"color: maroon\">value</span> <i>&quot;set date reported national&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set date reported national&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">providerType</span><b> where </b>item.linkId = 'TypeOfProviderReporting'<b> then</b><span style=\"color: navy\"> {\r\n</span>      providerType.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.TypeOfProviderReporting = <span style=\"color: maroon\">value</span> <i>&quot;set provider type&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set provider type&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">detectedBy</span><b> where </b>item.linkId = 'DetectedBy'<b> then</b><span style=\"color: navy\"> {\r\n</span>      detectedBy.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.DetectedBy = <span style=\"color: maroon\">value</span> <i>&quot;set detected by&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set detected by&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set reporting source&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapReportingInstitution<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrReportingInstitution</span>, <b>target</b> <span style=\"color: maroon\">lmReportingSource</span><span style=\"color: navy\"> : </span>SOTMeaslesReportingSource<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrReportingInstitution.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">reportingFacility</span><b> where </b>item.linkId = 'reportingFacility'<b> then</b><span style=\"color: navy\"> {\r\n</span>      reportingFacility.value<b> as </b><span style=\"color: maroon\">healthFacilityName</span><span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.HealthServiceName = <span style=\"color: maroon\">healthFacilityName</span> <i>&quot;set health facility name&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set health facility name&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">telephone</span><b> where </b>item.linkId = 'telephone'<b> then</b><span style=\"color: navy\"> {\r\n</span>      telephone.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span> <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'ContactPoint'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">lmTelephone</span><span style=\"color: navy\">, </span> lmTelephone.value = <span style=\"color: maroon\">value</span><span style=\"color: navy\">, </span> lmReportingSource.HealthServiceTelephone = <span style=\"color: maroon\">lmTelephone</span> <i>&quot;set telephone&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set telephone&quot;</i><span style=\"color: navy\">;</span>\r\n    qrReportingInstitution<span style=\"color: navy\"><b> -&gt; </b></span><b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Address'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">lmAddress</span><b> then</b><span style=\"color: navy\"> {\r\n</span>      item.answer first<b> as </b><span style=\"color: maroon\">country</span><b> where </b>item.linkId = 'country'<b> then</b><span style=\"color: navy\"> {\r\n</span>        country.value<b> as </b><span style=\"color: maroon\">countryValue</span><span style=\"color: navy\"><b> -&gt; </b></span>lmAddress.country = <span style=\"color: maroon\">countryValue</span> <i>&quot;set country&quot;</i><span style=\"color: navy\">;</span>\r\n      <span style=\"color: navy\">}</span> <i>&quot;set country&quot;</i><span style=\"color: navy\">;</span>\r\n      item.answer first<b> as </b><span style=\"color: maroon\">municipality</span><b> where </b>item.linkId = 'municipality'<b> then</b><span style=\"color: navy\"> {\r\n</span>        municipality.value<b> as </b><span style=\"color: maroon\">cityValue</span><span style=\"color: navy\"><b> -&gt; </b></span>lmAddress.city = <span style=\"color: maroon\">cityValue</span> <i>&quot;set city&quot;</i><span style=\"color: navy\">;</span>\r\n      <span style=\"color: navy\">}</span> <i>&quot;set city  &quot;</i><span style=\"color: navy\">;</span>\r\n      item.answer first<b> as </b><span style=\"color: maroon\">state</span><b> where </b>item.linkId = 'state'<b> then</b><span style=\"color: navy\"> {\r\n</span>        state.value<b> as </b><span style=\"color: maroon\">stateValue</span><span style=\"color: navy\"><b> -&gt; </b></span>lmAddress.state = <span style=\"color: maroon\">stateValue</span> <i>&quot;set state&quot;</i><span style=\"color: navy\">;</span>\r\n      <span style=\"color: navy\">}</span> <i>&quot;set state&quot;</i><span style=\"color: navy\">;</span>\r\n      item.answer first<b> as </b><span style=\"color: maroon\">locality</span><b> where </b>item.linkId = 'locality'<b> then</b><span style=\"color: navy\"> {\r\n</span>        locality.value<b> as </b><span style=\"color: maroon\">localityValue</span><span style=\"color: navy\"><b> -&gt; </b></span>lmAddress.line = <span style=\"color: maroon\">localityValue</span> <i>&quot;set locality&quot;</i><span style=\"color: navy\">;</span>\r\n      <span style=\"color: navy\">}</span> <i>&quot;set locality&quot;</i><span style=\"color: navy\">;</span>\r\n      qrReportingInstitution<span style=\"color: navy\"><b> -&gt; </b></span>lmReportingSource.PlaceOfReporting = <span style=\"color: maroon\">lmAddress</span> <i>&quot;assign address&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set address&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set reporting institution&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapDemographics<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrDemographics</span>, <b>target</b> <span style=\"color: maroon\">lmDemographics</span><span style=\"color: navy\"> : </span>SOTMeaslesDemographic<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrDemographics.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">name</span><b> where </b>item.linkId = 'name'<b> then</b><span style=\"color: navy\"> {\r\n</span>      name.value<b> as </b><span style=\"color: maroon\">nameValue</span><span style=\"color: navy\"><b> -&gt; </b></span> <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'HumanName'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">lmName</span><span style=\"color: navy\">, </span> lmName.family = <span style=\"color: maroon\">nameValue</span><span style=\"color: navy\">, </span> lmDemographics.Name = <span style=\"color: maroon\">lmName</span> <i>&quot;set name&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set name&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">guardian</span><b> where </b>item.linkId = 'guardian'<b> then</b><span style=\"color: navy\"> {\r\n</span>      guardian.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span> <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'HumanName'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">lmGuardian</span><span style=\"color: navy\">, </span> lmGuardian.family = <span style=\"color: maroon\">value</span><span style=\"color: navy\">, </span> lmDemographics.Guardian = <span style=\"color: maroon\">lmGuardian</span> <i>&quot;set guardian&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set guardian&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">address</span><b> where </b>item.linkId = 'address'<b> then</b><span style=\"color: navy\"> {\r\n</span>      address.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span> <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Address'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">lmAddress</span><span style=\"color: navy\">, </span> lmAddress.text = <span style=\"color: maroon\">value</span><span style=\"color: navy\">, </span> lmDemographics.PlaceOfResidence = <span style=\"color: maroon\">lmAddress</span> <i>&quot;set address&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set address&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">telephone</span><b> where </b>item.linkId = 'telephone'<b> then</b><span style=\"color: navy\"> {\r\n</span>      telephone.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span> <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'ContactPoint'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">lmTelephone</span><span style=\"color: navy\">, </span> lmTelephone.value = <span style=\"color: maroon\">value</span><span style=\"color: navy\">, </span> lmDemographics.Telephone = <span style=\"color: maroon\">lmTelephone</span> <i>&quot;set telephone&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set telephone&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">landmark</span><b> where </b>item.linkId = 'landmark'<b> then</b><span style=\"color: navy\"> {\r\n</span>      landmark.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmDemographics.Landmark = <span style=\"color: maroon\">value</span> <i>&quot;set landmark&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set landmark&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">occupation</span><b> where </b>item.linkId = 'occupation'<b> then</b><span style=\"color: navy\"> {\r\n</span>      occupation.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmDemographics.Occupation = <span style=\"color: maroon\">value</span> <i>&quot;set occupation&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set occupation&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">location</span><b> where </b>item.linkId = 'location living in'<b> then</b><span style=\"color: navy\"> {\r\n</span>      location.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>locationlmDemographics.LocalityType = <span style=\"color: maroon\">value</span> <i>&quot;set Locality Type&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set Locality Type&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">workAddress</span><b> where </b>item.linkId = 'workAddress'<b> then</b><span style=\"color: navy\"> {\r\n</span>      workAddress.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span> <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Address'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">lmAddress</span><span style=\"color: navy\">, </span> lmAddress.text = <span style=\"color: maroon\">value</span><span style=\"color: navy\">, </span> lmDemographics.WorkAddress = <span style=\"color: maroon\">lmAddress</span> <i>&quot;set workAddress&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set workAddress&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">sex</span><b> where </b>item.linkId = 'sex'<b> then</b><span style=\"color: navy\"> {\r\n</span>      sex.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmDemographics.Sex = <span style=\"color: maroon\">value</span> <i>&quot;set sex&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set sex&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">DoB</span><b> where </b>item.linkId = 'DoB'<b> then</b><span style=\"color: navy\"> {\r\n</span>      DoB.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmDemographics.DateOfBirth = <span style=\"color: maroon\">value</span> <i>&quot;set DoB&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set DoB&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">ageOnset</span><b> where </b>item.linkId = 'ageOnset'<b> then</b><span style=\"color: navy\"> {\r\n</span>      ageOnset.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span> <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Quantity'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">lmAgeOnset</span><span style=\"color: navy\">, </span> lmAgeOnset.value = <span style=\"color: maroon\">value</span><span style=\"color: navy\">, </span> lmDemographics.Age = <span style=\"color: maroon\">lmAgeOnset</span> <i>&quot;set ageOnset&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set ageOnset&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set demographics&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapVaccinationStatus<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrVaccinationStatus</span>, <b>target</b> <span style=\"color: maroon\">lmVaccinationStatus</span><span style=\"color: navy\"> : </span>SOTMeaslesVaccinationStatus<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrVaccinationStatus.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">lastDoseDate</span><b> where </b>item.linkId = 'lastDoseDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      lastDoseDate.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmVaccinationStatus.LastDoseDate = <span style=\"color: maroon\">value</span> <i>&quot;set Last Dose Date&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set last dose date&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">sourceOfInformation</span><b> where </b>item.linkId = 'sourceOfInformation'<b> then</b><span style=\"color: navy\"> {\r\n</span>      sourceOfInformation.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmVaccinationStatus.Source = <span style=\"color: maroon\">value</span> <i>&quot;set Source of Vaccination Information&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">noOfDoses</span><b> where </b>item.linkId = 'noOfDoses'<b> then</b><span style=\"color: navy\"> {\r\n</span>      noOfDoses.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmVaccinationStatus.NumberOfDoses = <span style=\"color: maroon\">value</span> <i>&quot;set number of doses&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">vaccineType</span><b> where </b>item.linkId = 'vaccineType'<b> then</b><span style=\"color: navy\"> {\r\n</span>      vaccineType.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmVaccinationStatus.VaccineType = <span style=\"color: maroon\">value</span> <i>&quot;set vaccine type&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapClinical<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrClinical</span>, <b>target</b> <span style=\"color: maroon\">lmClinical</span><span style=\"color: navy\"> : </span>SOTMeaslesClinical<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrClinical.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">fever</span><b> where </b>item.linkId = 'fever'<b> then</b><span style=\"color: navy\"> {\r\n</span>      fever.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Fever = <span style=\"color: maroon\">value</span> <i>&quot;set Fever&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">temperature</span><b> where </b>item.linkId = 'temperature'<b> then</b><span style=\"color: navy\"> {\r\n</span>      temperature.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span> lmClinical.Temperature<b> as </b><span style=\"color: maroon\">temp</span><span style=\"color: navy\">, </span> temp.value = <span style=\"color: maroon\">value</span> <i>&quot;set Temperature&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">dateOfFeverOnset</span><b> where </b>item.linkId = 'dateOfFeverOnset'<b> then</b><span style=\"color: navy\"> {\r\n</span>      dateOfFeverOnset.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.FeverOnsetDate = <span style=\"color: maroon\">value</span> <i>&quot;set Date of Fever Onset&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">rash</span><b> where </b>item.linkId = 'rash'<b> then</b><span style=\"color: navy\"> {\r\n</span>      rash.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Rash = <span style=\"color: maroon\">value</span> <i>&quot;set Rash&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">rashType</span><b> where </b>item.linkId = 'rashType'<b> then</b><span style=\"color: navy\"> {\r\n</span>      rashType.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.TypeOfRash = <span style=\"color: maroon\">value</span> <i>&quot;set Rash Type&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">rashDuration</span><b> where </b>item.linkId = 'rashDuration'<b> then</b><span style=\"color: navy\"> {\r\n</span>      rashDuration.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.DurationOfRash = <span style=\"color: maroon\">value</span> <i>&quot;set Rash Duration&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">rashOnsetDate</span><b> where </b>item.linkId = 'rashOnsetDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      rashOnsetDate.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.RashOnsetDate = <span style=\"color: maroon\">value</span> <i>&quot;set Rash Onset Date&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">cough</span><b> where </b>item.linkId = 'cough'<b> then</b><span style=\"color: navy\"> {\r\n</span>      cough.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Cough = <span style=\"color: maroon\">value</span> <i>&quot;set Cough&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">conjunctivitis</span><b> where </b>item.linkId = 'conjunctivitis'<b> then</b><span style=\"color: navy\"> {\r\n</span>      conjunctivitis.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Conjunctivitis = <span style=\"color: maroon\">value</span> <i>&quot;set Conjunctivitis&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">coryza</span><b> where </b>item.linkId = 'coryza'<b> then</b><span style=\"color: navy\"> {\r\n</span>      coryza.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Coryza = <span style=\"color: maroon\">value</span> <i>&quot;set Coryza&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">koplikSpots</span><b> where </b>item.linkId = 'koplikSpots'<b> then</b><span style=\"color: navy\"> {\r\n</span>      koplikSpots.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.KoplikSpots = <span style=\"color: maroon\">value</span> <i>&quot;set Koplik Spots&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">lymphadenopathy</span><b> where </b>item.linkId = 'lymphadenopathy'<b> then</b><span style=\"color: navy\"> {\r\n</span>      lymphadenopathy.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Lymphadenopathy = <span style=\"color: maroon\">value</span> <i>&quot;set Lymphadenopathy&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">jointPain</span><b> where </b>item.linkId = 'jointPain'<b> then</b><span style=\"color: navy\"> {\r\n</span>      jointPain.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.JointPain = <span style=\"color: maroon\">value</span> <i>&quot;set Arthralgia&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">pregnancy</span><b> where </b>item.linkId = 'pregnancy'<b> then</b><span style=\"color: navy\"> {\r\n</span>      pregnancy.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.PregnancyStatus = <span style=\"color: maroon\">value</span> <i>&quot;set Pregnant&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">monthsPregnant</span><b> where </b>item.linkId = 'monthsPregnant'<b> then</b><span style=\"color: navy\"> {\r\n</span>      monthsPregnant.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span> lmClinical.GestationWeeks<b> as </b><span style=\"color: maroon\">weeks</span><span style=\"color: navy\">, </span> weeks.value = <span style=\"color: maroon\">value</span> <i>&quot;set Pregnancy Weeks&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">placeOfBirth</span><b> where </b>item.linkId = 'placeOfBirth'<b> then</b><span style=\"color: navy\"> {\r\n</span>      placeOfBirth.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.IntentedBirthPlacce = <span style=\"color: maroon\">value</span> <i>&quot;set Place of Birth&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">admitted</span><b> where </b>item.linkId = 'admitted'<b> then</b><span style=\"color: navy\"> {\r\n</span>      admitted.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.HistoryOfHospitalization = <span style=\"color: maroon\">value</span> <i>&quot;set Hospitalized&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">admittedHCFName</span><b> where </b>item.linkId = 'admittedHCFName'<b> then</b><span style=\"color: navy\"> {\r\n</span>      admittedHCFName.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.HospitalName = <span style=\"color: maroon\">value</span> <i>&quot;set Hospital Name&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">admissionDate</span><b> where </b>item.linkId = 'admissionDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      admissionDate.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.DateOfAdmission = <span style=\"color: maroon\">value</span> <i>&quot;set Admission Date&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">hospitalRecordNumber</span><b> where </b>item.linkId = 'hospitalRecordNumber'<b> then</b><span style=\"color: navy\"> {\r\n</span>      hospitalRecordNumber.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.HospitalRecordNumber = <span style=\"color: maroon\">value</span> <i>&quot;set Hospital Record Number&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">outcome</span><b> where </b>item.linkId = 'outcome'<b> then</b><span style=\"color: navy\"> {\r\n</span>      outcome.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Outcome = <span style=\"color: maroon\">value</span> <i>&quot;set Outcome&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">deathCause</span><b> where </b>item.linkId = 'primaryCauseOfDeath'<b> then</b><span style=\"color: navy\"> {\r\n</span>      deathCause.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.primaryCauseOfDeath = <span style=\"color: maroon\">value</span> <i>&quot;set cause&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">outcomeDate</span><b> where </b>item.linkId = 'outcomeDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      outcomeDate.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.DateOfDeath = <span style=\"color: maroon\">value</span> <i>&quot;set death date&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">diseaseAdditionalInfo</span><b> where </b>item.linkId = 'diseaseAdditionalInfo'<b> then</b><span style=\"color: navy\"> {\r\n</span>      diseaseAdditionalInfo.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClinical.Comments = <span style=\"color: maroon\">value</span> <i>&quot;set Comments&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set clinical&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapLaboratoryResults<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrLaboratoryResults</span>, <b>target</b> <span style=\"color: maroon\">lmLaboratoryResults</span><span style=\"color: navy\"> : </span>LaboratoryResultsLogicalModel<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrLaboratoryResults.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'specimenNumber'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.SpecimenNumber = <span style=\"color: maroon\">value</span> <i>&quot;set SpecimenNumber&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'sampleType'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.SampleType = <span style=\"color: maroon\">value</span> <i>&quot;set SampleType&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'collectionDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.SpecimenCollectionDate = <span style=\"color: maroon\">value</span> <i>&quot;set SpecimenCollectionDate&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'labName'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.LabName = <span style=\"color: maroon\">value</span> <i>&quot;set Shipment Date&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'specimenSentDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.SpecimenSentDate = <span style=\"color: maroon\">value</span> <i>&quot;set SpecimenSentDate&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'specimenReceivedDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.SpecimenRecdDate = <span style=\"color: maroon\">value</span> <i>&quot;set SpecimenRecdDate&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'sampleId'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.SampleId = <span style=\"color: maroon\">value</span> <i>&quot;set SampleId&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'testPerformed'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.TypeOfTest = <span style=\"color: maroon\">value</span> <i>&quot;set TypeOfTest&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'antigen'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.Antigen = <span style=\"color: maroon\">value</span> <i>&quot;set Antigen&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'result'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.Results = <span style=\"color: maroon\">value</span> <i>&quot;set Results&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'resultDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.LabResultsDate = <span style=\"color: maroon\">value</span> <i>&quot;set LabResultsDate  &quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'specifyVirus'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmLaboratoryResults.ViralGenotype = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set labs&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapTravelDetails<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrTravelDetails</span>, <b>target</b> <span style=\"color: maroon\">lmContactTracing</span><span style=\"color: navy\"> : </span>SOTMeaslesContactTracing<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrTravelDetails.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'placeOfTravel'<b> then</b><span style=\"color: navy\"> {\r\n</span>    answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmTravelDetails.placeOfTravel = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n  qrTravelDetails.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'arrivalDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>    answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmTravelDetails.arrivalDate = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n  qrTravelDetails.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'departureDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>    answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmTravelDetails.departureDate = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapContactTracing<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrContactTracing</span>, <b>target</b> <span style=\"color: maroon\">lmContactTracing</span><span style=\"color: navy\"> : </span>SOTMeaslesContactTracing<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrContactTracing.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'caseSearchConducted'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmContactTracing.caseSearchConducted = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'noOfsuspectCases'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmContactTracing.noOfsuspectCases = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'pregnantContact'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmContactTracing.pregnantContact = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'pregnantContactNames'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmContactTracing.pregnantContactNames = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'localCasesPresent'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmContactTracing.localCasesPresent = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'travelledOutside'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmContactTracing.travelledOutside = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">qrTravelDetails</span><b> where </b>item.linkId = 'travelDetails'<span style=\"color: navy\"><b> -&gt; </b></span><b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureTravelHistory'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">tgtTravelDetails</span><b> then</b><span style=\"color: navy\"> {\r\n</span>      qrTravelDetails<span style=\"color: navy\"><b> -&gt; </b></span><span style=\"color: maroon\">qrTravelDetails</span><b> then </b>mapTravelDetails<span style=\"color: navy\">(</span><span style=\"color: maroon\">qrTravelDetails</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">tgtTravelDetails</span><span style=\"color: navy\">)</span> <i>&quot;d&quot;</i><span style=\"color: navy\">;</span>\r\n      qrTravelDetails<span style=\"color: navy\"><b> -&gt; </b></span>lmContactTracing.travelDetails = <span style=\"color: maroon\">tgtTravelDetails</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'infectionSetting'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmContactTracing.infectionSetting = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'specifyInfectionSetting'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmContactTracing.specifyInfectionSetting = <span style=\"color: maroon\">value</span> <i>&quot;set specify virus&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set contact tracing&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapEpiData<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrEpiData</span>, <b>target</b> <span style=\"color: maroon\">lmEpiData</span><span style=\"color: navy\"> : </span>EpiDataLogicalModel<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrEpiData.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'ringVaccination'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmEpiData.ringVaccination = <span style=\"color: maroon\">value</span> <i>&quot;set finalClassification&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'dateStarted'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmEpiData.dateStarted = <span style=\"color: maroon\">value</span> <i>&quot;set finalClassification&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'dateEnded'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmEpiData.dateEnded = <span style=\"color: maroon\">value</span> <i>&quot;set finalClassification&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'noOfDosesRingVaccination'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmEpiData.noOfDosesRingVaccination = <span style=\"color: maroon\">value</span> <i>&quot;set finalClassification&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'rapidCoverageMonitioring'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmEpiData.rapidCoverageMonitioring = <span style=\"color: maroon\">value</span> <i>&quot;set finalClassification&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'percentVaccinated'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmEpiData.percentVaccinated = <span style=\"color: maroon\">value</span> <i>&quot;set finalClassification&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'contactTracingDone'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmEpiData.contactTracingDone = <span style=\"color: maroon\">value</span> <i>&quot;set finalClassification&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'lastFollowUp'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmEpiData.lastFollowUp = <span style=\"color: maroon\">value</span> <i>&quot;set finalClassification&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set epi data&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span><b>group </b>mapClassification<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">qrClassification</span>, <b>target</b> <span style=\"color: maroon\">lmClassification</span><span style=\"color: navy\"> : </span>ClassificationLogicalModel<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  qrClassification.item<b> as </b><span style=\"color: maroon\">item</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'finalClassification'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClassification.FinalClassification = <span style=\"color: maroon\">value</span> <i>&quot;set finalClassification&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'confirmationBasis'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClassification.ConfirmationBasis = <span style=\"color: maroon\">value</span> <i>&quot;set confirmationBasis&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'source'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClassification.Source = <span style=\"color: maroon\">value</span> <i>&quot;set source&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'countryImportation'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClassification.CountryImportation = <span style=\"color: maroon\">value</span> <i>&quot;set countryImportation&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'discardingBasis'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClassification.DiscardingBasis = <span style=\"color: maroon\">value</span> <i>&quot;set discardingBasis&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'contact'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClassification.Contact = <span style=\"color: maroon\">value</span> <i>&quot;set contact&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'contactCaseNo'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClassification.ContactCaseNo = <span style=\"color: maroon\">value</span> <i>&quot;set contactCaseNo&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'classifiedBy'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClassification.ClassifiedBy = <span style=\"color: maroon\">value</span> <i>&quot;set classifiedBy&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n    item.answer first<b> as </b><span style=\"color: maroon\">answer</span><b> where </b>item.linkId = 'classificationDate'<b> then</b><span style=\"color: navy\"> {\r\n</span>      answer.value<b> as </b><span style=\"color: maroon\">value</span><span style=\"color: navy\"><b> -&gt; </b></span>lmClassification.ClassificationDate = <span style=\"color: maroon\">value</span> <i>&quot;set classificationDate&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;set&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;set classification&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span></pre></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/StructureMap/MeaslesQuestionnaireToLogicalModel"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "MeaslesQuestionnaireToLogicalModel"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-10-25T07:26:32+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:structure ( [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"^^xsd:anyURI ;
+       fhir:link <http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse>
+     ] ;
+     fhir:mode [ fhir:v "source" ] ;
+     fhir:alias [ fhir:v "QuestionnaireResponse" ]
+  ] [
+     fhir:url [
+       fhir:v "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles"^^xsd:anyURI ;
+       fhir:link <http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTMeasles>
+     ] ;
+     fhir:mode [ fhir:v "target" ] ;
+     fhir:alias [ fhir:v "MeaslesLogicalModel" ]
+  ] ) ; # 
+  fhir:group ( [
+     fhir:name [ fhir:v "MeaslesQuestionnaireToLogicalModel" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "qr" ] ;
+       fhir:type [ fhir:v "QuestionnaireResponse" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "measlesLm" ] ;
+       fhir:type [ fhir:v "SOTMeasles" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set Investigation form" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qr" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "item" ] ;
+         fhir:condition [ fhir:v "linkId.value in ('investigationForm')" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:variable [ fhir:v "measlesLm" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "measlesLm" ]
+         ] )
+       ] ) ;
+       fhir:dependent ( [
+         fhir:name [ fhir:v "mapInvestigationForm" ] ;
+         fhir:variable ( [ fhir:v "item" ] [ fhir:v "measlesLm" ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "mapInvestigationForm" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "investigationForm" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "measlesLm" ] ;
+       fhir:type [ fhir:v "SOTMeasles" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set Reporting Source" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "investigationForm" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "qrReportingSource" ] ;
+         fhir:condition [ fhir:v "linkId.value in ('reportingSource')" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "measlesLm" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "ReportingSource" ] ;
+         fhir:variable [ fhir:v "lmReportingSource" ]
+       ] ) ;
+       fhir:dependent ( [
+         fhir:name [ fhir:v "mapReportingSource" ] ;
+         fhir:variable ( [ fhir:v "qrReportingSource" ] [ fhir:v "lmReportingSource" ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "set Demographics" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "investigationForm" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "qrDemographics" ] ;
+         fhir:condition [ fhir:v "linkId.value in ('demographics')" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "measlesLm" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "Demographics" ] ;
+         fhir:variable [ fhir:v "lmDemographics" ]
+       ] ) ;
+       fhir:dependent ( [
+         fhir:name [ fhir:v "mapDemographics" ] ;
+         fhir:variable ( [ fhir:v "qrDemographics" ] [ fhir:v "lmDemographics" ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "set Vaccination Status" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "investigationForm" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "qrVaccinationStatus" ] ;
+         fhir:condition [ fhir:v "linkId.value in ('vaccinationStatus')" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "measlesLm" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "VaccinationStatus" ] ;
+         fhir:variable [ fhir:v "lmVaccinationStatus" ]
+       ] ) ;
+       fhir:dependent ( [
+         fhir:name [ fhir:v "mapVaccinationStatus" ] ;
+         fhir:variable ( [ fhir:v "qrVaccinationStatus" ] [ fhir:v "lmVaccinationStatus" ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "set Clinical" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "investigationForm" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "qrClinical" ] ;
+         fhir:condition [ fhir:v "linkId.value in ('clinical')" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "measlesLm" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "Clinical" ] ;
+         fhir:variable [ fhir:v "lmClinical" ]
+       ] ) ;
+       fhir:dependent ( [
+         fhir:name [ fhir:v "mapClinical" ] ;
+         fhir:variable ( [ fhir:v "qrClinical" ] [ fhir:v "lmClinical" ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "set Laboratory Results" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "investigationForm" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "qrLaboratoryResults" ] ;
+         fhir:condition [ fhir:v "linkId.value in ('laboratoryResults')" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "measlesLm" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "LaboratoryResults" ] ;
+         fhir:variable [ fhir:v "lmLaboratoryResults" ]
+       ] ) ;
+       fhir:dependent ( [
+         fhir:name [ fhir:v "mapLaboratoryResults" ] ;
+         fhir:variable ( [ fhir:v "qrLaboratoryResults" ] [ fhir:v "lmLaboratoryResults" ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "set Contact Tracing" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "investigationForm" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "qrContactTracing" ] ;
+         fhir:condition [ fhir:v "linkId.value in ('contactTracing')" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "measlesLm" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "ContactTracing" ] ;
+         fhir:variable [ fhir:v "lmContactTracing" ]
+       ] ) ;
+       fhir:dependent ( [
+         fhir:name [ fhir:v "mapContactTracing" ] ;
+         fhir:variable ( [ fhir:v "qrContactTracing" ] [ fhir:v "lmContactTracing" ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "set Epi Data" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "investigationForm" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "qrEpiData" ] ;
+         fhir:condition [ fhir:v "linkId.value in ('epiData')" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "measlesLm" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "EpiData" ] ;
+         fhir:variable [ fhir:v "lmEpiData" ]
+       ] ) ;
+       fhir:dependent ( [
+         fhir:name [ fhir:v "mapEpiData" ] ;
+         fhir:variable ( [ fhir:v "qrEpiData" ] [ fhir:v "lmEpiData" ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "set Classification" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "investigationForm" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "qrClassification" ] ;
+         fhir:condition [ fhir:v "linkId.value in ('classification')" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "measlesLm" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "Classification" ] ;
+         fhir:variable [ fhir:v "lmClassification" ]
+       ] ) ;
+       fhir:dependent ( [
+         fhir:name [ fhir:v "mapClassification" ] ;
+         fhir:variable ( [ fhir:v "qrClassification" ] [ fhir:v "lmClassification" ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "mapReportingSource" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "qrReportingSource" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "lmReportingSource" ] ;
+       fhir:type [ fhir:v "SOTMeaslesReportingSource" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set reporting source" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qrReportingSource" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "item" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "set initial diag" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "initialDiagnosis" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'initialDiagnosis'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Initial Diagnosis" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "initialDiagnosis" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "coding" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmReportingSource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "InitialDiagnosis" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "coding" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set case ID" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "reportedBy" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'reportedBy'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set case ID" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "reportedBy" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmReportingSource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "ReportedBy" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set reporting institution" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "qrReportingSource" ] ;
+           fhir:element [ fhir:v "item" ] ;
+           fhir:variable [ fhir:v "qrReportingInstitution" ] ;
+           fhir:condition [ fhir:v "linkId.value in ('reportingInstitution')" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:variable [ fhir:v "lmReportingSource" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "lmReportingSource" ]
+           ] )
+         ] ) ;
+         fhir:dependent ( [
+           fhir:name [ fhir:v "mapReportingInstitution" ] ;
+           fhir:variable ( [ fhir:v "qrReportingInstitution" ] [ fhir:v "lmReportingSource" ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set date of consultation" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "dateOfConsultation" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'DateOfConsultation'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set date of consultation" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "dateOfConsultation" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmReportingSource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "DateOfConsultation" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set date of home visit" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "dateOfHomeVisit" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'DateOfHomeVisit'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set date of home visit" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "dateOfHomeVisit" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmReportingSource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "DateOfHomeVisit" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set date reported local" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "dateReportedLocal" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'dateReported'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set date reported local" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "dateReportedLocal" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmReportingSource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "DateReportedLocal" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set date reported national" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "dateReportedNational" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'DateReportedNational'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set date reported national" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "dateReportedNational" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmReportingSource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "DateReportedNational" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set provider type" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "providerType" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'TypeOfProviderReporting'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set provider type" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "providerType" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmReportingSource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "TypeOfProviderReporting" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set detected by" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "detectedBy" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'DetectedBy'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set detected by" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "detectedBy" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmReportingSource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "DetectedBy" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "mapReportingInstitution" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "qrReportingInstitution" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "lmReportingSource" ] ;
+       fhir:type [ fhir:v "SOTMeaslesReportingSource" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set reporting institution" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qrReportingInstitution" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "item" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "set health facility name" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "reportingFacility" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'reportingFacility'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set health facility name" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "reportingFacility" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "healthFacilityName" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmReportingSource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "HealthServiceName" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "healthFacilityName" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set telephone" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "telephone" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'telephone'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set telephone" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "telephone" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:variable [ fhir:v "lmTelephone" ] ;
+             fhir:transform [ fhir:v "create" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "ContactPoint" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmTelephone" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmReportingSource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "HealthServiceTelephone" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "lmTelephone" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set address" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "qrReportingInstitution" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:variable [ fhir:v "lmAddress" ] ;
+           fhir:transform [ fhir:v "create" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "Address" ]
+           ] )
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set country" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "item" ] ;
+             fhir:element [ fhir:v "answer" ] ;
+             fhir:listMode [ fhir:v "first" ] ;
+             fhir:variable [ fhir:v "country" ] ;
+             fhir:condition [ fhir:v "item.linkId = 'country'" ]
+           ] ) ;
+           fhir:rule ( [
+             fhir:name [ fhir:v "set country" ] ;
+             fhir:source ( [
+               fhir:context [ fhir:v "country" ] ;
+               fhir:element [ fhir:v "value" ] ;
+               fhir:variable [ fhir:v "countryValue" ]
+             ] ) ;
+             fhir:target ( [
+               fhir:context [ fhir:v "lmAddress" ] ;
+               fhir:contextType [ fhir:v "variable" ] ;
+               fhir:element [ fhir:v "country" ] ;
+               fhir:transform [ fhir:v "copy" ] ;
+               fhir:parameter ( [
+                 fhir:value [ fhir:v "countryValue" ]
+               ] )
+             ] )
+           ] )
+         ] [
+           fhir:name [ fhir:v "set city  " ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "item" ] ;
+             fhir:element [ fhir:v "answer" ] ;
+             fhir:listMode [ fhir:v "first" ] ;
+             fhir:variable [ fhir:v "municipality" ] ;
+             fhir:condition [ fhir:v "item.linkId = 'municipality'" ]
+           ] ) ;
+           fhir:rule ( [
+             fhir:name [ fhir:v "set city" ] ;
+             fhir:source ( [
+               fhir:context [ fhir:v "municipality" ] ;
+               fhir:element [ fhir:v "value" ] ;
+               fhir:variable [ fhir:v "cityValue" ]
+             ] ) ;
+             fhir:target ( [
+               fhir:context [ fhir:v "lmAddress" ] ;
+               fhir:contextType [ fhir:v "variable" ] ;
+               fhir:element [ fhir:v "city" ] ;
+               fhir:transform [ fhir:v "copy" ] ;
+               fhir:parameter ( [
+                 fhir:value [ fhir:v "cityValue" ]
+               ] )
+             ] )
+           ] )
+         ] [
+           fhir:name [ fhir:v "set state" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "item" ] ;
+             fhir:element [ fhir:v "answer" ] ;
+             fhir:listMode [ fhir:v "first" ] ;
+             fhir:variable [ fhir:v "state" ] ;
+             fhir:condition [ fhir:v "item.linkId = 'state'" ]
+           ] ) ;
+           fhir:rule ( [
+             fhir:name [ fhir:v "set state" ] ;
+             fhir:source ( [
+               fhir:context [ fhir:v "state" ] ;
+               fhir:element [ fhir:v "value" ] ;
+               fhir:variable [ fhir:v "stateValue" ]
+             ] ) ;
+             fhir:target ( [
+               fhir:context [ fhir:v "lmAddress" ] ;
+               fhir:contextType [ fhir:v "variable" ] ;
+               fhir:element [ fhir:v "state" ] ;
+               fhir:transform [ fhir:v "copy" ] ;
+               fhir:parameter ( [
+                 fhir:value [ fhir:v "stateValue" ]
+               ] )
+             ] )
+           ] )
+         ] [
+           fhir:name [ fhir:v "set locality" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "item" ] ;
+             fhir:element [ fhir:v "answer" ] ;
+             fhir:listMode [ fhir:v "first" ] ;
+             fhir:variable [ fhir:v "locality" ] ;
+             fhir:condition [ fhir:v "item.linkId = 'locality'" ]
+           ] ) ;
+           fhir:rule ( [
+             fhir:name [ fhir:v "set locality" ] ;
+             fhir:source ( [
+               fhir:context [ fhir:v "locality" ] ;
+               fhir:element [ fhir:v "value" ] ;
+               fhir:variable [ fhir:v "localityValue" ]
+             ] ) ;
+             fhir:target ( [
+               fhir:context [ fhir:v "lmAddress" ] ;
+               fhir:contextType [ fhir:v "variable" ] ;
+               fhir:element [ fhir:v "line" ] ;
+               fhir:transform [ fhir:v "copy" ] ;
+               fhir:parameter ( [
+                 fhir:value [ fhir:v "localityValue" ]
+               ] )
+             ] )
+           ] )
+         ] [
+           fhir:name [ fhir:v "assign address" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "qrReportingInstitution" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmReportingSource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "PlaceOfReporting" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "lmAddress" ]
+             ] )
+           ] )
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "mapDemographics" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "qrDemographics" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "lmDemographics" ] ;
+       fhir:type [ fhir:v "SOTMeaslesDemographic" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set demographics" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qrDemographics" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "item" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "set name" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "name" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'name'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set name" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "name" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "nameValue" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:variable [ fhir:v "lmName" ] ;
+             fhir:transform [ fhir:v "create" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "HumanName" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmName" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "family" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "nameValue" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmDemographics" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Name" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "lmName" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set guardian" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "guardian" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'guardian'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set guardian" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "guardian" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:variable [ fhir:v "lmGuardian" ] ;
+             fhir:transform [ fhir:v "create" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "HumanName" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmGuardian" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "family" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmDemographics" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Guardian" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "lmGuardian" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set address" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "address" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'address'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set address" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "address" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:variable [ fhir:v "lmAddress" ] ;
+             fhir:transform [ fhir:v "create" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "Address" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmAddress" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "text" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmDemographics" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "PlaceOfResidence" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "lmAddress" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set telephone" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "telephone" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'telephone'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set telephone" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "telephone" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:variable [ fhir:v "lmTelephone" ] ;
+             fhir:transform [ fhir:v "create" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "ContactPoint" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmTelephone" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmDemographics" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Telephone" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "lmTelephone" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set landmark" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "landmark" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'landmark'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set landmark" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "landmark" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmDemographics" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Landmark" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set occupation" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "occupation" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'occupation'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set occupation" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "occupation" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmDemographics" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Occupation" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set Locality Type" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "location" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'location living in'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Locality Type" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "location" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "locationlmDemographics" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "LocalityType" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set workAddress" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "workAddress" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'workAddress'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set workAddress" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "workAddress" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:variable [ fhir:v "lmAddress" ] ;
+             fhir:transform [ fhir:v "create" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "Address" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmAddress" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "text" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmDemographics" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "WorkAddress" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "lmAddress" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set sex" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "sex" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'sex'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set sex" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "sex" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmDemographics" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Sex" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set DoB" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "DoB" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'DoB'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set DoB" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "DoB" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmDemographics" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "DateOfBirth" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set ageOnset" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "ageOnset" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'ageOnset'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set ageOnset" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "ageOnset" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:variable [ fhir:v "lmAgeOnset" ] ;
+             fhir:transform [ fhir:v "create" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "Quantity" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmAgeOnset" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "lmDemographics" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Age" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "lmAgeOnset" ]
+             ] )
+           ] )
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "mapVaccinationStatus" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "qrVaccinationStatus" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "lmVaccinationStatus" ] ;
+       fhir:type [ fhir:v "SOTMeaslesVaccinationStatus" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qrVaccinationStatus" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "item" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "set last dose date" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "lastDoseDate" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'lastDoseDate'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Last Dose Date" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "lastDoseDate" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmVaccinationStatus" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "LastDoseDate" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "sourceOfInformation" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'sourceOfInformation'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Source of Vaccination Information" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "sourceOfInformation" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmVaccinationStatus" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Source" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "noOfDoses" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'noOfDoses'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set number of doses" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "noOfDoses" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmVaccinationStatus" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "NumberOfDoses" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "vaccineType" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'vaccineType'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set vaccine type" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "vaccineType" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmVaccinationStatus" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "VaccineType" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "mapClinical" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "qrClinical" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "lmClinical" ] ;
+       fhir:type [ fhir:v "SOTMeaslesClinical" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set clinical" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qrClinical" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "item" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "fever" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'fever'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Fever" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "fever" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Fever" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "temperature" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'temperature'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Temperature" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "temperature" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Temperature" ] ;
+             fhir:variable [ fhir:v "temp" ]
+           ] [
+             fhir:context [ fhir:v "temp" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "dateOfFeverOnset" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'dateOfFeverOnset'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Date of Fever Onset" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "dateOfFeverOnset" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "FeverOnsetDate" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "rash" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'rash'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Rash" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "rash" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Rash" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "rashType" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'rashType'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Rash Type" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "rashType" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "TypeOfRash" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "rashDuration" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'rashDuration'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Rash Duration" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "rashDuration" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "DurationOfRash" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "rashOnsetDate" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'rashOnsetDate'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Rash Onset Date" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "rashOnsetDate" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "RashOnsetDate" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "cough" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'cough'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Cough" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "cough" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Cough" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "conjunctivitis" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'conjunctivitis'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Conjunctivitis" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "conjunctivitis" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Conjunctivitis" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "coryza" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'coryza'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Coryza" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "coryza" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Coryza" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "koplikSpots" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'koplikSpots'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Koplik Spots" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "koplikSpots" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "KoplikSpots" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "lymphadenopathy" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'lymphadenopathy'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Lymphadenopathy" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "lymphadenopathy" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Lymphadenopathy" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "jointPain" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'jointPain'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Arthralgia" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "jointPain" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "JointPain" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "pregnancy" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'pregnancy'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Pregnant" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "pregnancy" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "PregnancyStatus" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "monthsPregnant" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'monthsPregnant'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Pregnancy Weeks" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "monthsPregnant" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "GestationWeeks" ] ;
+             fhir:variable [ fhir:v "weeks" ]
+           ] [
+             fhir:context [ fhir:v "weeks" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "placeOfBirth" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'placeOfBirth'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Place of Birth" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "placeOfBirth" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "IntentedBirthPlacce" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "admitted" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'admitted'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Hospitalized" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "admitted" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "HistoryOfHospitalization" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "admittedHCFName" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'admittedHCFName'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Hospital Name" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "admittedHCFName" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "HospitalName" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "admissionDate" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'admissionDate'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Admission Date" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "admissionDate" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "DateOfAdmission" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "hospitalRecordNumber" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'hospitalRecordNumber'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Hospital Record Number" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "hospitalRecordNumber" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "HospitalRecordNumber" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "outcome" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'outcome'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Outcome" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "outcome" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Outcome" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "deathCause" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'primaryCauseOfDeath'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set cause" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "deathCause" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "primaryCauseOfDeath" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "outcomeDate" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'outcomeDate'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set death date" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "outcomeDate" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "DateOfDeath" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "diseaseAdditionalInfo" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'diseaseAdditionalInfo'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Comments" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "diseaseAdditionalInfo" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClinical" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Comments" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "mapLaboratoryResults" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "qrLaboratoryResults" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "lmLaboratoryResults" ] ;
+       fhir:type [ fhir:v "LaboratoryResultsLogicalModel" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set labs" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qrLaboratoryResults" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "item" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'specimenNumber'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set SpecimenNumber" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmLaboratoryResults" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "SpecimenNumber" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'sampleType'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set SampleType" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmLaboratoryResults" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "SampleType" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'collectionDate'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set SpecimenCollectionDate" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmLaboratoryResults" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "SpecimenCollectionDate" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'labName'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Shipment Date" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmLaboratoryResults" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "LabName" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'specimenSentDate'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set SpecimenSentDate" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmLaboratoryResults" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "SpecimenSentDate" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'specimenReceivedDate'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set SpecimenRecdDate" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmLaboratoryResults" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "SpecimenRecdDate" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'sampleId'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set SampleId" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmLaboratoryResults" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "SampleId" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'testPerformed'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set TypeOfTest" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmLaboratoryResults" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "TypeOfTest" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'antigen'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Antigen" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmLaboratoryResults" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Antigen" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'result'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set Results" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmLaboratoryResults" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Results" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'resultDate'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set LabResultsDate  " ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmLaboratoryResults" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "LabResultsDate" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'specifyVirus'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set specify virus" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmLaboratoryResults" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "ViralGenotype" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "mapTravelDetails" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "qrTravelDetails" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "lmContactTracing" ] ;
+       fhir:type [ fhir:v "SOTMeaslesContactTracing" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qrTravelDetails" ] ;
+         fhir:element [ fhir:v "answer" ] ;
+         fhir:listMode [ fhir:v "first" ] ;
+         fhir:variable [ fhir:v "answer" ] ;
+         fhir:condition [ fhir:v "item.linkId = 'placeOfTravel'" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "set specify virus" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "answer" ] ;
+           fhir:element [ fhir:v "value" ] ;
+           fhir:variable [ fhir:v "value" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "lmTravelDetails" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "placeOfTravel" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "value" ]
+           ] )
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "set" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qrTravelDetails" ] ;
+         fhir:element [ fhir:v "answer" ] ;
+         fhir:listMode [ fhir:v "first" ] ;
+         fhir:variable [ fhir:v "answer" ] ;
+         fhir:condition [ fhir:v "item.linkId = 'arrivalDate'" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "set specify virus" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "answer" ] ;
+           fhir:element [ fhir:v "value" ] ;
+           fhir:variable [ fhir:v "value" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "lmTravelDetails" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "arrivalDate" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "value" ]
+           ] )
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "set" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qrTravelDetails" ] ;
+         fhir:element [ fhir:v "answer" ] ;
+         fhir:listMode [ fhir:v "first" ] ;
+         fhir:variable [ fhir:v "answer" ] ;
+         fhir:condition [ fhir:v "item.linkId = 'departureDate'" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "set specify virus" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "answer" ] ;
+           fhir:element [ fhir:v "value" ] ;
+           fhir:variable [ fhir:v "value" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "lmTravelDetails" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "departureDate" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "value" ]
+           ] )
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "mapContactTracing" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "qrContactTracing" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "lmContactTracing" ] ;
+       fhir:type [ fhir:v "SOTMeaslesContactTracing" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set contact tracing" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qrContactTracing" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "item" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'caseSearchConducted'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set specify virus" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmContactTracing" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "caseSearchConducted" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'noOfsuspectCases'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set specify virus" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmContactTracing" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "noOfsuspectCases" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'pregnantContact'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set specify virus" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmContactTracing" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "pregnantContact" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'pregnantContactNames'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set specify virus" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmContactTracing" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "pregnantContactNames" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'localCasesPresent'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set specify virus" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmContactTracing" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "localCasesPresent" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'travelledOutside'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set specify virus" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmContactTracing" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "travelledOutside" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "qrTravelDetails" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'travelDetails'" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:variable [ fhir:v "tgtTravelDetails" ] ;
+           fhir:transform [ fhir:v "create" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/SOTT1ExposureTravelHistory" ]
+           ] )
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "d" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "qrTravelDetails" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "qrTravelDetails" ]
+             ] )
+           ] ) ;
+           fhir:dependent ( [
+             fhir:name [ fhir:v "mapTravelDetails" ] ;
+             fhir:variable ( [ fhir:v "qrTravelDetails" ] [ fhir:v "tgtTravelDetails" ] )
+           ] )
+         ] [
+           fhir:name [ fhir:v "set" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "qrTravelDetails" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmContactTracing" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "travelDetails" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "tgtTravelDetails" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'infectionSetting'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set specify virus" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmContactTracing" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "infectionSetting" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'specifyInfectionSetting'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set specify virus" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmContactTracing" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "specifyInfectionSetting" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "mapEpiData" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "qrEpiData" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "lmEpiData" ] ;
+       fhir:type [ fhir:v "EpiDataLogicalModel" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set epi data" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qrEpiData" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "item" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'ringVaccination'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set finalClassification" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmEpiData" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "ringVaccination" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'dateStarted'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set finalClassification" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmEpiData" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "dateStarted" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'dateEnded'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set finalClassification" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmEpiData" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "dateEnded" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'noOfDosesRingVaccination'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set finalClassification" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmEpiData" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "noOfDosesRingVaccination" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'rapidCoverageMonitioring'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set finalClassification" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmEpiData" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "rapidCoverageMonitioring" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'percentVaccinated'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set finalClassification" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmEpiData" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "percentVaccinated" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'contactTracingDone'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set finalClassification" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmEpiData" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "contactTracingDone" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'lastFollowUp'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set finalClassification" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmEpiData" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "lastFollowUp" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:name [ fhir:v "mapClassification" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "qrClassification" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "lmClassification" ] ;
+       fhir:type [ fhir:v "ClassificationLogicalModel" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "set classification" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "qrClassification" ] ;
+         fhir:element [ fhir:v "item" ] ;
+         fhir:variable [ fhir:v "item" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'finalClassification'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set finalClassification" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClassification" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "FinalClassification" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'confirmationBasis'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set confirmationBasis" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClassification" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "ConfirmationBasis" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'source'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set source" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClassification" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Source" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'countryImportation'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set countryImportation" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClassification" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "CountryImportation" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'discardingBasis'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set discardingBasis" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClassification" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "DiscardingBasis" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'contact'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set contact" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClassification" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "Contact" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'contactCaseNo'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set contactCaseNo" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClassification" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "ContactCaseNo" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'classifiedBy'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set classifiedBy" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClassification" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "ClassifiedBy" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "set" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "item" ] ;
+           fhir:element [ fhir:v "answer" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "answer" ] ;
+           fhir:condition [ fhir:v "item.linkId = 'classificationDate'" ]
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "set classificationDate" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "answer" ] ;
+             fhir:element [ fhir:v "value" ] ;
+             fhir:variable [ fhir:v "value" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "lmClassification" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "ClassificationDate" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "value" ]
+             ] )
+           ] )
+         ] )
+       ] )
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

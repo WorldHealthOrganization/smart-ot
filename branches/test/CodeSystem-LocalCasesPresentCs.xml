@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="LocalCasesPresentCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">1<a name="LocalCasesPresentCs-1"> </a></td><td>Yes, with measles</td></tr><tr><td style="white-space:nowrap">2<a name="LocalCasesPresentCs-2"> </a></td><td>Yes, with rubella</td></tr><tr><td style="white-space:nowrap">3<a name="LocalCasesPresentCs-3"> </a></td><td>Yes, with both</td></tr><tr><td style="white-space:nowrap">4<a name="LocalCasesPresentCs-4"> </a></td><td>No</td></tr><tr><td style="white-space:nowrap">99<a name="LocalCasesPresentCs-99"> </a></td><td>Unknown</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/LocalCasesPresent"/>
+  <version value="0.2.1"/>
+  <name value="LocalCasesPresentCs"/>
+  <title value="LocalCasesPresent"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="LocalCasesPresent"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="5"/>
+  <concept>
+    <code value="1"/>
+    <display value="Yes, with measles"/>
+  </concept>
+  <concept>
+    <code value="2"/>
+    <display value="Yes, with rubella"/>
+  </concept>
+  <concept>
+    <code value="3"/>
+    <display value="Yes, with both"/>
+  </concept>
+  <concept>
+    <code value="4"/>
+    <display value="No"/>
+  </concept>
+  <concept>
+    <code value="99"/>
+    <display value="Unknown"/>
+  </concept>
+</CodeSystem>

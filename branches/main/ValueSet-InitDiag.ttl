@@ -1,0 +1,75 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/ValueSet/InitDiag> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "InitDiag"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 6 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion based on <a href=\"CodeSystem-InitDiagCs.html\">system Initial Diagnosis Code System v0.2.1 (CodeSystem)</a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---worldhealthorganization.github.io-smart-ot-InitDiag-1\"> </a>  <a href=\"CodeSystem-InitDiagCs.html#InitDiagCs-1\">1</a></td><td>http://worldhealthorganization.github.io/smart-ot/InitDiag</td><td>Measles</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---worldhealthorganization.github.io-smart-ot-InitDiag-2\"> </a>  <a href=\"CodeSystem-InitDiagCs.html#InitDiagCs-2\">2</a></td><td>http://worldhealthorganization.github.io/smart-ot/InitDiag</td><td>Rubella</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---worldhealthorganization.github.io-smart-ot-InitDiag-3\"> </a>  <a href=\"CodeSystem-InitDiagCs.html#InitDiagCs-3\">3</a></td><td>http://worldhealthorganization.github.io/smart-ot/InitDiag</td><td>Dengue</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---worldhealthorganization.github.io-smart-ot-InitDiag-4\"> </a>  <a href=\"CodeSystem-InitDiagCs.html#InitDiagCs-4\">4</a></td><td>http://worldhealthorganization.github.io/smart-ot/InitDiag</td><td>Other Rash illness</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---worldhealthorganization.github.io-smart-ot-InitDiag-8\"> </a>  <a href=\"CodeSystem-InitDiagCs.html#InitDiagCs-8\">8</a></td><td>http://worldhealthorganization.github.io/smart-ot/InitDiag</td><td>Other Non-Rash illness</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---worldhealthorganization.github.io-smart-ot-InitDiag-99\"> </a>  <a href=\"CodeSystem-InitDiagCs.html#InitDiagCs-99\">99</a></td><td>http://worldhealthorganization.github.io/smart-ot/InitDiag</td><td>Unknown</td></tr></table></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/ValueSet/InitDiag"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "InitDiag"] ; # 
+  fhir:title [ fhir:v "SOT Measles Initial Diagnosis"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-11-07T05:59:29+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "SOT Measles Initial Diagnosis"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:expansion [
+     fhir:identifier [ fhir:v "urn:uuid:c060c134-871f-43be-b1ee-5dfface2c18f"^^xsd:anyURI ] ;
+     fhir:timestamp [ fhir:v "2023-05-02T20:23:35+05:30"^^xsd:dateTime ] ;
+     fhir:total [ fhir:v "6"^^xsd:integer ] ;
+     fhir:parameter ( [
+       fhir:name [ fhir:v "excludeNested" ] ;
+       fhir:value [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:name [ fhir:v "version" ] ;
+       fhir:value [ fhir:v "http://worldhealthorganization.github.io/smart-ot/InitDiag|0.2.1"^^xsd:anyURI ]
+     ] ) ;
+     fhir:contains ( [
+       fhir:system [ fhir:v "http://worldhealthorganization.github.io/smart-ot/InitDiag"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "1" ] ;
+       fhir:display [ fhir:v "Measles" ]
+     ] [
+       fhir:system [ fhir:v "http://worldhealthorganization.github.io/smart-ot/InitDiag"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "2" ] ;
+       fhir:display [ fhir:v "Rubella" ]
+     ] [
+       fhir:system [ fhir:v "http://worldhealthorganization.github.io/smart-ot/InitDiag"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "3" ] ;
+       fhir:display [ fhir:v "Dengue" ]
+     ] [
+       fhir:system [ fhir:v "http://worldhealthorganization.github.io/smart-ot/InitDiag"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "4" ] ;
+       fhir:display [ fhir:v "Other Rash illness" ]
+     ] [
+       fhir:system [ fhir:v "http://worldhealthorganization.github.io/smart-ot/InitDiag"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "8" ] ;
+       fhir:display [ fhir:v "Other Non-Rash illness" ]
+     ] [
+       fhir:system [ fhir:v "http://worldhealthorganization.github.io/smart-ot/InitDiag"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "99" ] ;
+       fhir:display [ fhir:v "Unknown" ]
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

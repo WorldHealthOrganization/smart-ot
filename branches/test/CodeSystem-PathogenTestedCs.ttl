@@ -1,0 +1,89 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/CodeSystem/PathogenTestedCs> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "PathogenTestedCs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/PathogenTested</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">InfluenzaA/B<a name=\"PathogenTestedCs-InfluenzaA.47B\"> </a></td><td>Influenza A/B</td></tr><tr><td style=\"white-space:nowrap\">InfluenzaSubtyping<a name=\"PathogenTestedCs-InfluenzaSubtyping\"> </a></td><td>Influenza subtyping</td></tr><tr><td style=\"white-space:nowrap\">MERSCV<a name=\"PathogenTestedCs-MERSCV\"> </a></td><td>MERS-CV</td></tr><tr><td style=\"white-space:nowrap\">SARS<a name=\"PathogenTestedCs-SARS\"> </a></td><td>SARS</td></tr><tr><td style=\"white-space:nowrap\">Rsv<a name=\"PathogenTestedCs-Rsv\"> </a></td><td>Rsv</td></tr><tr><td style=\"white-space:nowrap\">HumanMetapneumovirus<a name=\"PathogenTestedCs-HumanMetapneumovirus\"> </a></td><td>Human metapneumovirus</td></tr><tr><td style=\"white-space:nowrap\">Parainfluenza123<a name=\"PathogenTestedCs-Parainfluenza123\"> </a></td><td>Parainfluenza (1,2,3)</td></tr><tr><td style=\"white-space:nowrap\">Adenovirus<a name=\"PathogenTestedCs-Adenovirus\"> </a></td><td>Adenovirus</td></tr><tr><td style=\"white-space:nowrap\">Rhinvoirus<a name=\"PathogenTestedCs-Rhinvoirus\"> </a></td><td>Rhinvoirus</td></tr><tr><td style=\"white-space:nowrap\">Enterovirus<a name=\"PathogenTestedCs-Enterovirus\"> </a></td><td>Enterovirus</td></tr><tr><td style=\"white-space:nowrap\">Coronavirus<a name=\"PathogenTestedCs-Coronavirus\"> </a></td><td>Coronavirus</td></tr><tr><td style=\"white-space:nowrap\">ChlamydiaPneumonia<a name=\"PathogenTestedCs-ChlamydiaPneumonia\"> </a></td><td>Chlamydia pneumonia</td></tr><tr><td style=\"white-space:nowrap\">MycoplasmaPneumonia<a name=\"PathogenTestedCs-MycoplasmaPneumonia\"> </a></td><td>Mycoplasma pneumonia</td></tr><tr><td style=\"white-space:nowrap\">Legionella<a name=\"PathogenTestedCs-Legionella\"> </a></td><td>Legionella</td></tr><tr><td style=\"white-space:nowrap\">StreptococcusPneumonia<a name=\"PathogenTestedCs-StreptococcusPneumonia\"> </a></td><td>Streptococcus pneumonia</td></tr><tr><td style=\"white-space:nowrap\">Other<a name=\"PathogenTestedCs-Other\"> </a></td><td>Other</td></tr></table></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/PathogenTested"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.2.1"] ; # 
+  fhir:name [ fhir:v "PathogenTestedCs"] ; # 
+  fhir:title [ fhir:v "Pathogen Tested"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-10-25T07:26:32+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "WHO"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "WHO" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://who.int" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Pathogen Tested"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ]
+     ] )
+  ] ) ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "16"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "InfluenzaA/B" ] ;
+     fhir:display [ fhir:v "Influenza A/B" ]
+  ] [
+     fhir:code [ fhir:v "InfluenzaSubtyping" ] ;
+     fhir:display [ fhir:v "Influenza subtyping" ]
+  ] [
+     fhir:code [ fhir:v "MERSCV" ] ;
+     fhir:display [ fhir:v "MERS-CV" ]
+  ] [
+     fhir:code [ fhir:v "SARS" ] ;
+     fhir:display [ fhir:v "SARS" ]
+  ] [
+     fhir:code [ fhir:v "Rsv" ] ;
+     fhir:display [ fhir:v "Rsv" ]
+  ] [
+     fhir:code [ fhir:v "HumanMetapneumovirus" ] ;
+     fhir:display [ fhir:v "Human metapneumovirus" ]
+  ] [
+     fhir:code [ fhir:v "Parainfluenza123" ] ;
+     fhir:display [ fhir:v "Parainfluenza (1,2,3)" ]
+  ] [
+     fhir:code [ fhir:v "Adenovirus" ] ;
+     fhir:display [ fhir:v "Adenovirus" ]
+  ] [
+     fhir:code [ fhir:v "Rhinvoirus" ] ;
+     fhir:display [ fhir:v "Rhinvoirus" ]
+  ] [
+     fhir:code [ fhir:v "Enterovirus" ] ;
+     fhir:display [ fhir:v "Enterovirus" ]
+  ] [
+     fhir:code [ fhir:v "Coronavirus" ] ;
+     fhir:display [ fhir:v "Coronavirus" ]
+  ] [
+     fhir:code [ fhir:v "ChlamydiaPneumonia" ] ;
+     fhir:display [ fhir:v "Chlamydia pneumonia" ]
+  ] [
+     fhir:code [ fhir:v "MycoplasmaPneumonia" ] ;
+     fhir:display [ fhir:v "Mycoplasma pneumonia" ]
+  ] [
+     fhir:code [ fhir:v "Legionella" ] ;
+     fhir:display [ fhir:v "Legionella" ]
+  ] [
+     fhir:code [ fhir:v "StreptococcusPneumonia" ] ;
+     fhir:display [ fhir:v "Streptococcus pneumonia" ]
+  ] [
+     fhir:code [ fhir:v "Other" ] ;
+     fhir:display [ fhir:v "Other" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

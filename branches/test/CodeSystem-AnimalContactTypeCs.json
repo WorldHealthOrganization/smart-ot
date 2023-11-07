@@ -1,0 +1,47 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "AnimalContactTypeCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/AnimalContactType</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">Trading<a name=\"AnimalContactTypeCs-Trading\"> </a></td><td>trading</td></tr><tr><td style=\"white-space:nowrap\">Slaughtered<a name=\"AnimalContactTypeCs-Slaughtered\"> </a></td><td>slaughtered/butchered</td></tr><tr><td style=\"white-space:nowrap\">Handling<a name=\"AnimalContactTypeCs-Handling\"> </a></td><td>Handling</td></tr><tr><td style=\"white-space:nowrap\">Consumption<a name=\"AnimalContactTypeCs-Consumption\"> </a></td><td>consmption of Animal Products</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/AnimalContactType",
+  "version" : "0.2.1",
+  "name" : "AnimalContactTypeCs",
+  "title" : "Animal Contact Type",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Animal Contact Type",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 4,
+  "concept" : [{
+    "code" : "Trading",
+    "display" : "trading"
+  },
+  {
+    "code" : "Slaughtered",
+    "display" : "slaughtered/butchered"
+  },
+  {
+    "code" : "Handling",
+    "display" : "Handling"
+  },
+  {
+    "code" : "Consumption",
+    "display" : "consmption of Animal Products"
+  }]
+}

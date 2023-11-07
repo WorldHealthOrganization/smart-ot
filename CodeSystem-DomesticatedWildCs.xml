@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="DomesticatedWildCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/DomesticatedWild</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td></tr><tr><td style="white-space:nowrap">Domestic<a name="DomesticatedWildCs-Domestic"> </a></td></tr><tr><td style="white-space:nowrap">Wild<a name="DomesticatedWildCs-Wild"> </a></td></tr><tr><td style="white-space:nowrap">Pest<a name="DomesticatedWildCs-Pest"> </a></td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/DomesticatedWild"/>
+  <version value="0.2.1"/>
+  <name value="DomesticatedWildCs"/>
+  <title value="Domesticated or Wild"/>
+  <status value="draft"/>
+  <date value="2023-11-07T05:59:29+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Domesticated or Wild"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="3"/>
+  <concept>
+    <code value="Domestic"/>
+    <display value="Domestic"/>
+  </concept>
+  <concept>
+    <code value="Wild"/>
+    <display value="Wild"/>
+  </concept>
+  <concept>
+    <code value="Pest"/>
+    <display value="Pest"/>
+  </concept>
+</CodeSystem>

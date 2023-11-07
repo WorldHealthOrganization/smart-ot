@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="SourceOfInformationCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/SourceOfInformation</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">1<a name="SourceOfInformationCs-1"> </a></td><td>Vaccination card</td></tr><tr><td style="white-space:nowrap">2<a name="SourceOfInformationCs-2"> </a></td><td>Health service record</td></tr><tr><td style="white-space:nowrap">3<a name="SourceOfInformationCs-3"> </a></td><td>Verbal</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/SourceOfInformation"/>
+  <version value="0.2.1"/>
+  <name value="SourceOfInformationCs"/>
+  <title value="Source Of Information"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Source Of Information"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="3"/>
+  <concept>
+    <code value="1"/>
+    <display value="Vaccination card"/>
+  </concept>
+  <concept>
+    <code value="2"/>
+    <display value="Health service record"/>
+  </concept>
+  <concept>
+    <code value="3"/>
+    <display value="Verbal"/>
+  </concept>
+</CodeSystem>

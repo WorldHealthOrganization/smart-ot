@@ -1,0 +1,51 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "PatientOutcomeCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/PatientOutcome</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">Sick<a name=\"PatientOutcomeCs-Sick\"> </a></td><td>Still sick</td></tr><tr><td style=\"white-space:nowrap\">Cured<a name=\"PatientOutcomeCs-Cured\"> </a></td><td>Cured</td></tr><tr><td style=\"white-space:nowrap\">Sequelae<a name=\"PatientOutcomeCs-Sequelae\"> </a></td><td>Sequelae</td></tr><tr><td style=\"white-space:nowrap\">Defaulter<a name=\"PatientOutcomeCs-Defaulter\"> </a></td><td>Defaulter</td></tr><tr><td style=\"white-space:nowrap\">Death<a name=\"PatientOutcomeCs-Death\"> </a></td><td>Death</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/PatientOutcome",
+  "version" : "0.2.1",
+  "name" : "PatientOutcomeCs",
+  "title" : "Patient Clinical Course Outcome",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Patient Clinical Course Outcome",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 5,
+  "concept" : [{
+    "code" : "Sick",
+    "display" : "Still sick"
+  },
+  {
+    "code" : "Cured",
+    "display" : "Cured"
+  },
+  {
+    "code" : "Sequelae",
+    "display" : "Sequelae"
+  },
+  {
+    "code" : "Defaulter",
+    "display" : "Defaulter"
+  },
+  {
+    "code" : "Death",
+    "display" : "Death"
+  }]
+}

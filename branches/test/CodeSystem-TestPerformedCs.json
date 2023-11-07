@@ -1,0 +1,63 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TestPerformedCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/TestPerformed</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">1<a name=\"TestPerformedCs-1\"> </a></td><td>IgM EIA/Indirect</td></tr><tr><td style=\"white-space:nowrap\">2<a name=\"TestPerformedCs-2\"> </a></td><td>IgM EIA/Capture</td></tr><tr><td style=\"white-space:nowrap\">3<a name=\"TestPerformedCs-3\"> </a></td><td>Virus Isolation</td></tr><tr><td style=\"white-space:nowrap\">4<a name=\"TestPerformedCs-4\"> </a></td><td>PCR</td></tr><tr><td style=\"white-space:nowrap\">5<a name=\"TestPerformedCs-5\"> </a></td><td>IgM IF</td></tr><tr><td style=\"white-space:nowrap\">6<a name=\"TestPerformedCs-6\"> </a></td><td>IgG EIA/Capture</td></tr><tr><td style=\"white-space:nowrap\">7<a name=\"TestPerformedCs-7\"> </a></td><td>IgG IF</td></tr><tr><td style=\"white-space:nowrap\">8<a name=\"TestPerformedCs-8\"> </a></td><td>HI</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/TestPerformed",
+  "version" : "0.2.1",
+  "name" : "TestPerformedCs",
+  "title" : "Test Performed Code System",
+  "status" : "draft",
+  "date" : "2023-10-25T07:26:32+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Test Performed Code System",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 8,
+  "concept" : [{
+    "code" : "1",
+    "display" : "IgM EIA/Indirect"
+  },
+  {
+    "code" : "2",
+    "display" : "IgM EIA/Capture"
+  },
+  {
+    "code" : "3",
+    "display" : "Virus Isolation"
+  },
+  {
+    "code" : "4",
+    "display" : "PCR"
+  },
+  {
+    "code" : "5",
+    "display" : "IgM IF"
+  },
+  {
+    "code" : "6",
+    "display" : "IgG EIA/Capture"
+  },
+  {
+    "code" : "7",
+    "display" : "IgG IF"
+  },
+  {
+    "code" : "8",
+    "display" : "HI"
+  }]
+}

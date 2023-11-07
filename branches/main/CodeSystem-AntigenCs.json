@@ -1,0 +1,59 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "AntigenCs",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/CodeSystem/AntigenCs</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">1<a name=\"AntigenCs-1\"> </a></td><td>Measles</td></tr><tr><td style=\"white-space:nowrap\">2<a name=\"AntigenCs-2\"> </a></td><td>Rubella</td></tr><tr><td style=\"white-space:nowrap\">3<a name=\"AntigenCs-3\"> </a></td><td>Dengue</td></tr><tr><td style=\"white-space:nowrap\">4<a name=\"AntigenCs-4\"> </a></td><td>Parvovirus B19</td></tr><tr><td style=\"white-space:nowrap\">5<a name=\"AntigenCs-5\"> </a></td><td>Herpes</td></tr><tr><td style=\"white-space:nowrap\">6<a name=\"AntigenCs-6\"> </a></td><td>Enterovirus</td></tr><tr><td style=\"white-space:nowrap\">88<a name=\"AntigenCs-88\"> </a></td><td>Other</td></tr></table></div>"
+  },
+  "url" : "http://worldhealthorganization.github.io/smart-ot/CodeSystem/AntigenCs",
+  "version" : "0.2.1",
+  "name" : "AntigenCs",
+  "title" : "Antigen Code System",
+  "status" : "draft",
+  "date" : "2023-11-07T05:59:29+00:00",
+  "publisher" : "WHO",
+  "contact" : [{
+    "name" : "WHO",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://who.int"
+    }]
+  }],
+  "description" : "Antigen Code System",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "content" : "complete",
+  "count" : 7,
+  "concept" : [{
+    "code" : "1",
+    "display" : "Measles"
+  },
+  {
+    "code" : "2",
+    "display" : "Rubella"
+  },
+  {
+    "code" : "3",
+    "display" : "Dengue"
+  },
+  {
+    "code" : "4",
+    "display" : "Parvovirus B19"
+  },
+  {
+    "code" : "5",
+    "display" : "Herpes"
+  },
+  {
+    "code" : "6",
+    "display" : "Enterovirus"
+  },
+  {
+    "code" : "88",
+    "display" : "Other"
+  }]
+}

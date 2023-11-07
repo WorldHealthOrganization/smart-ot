@@ -1,0 +1,143 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://worldhealthorganization.github.io/smart-ot/Bundle/example-document-bundle-case-report-1> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "example-document-bundle-case-report-1"] ; # 
+  fhir:type [ fhir:v "document"] ; # 
+  fhir:timestamp [ fhir:v "2015-02-07T13:28:17.239+02:00"^^xsd:dateTime] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "urn:uuid:0cb16a1d-b96d-42b9-af23-bc95c6e08f6c"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:0cb16a1d-b96d-42b9-af23-bc95c6e08f6c> )
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:2214d3c9-d939-4048-824d-9bf0c4d2907a"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:2214d3c9-d939-4048-824d-9bf0c4d2907a> )
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:26b9f4bb-c524-47a2-b029-13b19b6da4ca"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:26b9f4bb-c524-47a2-b029-13b19b6da4ca> )
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:183bbc73-776b-456a-a8c7-1e3faae38531"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:183bbc73-776b-456a-a8c7-1e3faae38531> )
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:a4a33af4-a396-468c-b2c4-f06c0c53edb6"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:a4a33af4-a396-468c-b2c4-f06c0c53edb6> )
+  ] ) . # 
+
+<urn:uuid:0cb16a1d-b96d-42b9-af23-bc95c6e08f6c> a fhir:Composition ;
+  fhir:id [ fhir:v "0cb16a1d-b96d-42b9-af23-bc95c6e08f6c"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Composition</b><a name=\"0cb16a1d-b96d-42b9-af23-bc95c6e08f6c\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Composition &quot;0cb16a1d-b96d-42b9-af23-bc95c6e08f6c&quot; </p></div><p><b>status</b>: final</p><p><b>type</b>: Public health Case report <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://loinc.org/\">LOINC</a>#55751-2)</span></p><p><b>encounter</b>: <a href=\"#Encounter_a4a33af4-a396-468c-b2c4-f06c0c53edb6\">See above (Encounter/a4a33af4-a396-468c-b2c4-f06c0c53edb6)</a></p><p><b>date</b>: 2023-08-09</p><p><b>author</b>: </p><ul><li><a href=\"#Practitioner_26b9f4bb-c524-47a2-b029-13b19b6da4ca\">See above (Practitioner/26b9f4bb-c524-47a2-b029-13b19b6da4ca)</a></li><li><a href=\"#Organization_183bbc73-776b-456a-a8c7-1e3faae38531\">See above (Organization/183bbc73-776b-456a-a8c7-1e3faae38531)</a></li></ul><p><b>title</b>: PAHO Measles Case Investigation Form</p></div>"
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:type [
+     fhir:coding ( [
+       a loinc:55751-2 ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "55751-2" ] ;
+       fhir:display [ fhir:v "Public health Case report" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://worldhealthorganization.github.io/smart-ot/Patient/2214d3c9-d939-4048-824d-9bf0c4d2907a> ;
+     fhir:reference [ fhir:v "Patient/2214d3c9-d939-4048-824d-9bf0c4d2907a" ]
+  ] ; # 
+  fhir:encounter [
+     fhir:link <http://worldhealthorganization.github.io/smart-ot/Encounter/a4a33af4-a396-468c-b2c4-f06c0c53edb6> ;
+     fhir:reference [ fhir:v "Encounter/a4a33af4-a396-468c-b2c4-f06c0c53edb6" ]
+  ] ; # 
+  fhir:date [ fhir:v "2023-08-09"^^xsd:date] ; # 
+  fhir:author ( [
+     fhir:link <http://worldhealthorganization.github.io/smart-ot/Practitioner/26b9f4bb-c524-47a2-b029-13b19b6da4ca> ;
+     fhir:reference [ fhir:v "Practitioner/26b9f4bb-c524-47a2-b029-13b19b6da4ca" ]
+  ] [
+     fhir:link <http://worldhealthorganization.github.io/smart-ot/Organization/183bbc73-776b-456a-a8c7-1e3faae38531> ;
+     fhir:reference [ fhir:v "Organization/183bbc73-776b-456a-a8c7-1e3faae38531" ]
+  ] ) ; # 
+  fhir:title [ fhir:v "PAHO Measles Case Investigation Form"] . # 
+
+<urn:uuid:2214d3c9-d939-4048-824d-9bf0c4d2907a> a fhir:Patient ;
+  fhir:id [ fhir:v "2214d3c9-d939-4048-824d-9bf0c4d2907a"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Patient</b><a name=\"2214d3c9-d939-4048-824d-9bf0c4d2907a\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Patient &quot;2214d3c9-d939-4048-824d-9bf0c4d2907a&quot; </p></div><p><b>Landmark</b>: Next the spot</p><p><b>Guardian</b>: Mother Doe </p><p><b>Occupation</b>: Busy</p><p><b>WorkAddress</b>: Workaddress</p><p><b>name</b>: John Doe </p><p><b>telecom</b>: ph: 234phone</p><p><b>birthDate</b>: 2014-08-07</p><p><b>address</b>: Avenue</p></div>"
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Landmark"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "Next the spot" ]
+  ] [
+     fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Guardian"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:HumanName ;
+       fhir:family [ fhir:v "Mother Doe" ]
+     ]
+  ] [
+     fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/Occupation"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "Busy" ]
+  ] [
+     fhir:url [ fhir:v "http://worldhealthorganization.github.io/smart-ot/StructureDefinition/WorkAddress"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:Address ;
+       fhir:text [ fhir:v "Workaddress" ]
+     ]
+  ] ) ; # 
+  fhir:name ( [
+     fhir:family [ fhir:v "John Doe" ]
+  ] ) ; # 
+  fhir:telecom ( [
+     fhir:system [ fhir:v "phone" ] ;
+     fhir:value [ fhir:v "234phone" ]
+  ] ) ; # 
+  fhir:birthDate [ fhir:v "2014-08-07"^^xsd:date] ; # 
+  fhir:address ( [
+     fhir:text [ fhir:v "Avenue" ]
+  ] ) . # 
+
+<urn:uuid:26b9f4bb-c524-47a2-b029-13b19b6da4ca> a fhir:Practitioner ;
+  fhir:id [ fhir:v "26b9f4bb-c524-47a2-b029-13b19b6da4ca"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Practitioner</b><a name=\"26b9f4bb-c524-47a2-b029-13b19b6da4ca\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Practitioner &quot;26b9f4bb-c524-47a2-b029-13b19b6da4ca&quot; </p></div><p><b>name</b>: reporter</p></div>"
+  ] ; # 
+  fhir:name ( [
+     fhir:text [ fhir:v "reporter" ]
+  ] ) . # 
+
+<urn:uuid:183bbc73-776b-456a-a8c7-1e3faae38531> a fhir:Organization ;
+  fhir:id [ fhir:v "183bbc73-776b-456a-a8c7-1e3faae38531"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Organization</b><a name=\"183bbc73-776b-456a-a8c7-1e3faae38531\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Organization &quot;183bbc73-776b-456a-a8c7-1e3faae38531&quot; </p></div><p><b>name</b>: hospital</p><blockquote><p><b>contact</b></p><p><b>telecom</b>: ph: 123-phone</p></blockquote><blockquote><p><b>contact</b></p><p><b>address</b>: City State Utopia </p></blockquote></div>"
+  ] ; # 
+  fhir:name [ fhir:v "hospital"] ; # 
+  fhir:contact ( [
+     fhir:telecom ( [
+       fhir:system [ fhir:v "phone" ] ;
+       fhir:value [ fhir:v "123-phone" ]
+     ] )
+  ] [
+     fhir:address [
+       fhir:city [ fhir:v "City" ] ;
+       fhir:district [ fhir:v "Locality" ] ;
+       fhir:state [ fhir:v "State" ] ;
+       fhir:country [ fhir:v "Utopia" ]
+     ]
+  ] ) . # 
+
+<urn:uuid:a4a33af4-a396-468c-b2c4-f06c0c53edb6> a fhir:Encounter ;
+  fhir:id [ fhir:v "a4a33af4-a396-468c-b2c4-f06c0c53edb6"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Encounter</b><a name=\"a4a33af4-a396-468c-b2c4-f06c0c53edb6\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Encounter &quot;a4a33af4-a396-468c-b2c4-f06c0c53edb6&quot; </p></div><p><b>period</b>: 2023-08-09 --&gt; (ongoing)</p></div>"
+  ] ; # 
+  fhir:period [
+     fhir:start [ fhir:v "2023-08-09"^^xsd:date ]
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

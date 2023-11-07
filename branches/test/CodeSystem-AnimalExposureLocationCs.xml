@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="AnimalExposureLocationCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/ExposureLocation</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">Home<a name="AnimalExposureLocationCs-Home"> </a></td><td>Home</td></tr><tr><td style="white-space:nowrap">Neighbourhood<a name="AnimalExposureLocationCs-Neighbourhood"> </a></td><td>Neighbourhood</td></tr><tr><td style="white-space:nowrap">Market<a name="AnimalExposureLocationCs-Market"> </a></td><td>Market</td></tr><tr><td style="white-space:nowrap">Agricultural<a name="AnimalExposureLocationCs-Agricultural"> </a></td><td>Agriculturail fair/ zoo</td></tr><tr><td style="white-space:nowrap">Farm<a name="AnimalExposureLocationCs-Farm"> </a></td><td>Farm</td></tr><tr><td style="white-space:nowrap">Other<a name="AnimalExposureLocationCs-Other"> </a></td><td>Other</td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/ExposureLocation"/>
+  <version value="0.2.1"/>
+  <name value="AnimalExposureLocationCs"/>
+  <title value="Exposure Location"/>
+  <status value="draft"/>
+  <date value="2023-10-25T07:26:32+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Exposure Location"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="6"/>
+  <concept>
+    <code value="Home"/>
+    <display value="Home"/>
+  </concept>
+  <concept>
+    <code value="Neighbourhood"/>
+    <display value="Neighbourhood"/>
+  </concept>
+  <concept>
+    <code value="Market"/>
+    <display value="Market"/>
+  </concept>
+  <concept>
+    <code value="Agricultural"/>
+    <display value="Agriculturail fair/ zoo"/>
+  </concept>
+  <concept>
+    <code value="Farm"/>
+    <display value="Farm"/>
+  </concept>
+  <concept>
+    <code value="Other"/>
+    <display value="Other"/>
+  </concept>
+</CodeSystem>

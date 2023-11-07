@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="LocalizationOfSkinDisorderCs"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This  code system <code>http://worldhealthorganization.github.io/smart-ot/LocalizationOfSkinDisorder</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td></tr><tr><td style="white-space:nowrap">Systemic<a name="LocalizationOfSkinDisorderCs-Systemic"> </a></td></tr><tr><td style="white-space:nowrap">Localized<a name="LocalizationOfSkinDisorderCs-Localized"> </a></td></tr></table></div>
+  </text>
+  <url value="http://worldhealthorganization.github.io/smart-ot/LocalizationOfSkinDisorder"/>
+  <version value="0.2.1"/>
+  <name value="LocalizationOfSkinDisorderCs"/>
+  <title value="Localization of Skin Disorder"/>
+  <status value="draft"/>
+  <date value="2023-11-07T05:59:29+00:00"/>
+  <publisher value="WHO"/>
+  <contact>
+    <name value="WHO"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://who.int"/>
+    </telecom>
+  </contact>
+  <description value="Localization of Skin Disorder"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <content value="complete"/>
+  <count value="2"/>
+  <concept>
+    <code value="Systemic"/>
+    <display value="Systemic"/>
+  </concept>
+  <concept>
+    <code value="Localized"/>
+    <display value="Localized"/>
+  </concept>
+</CodeSystem>

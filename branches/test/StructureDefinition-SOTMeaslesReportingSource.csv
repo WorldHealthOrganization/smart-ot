@@ -1,0 +1,44 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: RIM Mapping"
+"SOTMeaslesReportingSource","SOTMeaslesReportingSource","","","",0,*,"","","","null {[]} {[]}
+","Surveillance & Outbreak Toolkit Measles- Reporting Source","Base definition for all elements that are defined inside a resource - but not those in a data type.","","","","","","","","","",,,,,"",,,,"BackboneElement",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","n/a"
+"SOTMeaslesReportingSource.id","SOTMeaslesReportingSource.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"","","n/a"
+"SOTMeaslesReportingSource.extension","SOTMeaslesReportingSource.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","n/a"
+"SOTMeaslesReportingSource.modifierExtension","SOTMeaslesReportingSource.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}","N/A"
+"SOTMeaslesReportingSource.PlaceOfReporting","SOTMeaslesReportingSource.PlaceOfReporting","","","",1,1,"","","","Address {[]} {[]}
+","Place of reporting","Place of reporting (for example, county or district)","","","","","","","","","",,,,,"",,,,"SOTMeaslesReportingSource.PlaceOfReporting",1,1,"",""
+"SOTMeaslesReportingSource.DateOfNotification","SOTMeaslesReportingSource.DateOfNotification","","","",1,1,"","","","date {[]} {[]}
+","Date of notification","Date of notification","","","","","","","","","",,,,,"",,,,"SOTMeaslesReportingSource.DateOfNotification",1,1,"",""
+"SOTMeaslesReportingSource.DateOfInvestigation","SOTMeaslesReportingSource.DateOfInvestigation","","","",1,1,"","","","date {[]} {[]}
+","Date of investigation","Date of investigation","","","","","","","","","",,,,,"",,,,"SOTMeaslesReportingSource.DateOfInvestigation",1,1,"",""
+"SOTMeaslesReportingSource.ReportedBy","SOTMeaslesReportingSource.ReportedBy","","","",1,1,"","","","string {[]} {[]}
+","Reported by","Name of clinician who supects measles (or rubella)","","","","","","","","","",,,,,"",,,,"SOTMeaslesReportingSource.ReportedBy",1,1,"",""
+"SOTMeaslesReportingSource.HealthServiceName","SOTMeaslesReportingSource.HealthServiceName","","","",1,1,"","","","string {[]} {[]}
+","Health service name","Health service name","","","","","","","","","",,,,,"",,,,"SOTMeaslesReportingSource.HealthServiceName",1,1,"",""
+"SOTMeaslesReportingSource.HealthServiceTelephone","SOTMeaslesReportingSource.HealthServiceTelephone","","","",1,*,"","","","ContactPoint {[]} {[]}
+","Health service telephone","Health service telephone","","","","","","","","","",,,,,"",,,,"SOTMeaslesReportingSource.HealthServiceTelephone",1,*,"",""
+"SOTMeaslesReportingSource.DateOfConsultation","SOTMeaslesReportingSource.DateOfConsultation","","","",1,1,"","","","dateTime {[]} {[]}
+","Date of consultation","Date of consultation","","","","","","","","","",,,,,"",,,,"SOTMeaslesReportingSource.DateOfConsultation",1,1,"",""
+"SOTMeaslesReportingSource.DateOfHomeVisit","SOTMeaslesReportingSource.DateOfHomeVisit","","","",0,1,"","","","dateTime {[]} {[]}
+","Date of home visit","Date of home visit","","","","","","","","","",,,,,"",,,,"SOTMeaslesReportingSource.DateOfHomeVisit",0,1,"",""
+"SOTMeaslesReportingSource.DateReportedLocal","SOTMeaslesReportingSource.DateReportedLocal","","","",0,1,"","","","dateTime {[]} {[]}
+","DateReported, Local","DateReported, Local","","","","","","","","","",,,,,"",,,,"SOTMeaslesReportingSource.DateReportedLocal",0,1,"",""
+"SOTMeaslesReportingSource.DateReportedNational","SOTMeaslesReportingSource.DateReportedNational","","","",0,1,"","","","instant {[]} {[]}
+","DateReported, National","DateReported, National","","","","","","","","","",,,,,"",,,,"SOTMeaslesReportingSource.DateReportedNational",0,1,"",""
+"SOTMeaslesReportingSource.DetectedBy","SOTMeaslesReportingSource.DetectedBy","","","",1,1,"","","","code {[]} {[]}
+","Detected By","Detected By","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/DetectedBy","",,,,"SOTMeaslesReportingSource.DetectedBy",1,1,"",""
+"SOTMeaslesReportingSource.TypeOfProviderReporting","SOTMeaslesReportingSource.TypeOfProviderReporting","","","",1,1,"","","","code {[]} {[]}
+","Type Of Provider Reporting","Type Of Provider Reporting","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/ProvType","",,,,"SOTMeaslesReportingSource.TypeOfProviderReporting",1,1,"",""
+"SOTMeaslesReportingSource.InitialDiagnosis","SOTMeaslesReportingSource.InitialDiagnosis","","","",1,1,"","","","code {[]} {[]}
+","Initial Diagnosis","Initial Diagnosis","","","","","","","","","",,"required","","http://worldhealthorganization.github.io/smart-ot/ValueSet/InitDiag","",,,,"SOTMeaslesReportingSource.InitialDiagnosis",1,1,"",""
