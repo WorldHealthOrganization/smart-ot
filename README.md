@@ -1,7 +1,7 @@
 WHO SMART Guidelines Starter Template
 ---
 This is the SMART Guidelines Implementation Guide for Surveillance and Outbreak Toolkit 
-<br> </br>
+<br> </br> 
 ###
 ### Publication
 This Implementation Guide is published in the following locations:
